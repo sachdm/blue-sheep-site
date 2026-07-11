@@ -85,10 +85,26 @@ a { color: inherit; text-decoration: none; }
   border: 0;
 }
 
-.video-modal-close {
+.video-modal-header {
   position: absolute;
-  top: -40px;
+  top: -58px;
+  left: 0;
   right: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.video-modal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.video-modal-close {
+  flex-shrink: 0;
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
@@ -107,15 +123,22 @@ a { color: inherit; text-decoration: none; }
 }
 
 .video-modal-title {
-  position: absolute;
-  top: -40px;
-  left: 0;
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--ink);
+}
+
+.video-modal-credits {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
   color: var(--grey);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .video-modal-arrow {
@@ -706,8 +729,9 @@ header nav {
 .project-hero .frame {
   position: relative;
   z-index: 0;
-  aspect-ratio: unset;
-  height: 56vh;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  max-height: 78vh;
   cursor: default;
 }
 
@@ -724,7 +748,7 @@ header nav {
 }
 
 @media (max-width: 800px) {
-  .project-hero .frame { height: 40vh; }
+  .project-hero .frame { aspect-ratio: 4 / 3; max-height: 60vh; }
 }
 
 .project-info {

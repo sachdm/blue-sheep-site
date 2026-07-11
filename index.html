@@ -201,8 +201,13 @@
 
 <div class="video-modal" id="videoModal">
   <div class="video-modal-inner" id="videoModalInner">
-    <button class="video-modal-close" id="videoModalClose">Close ✕</button>
-    <div class="video-modal-title" id="videoModalTitle"></div>
+    <div class="video-modal-header">
+      <div class="video-modal-meta">
+        <div class="video-modal-title" id="videoModalTitle"></div>
+        <div class="video-modal-credits" id="videoModalCredits"></div>
+      </div>
+      <button class="video-modal-close" id="videoModalClose">Close ✕</button>
+    </div>
   </div>
   <button class="video-modal-arrow prev" id="videoModalPrev" aria-label="Previous project">‹</button>
   <button class="video-modal-arrow next" id="videoModalNext" aria-label="Next project">›</button>
@@ -222,15 +227,18 @@
   const videoModalInner = document.getElementById('videoModalInner');
   const videoModalClose = document.getElementById('videoModalClose');
   const videoModalTitle = document.getElementById('videoModalTitle');
+  const videoModalCredits = document.getElementById('videoModalCredits');
   const videoModalPrev = document.getElementById('videoModalPrev');
   const videoModalNext = document.getElementById('videoModalNext');
 
   const projectList = Array.from(document.querySelectorAll('.work-tile')).map((tile) => {
     const frame = tile.querySelector('.frame[data-vimeo-id]');
+    const creditsEl = tile.querySelector('.credits');
     return {
       id: frame.getAttribute('data-vimeo-id'),
       hash: frame.getAttribute('data-vimeo-hash'),
-      title: tile.querySelector('.title').textContent.replace(/^\d+/, '').trim()
+      title: tile.querySelector('.title').textContent.replace(/^\d+/, '').trim(),
+      credits: creditsEl ? creditsEl.textContent.trim() : ''
     };
   });
 
@@ -247,6 +255,7 @@
     iframe.allowFullscreen = true;
     videoModalInner.appendChild(iframe);
     videoModalTitle.textContent = p.title;
+    if (videoModalCredits) videoModalCredits.textContent = p.credits;
     videoModal.classList.add('open');
     document.documentElement.style.overflow = 'hidden';
     const legendEl = document.getElementById('scrollLegend');
