@@ -324,6 +324,7 @@
 
   let activeProjectIndex = -1;
   const activeProjectSet = new Set();
+  let heroPassed = false;
 
   function setActiveProject(index) {
     if (index === activeProjectIndex) return;
@@ -331,6 +332,35 @@
     if (legendCurrent) legendCurrent.textContent = String(index + 1).padStart(2, '0');
     legendMarkers.forEach((m, i) => m.classList.toggle('active', i === index));
     if (legendBarFill) legendBarFill.style.width = `${((index + 1) / legendTotal) * 100}%`;
+  }
+
+  function updateLegendVisibility() {
+    if (!scrollLegend) return;
+    if (activeProjectSet.size > 0 && heroPassed) {
+      scrollLegend.classList.add('visible');
+      setActiveProject(Math.min(...activeProjectSet));
+    } else {
+      scrollLegend.classList.remove('visible');
+    }
+  }
+
+  const heroSection = document.querySelector('.hero');
+  if (heroSection) {
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // heroPassed becomes true once the hero has scrolled mostly out of view;
+        // stays true afterward so scrolling back up slightly doesn't flicker the legend.
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.2) {
+          heroPassed = true;
+        } else {
+          heroPassed = false;
+        }
+      });
+      updateLegendVisibility();
+    }, { threshold: [0, 0.2] });
+    heroObserver.observe(heroSection);
+  } else {
+    heroPassed = true;
   }
 
   if (scrollLegend && legendWorkTiles.length) {
@@ -344,12 +374,7 @@
           activeProjectSet.delete(idx);
         }
       });
-      if (activeProjectSet.size > 0) {
-        scrollLegend.classList.add('visible');
-        setActiveProject(Math.min(...activeProjectSet));
-      } else {
-        scrollLegend.classList.remove('visible');
-      }
+      updateLegendVisibility();
     }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
 
     legendWorkTiles.forEach((tile) => legendObserver.observe(tile));

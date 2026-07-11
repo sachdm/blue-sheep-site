@@ -318,8 +318,8 @@ header {
 header nav {
   max-width: 1480px;
   margin: 0 auto;
-  padding: 30px 32px;
-  min-height: 88px;
+  padding: 20px 28px;
+  min-height: 68px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -327,14 +327,14 @@ header nav {
 }
 
 @media (max-width: 700px) {
-  header nav { padding: 24px 24px; min-height: 76px; }
+  header nav { padding: 18px 20px; min-height: 62px; }
 }
 
 .brand {
   display: block;
   font-family: var(--sans);
   font-weight: 600;
-  font-size: 21px;
+  font-size: 17px;
   line-height: 1;
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -348,12 +348,12 @@ header nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 58px;
+  gap: 38px;
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 11.5px;
   line-height: 1;
   font-weight: 500;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -539,7 +539,7 @@ header nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 132px;
+  padding-top: 108px;
   padding-bottom: 64px;
   width: 100%;
 }
@@ -800,9 +800,7 @@ header nav {
   position: relative;
   z-index: 0;
   aspect-ratio: unset;
-  height: 42vh;
-  max-height: 420px;
-  min-height: 240px;
+  height: clamp(220px, calc(100vh - 460px), 480px);
   cursor: default;
 }
 
@@ -819,7 +817,7 @@ header nav {
 }
 
 @media (max-width: 800px) {
-  .project-hero .frame { height: 32vh; max-height: 300px; min-height: 200px; }
+  .project-hero .frame { height: clamp(190px, calc(100vh - 400px), 320px); }
 }
 
 .project-info {
@@ -1209,8 +1207,14 @@ footer .socials a:hover { color: var(--ink); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
-  .project-columns { grid-template-columns: 1fr; gap: 36px; }
+  .project-columns { grid-template-columns: 1fr; gap: 8px; }
   .project-main, .project-side { grid-column: 1 / -1; }
+  .project-side {
+    padding-top: 22px;
+    margin-top: 6px;
+    border-top: 1px solid var(--line);
+  }
+  .credit-row { margin-bottom: 11px; }
   .project-nav-row { flex-direction: column; gap: 20px; align-items: flex-start; }
 }
 
