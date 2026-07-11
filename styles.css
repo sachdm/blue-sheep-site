@@ -919,7 +919,7 @@ header nav {
   position: relative;
   z-index: 0;
   aspect-ratio: unset;
-  height: clamp(220px, calc(100vh - 460px), 480px);
+  height: clamp(260px, calc(100vh - 340px), 640px);
   cursor: default;
 }
 
@@ -936,7 +936,7 @@ header nav {
 }
 
 @media (max-width: 800px) {
-  .project-hero .frame { height: clamp(190px, calc(100vh - 400px), 320px); }
+  .project-hero .frame { height: clamp(220px, calc(100vh - 440px), 380px); }
 }
 
 .project-info {
