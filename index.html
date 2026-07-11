@@ -179,7 +179,10 @@
 <div class="video-modal" id="videoModal">
   <div class="video-modal-inner" id="videoModalInner">
     <button class="video-modal-close" id="videoModalClose">Close ✕</button>
+    <div class="video-modal-title" id="videoModalTitle"></div>
   </div>
+  <button class="video-modal-arrow prev" id="videoModalPrev" aria-label="Previous project">‹</button>
+  <button class="video-modal-arrow next" id="videoModalNext" aria-label="Next project">›</button>
 </div>
 
 <footer>
@@ -195,14 +198,32 @@
   const videoModal = document.getElementById('videoModal');
   const videoModalInner = document.getElementById('videoModalInner');
   const videoModalClose = document.getElementById('videoModalClose');
+  const videoModalTitle = document.getElementById('videoModalTitle');
+  const videoModalPrev = document.getElementById('videoModalPrev');
+  const videoModalNext = document.getElementById('videoModalNext');
 
-  function openVideoModal(id, hash) {
+  const projectList = Array.from(document.querySelectorAll('.work-tile')).map((tile) => {
+    const frame = tile.querySelector('.frame[data-vimeo-id]');
+    return {
+      id: frame.getAttribute('data-vimeo-id'),
+      hash: frame.getAttribute('data-vimeo-hash'),
+      title: tile.querySelector('.title').textContent.replace(/^\d+/, '').trim()
+    };
+  });
+
+  let currentProjectIndex = -1;
+
+  function playProject(index) {
+    const total = projectList.length;
+    currentProjectIndex = ((index % total) + total) % total;
+    const p = projectList[currentProjectIndex];
     videoModalInner.querySelectorAll('iframe').forEach((f) => f.remove());
     const iframe = document.createElement('iframe');
-    iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0${hash ? '&h=' + hash : ''}`;
+    iframe.src = `https://player.vimeo.com/video/${p.id}?autoplay=1&title=0&byline=0&portrait=0${p.hash ? '&h=' + p.hash : ''}`;
     iframe.allow = 'autoplay; fullscreen; picture-in-picture';
     iframe.allowFullscreen = true;
     videoModalInner.appendChild(iframe);
+    videoModalTitle.textContent = p.title;
     videoModal.classList.add('open');
     document.documentElement.style.overflow = 'hidden';
   }
@@ -215,12 +236,19 @@
     }, 300);
   }
 
-  document.querySelectorAll('.frame[data-vimeo-id]').forEach((frame) => {
+  document.querySelectorAll('.frame[data-vimeo-id]').forEach((frame, i) => {
     frame.addEventListener('click', () => {
-      const id = frame.getAttribute('data-vimeo-id');
-      const hash = frame.getAttribute('data-vimeo-hash');
-      openVideoModal(id, hash);
+      playProject(i);
     });
+  });
+
+  videoModalPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    playProject(currentProjectIndex - 1);
+  });
+  videoModalNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    playProject(currentProjectIndex + 1);
   });
 
   videoModalClose.addEventListener('click', closeVideoModal);
@@ -228,7 +256,10 @@
     if (e.target === videoModal) closeVideoModal();
   });
   document.addEventListener('keydown', (e) => {
+    if (!videoModal.classList.contains('open')) return;
     if (e.key === 'Escape') closeVideoModal();
+    if (e.key === 'ArrowRight') playProject(currentProjectIndex + 1);
+    if (e.key === 'ArrowLeft') playProject(currentProjectIndex - 1);
   });
 
   const revealEls = document.querySelectorAll('.work-tile, .reveal');
