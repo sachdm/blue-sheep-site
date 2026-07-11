@@ -6,8 +6,11 @@
 <title>DBC — Blue Sheep</title>
 <meta name="description" content="DBC — a film by Blue Sheep.">
 <meta name="theme-color" content="#0a0a0a">
+<meta name="author" content="Blue Sheep">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/dbc.html">
+<link rel="alternate" hreflang="en" href="https://sachdm.github.io/blue-sheep-site/dbc.html">
 <meta name="view-transition" content="same-origin">
-<script>(function(){try{if(localStorage.getItem('bs-theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
+<script>(function(){try{if(localStorage.getItem('bs-theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#f4f2ec');}}catch(e){}})();</script>
 <meta property="og:title" content="DBC — Blue Sheep">
 <meta property="og:description" content="A visual study built around rhythm, texture, and motion.">
 <meta property="og:type" content="video.other">
@@ -18,13 +21,49 @@
 <meta name="twitter:description" content="A visual study built around rhythm, texture, and motion.">
 <meta name="twitter:image" content="https://i.vimeocdn.com/video/2021082742-6aeb97a69d7f902f34ee1c59034d738fe959f9d752db080f92786fb3a8ba3a12-d?f=webp&region=us">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23f3f2ee' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//player.vimeo.com">
+<link rel="dns-prefetch" href="//i.vimeocdn.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://player.vimeo.com">
+<link rel="preconnect" href="https://i.vimeocdn.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "DBC — Blue Sheep",
+  "description": "A visual study built around rhythm, texture, and motion.",
+  "thumbnailUrl": "https://i.vimeocdn.com/video/2021082742-6aeb97a69d7f902f34ee1c59034d738fe959f9d752db080f92786fb3a8ba3a12-d?f=webp&region=us",
+  "uploadDate": "2024-01-01",
+  "embedUrl": "https://player.vimeo.com/video/1088784265?h=6ae2be6a6d",
+  "productionCompany": {
+    "@type": "Organization",
+    "name": "Blue Sheep"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://sachdm.github.io/blue-sheep-site/index.html"},
+    {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://sachdm.github.io/blue-sheep-site/index.html#work"},
+    {"@type": "ListItem", "position": 3, "name": "DBC", "item": "https://sachdm.github.io/blue-sheep-site/dbc.html"}
+  ]
+}
+</script>
 </head>
 <body>
 
+<noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="progress-bar"></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="vignette" aria-hidden="true"></div>
@@ -32,18 +71,18 @@
 <header>
   <nav class="wrap-wide">
     <a class="brand" href="index.html">Blue Sheep</a>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="index.html#work">Work</a>
       <a href="about.html">About</a>
       <a href="index.html#contact">Contact</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">☾</button>
-    <button class="nav-toggle">Menu</button>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
   </nav>
 </header>
 
-<section class="project-hero">
-  <div class="frame" data-vimeo-id="1088784265" data-vimeo-hash="6ae2be6a6d">
+<section class="project-hero" id="main">
+  <div class="frame" data-vimeo-id="1088784265" data-vimeo-hash="6ae2be6a6d" tabindex="0" role="button" aria-label="Play video">
     <img src="https://i.vimeocdn.com/video/2021082742-6aeb97a69d7f902f34ee1c59034d738fe959f9d752db080f92786fb3a8ba3a12-d?f=webp&region=us" alt="DBC still">
   </div>
 </section>
@@ -63,15 +102,15 @@
 
 <section class="project-nav-row wrap-wide">
   <a class="proj-nav-link" href="index.html#work">← All Projects</a>
-  <a class="proj-nav-link" href="runaway-sheep.html">Next Project →</a>
+  <a class="proj-nav-link" href="red-hand.html">Next Project →</a>
 </section>
 
 <footer>
   <span>© 2026 Blue Sheep</span>
   <span class="clock" id="clock">Toronto</span>
   <div class="socials">
-    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener">Vimeo</a>
-    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
+    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
   </div>
 </footer>
 
@@ -81,7 +120,7 @@
       const id = frame.getAttribute('data-vimeo-id');
       const hash = frame.getAttribute('data-vimeo-hash');
       const iframe = document.createElement('iframe');
-      iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0${hash ? '&h=' + hash : ''}`;
+      iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1${hash ? '&h=' + hash : ''}`;
       iframe.allow = 'autoplay; fullscreen; picture-in-picture';
       iframe.allowFullscreen = true;
       frame.innerHTML = '';
@@ -89,6 +128,15 @@
       frame.removeAttribute('data-vimeo-id');
       frame.style.cursor = 'default';
     }, { once: true });
+  });
+
+  document.querySelectorAll('.frame[data-vimeo-id]').forEach((frame) => {
+    frame.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        frame.click();
+      }
+    });
   });
 
   document.querySelectorAll('.frame img').forEach((img) => {
@@ -99,12 +147,38 @@
     }
   });
 
+  (function() {
+    var path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      var raw = a.getAttribute('href') || '';
+      if (raw.charAt(0) === '#') return;
+      var href = raw.split('#')[0] || 'index.html';
+      if (href === path) a.setAttribute('aria-current', 'page');
+    });
+  })();
+
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');
   toggle.addEventListener('click', () => {
     const isOpen = linkGroup.classList.toggle('open');
     toggle.textContent = isOpen ? 'Close' : 'Menu';
+    toggle.setAttribute('aria-expanded', String(isOpen));
     document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      const firstLink = linkGroup.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      toggle.focus();
+    }
+  });
+  linkGroup.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && linkGroup.classList.contains('open')) {
+      linkGroup.classList.remove('open');
+      toggle.textContent = 'Menu';
+      toggle.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+      toggle.focus();
+    }
   });
 
   const themeToggle = document.getElementById('themeToggle');
@@ -114,13 +188,16 @@
     }
     themeToggle.addEventListener('click', () => {
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      const meta = document.querySelector('meta[name="theme-color"]');
       if (isLight) {
         document.documentElement.removeAttribute('data-theme');
         themeToggle.textContent = '☾';
+        if (meta) meta.setAttribute('content', '#0a0a0a');
         try { localStorage.setItem('bs-theme', 'dark'); } catch (e) {}
       } else {
         document.documentElement.setAttribute('data-theme', 'light');
         themeToggle.textContent = '☀';
+        if (meta) meta.setAttribute('content', '#f4f2ec');
         try { localStorage.setItem('bs-theme', 'light'); } catch (e) {}
       }
     });

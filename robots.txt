@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sachdm.github.io/blue-sheep-site/sitemap.xml
