@@ -7,6 +7,7 @@
 <meta name="description" content="Statuette — a film by Blue Sheep.">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="view-transition" content="same-origin">
+<script>(function(){try{if(localStorage.getItem('bs-theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();</script>
 <meta property="og:title" content="Statuette — Blue Sheep">
 <meta property="og:description" content="A character study told in stillness — a portrait of grief, ritual, and the objects we hold onto.">
 <meta property="og:type" content="video.other">
@@ -36,6 +37,7 @@
       <a href="about.html">About</a>
       <a href="index.html#contact">Contact</a>
     </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">☾</button>
     <button class="nav-toggle">Menu</button>
   </nav>
 </header>
@@ -106,6 +108,25 @@
     toggle.textContent = isOpen ? 'Close' : 'Menu';
     document.documentElement.style.overflow = isOpen ? 'hidden' : '';
   });
+
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    if (document.documentElement.getAttribute('data-theme') === 'light') {
+      themeToggle.textContent = '☀';
+    }
+    themeToggle.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        themeToggle.textContent = '☾';
+        try { localStorage.setItem('bs-theme', 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeToggle.textContent = '☀';
+        try { localStorage.setItem('bs-theme', 'light'); } catch (e) {}
+      }
+    });
+  }
 
   const progressBar = document.querySelector('.progress-bar');
   function updateProgress() {
