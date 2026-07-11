@@ -1,5 +1,6 @@
 :root {
   --bg: #0a0a0a;
+  --bg-rgb: 10, 10, 10;
   --ink: #f3f2ee;
   --grey: #8c8c86;
   --line: rgba(243, 242, 238, 0.12);
@@ -13,6 +14,7 @@
 
 :root[data-theme="light"] {
   --bg: #f4f2ec;
+  --bg-rgb: 244, 242, 236;
   --ink: #14130f;
   --grey: #6b6a62;
   --line: rgba(20, 19, 15, 0.12);
@@ -300,7 +302,11 @@ header {
   left: 0;
   right: 0;
   z-index: 100;
-  background: linear-gradient(180deg, rgba(5,5,5,0.6) 0%, rgba(5,5,5,0.28) 75%, rgba(5,5,5,0) 100%);
+  background: rgba(var(--bg-rgb), 0.82);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-bottom: 1px solid var(--line);
+  transition: background 0.4s ease, border-color 0.4s ease;
   animation: navFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 
@@ -312,8 +318,8 @@ header {
 header nav {
   max-width: 1480px;
   margin: 0 auto;
-  padding: 148px 32px 32px;
-  min-height: 190px;
+  padding: 30px 32px;
+  min-height: 88px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -321,7 +327,7 @@ header nav {
 }
 
 @media (max-width: 700px) {
-  header nav { padding: 56px 24px 24px; min-height: 110px; }
+  header nav { padding: 24px 24px; min-height: 76px; }
 }
 
 .brand {
@@ -332,9 +338,9 @@ header nav {
   line-height: 1;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: #f3f2ee;
+  color: var(--ink);
   view-transition-name: brand;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, color 0.4s ease;
 }
 
 .brand:hover { opacity: 0.8; }
@@ -354,11 +360,11 @@ header nav {
 .nav-links a { display: block; }
 
 .nav-links a {
-  color: #f3f2ee;
+  color: var(--ink);
   opacity: 0.72;
   position: relative;
   padding-bottom: 3px;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, color 0.4s ease;
 }
 
 .nav-links a::after {
@@ -368,7 +374,7 @@ header nav {
   right: 0;
   bottom: -1px;
   height: 1px;
-  background: #f3f2ee;
+  background: var(--ink);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -394,7 +400,7 @@ header nav {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #f3f2ee;
+  color: var(--ink);
   cursor: pointer;
 }
 
@@ -406,9 +412,9 @@ header nav {
   height: 30px;
   margin-left: 20px;
   border-radius: 50%;
-  border: 1px solid rgba(243, 242, 238, 0.3);
+  border: 1px solid var(--line-strong);
   background: none;
-  color: #f3f2ee;
+  color: var(--ink);
   font-size: 13px;
   line-height: 1;
   display: flex;
@@ -416,12 +422,12 @@ header nav {
   justify-content: center;
   cursor: pointer;
   opacity: 0.8;
-  transition: opacity 0.25s ease, border-color 0.25s ease;
+  transition: opacity 0.25s ease, border-color 0.4s ease, color 0.4s ease;
 }
 
 .theme-toggle:hover {
   opacity: 1;
-  border-color: #f3f2ee;
+  border-color: var(--ink);
 }
 
 @media (max-width: 700px) {
@@ -439,7 +445,7 @@ header nav {
     align-items: center;
     gap: 34px;
     z-index: 200;
-    background: rgba(8, 8, 8, 0.72);
+    background: rgba(var(--bg-rgb), 0.9);
     backdrop-filter: blur(28px) saturate(120%);
     -webkit-backdrop-filter: blur(28px) saturate(120%);
     opacity: 0;
@@ -533,7 +539,7 @@ header nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 232px;
+  padding-top: 132px;
   padding-bottom: 64px;
   width: 100%;
 }
@@ -590,7 +596,7 @@ header nav {
 .hero-content .reveal:nth-of-type(5) { transition-delay: 0.6s; }
 
 @media (max-width: 800px) {
-  .hero-content { padding-top: 160px; padding-bottom: 48px; }
+  .hero-content { padding-top: 108px; padding-bottom: 48px; }
   .hero-headline .line { font-size: clamp(32px, 8vw, 48px); }
   .hero-headline .line-2 { margin-left: 12px; }
   .hero-footer-row { flex-direction: column; align-items: flex-start; gap: 28px; }
@@ -793,9 +799,10 @@ header nav {
 .project-hero .frame {
   position: relative;
   z-index: 0;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  max-height: 78vh;
+  aspect-ratio: unset;
+  height: 42vh;
+  max-height: 420px;
+  min-height: 240px;
   cursor: default;
 }
 
@@ -805,44 +812,44 @@ header nav {
   top: 0;
   left: 0;
   right: 0;
-  height: 220px;
-  background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0) 100%);
+  height: 140px;
+  background: linear-gradient(180deg, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0) 100%);
   z-index: 1;
   pointer-events: none;
 }
 
 @media (max-width: 800px) {
-  .project-hero .frame { aspect-ratio: 4 / 3; max-height: 60vh; }
+  .project-hero .frame { height: 32vh; max-height: 300px; min-height: 200px; }
 }
 
 .project-info {
-  padding-top: 44px;
+  padding-top: 26px;
 }
 
 .project-meta {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 9.5px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--grey);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .project-title {
   font-family: var(--grotesk);
   font-weight: 500;
-  font-size: clamp(28px, 3.6vw, 44px);
-  line-height: 1.08;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.1;
   letter-spacing: -0.02em;
   max-width: 920px;
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
 
 .project-columns {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 36px;
+  gap: 28px;
   align-items: start;
 }
 
@@ -850,8 +857,8 @@ header nav {
 .project-side { grid-column: span 4; }
 
 .synopsis {
-  font-size: 16px;
-  line-height: 1.65;
+  font-size: 13.5px;
+  line-height: 1.55;
   color: var(--body-copy);
   max-width: 560px;
 }
@@ -867,17 +874,17 @@ header nav {
 .credit-row {
   display: flex;
   align-items: baseline;
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-bottom: 7px;
   flex-wrap: wrap;
   line-height: 1;
 }
 
-.project-side { padding-top: 2px; }
+.project-side { padding-top: 1px; }
 
 .credit-row .role {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--grey);
@@ -886,7 +893,7 @@ header nav {
 
 .credit-row .name {
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 12.5px;
   font-weight: 500;
   color: var(--ink);
 }
@@ -895,10 +902,10 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 32px;
-  padding-bottom: 64px;
+  padding-top: 20px;
+  padding-bottom: 40px;
   border-top: 1px solid var(--line);
-  margin-top: 40px;
+  margin-top: 24px;
 }
 
 .proj-nav-link {
