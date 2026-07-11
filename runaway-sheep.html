@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Runaway Sheep — Blue Sheep</title>
+<meta name="description" content="Runaway Sheep — a film by Blue Sheep.">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="view-transition" content="same-origin">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="progress-bar"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap-wide">
+    <a class="brand" href="index.html">Blue Sheep</a>
+    <div class="nav-links">
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <button class="nav-toggle">Menu</button>
+  </nav>
+</header>
+
+<section class="project-hero">
+  <div class="frame" data-vimeo-id="1082925057" data-vimeo-hash="2ce945b284">
+    <img src="https://i.vimeocdn.com/video/2014015736-0b8a182a15484b59df36ac349c0690aa712a2c05298a7d2cecb0c9f65634c191-d?f=webp&region=us" alt="Runaway Sheep still">
+  </div>
+</section>
+
+<section class="project-info wrap-wide">
+  <div class="project-meta">Narrative Short · 2025</div>
+  <h1 class="project-title">Runaway Sheep</h1>
+  <div class="project-columns">
+    <div class="project-main">
+      <p class="synopsis">A coming-of-age story about slipping the leash and finding your own direction.</p>
+      <p class="project-note">Synopsis, category, and year are placeholders — swap in your own details.</p>
+    </div>
+    <div class="project-side">
+      <div class="credit-row"><span class="role">Director</span><span class="name">Sacha Mitchell</span></div>
+      <div class="credit-row"><span class="role">DP</span><span class="name">Will Sheppard</span></div>
+      <div class="credit-row"><span class="role">AD</span><span class="name">John Cardillo Jr.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="project-nav-row wrap-wide">
+  <a class="proj-nav-link" href="index.html#work">← All Projects</a>
+  <a class="proj-nav-link" href="statuette.html">Next Project →</a>
+</section>
+
+<footer>
+  <span>© 2026 Blue Sheep</span>
+  <span class="clock" id="clock">Toronto</span>
+  <div class="socials">
+    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener">Vimeo</a>
+    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.frame[data-vimeo-id]').forEach(frame => {
+    frame.addEventListener('click', () => {
+      const id = frame.getAttribute('data-vimeo-id');
+      const hash = frame.getAttribute('data-vimeo-hash');
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0${hash ? '&h=' + hash : ''}`;
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture';
+      iframe.allowFullscreen = true;
+      frame.innerHTML = '';
+      frame.appendChild(iframe);
+      frame.removeAttribute('data-vimeo-id');
+      frame.style.cursor = 'default';
+    }, { once: true });
+  });
+
+  document.querySelectorAll('.frame img').forEach((img) => {
+    if (img.complete) {
+      img.classList.add('loaded');
+    } else {
+      img.addEventListener('load', () => img.classList.add('loaded'));
+    }
+  });
+
+  const toggle = document.querySelector('.nav-toggle');
+  const linkGroup = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    linkGroup.classList.toggle('open');
+  });
+
+  const progressBar = document.querySelector('.progress-bar');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrollable = h.scrollHeight - h.clientHeight;
+    const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const clockEl = document.getElementById('clock');
+  if (clockEl) {
+    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
+    function updateClock() {
+      clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Blue Sheep</title>
+<meta name="description" content="About Blue Sheep — an independent film production company.">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="view-transition" content="same-origin">
+<meta property="og:title" content="About — Blue Sheep">
+<meta property="og:description" content="An independent film production company based in Toronto.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="About — Blue Sheep">
+<meta name="twitter:description" content="An independent film production company based in Toronto.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="progress-bar"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap-wide">
+    <a class="brand" href="index.html">Blue Sheep</a>
+    <div class="nav-links">
+      <a href="index.html#work">Work</a>
+      <a href="about.html">About</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <button class="nav-toggle">Menu</button>
+  </nav>
+</header>
+
+<section id="about" class="wrap">
+  <div class="panel reveal">
+    <div class="about-grid">
+      <div class="label">About Us</div>
+      <div>
+        <p>We're a lean crew who believe the best stories are found, not forced — shot on real locations, with real people, at the pace the story actually needs.</p>
+        <p><b>Blue Sheep</b> handles development, production, and post for independent features, branded content, and shorts. Founded in 2023, we've kept the team small on purpose — every project gets the same attention, whether it's a 90-second spot or a feature doc.</p>
+        <div class="stats">
+          <span><b>40+</b>Projects</span>
+          <span><b>12</b>Festival selections</span>
+          <span><b>3</b>Years in production</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Blue Sheep</span>
+  <span class="clock" id="clock">Toronto</span>
+  <div class="socials">
+    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener">Vimeo</a>
+    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const linkGroup = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    linkGroup.classList.toggle('open');
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  const progressBar = document.querySelector('.progress-bar');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrollable = h.scrollHeight - h.clientHeight;
+    const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const clockEl = document.getElementById('clock');
+  if (clockEl) {
+    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
+    function updateClock() {
+      clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+</script>
+
+</body>
+</html>
