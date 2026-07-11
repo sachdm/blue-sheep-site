@@ -47,10 +47,16 @@
   <div class="hero-bg" aria-hidden="true">
     <iframe src="https://player.vimeo.com/video/1059939723?h=587f3bcc03&background=1&autoplay=1&loop=1&muted=1" allow="autoplay; fullscreen" title=""></iframe>
   </div>
-  <div class="hero-inner wrap-wide">
-    <h1 class="reveal">Narrative. Commercial. Documentary.</h1>
-    <p class="reveal">Blue Sheep is a Toronto-based independent production company.</p>
-    <a href="#work" class="cta-btn reveal"><span class="cta-label">Selected Projects</span><span class="cta-arrow">→</span></a>
+  <div class="hero-content wrap-wide">
+    <div class="hero-kicker reveal">Independent Film Studio — Toronto</div>
+    <h1 class="hero-headline">
+      <span class="line line-1 reveal">Every film,</span>
+      <span class="line line-2 reveal">made on purpose.</span>
+    </h1>
+    <div class="hero-footer-row">
+      <p class="hero-sub reveal">Blue Sheep is an independent studio making documentary, narrative, and commercial work for people who notice the details.</p>
+      <a href="#work" class="cta-btn reveal"><span class="cta-label">View Selected Work</span><span class="cta-arrow">→</span></a>
+    </div>
   </div>
 </section>
 
@@ -165,6 +171,23 @@
   </div>
 </section>
 
+<nav class="scroll-legend" id="scrollLegend" aria-label="Selected projects navigation">
+  <div class="legend-counter">
+    <span class="legend-current" id="legendCurrent">01</span><span class="legend-sep">/</span><span class="legend-total">08</span>
+  </div>
+  <ol class="legend-track" id="legendTrack">
+    <li class="legend-marker" data-index="0"><button class="legend-dot" aria-label="Jump to Statuette"></button><span class="legend-title">Statuette</span></li>
+    <li class="legend-marker" data-index="1"><button class="legend-dot" aria-label="Jump to Just Another F*cking Short Film"></button><span class="legend-title">JAFSF</span></li>
+    <li class="legend-marker" data-index="2"><button class="legend-dot" aria-label="Jump to Family Ties x Evo Da Saint"></button><span class="legend-title">Family Ties</span></li>
+    <li class="legend-marker" data-index="3"><button class="legend-dot" aria-label="Jump to DBC"></button><span class="legend-title">DBC</span></li>
+    <li class="legend-marker" data-index="4"><button class="legend-dot" aria-label="Jump to Runaway Sheep"></button><span class="legend-title">Runaway Sheep</span></li>
+    <li class="legend-marker" data-index="5"><button class="legend-dot" aria-label="Jump to Red Hand"></button><span class="legend-title">Red Hand</span></li>
+    <li class="legend-marker" data-index="6"><button class="legend-dot" aria-label="Jump to Until I Come Alive"></button><span class="legend-title">Until I Come Alive</span></li>
+    <li class="legend-marker" data-index="7"><button class="legend-dot" aria-label="Jump to Lost Puppets"></button><span class="legend-title">Lost Puppets</span></li>
+  </ol>
+  <div class="legend-bar" id="legendBar" aria-hidden="true"><div class="legend-bar-fill" id="legendBarFill"></div></div>
+</nav>
+
 <section id="contact" class="wrap">
   <div class="contact-grid reveal">
     <div class="label">Say Hello</div>
@@ -226,6 +249,8 @@
     videoModalTitle.textContent = p.title;
     videoModal.classList.add('open');
     document.documentElement.style.overflow = 'hidden';
+    const legendEl = document.getElementById('scrollLegend');
+    if (legendEl) legendEl.classList.add('legend-hidden');
   }
 
   function closeVideoModal() {
@@ -234,6 +259,8 @@
     setTimeout(() => {
       videoModalInner.querySelectorAll('iframe').forEach((f) => f.remove());
     }, 300);
+    const legendEl = document.getElementById('scrollLegend');
+    if (legendEl) legendEl.classList.remove('legend-hidden');
   }
 
   document.querySelectorAll('.frame[data-vimeo-id]').forEach((frame, i) => {
@@ -272,6 +299,57 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => observer.observe(el));
+
+  // Scroll legend: project counter + progress markers
+  const scrollLegend = document.getElementById('scrollLegend');
+  const legendCurrent = document.getElementById('legendCurrent');
+  const legendTotalEl = document.querySelector('.legend-total');
+  const legendMarkers = Array.from(document.querySelectorAll('.legend-marker'));
+  const legendBarFill = document.getElementById('legendBarFill');
+  const legendWorkTiles = Array.from(document.querySelectorAll('.work-tile'));
+  const legendTotal = legendWorkTiles.length;
+
+  if (legendTotalEl) legendTotalEl.textContent = String(legendTotal).padStart(2, '0');
+
+  let activeProjectIndex = -1;
+  const activeProjectSet = new Set();
+
+  function setActiveProject(index) {
+    if (index === activeProjectIndex) return;
+    activeProjectIndex = index;
+    if (legendCurrent) legendCurrent.textContent = String(index + 1).padStart(2, '0');
+    legendMarkers.forEach((m, i) => m.classList.toggle('active', i === index));
+    if (legendBarFill) legendBarFill.style.width = `${((index + 1) / legendTotal) * 100}%`;
+  }
+
+  if (scrollLegend && legendWorkTiles.length) {
+    const legendObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const idx = legendWorkTiles.indexOf(entry.target);
+        if (idx === -1) return;
+        if (entry.isIntersecting) {
+          activeProjectSet.add(idx);
+        } else {
+          activeProjectSet.delete(idx);
+        }
+      });
+      if (activeProjectSet.size > 0) {
+        scrollLegend.classList.add('visible');
+        setActiveProject(Math.min(...activeProjectSet));
+      } else {
+        scrollLegend.classList.remove('visible');
+      }
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+    legendWorkTiles.forEach((tile) => legendObserver.observe(tile));
+
+    legendMarkers.forEach((marker, i) => {
+      const dot = marker.querySelector('.legend-dot');
+      dot.addEventListener('click', () => {
+        legendWorkTiles[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+  }
 
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');
