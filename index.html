@@ -57,6 +57,22 @@
 </head>
 <body>
 
+<script>
+(function() {
+  var pre = document.createElement('div');
+  pre.className = 'preloader';
+  pre.id = 'preloader';
+  pre.setAttribute('aria-hidden', 'true');
+  pre.innerHTML = '<svg class="preloader-mark" viewBox="0 0 100 100" width="44" height="44" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="50" cy="50" r="9" fill="currentColor"/></svg>';
+  document.documentElement.style.overflow = 'hidden';
+  document.body.appendChild(pre);
+  setTimeout(function() {
+    pre.classList.add('hide');
+    document.documentElement.style.overflow = '';
+    setTimeout(function() { pre.remove(); }, 650);
+  }, 5000);
+})();
+</script>
 <noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="progress-bar"></div>
@@ -69,7 +85,6 @@
     <a class="brand" href="index.html">Blue Sheep</a>
     <div class="nav-links" id="navLinks">
       <a href="#work">Work</a>
-      <a href="about.html">About</a>
       <a href="#contact">Contact</a>
     </div>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">☾</button>
@@ -127,7 +142,7 @@
     </div>
 
     <div class="work-tile">
-      <div class="frame" data-vimeo-id="1082925057" data-vimeo-hash="2ce945b284" tabindex="0" role="button" aria-label="Play video">
+      <div class="frame" data-vimeo-id="1082925057" data-vimeo-hash="2ce945b284" data-vimeo-aspect="3 / 2" tabindex="0" role="button" aria-label="Play video">
         <img src="https://i.vimeocdn.com/video/2014015736-0b8a182a15484b59df36ac349c0690aa712a2c05298a7d2cecb0c9f65634c191-d?f=webp&region=us" alt="Runaway Sheep still" loading="lazy">
       </div>
       <div class="tile-info wrap">
@@ -280,6 +295,7 @@
     return {
       id: frame.getAttribute('data-vimeo-id'),
       hash: frame.getAttribute('data-vimeo-hash'),
+      aspect: frame.getAttribute('data-vimeo-aspect') || '16 / 9',
       title: tile.querySelector('.title').textContent.replace(/^\d+/, '').trim(),
       credits: creditsEl ? creditsEl.textContent.trim() : ''
     };
@@ -304,6 +320,7 @@
     const wasOpen = videoModal.classList.contains('open');
     currentProjectIndex = ((index % total) + total) % total;
     const p = projectList[currentProjectIndex];
+    videoModalInner.style.aspectRatio = p.aspect;
     videoModalInner.querySelectorAll('iframe').forEach((f) => f.remove());
     const iframe = document.createElement('iframe');
     iframe.src = `https://player.vimeo.com/video/${p.id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1${p.hash ? '&h=' + p.hash : ''}`;
