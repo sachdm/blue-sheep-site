@@ -363,7 +363,9 @@
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');
   toggle.addEventListener('click', () => {
-    linkGroup.classList.toggle('open');
+    const isOpen = linkGroup.classList.toggle('open');
+    toggle.textContent = isOpen ? 'Close' : 'Menu';
+    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
   });
 
   function scrollToHash(hash, smooth) {
@@ -380,6 +382,8 @@
       if (document.querySelector(hash)) {
         e.preventDefault();
         linkGroup.classList.remove('open');
+        toggle.textContent = 'Menu';
+        document.documentElement.style.overflow = '';
         scrollToHash(hash, true);
         history.pushState(null, '', hash);
       }

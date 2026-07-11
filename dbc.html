@@ -100,7 +100,9 @@
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');
   toggle.addEventListener('click', () => {
-    linkGroup.classList.toggle('open');
+    const isOpen = linkGroup.classList.toggle('open');
+    toggle.textContent = isOpen ? 'Close' : 'Menu';
+    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
   });
 
   const progressBar = document.querySelector('.progress-bar');
