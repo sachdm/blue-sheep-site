@@ -32,7 +32,7 @@
 <link rel="preconnect" href="https://player.vimeo.com">
 <link rel="preconnect" href="https://i.vimeocdn.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -198,14 +198,9 @@
   <button class="video-modal-arrow next" id="videoModalNext" aria-label="Next project">›</button>
 </div>
 
-<footer>
-  <span>© 2026 Blue Sheep</span>
-  <span class="clock" id="clock">Toronto</span>
-  <div class="socials">
-    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
-    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
-  </div>
-</footer>
+<script>
+  document.documentElement.style.overflow = 'hidden';
+</script>
 
 <script>
   const videoModal = document.getElementById('videoModal');
@@ -273,7 +268,10 @@
 
   function closeVideoModal() {
     videoModal.classList.remove('open');
-    document.documentElement.style.overflow = '';
+    // The page itself is permanently scroll-locked on this page (the
+    // slider is full-viewport), so closing the modal restores that
+    // locked state rather than clearing it back to scrollable.
+    document.documentElement.style.overflow = 'hidden';
     setTimeout(() => {
       videoModalInner.querySelectorAll('iframe').forEach((f) => f.remove());
     }, 300);
@@ -481,7 +479,7 @@
     const isOpen = linkGroup.classList.toggle('open');
     toggle.textContent = isOpen ? 'Close' : 'Menu';
     toggle.setAttribute('aria-expanded', String(isOpen));
-    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    document.documentElement.style.overflow = 'hidden';
     if (isOpen) {
       const firstLink = linkGroup.querySelector('a');
       if (firstLink) firstLink.focus();
@@ -494,7 +492,7 @@
       linkGroup.classList.remove('open');
       toggle.textContent = 'Menu';
       toggle.setAttribute('aria-expanded', 'false');
-      document.documentElement.style.overflow = '';
+      document.documentElement.style.overflow = 'hidden';
       toggle.focus();
     }
   });

@@ -596,6 +596,14 @@ header nav {
   body.work-page header { transition: none; }
 }
 
+/* The slider is a full-viewport experience — nothing should ever push the
+   page taller than 100vh, since a scrollable page here just lets the fixed
+   bottom UI (legend, credits) collide with whatever scrolls up behind it. */
+body.work-page {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .brand {
   display: block;
   font-family: var(--sans);
