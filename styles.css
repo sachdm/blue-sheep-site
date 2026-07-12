@@ -60,16 +60,18 @@ button:focus-visible {
   height: auto;
   filter: blur(7px);
   opacity: 0.5;
+  transform: scale(1.035);
   -webkit-mask-image: radial-gradient(circle, #000 42%, transparent 75%);
   mask-image: radial-gradient(circle, #000 42%, transparent 75%);
-  animation: preloaderReveal 3s ease-out forwards;
+  animation: preloaderReveal 3.4s ease-out forwards;
 }
 
-/* One property doing the work (blur), one gentle easing, no mid-animation
-   keyframe and no looping pulse on top of it — just a quiet settle-in. */
+/* One easing curve carrying three quiet, small-range properties (blur,
+   opacity, a hair of scale) — no mid-animation keyframe, no looping pulse
+   on top of it. Just a slow, nuanced settle-in. */
 @keyframes preloaderReveal {
-  0%   { filter: blur(7px); opacity: 0.5; }
-  100% { filter: blur(1px); opacity: 0.8; }
+  0%   { filter: blur(7px); opacity: 0.5; transform: scale(1.035); }
+  100% { filter: blur(0.6px); opacity: 0.85; transform: scale(1); }
 }
 
 .preloader.hide {
@@ -79,7 +81,7 @@ button:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .preloader-mark { animation: none; opacity: 0.8; filter: blur(1px); }
+  .preloader-mark { animation: none; opacity: 0.85; filter: blur(0.6px); transform: none; }
   .preloader { transition: none; }
   .preloader.hide { filter: none; }
 }
@@ -238,25 +240,6 @@ a { color: inherit; text-decoration: none; }
   text-overflow: ellipsis;
 }
 
-.video-modal-view-link {
-  display: block;
-  width: fit-content;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #f3f2ee;
-  opacity: 0.6;
-  margin-top: 2px;
-  transition: opacity 0.2s ease;
-}
-
-.video-modal-view-link:hover,
-.video-modal-view-link:focus-visible {
-  opacity: 1;
-}
-
 .video-modal-arrow {
   position: absolute;
   top: 50%;
@@ -295,12 +278,26 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* prev/next controls for the full-page horizontal work slider (same plain-
-   glyph language as the video modal arrows, but fixed to the viewport) */
-.slide-arrow {
+   glyph language as the video modal arrows, but fixed to the viewport).
+   Each button sits inside an edge "hover zone" — the button is invisible
+   until the pointer enters that edge strip, so it never visually competes
+   with the video, but the click target only appears where expected. */
+.slide-arrow-zone {
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  bottom: 0;
+  width: clamp(90px, 9vw, 140px);
   z-index: 200;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.slide-arrow-zone.prev-zone { left: 0; justify-content: flex-start; }
+.slide-arrow-zone.next-zone { right: 0; justify-content: flex-end; }
+
+.slide-arrow {
+  position: relative;
   border: none;
   background: none;
   color: #f3f2ee;
@@ -312,9 +309,17 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.55;
+  opacity: 0;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.3s ease, transform 0.25s ease;
+}
+
+.slide-arrow-zone.prev-zone .slide-arrow { left: 8px; }
+.slide-arrow-zone.next-zone .slide-arrow { right: 8px; }
+
+.slide-arrow-zone:hover .slide-arrow,
+.slide-arrow:focus-visible {
+  opacity: 0.7;
 }
 
 .slide-arrow:hover,
@@ -322,21 +327,25 @@ a { color: inherit; text-decoration: none; }
   opacity: 1;
 }
 
-.slide-arrow.prev { left: 8px; }
-.slide-arrow.prev:hover { transform: translateY(-50%) translateX(-3px); }
-.slide-arrow.next { right: 8px; }
-.slide-arrow.next:hover { transform: translateY(-50%) translateX(3px); }
+.slide-arrow.prev:hover { transform: translateX(-3px); }
+.slide-arrow.next:hover { transform: translateX(3px); }
 
 .slide-arrow:disabled {
-  opacity: 0.15;
+  opacity: 0 !important;
   cursor: default;
+  pointer-events: none;
 }
-.slide-arrow:disabled:hover { transform: translateY(-50%); }
+.slide-arrow:disabled:hover { transform: none; }
 
 @media (max-width: 800px) {
+  .slide-arrow-zone { width: 56px; }
   .slide-arrow { font-size: 28px; padding: 12px; }
-  .slide-arrow.prev { left: 0; }
-  .slide-arrow.next { right: 0; }
+}
+
+@media (hover: none) {
+  /* touch devices have no hover state to reveal the arrows — keep them
+     faintly visible so the affordance still exists */
+  .slide-arrow { opacity: 0.4; }
 }
 
 .video-modal-legend {
@@ -860,16 +869,6 @@ header nav {
   transform: translateX(5px);
 }
 
-.section-head {
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--grey);
-  padding: 148px 0 30px;
-}
-
 /* ---------- work list (horizontal slider: one project per screen) ---------- */
 .work-grid {
   display: flex;
@@ -921,18 +920,11 @@ header nav {
 
 .tile-info {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
+  gap: 6px;
   padding: 22px 0;
   flex: 0 0 auto;
-  flex-wrap: wrap;
-}
-
-.ti-left {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .work-tile .title {
@@ -952,28 +944,21 @@ header nav {
   color: var(--grey);
 }
 
+.title-text {
+  display: inline-flex;
+}
+
+.title-text span {
+  display: inline-block;
+}
+
 .work-tile .credits {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.02em;
   color: var(--grey);
-  text-align: right;
-  padding-top: 4px;
+  text-align: left;
 }
-
-.view-project {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--grey);
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
-  width: fit-content;
-}
-
-.view-project:hover { color: var(--ink); border-color: var(--ink); }
 
 .frame {
   position: relative;
@@ -1301,17 +1286,18 @@ footer .socials { display: flex; gap: 20px; }
 footer .socials a { color: var(--grey); transition: color 0.2s ease; }
 footer .socials a:hover { color: var(--ink); }
 
-/* ---------- scroll legend ---------- */
+/* ---------- scroll legend (horizontal dot track, bottom right) ---------- */
 .scroll-legend {
   position: fixed;
   right: clamp(20px, 3vw, 48px);
-  top: 50%;
-  transform: translateY(-50%) translateX(12px);
+  bottom: clamp(20px, 3vh, 36px);
+  top: auto;
+  transform: translateY(10px);
   z-index: 150;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1326,14 +1312,14 @@ footer .socials a:hover { color: var(--ink); }
     background: rgba(10, 10, 10, 0.55);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 18px 10px;
+    padding: 10px 18px;
     border-radius: 999px;
   }
 }
 
 .scroll-legend.visible {
   opacity: 1;
-  transform: translateY(-50%) translateX(0);
+  transform: translateY(0);
   pointer-events: auto;
 }
 
@@ -1359,9 +1345,9 @@ footer .socials a:hover { color: var(--ink); }
 .legend-track {
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   padding: 0;
   margin: 0;
 }
@@ -1398,9 +1384,9 @@ footer .socials a:hover { color: var(--ink); }
 
 .legend-title {
   position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%) translateX(6px);
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.05em;
@@ -1414,7 +1400,7 @@ footer .socials a:hover { color: var(--ink); }
 .legend-marker:hover .legend-title,
 .legend-dot:focus-visible ~ .legend-title {
   opacity: 0.85;
-  transform: translateY(-50%) translateX(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 .legend-bar { display: none; }
@@ -1428,31 +1414,9 @@ footer .socials a:hover { color: var(--ink); }
   }
 }
 
-@media (max-width: 900px) {
-  .scroll-legend {
-    right: 50%;
-    top: auto;
-    bottom: 24px;
-    transform: translate(50%, 10px);
-    flex-direction: row;
-    gap: 12px;
-  }
-  .scroll-legend.visible { transform: translate(50%, 0); }
-  .legend-track { display: none; }
-  .legend-bar {
-    display: block;
-    width: 110px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .legend-bar-fill {
-    height: 100%;
-    width: 12.5%;
-    background: currentColor;
-    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+@media (max-width: 560px) {
+  .scroll-legend { gap: 10px; }
+  .legend-track { gap: 8px; }
 }
 
 /* ---------- responsive ---------- */
@@ -1469,10 +1433,8 @@ footer .socials a:hover { color: var(--ink); }
 }
 
 @media (max-width: 700px) {
-  .tile-info { flex-direction: column; align-items: flex-start; gap: 14px; }
-  .work-tile .credits { text-align: left; }
+  .tile-info { gap: 14px; }
   footer { flex-direction: column; align-items: flex-start; }
-  .section-head { padding: 116px 0 20px; }
   .page-main { padding-top: 110px; }
 }
 
