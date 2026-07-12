@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Investors — Blue Sheep</title>
-<meta name="description" content="Investor relations for Blue Sheep — independent film production based in Toronto, Ontario.">
+<meta name="description" content="Private, encrypted investor relations for Blue Sheep — independent film production based in Toronto, Ontario.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Blue Sheep">
@@ -47,22 +47,48 @@
   <div class="gate reveal" id="investorsGate">
     <h1 class="label reveal">Investors</h1>
     <div>
-      <p class="blurb">This section is private. Enter the password to continue.</p>
+      <p class="blurb">This section is encrypted. Enter the passphrase to continue.</p>
       <form class="gate-form" id="gateForm" autocomplete="off">
-        <input type="password" class="gate-input" id="gateInput" placeholder="Password" aria-label="Password" autocomplete="off">
-        <button type="submit" class="gate-submit">Enter</button>
+        <input type="password" class="gate-input" id="gateInput" placeholder="Passphrase" aria-label="Passphrase" autocomplete="off" spellcheck="false">
+        <button type="submit" class="gate-submit" id="gateSubmit">Enter</button>
       </form>
-      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect password. Try again.</p>
+      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect passphrase. Try again.</p>
     </div>
   </div>
 
   <div class="investors-grid" id="investorsContent" hidden>
     <h1 class="label reveal">Investors</h1>
-    <div>
-      <p class="blurb">This page is a placeholder. It will hold the business plan, financials, and deck currently in progress.</p>
-      <p class="investors-note reveal">More to come shortly — for now, reach out directly with any questions.</p>
-      <h2><a href="mailto:info@bluesheepfilms.com">info@bluesheepfilms.com</a></h2>
+
+    <div class="inv-period reveal" id="invPeriod"></div>
+
+    <div class="stat-grid reveal" id="statGrid"></div>
+
+    <div class="chart-block reveal">
+      <div class="chart-head">
+        <span class="chart-label">Quarterly trajectory</span>
+        <div class="metric-toggle" id="metricToggle" role="tablist" aria-label="Chart metric">
+          <button type="button" class="metric-btn active" data-metric="revenue" role="tab" aria-selected="true">Revenue</button>
+          <button type="button" class="metric-btn" data-metric="margin" role="tab" aria-selected="false">Margin</button>
+          <button type="button" class="metric-btn" data-metric="net" role="tab" aria-selected="false">Net</button>
+        </div>
+      </div>
+      <div class="chart-wrap" id="chartWrap"></div>
+      <p class="chart-note" id="breakevenNote"></p>
     </div>
+
+    <div class="story-block reveal">
+      <span class="mini-label">The margin story</span>
+      <p class="story-text" id="storyText"></p>
+    </div>
+
+    <div class="ask-card reveal" id="askCard">
+      <span class="mini-label">The ask</span>
+      <div class="ask-amount" id="askAmount">$0</div>
+      <p class="ask-use" id="askUse"></p>
+    </div>
+
+    <p class="inv-note reveal" id="invNote"></p>
+    <h2><a href="mailto:info@bluesheepfilms.com">info@bluesheepfilms.com</a></h2>
   </div>
 
 </section>
@@ -143,36 +169,190 @@
   }
 
   (function() {
-    const PASSWORD = 'blue';
+    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
+    // is opaque without the passphrase — nothing legible ships in this file.
+    const ENC = {
+      salt: "U9bC7ScPGIu8r2uhoten1A==",
+      iv: "Vil34OYIxLsK4mlO",
+      ciphertext: "NFTxxwHu8q033cEhLtepLPOJKAV0yy/zhcwqxMPAPlEduwPRQn6EV7cJwoZbGysgedZYwyJh1DqUVo8UOFZ6uO1iHsvIDq9BzfKs+1eGdHSunk8dB8e3OagTqPuvhj1OKWLh5cjjMdvDp5jq79o/qAa67ejnrufcXArTmShQQ5qFRkDARS5I2nHeGe9VUU/i4R5DgTcJkmCAJCjm5EGGXSbCv/3MvXBRA38j8SuyLQpH4EKqASNT9kSDJZIE8faLiVHDRfEY7ut/P8gIuhJw6UKR2/mmQGZW9sl/dx3l+4i8LFzBQOlfVQWF4kCDNXf6d/eMcrir5Kj9Vu++s9q7UFBvCK/O+dZ9pw89Qv5Wp4PkTLUGOq2vFsamtPBJXgeXIvYFDZyV62x6nIDKYhw8hhkmbWrNrO9i95hoCyOPMDUFlt1mJKQGskbbg7UJT/PmCOqHIpVX86DIDp4qC20EYqcE0O87sfNJ53P/ge5yGRM4XNG0CNqHDhDuokgtjd08GiIUwTMjuKJ/DU+KBZh8Dy6QVTkTAtip4fE0KgWrHMz5C/MGroLfG1ox3jdmv5uIfwG8UrtNFKhrS1emZgH3uGT65+fS5pnWIcybsSkJmBiskNuOPSOkVz/OPrIbpHEKOyAiebVch4YL7qbV/aub7t3QzHFg2OY+BbDK4DzTm5hTaDW5eEiT8YvZAJtEwnSA4+ShcURffJGZIzUqaKGm9vO30k7hics14NOvAv2M5oif3ytL3nULichvPXFgY+gf8HA+RMF+2UNEJAOx9nBRvx6d6nXfxfIBGqTzFbWaf8CwnaFJ2ZmFw1pMgz+gRbbWpvJBkqjEezMsn/Yjm+Doo4zOzSJ/Xi0cpfZB2ZnNOZ4/HFTj3YdaeqZvRoT22CsLbuiLiu8DaKYZtPtRz4D84/BOTruqJsl7IVSrizVEGVSuTyS5mUhZQyOqZo1HIe/kcuxFfpHDs1m6SzFKgbaJYZrSkEHzS1Lwf9/m4gpc6LFbGMOwgoUJsIBV+Vt3HDBglqIiN7J95utVvloSJ823n7B+OloGYkH7sSNGYb7CEDgS+IRITx8fPnL9FdbRHdOdX3ivoYcejnz+g73QzD75GHiH19gzju596qTZOawJOWRdpqrZWdZHCfEEYIkwOwkF3NyqlNqRSBnPTzh+Xz/W/iyXuf9N3y89S4sw/Im8DpS5pC+QEVTKhKtby3aBiy1C9fUycswCSgYBny8o7jLMHqSgIAeezelqC3tkLUrgUSDnYiMOdycJYDQPY9ogTXBywq293n84w+zYu0+6ntSvDg0Z8O81LTX5RsQhg2VzDLpZ6sT0tvHoWMEqU1Rp+2ifOh1iEMuhYynNNQHtQa6EqpDAgBEX1pSQQlyX8d+KtqdKe3Os8N261tEtoVgx/jAFyhXFpETWsdBdhUp+xS2p64rmbzhE5sWS+BjYOYZtiNBp6NQ5S/G1iOabab0b2Z175kn/9Rot1GdX4CuNLBGqk6xRiuivYqiH8sAETiG/VYtqk+c4fIWk3+qJPvreiTAnrWdBp16Wt+VK3X6VSx/1yBsfB9dBYGP5Ax8uA18zA4/75XyOX+wfTGu2lj/E28bVhgNf2Hlh0pfsq3bafBicT89MyRwBVuBV7FasLVGfdr/6+WIF9p7Fkcu2Jg1HhNcG5sRxJYEJq4Mjs1ne64fuc2OPikqLf5bY/kUo5eCa2lu5RGR8ijY1a8bmaDYO8Prl6KoNq5LBbnhjSOjW9TQhguK8OEgzFvJUkQuJjKvFV4SfGOFwnq4DLcOcKePXL8QoJnM0cCzk98zgfg3CWX8tPEHtitw+OMndUaywnoEuMf9PrUwdTd5c29Um/Fi6rWENlvlFINZU",
+      iterations: 600000
+    };
+
     const gate = document.getElementById('investorsGate');
     const content = document.getElementById('investorsContent');
     const form = document.getElementById('gateForm');
     const input = document.getElementById('gateInput');
+    const submitBtn = document.getElementById('gateSubmit');
     const error = document.getElementById('gateError');
 
-    function unlock() {
+    function b64ToBuf(b64) {
+      const bin = atob(b64);
+      const buf = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+      return buf;
+    }
+
+    async function decrypt(passphrase) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: b64ToBuf(ENC.salt), iterations: ENC.iterations, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(ENC.iv) }, key, b64ToBuf(ENC.ciphertext));
+      return JSON.parse(new TextDecoder().decode(plainBuf));
+    }
+
+    function fmtUSD(n) {
+      const sign = n < 0 ? '-' : '';
+      return sign + '$' + Math.abs(Math.round(n)).toLocaleString('en-US');
+    }
+
+    function countUp(el, target, fmt, duration) {
+      const start = performance.now();
+      const isMoney = fmt === 'money';
+      function tick(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const val = target * eased;
+        el.textContent = isMoney ? fmtUSD(val) : (val.toFixed(1) + '%');
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = isMoney ? fmtUSD(target) : (target.toFixed(1) + '%');
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function renderStats(data) {
+      const grid = document.getElementById('statGrid');
+      const a = data.actuals;
+      const stats = [
+        { label: 'Revenue', value: a.revenue, fmt: 'money' },
+        { label: 'Gross margin', value: a.grossMarginPct, fmt: 'pct' },
+        { label: 'Net', value: a.net, fmt: 'money' }
+      ];
+      grid.innerHTML = '';
+      stats.forEach(function(s, i) {
+        const card = document.createElement('div');
+        card.className = 'stat-card';
+        card.innerHTML = '<span class="stat-label">' + s.label + '</span><span class="stat-value" data-target="' + s.value + '" data-fmt="' + s.fmt + '">' + (s.fmt === 'money' ? '$0' : '0.0%') + '</span>';
+        grid.appendChild(card);
+      });
+      document.getElementById('invPeriod').textContent = data.actualsPeriod;
+    }
+
+    function renderChart(data) {
+      const wrap = document.getElementById('chartWrap');
+      const quarters = data.quarters;
+      const W = 640, H = 220, PAD = 30;
+      let metric = 'revenue';
+
+      function valueFor(q) {
+        return metric === 'revenue' ? q.revenue : metric === 'margin' ? q.marginPct : q.net;
+      }
+
+      function draw() {
+        const values = quarters.map(valueFor);
+        const min = Math.min(0, ...values);
+        const max = Math.max(0, ...values) * 1.2 || 1;
+        const range = (max - min) || 1;
+        const zeroY = H - PAD - ((0 - min) / range) * (H - PAD * 2);
+        const bw = (W - PAD * 2) / quarters.length * 0.55;
+        const step = (W - PAD * 2) / quarters.length;
+
+        let bars = '';
+        let labels = '';
+        quarters.forEach(function(q, i) {
+          const v = valueFor(q);
+          const x = PAD + step * i + (step - bw) / 2;
+          const y = H - PAD - ((v - min) / range) * (H - PAD * 2);
+          const barY = v >= 0 ? y : zeroY;
+          const barH = Math.abs(zeroY - y);
+          const cls = q.type === 'forecast' ? 'bar forecast' : 'bar actual';
+          bars += '<rect class="' + cls + '" x="' + x + '" y="' + zeroY + '" width="' + bw + '" height="0" data-y="' + barY + '" data-h="' + barH + '" rx="3"></rect>';
+          const valText = metric === 'money-net' ? fmtUSD(v) : metric === 'margin' ? v.toFixed(1) + '%' : fmtUSD(v);
+          bars += '<text class="bar-value" x="' + (x + bw / 2) + '" y="' + (barY - 8) + '" text-anchor="middle">' + (metric === 'margin' ? v.toFixed(1) + '%' : fmtUSD(v)) + '</text>';
+          labels += '<text class="bar-label" x="' + (x + bw / 2) + '" y="' + (H - 8) + '" text-anchor="middle">' + q.label + (q.type === 'forecast' ? ' (F)' : '') + '</text>';
+        });
+
+        wrap.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Quarterly ' + metric + ' chart">' +
+          '<line class="zero-line" x1="' + PAD + '" y1="' + zeroY + '" x2="' + (W - PAD) + '" y2="' + zeroY + '"></line>' +
+          bars + labels + '</svg>';
+
+        requestAnimationFrame(function() {
+          wrap.querySelectorAll('rect.bar').forEach(function(r) {
+            r.setAttribute('y', r.dataset.y);
+            r.setAttribute('height', r.dataset.h);
+          });
+        });
+      }
+
+      draw();
+
+      document.querySelectorAll('.metric-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.metric-btn').forEach(function(b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          metric = btn.dataset.metric;
+          draw();
+        });
+      });
+
+      document.getElementById('breakevenNote').textContent = data.breakeven;
+    }
+
+    function renderNarrative(data) {
+      document.getElementById('storyText').textContent = data.story;
+      document.getElementById('askAmount').setAttribute('data-target', data.ask.amount);
+      document.getElementById('askUse').textContent = data.ask.use;
+      document.getElementById('invNote').textContent = data.note;
+    }
+
+    function unlock(data) {
       gate.hidden = true;
       content.hidden = false;
+      renderStats(data);
+      renderChart(data);
+      renderNarrative(data);
       content.querySelectorAll('.reveal').forEach(function(el) {
         el.classList.add('in-view');
       });
+      document.querySelectorAll('.stat-value').forEach(function(el) {
+        countUp(el, parseFloat(el.dataset.target), el.dataset.fmt, 1100);
+      });
+      const askEl = document.getElementById('askAmount');
+      countUp(askEl, parseFloat(askEl.getAttribute('data-target')), 'money', 1100);
     }
 
-    if (sessionStorage.getItem('bs_investors_unlocked') === '1') {
-      unlock();
+    const cached = sessionStorage.getItem('bs_investors_data');
+    if (cached) {
+      try { unlock(JSON.parse(cached)); } catch (e) { sessionStorage.removeItem('bs_investors_data'); }
     }
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      if (input.value.trim().toLowerCase() === PASSWORD) {
-        sessionStorage.setItem('bs_investors_unlocked', '1');
+      const passphrase = input.value.trim();
+      if (!passphrase) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Decrypting…';
+      decrypt(passphrase).then(function(data) {
         error.classList.remove('show');
-        unlock();
-      } else {
+        sessionStorage.setItem('bs_investors_data', JSON.stringify(data));
+        unlock(data);
+      }).catch(function() {
         error.classList.add('show');
         input.value = '';
         input.focus();
-      }
+      }).finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enter';
+      });
     });
   })();
 </script>
