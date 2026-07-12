@@ -10,7 +10,6 @@
 <link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/index.html">
 <link rel="alternate" hreflang="en" href="https://sachdm.github.io/blue-sheep-site/index.html">
 <meta name="view-transition" content="same-origin">
-<script>(function(){try{if(localStorage.getItem('bs-theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#f4f2ec');}}catch(e){}})();</script>
 <meta property="og:title" content="Blue Sheep — Independent Film Production">
 <meta property="og:description" content="Documentary, narrative, and commercial work from Blue Sheep, based in Toronto.">
 <meta property="og:type" content="website">
@@ -87,8 +86,8 @@
       <div class="nav-links" id="navLinks">
         <a href="work.html">Work</a>
         <a href="contact.html">Contact</a>
+        <a href="investors.html">Investors</a>
       </div>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">☾</button>
       <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
     </div>
   </nav>
@@ -242,27 +241,6 @@
     }
   });
 
-  const themeToggle = document.getElementById('themeToggle');
-  if (themeToggle) {
-    if (document.documentElement.getAttribute('data-theme') === 'light') {
-      themeToggle.textContent = '☀';
-    }
-    themeToggle.addEventListener('click', () => {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      const meta = document.querySelector('meta[name="theme-color"]');
-      if (isLight) {
-        document.documentElement.removeAttribute('data-theme');
-        themeToggle.textContent = '☾';
-        if (meta) meta.setAttribute('content', '#0a0a0a');
-        try { localStorage.setItem('bs-theme', 'dark'); } catch (e) {}
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeToggle.textContent = '☀';
-        if (meta) meta.setAttribute('content', '#f4f2ec');
-        try { localStorage.setItem('bs-theme', 'light'); } catch (e) {}
-      }
-    });
-  }
 
   const progressBar = document.querySelector('.progress-bar');
   function updateProgress() {

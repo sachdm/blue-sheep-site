@@ -13,22 +13,6 @@
   color-scheme: dark;
 }
 
-:root[data-theme="light"] {
-  --bg: #f4f2ec;
-  --bg-rgb: 244, 242, 236;
-  --ink: #14130f;
-  --grey: #6b6a62;
-  --line: rgba(20, 19, 15, 0.12);
-  --line-strong: rgba(20, 19, 15, 0.3);
-  --body-copy: #3c3b34;
-  color-scheme: light;
-}
-
-:root[data-theme="light"] .grain,
-:root[data-theme="light"] .vignette {
-  display: none;
-}
-
 @view-transition {
   navigation: auto;
 }
@@ -686,31 +670,6 @@ body.work-page {
   cursor: pointer;
 }
 
-.theme-toggle {
-  position: relative;
-  z-index: 210;
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid var(--line-strong);
-  background: none;
-  color: var(--ink);
-  font-size: 12px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0.75;
-  transition: opacity 0.25s ease, border-color 0.4s ease, color 0.4s ease;
-}
-
-.theme-toggle:hover {
-  opacity: 1;
-  border-color: var(--ink);
-}
-
 @media (max-width: 700px) {
   .nav-links { display: none; }
   .nav-toggle { display: block; }
@@ -1357,6 +1316,96 @@ body.work-page {
   margin-top: 20px;
 }
 
+/* ---------- investors ---------- */
+.gate, .investors-grid {
+  display: block;
+}
+
+.gate .label, .investors-grid .label {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 20px;
+}
+
+.gate .blurb, .investors-grid .blurb {
+  font-size: 15px;
+  color: var(--grey);
+  max-width: 460px;
+  margin: 0 0 22px;
+  line-height: 1.6;
+}
+
+.gate-form {
+  display: flex;
+  gap: 12px;
+  max-width: 360px;
+}
+
+.gate-input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--ink);
+  transition: border-color 0.2s ease;
+}
+.gate-input::placeholder { color: var(--grey); }
+.gate-input:focus { outline: none; border-color: var(--ink); }
+
+.gate-submit {
+  background: var(--ink);
+  color: var(--bg);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 22px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.gate-submit:hover { opacity: 0.85; }
+
+.gate-error {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #d97a6a;
+  margin-top: 14px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+}
+.gate-error.show { opacity: 1; height: auto; }
+
+.investors-grid h2 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(24px, 4vw, 36px);
+  margin-top: 8px;
+}
+.investors-grid h2 a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--line-strong);
+  transition: border-color 0.2s ease;
+}
+.investors-grid h2 a:hover { border-color: var(--ink); }
+
+.investors-note {
+  font-size: 15px;
+  color: var(--body-copy);
+  max-width: 460px;
+  margin: 0 0 22px;
+  line-height: 1.6;
+}
+
 footer {
   border-top: 1px solid var(--line);
   padding: 34px 32px;
@@ -1545,10 +1594,6 @@ footer .socials a:hover { color: var(--ink); }
 
 /* ---------- touch target sizing ---------- */
 @media (max-width: 700px), (pointer: coarse) {
-  .theme-toggle {
-    width: 40px;
-    height: 40px;
-  }
   .nav-toggle {
     padding: 12px 4px;
     margin: -12px -4px;
@@ -1559,7 +1604,6 @@ footer .socials a:hover { color: var(--ink); }
 @media print {
   header,
   .nav-toggle,
-  .theme-toggle,
   .scroll-legend,
   .video-modal,
   .grain,
