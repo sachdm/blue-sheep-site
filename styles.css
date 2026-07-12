@@ -533,17 +533,17 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ---------- header ---------- */
+/* The header shell stays full-width and flush to the top (so page/hero
+   spacing math elsewhere is untouched) — the visible bar itself lives on
+   the inner nav, narrower and inset as a floating pill rather than a
+   full-bleed strip. */
 header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(var(--bg-rgb), 0.82);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  border-bottom: 1px solid var(--line);
-  transition: background 0.4s ease, border-color 0.4s ease;
+  padding: 14px 20px 0;
   animation: navFadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 
@@ -553,14 +553,20 @@ header {
 }
 
 header nav {
-  max-width: 1480px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 20px 28px;
-  min-height: 68px;
+  padding: 13px 24px;
+  min-height: 54px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: rgba(var(--bg-rgb), 0.82);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: background 0.4s ease, border-color 0.4s ease;
 }
 
 @media (max-width: 700px) {
