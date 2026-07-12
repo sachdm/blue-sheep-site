@@ -63,13 +63,13 @@
   pre.className = 'preloader';
   pre.id = 'preloader';
   pre.setAttribute('aria-hidden', 'true');
-  pre.innerHTML = '<svg class="preloader-mark" viewBox="0 0 100 100" width="44" height="44" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="7"/><circle cx="50" cy="50" r="9" fill="currentColor"/></svg>';
+  pre.innerHTML = '<img class="preloader-mark" src="logo.png" alt="" width="200" height="200">';
   document.documentElement.style.overflow = 'hidden';
   document.body.appendChild(pre);
   setTimeout(function() {
     pre.classList.add('hide');
     document.documentElement.style.overflow = '';
-    setTimeout(function() { pre.remove(); }, 650);
+    setTimeout(function() { pre.remove(); }, 950);
   }, 5000);
 })();
 </script>
