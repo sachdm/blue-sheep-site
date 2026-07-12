@@ -809,6 +809,10 @@ header nav {
   transition: text-decoration-color 0.3s ease;
 }
 
+@media (pointer: fine) {
+  .hero-sub-trigger:hover { cursor: none; }
+}
+
 .hero-sub-trigger:hover,
 .hero-sub-trigger:focus-visible {
   text-decoration-color: var(--grey);
