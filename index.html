@@ -100,7 +100,7 @@
   <div class="hero-content wrap-wide">
     <h1 class="sr-only">Blue Sheep — Independent Film Production</h1>
     <div class="hero-footer-row">
-      <p class="hero-sub reveal"><b>Blue Sheep</b> is an independent studio making documentary, narrative, and commercial work for people who notice the details.</p>
+      <p class="hero-sub reveal" aria-label="Blue Sheep is an independent studio making documentary, narrative, and commercial work for people who notice the details."><b class="hero-sub-trigger" id="heroSubTrigger" tabindex="0">Blue Sheep</b> <span class="scramble-words" aria-hidden="true"><span class="w">is</span> <span class="w">an</span> <span class="w">independent</span> <span class="w">studio</span> <span class="w">making</span> <span class="w">documentary,</span> <span class="w">narrative,</span> <span class="w">and</span> <span class="w">commercial</span> <span class="w">work</span> <span class="w">for</span> <span class="w">people</span> <span class="w">who</span> <span class="w">notice</span> <span class="w">the</span> <span class="w">details.</span></span></p>
       <a href="work.html" class="cta-btn reveal"><span class="cta-label">View Selected Work</span><span class="cta-arrow">→</span></a>
     </div>
   </div>
@@ -124,6 +124,70 @@
     });
   }, { threshold: 0.15 });
   heroRevealEls.forEach(el => heroRevealObserver.observe(el));
+
+  // Hero subtext plays coy: everything after "Blue Sheep" sits as scrambled
+  // letters until you hover (or focus) the name, then each word resolves
+  // into place one at a time — same scramble language as the work page.
+  (function() {
+    var trigger = document.getElementById('heroSubTrigger');
+    var words = Array.from(document.querySelectorAll('.scramble-words .w'));
+    if (!trigger || !words.length) return;
+    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var SCRAMBLE_CHARS = 'abcdefghijklmnopqrstuvwxyz';
+
+    words.forEach(function(el) { el.dataset.original = el.textContent; });
+
+    function randomGibberish(text) {
+      return text.split('').map(function(ch) {
+        return /[a-z]/i.test(ch) ? SCRAMBLE_CHARS[(Math.random() * SCRAMBLE_CHARS.length) | 0] : ch;
+      }).join('');
+    }
+
+    function scrambleTo(el, toText) {
+      if (prefersReducedMotion) { el.textContent = toText; return; }
+      if (el._raf) cancelAnimationFrame(el._raf);
+      var cycle = 220;
+      var start = performance.now();
+      function step(now) {
+        if (now - start < cycle) {
+          el.textContent = randomGibberish(toText);
+          el._raf = requestAnimationFrame(step);
+        } else {
+          el.textContent = toText;
+          el._raf = null;
+        }
+      }
+      el._raf = requestAnimationFrame(step);
+    }
+
+    if (!prefersReducedMotion) {
+      words.forEach(function(el) { el.textContent = randomGibberish(el.dataset.original); });
+    }
+
+    var revealTimers = [];
+    function clearTimers() { revealTimers.forEach(clearTimeout); revealTimers = []; }
+
+    function revealAll() {
+      if (prefersReducedMotion) return;
+      clearTimers();
+      words.forEach(function(el, i) {
+        revealTimers.push(setTimeout(function() { scrambleTo(el, el.dataset.original); }, i * 70));
+      });
+    }
+
+    function obscureAll() {
+      if (prefersReducedMotion) return;
+      clearTimers();
+      words.forEach(function(el, i) {
+        revealTimers.push(setTimeout(function() { scrambleTo(el, randomGibberish(el.dataset.original)); }, i * 40));
+      });
+    }
+
+    trigger.addEventListener('mouseenter', revealAll);
+    trigger.addEventListener('focus', revealAll);
+    trigger.addEventListener('mouseleave', obscureAll);
+    trigger.addEventListener('blur', obscureAll);
+  })();
 
   (function() {
     var path = location.pathname.split('/').pop() || 'index.html';

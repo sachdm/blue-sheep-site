@@ -375,28 +375,41 @@ a { color: inherit; text-decoration: none; }
 .video-modal-legend-track {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
 }
 
+/* Same non-overlapping hit-box pattern as the work-page scroll legend:
+   the button is a full 20px click target, the visible dot is a small
+   glyph centered inside via ::before. */
 .video-modal-legend-dot {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.video-modal-legend-dot::before {
+  content: "";
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: currentColor;
   color: inherit;
   opacity: 0.35;
-  border: none;
-  cursor: pointer;
-  padding: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.video-modal-legend-dot:hover,
-.video-modal-legend-dot:focus-visible {
+.video-modal-legend-dot:hover::before,
+.video-modal-legend-dot:focus-visible::before {
   opacity: 0.75;
 }
 
-.video-modal-legend-dot.active {
+.video-modal-legend-dot.active::before {
   opacity: 1;
   transform: scale(1.6);
 }
@@ -785,6 +798,20 @@ header nav {
   font-size: clamp(14px, 1vw, 16px);
   color: #cfcec8;
   line-height: 1.65;
+}
+
+.hero-sub-trigger {
+  cursor: pointer;
+  color: var(--ink);
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.3s ease;
+}
+
+.hero-sub-trigger:hover,
+.hero-sub-trigger:focus-visible {
+  text-decoration-color: var(--grey);
 }
 
 .hero-footer-row .cta-btn { margin-top: 0; flex-shrink: 0; }
@@ -1340,7 +1367,7 @@ footer .socials a:hover { color: var(--ink); }
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 0;
   padding: 0;
   margin: 0;
 }
@@ -1351,26 +1378,40 @@ footer .socials a:hover { color: var(--ink); }
   align-items: center;
 }
 
+/* Each dot's actual click/hover target is a full 22px square button — the
+   visible dot is just a small glyph centered inside it via ::before. This
+   guarantees adjacent dots' hit areas never overlap (they're just flex
+   siblings), unlike padding a tiny 7px button which bleeds into its
+   neighbour and makes hover flicker between the wrong dots. */
 .legend-dot {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.legend-dot::before {
+  content: "";
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: currentColor;
   color: inherit;
   opacity: 0.35;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  display: block;
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.legend-dot:hover,
-.legend-dot:focus-visible {
+.legend-dot:hover::before,
+.legend-dot:focus-visible::before {
   opacity: 0.85;
 }
 
-.legend-marker.active .legend-dot {
+.legend-marker.active .legend-dot::before {
   opacity: 1;
   transform: scale(1.7);
 }
@@ -1409,7 +1450,6 @@ footer .socials a:hover { color: var(--ink); }
 
 @media (max-width: 560px) {
   .scroll-legend { gap: 10px; }
-  .legend-track { gap: 8px; }
 }
 
 /* ---------- responsive ---------- */
@@ -1440,14 +1480,6 @@ footer .socials a:hover { color: var(--ink); }
   .nav-toggle {
     padding: 12px 4px;
     margin: -12px -4px;
-  }
-  .legend-dot {
-    position: relative;
-  }
-  .legend-dot::before {
-    content: "";
-    position: absolute;
-    inset: -6px;
   }
 }
 
