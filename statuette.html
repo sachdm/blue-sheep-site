@@ -81,7 +81,7 @@
 </header>
 
 <section class="project-hero" id="main">
-  <div class="frame" data-vimeo-id="1080562073" tabindex="0" role="button" aria-label="Play video">
+  <div class="frame" data-vimeo-id="1080562073" data-vimeo-w="398" data-vimeo-h="240" tabindex="0" role="button" aria-label="Play video">
     <img src="https://i.vimeocdn.com/video/2011163359-cd4c956eccd40546a9dd125bad1ace148747c804d292359dc8c00ad4b66960aa-d_1280?region=us" alt="Statuette still">
   </div>
 </section>
@@ -120,6 +120,8 @@
     frame.addEventListener('click', () => {
       const id = frame.getAttribute('data-vimeo-id');
       const hash = frame.getAttribute('data-vimeo-hash');
+      const vw = parseFloat(frame.getAttribute('data-vimeo-w')) || 16;
+      const vh = parseFloat(frame.getAttribute('data-vimeo-h')) || 9;
       const iframe = document.createElement('iframe');
       iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1${hash ? '&h=' + hash : ''}`;
       iframe.allow = 'autoplay; fullscreen; picture-in-picture';
@@ -128,6 +130,18 @@
       frame.appendChild(iframe);
       frame.removeAttribute('data-vimeo-id');
       frame.style.cursor = 'default';
+      function fitCover() {
+        const cw = frame.clientWidth, ch = frame.clientHeight;
+        if (cw / ch > vw / vh) {
+          iframe.style.width = cw + 'px';
+          iframe.style.height = (cw * vh / vw) + 'px';
+        } else {
+          iframe.style.height = ch + 'px';
+          iframe.style.width = (ch * vw / vh) + 'px';
+        }
+      }
+      fitCover();
+      window.addEventListener('resize', fitCover);
     }, { once: true });
   });
 

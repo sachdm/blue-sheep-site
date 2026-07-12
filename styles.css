@@ -888,6 +888,18 @@ header nav {
   display: block;
 }
 
+/* project-hero iframes are sized precisely via JS (cover-fit to the frame
+   box using the video's native ratio) so they never letterbox/pillarbox */
+.project-hero .frame iframe {
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  max-width: none;
+}
+
 .frame img {
   width: 100%;
   height: 100%;

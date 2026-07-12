@@ -81,7 +81,7 @@
 </header>
 
 <section class="project-hero" id="main">
-  <div class="frame" data-vimeo-id="1088784265" data-vimeo-hash="6ae2be6a6d" tabindex="0" role="button" aria-label="Play video">
+  <div class="frame" data-vimeo-id="1088784265" data-vimeo-hash="6ae2be6a6d" data-vimeo-w="426" data-vimeo-h="240" tabindex="0" role="button" aria-label="Play video">
     <img src="https://i.vimeocdn.com/video/2021082742-6aeb97a69d7f902f34ee1c59034d738fe959f9d752db080f92786fb3a8ba3a12-d?f=webp&region=us" alt="DBC still">
   </div>
 </section>
@@ -118,6 +118,8 @@
     frame.addEventListener('click', () => {
       const id = frame.getAttribute('data-vimeo-id');
       const hash = frame.getAttribute('data-vimeo-hash');
+      const vw = parseFloat(frame.getAttribute('data-vimeo-w')) || 16;
+      const vh = parseFloat(frame.getAttribute('data-vimeo-h')) || 9;
       const iframe = document.createElement('iframe');
       iframe.src = `https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1${hash ? '&h=' + hash : ''}`;
       iframe.allow = 'autoplay; fullscreen; picture-in-picture';
@@ -126,6 +128,18 @@
       frame.appendChild(iframe);
       frame.removeAttribute('data-vimeo-id');
       frame.style.cursor = 'default';
+      function fitCover() {
+        const cw = frame.clientWidth, ch = frame.clientHeight;
+        if (cw / ch > vw / vh) {
+          iframe.style.width = cw + 'px';
+          iframe.style.height = (cw * vh / vw) + 'px';
+        } else {
+          iframe.style.height = ch + 'px';
+          iframe.style.width = (ch * vw / vh) + 'px';
+        }
+      }
+      fitCover();
+      window.addEventListener('resize', fitCover);
     }, { once: true });
   });
 
