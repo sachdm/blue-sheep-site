@@ -569,15 +569,23 @@ header nav {
 
 .brand:hover { opacity: 0.8; }
 
+/* Work/Contact + theme toggle now live together as one compact group on
+   the right edge of the nav, instead of being spread across the bar. */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 38px;
+  gap: 20px;
   font-family: var(--sans);
-  font-size: 11.5px;
+  font-size: 11px;
   line-height: 1;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -585,7 +593,7 @@ header nav {
 
 .nav-links a {
   color: var(--ink);
-  opacity: 0.72;
+  opacity: 0.6;
   position: relative;
   padding-bottom: 3px;
   transition: opacity 0.25s ease, color 0.4s ease;
@@ -632,20 +640,19 @@ header nav {
   position: relative;
   z-index: 210;
   flex-shrink: 0;
-  width: 30px;
-  height: 30px;
-  margin-left: 20px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   border: 1px solid var(--line-strong);
   background: none;
   color: var(--ink);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.75;
   transition: opacity 0.25s ease, border-color 0.4s ease, color 0.4s ease;
 }
 
@@ -764,40 +771,13 @@ header nav {
   width: 100%;
 }
 
-.hero-kicker {
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #8c8c86;
-}
-
-.hero-headline {
-  font-family: var(--grotesk);
-  font-weight: 500;
-  line-height: 1.04;
-  letter-spacing: -0.02em;
-  margin: auto 0;
-}
-
-.hero-headline .line {
-  display: block;
-  font-size: clamp(38px, 4.4vw, 92px);
-  color: #f3f2ee;
-}
-
-.hero-headline .line-2 {
-  margin-top: 4px;
-  margin-left: clamp(20px, 9vw, 180px);
-}
-
 .hero-footer-row {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   gap: 64px;
   flex-wrap: wrap;
+  margin-top: auto;
 }
 
 .hero-sub {
@@ -811,14 +791,9 @@ header nav {
 
 .hero-content .reveal:nth-of-type(1) { transition-delay: 0.05s; }
 .hero-content .reveal:nth-of-type(2) { transition-delay: 0.2s; }
-.hero-content .reveal:nth-of-type(3) { transition-delay: 0.34s; }
-.hero-content .reveal:nth-of-type(4) { transition-delay: 0.48s; }
-.hero-content .reveal:nth-of-type(5) { transition-delay: 0.6s; }
 
 @media (max-width: 800px) {
   .hero-content { padding-top: 108px; padding-bottom: 48px; }
-  .hero-headline .line { font-size: clamp(32px, 8vw, 48px); }
-  .hero-headline .line-2 { margin-left: 12px; }
   .hero-footer-row { flex-direction: column; align-items: flex-start; gap: 28px; }
   .hero-sub { max-width: 100%; }
 }
