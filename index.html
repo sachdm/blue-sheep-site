@@ -131,8 +131,9 @@
   // into place one at a time — same scramble language as the work page.
   (function() {
     var trigger = document.getElementById('heroSubTrigger');
+    var heroSub = document.querySelector('.hero-sub');
     var words = Array.from(document.querySelectorAll('.scramble-words .w'));
-    if (!trigger || !words.length) return;
+    if (!trigger || !words.length || !heroSub) return;
     var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var SCRAMBLE_CHARS = 'abcdefghijklmnopqrstuvwxyz';
 
@@ -147,7 +148,7 @@
     function scrambleTo(el, toText) {
       if (prefersReducedMotion) { el.textContent = toText; return; }
       if (el._raf) cancelAnimationFrame(el._raf);
-      var cycle = 220;
+      var cycle = 420;
       var start = performance.now();
       function step(now) {
         if (now - start < cycle) {
@@ -169,19 +170,23 @@
     function clearTimers() { revealTimers.forEach(clearTimeout); revealTimers = []; }
 
     function revealAll() {
-      if (prefersReducedMotion) return;
-      clearTimers();
-      words.forEach(function(el, i) {
-        revealTimers.push(setTimeout(function() { scrambleTo(el, el.dataset.original); }, i * 70));
-      });
+      if (!prefersReducedMotion) {
+        clearTimers();
+        words.forEach(function(el, i) {
+          revealTimers.push(setTimeout(function() { scrambleTo(el, el.dataset.original); }, i * 150));
+        });
+      }
+      heroSub.classList.add('magnify');
     }
 
     function obscureAll() {
-      if (prefersReducedMotion) return;
-      clearTimers();
-      words.forEach(function(el, i) {
-        revealTimers.push(setTimeout(function() { scrambleTo(el, randomGibberish(el.dataset.original)); }, i * 40));
-      });
+      if (!prefersReducedMotion) {
+        clearTimers();
+        words.forEach(function(el, i) {
+          revealTimers.push(setTimeout(function() { scrambleTo(el, randomGibberish(el.dataset.original)); }, i * 90));
+        });
+      }
+      heroSub.classList.remove('magnify');
     }
 
     // Custom circular cursor takes over from the system pointer while you're

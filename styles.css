@@ -573,6 +573,29 @@ header nav {
   header nav { padding: 18px 20px; min-height: 62px; }
 }
 
+/* Work page only: header stays out of the way of the video until you
+   bring the cursor back up near the top, then it fades in. Mouse-only —
+   touch devices keep it always visible since there's no hover to reveal it. */
+@media (pointer: fine) {
+  body.work-page header {
+    animation: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+  body.work-page header.nav-visible,
+  body.work-page header:focus-within {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+@media (pointer: fine) and (prefers-reduced-motion: reduce) {
+  body.work-page header { transition: none; }
+}
+
 .brand {
   display: block;
   font-family: var(--sans);
@@ -804,6 +827,16 @@ header nav {
   font-size: clamp(14px, 1vw, 16px);
   color: #cfcec8;
   line-height: 1.65;
+  transform-origin: left bottom;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-sub.magnify {
+  transform: scale(1.045);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-sub { transition: none; }
 }
 
 .hero-sub-trigger {
@@ -930,6 +963,20 @@ header nav {
   pointer-events: none;
 }
 
+/* Constant dark gradient along the bottom edge, independent of whichever
+   project is showing, so the title/credits text is always readable even
+   over light or busy footage. */
+.work-bottom-scrim {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 240px;
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0) 0%, rgba(8, 8, 8, 0.6) 100%);
+  z-index: 130;
+  pointer-events: none;
+}
+
 /* Pinned to the viewport (not the slide) so it never travels with the
    video — only the active project's info is visible, and swapping
    between projects is purely the title-scramble animation, not motion. */
@@ -957,11 +1004,16 @@ header nav {
   .tile-info { transition: none; }
 }
 
+/* This text sits directly over photographic video content, not the page
+   background, so it deliberately ignores the light/dark theme variables
+   and stays a fixed light color with a strong drop shadow — legible over
+   any still, paired with the bottom scrim below. */
 .work-tile .title {
   font-family: var(--sans);
   font-weight: 600;
   font-size: 19px;
-  color: var(--ink);
+  color: #f7f6f2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: baseline;
   gap: 12px;
@@ -971,7 +1023,8 @@ header nav {
   font-family: var(--mono);
   font-weight: 400;
   font-size: 12px;
-  color: var(--grey);
+  color: #d8d6cf;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .title-text {
@@ -986,8 +1039,9 @@ header nav {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.02em;
-  color: var(--grey);
+  color: #d8d6cf;
   text-align: left;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .frame {

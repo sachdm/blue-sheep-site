@@ -44,7 +44,7 @@
 }
 </script>
 </head>
-<body>
+<body class="work-page">
 
 <noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -153,6 +153,8 @@
 
   </div>
 </section>
+
+<div class="work-bottom-scrim" aria-hidden="true"></div>
 
 <nav class="scroll-legend" id="scrollLegend" aria-label="Selected projects navigation">
   <div class="legend-counter">
@@ -551,6 +553,28 @@
       frame.addEventListener('mouseleave', () => cursorLabel.classList.remove('show'));
       frame.addEventListener('click', () => cursorLabel.classList.remove('show'));
     });
+
+    // Header stays hidden until the cursor comes back up near the top of
+    // the screen, then it fades in; move away and it fades back out.
+    const headerEl = document.querySelector('header');
+    if (headerEl) {
+      const revealZone = 110;
+      let hideTimer = null;
+      const showHeader = () => {
+        if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
+        headerEl.classList.add('nav-visible');
+      };
+      const scheduleHide = () => {
+        if (hideTimer) clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => headerEl.classList.remove('nav-visible'), 250);
+      };
+      window.addEventListener('mousemove', (e) => {
+        if (e.clientY <= revealZone) showHeader();
+        else scheduleHide();
+      });
+      headerEl.addEventListener('mouseenter', showHeader);
+      headerEl.addEventListener('mouseleave', scheduleHide);
+    }
   }
 
   const clockEl = document.getElementById('clock');
