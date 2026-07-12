@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Pipeline — Blue Sheep</title>
+<meta name="description" content="Private, encrypted client acquisition pipeline for Blue Sheep — independent film production based in Toronto, Ontario.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="author" content="Blue Sheep">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/client-pipeline.html">
+<meta name="view-transition" content="same-origin">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23f3f2ee' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap-wide">
+    <a class="brand" href="index.html">Blue Sheep</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="investors.html">Investors</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </nav>
+</header>
+
+<section id="main" class="wrap page-main">
+
+  <h1 class="label reveal inv-h1">Client Pipeline</h1>
+
+  <div class="gate reveal" id="investorsGate">
+    <div>
+      <p class="blurb">This page is encrypted. Enter the passphrase to continue.</p>
+      <form class="gate-form" id="gateForm" autocomplete="off">
+        <input type="password" class="gate-input" id="gateInput" placeholder="Passphrase" aria-label="Passphrase" autocomplete="off" spellcheck="false">
+        <button type="submit" class="gate-submit" id="gateSubmit">Enter</button>
+      </form>
+      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect passphrase. Try again.</p>
+    </div>
+  </div>
+
+  <div class="inv-public" id="pipelineContent" hidden>
+
+    <p class="pipeline-intro reveal" id="pipelineNote"></p>
+
+    <div class="pipeline-summary reveal" id="pipelineSummary"></div>
+
+    <div class="pipeline-groups" id="pipelineGroups"></div>
+
+    <div class="pipeline-automation reveal">
+      <span class="mini-label">Automated Response Tracking</span>
+      <p class="pipeline-automation-text">Status here is tracked manually — click a status pill to update it, and it's saved to this device. This is a static site with no backend, so it can't watch your inbox on its own. To get an actual notification the moment someone replies, connect an email account and I can set up a scheduled check that messages you directly when a prospect responds.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  <span>© 2026 Blue Sheep</span>
+  <span class="clock" id="clock">Toronto</span>
+  <div class="socials">
+    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
+    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      var raw = a.getAttribute('href') || '';
+      if (raw.charAt(0) === '#') return;
+      var href = raw.split('#')[0] || 'index.html';
+      if (href === path) a.setAttribute('aria-current', 'page');
+    });
+  })();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const linkGroup = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = linkGroup.classList.toggle('open');
+    toggle.textContent = isOpen ? 'Close' : 'Menu';
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      const firstLink = linkGroup.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      toggle.focus();
+    }
+  });
+  linkGroup.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && linkGroup.classList.contains('open')) {
+      linkGroup.classList.remove('open');
+      toggle.textContent = 'Menu';
+      toggle.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+      toggle.focus();
+    }
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  const progressBar = document.querySelector('.progress-bar');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrollable = h.scrollHeight - h.clientHeight;
+    const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const clockEl = document.getElementById('clock');
+  if (clockEl) {
+    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
+    function updateClock() {
+      clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+
+  (function() {
+    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
+    // is opaque without the passphrase — nothing legible ships in this file.
+    const ENC = {
+      salt: "AkOdnfEaClIUHpEzEPcYbw==",
+      iv: "XA1iJ3nQivFKsTs4",
+      ciphertext: "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",
+      iterations: 600000
+    };
+
+    const gate = document.getElementById('investorsGate');
+    const content = document.getElementById('pipelineContent');
+    const form = document.getElementById('gateForm');
+    const input = document.getElementById('gateInput');
+    const submitBtn = document.getElementById('gateSubmit');
+    const error = document.getElementById('gateError');
+
+    function b64ToBuf(b64) {
+      const bin = atob(b64);
+      const buf = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+      return buf;
+    }
+
+    async function decrypt(passphrase) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: b64ToBuf(ENC.salt), iterations: ENC.iterations, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(ENC.iv) }, key, b64ToBuf(ENC.ciphertext));
+      return JSON.parse(new TextDecoder().decode(plainBuf));
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    const STATUSES = ['Not Contacted', 'Contacted', 'Responded', 'No Response'];
+    const STATUS_KEY = 'bs_pipeline_status';
+
+    function getStatusMap() {
+      try { return JSON.parse(localStorage.getItem(STATUS_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function setStatus(id, status) {
+      const map = getStatusMap();
+      map[id] = status;
+      localStorage.setItem(STATUS_KEY, JSON.stringify(map));
+    }
+
+    function renderSummary(prospects) {
+      const map = getStatusMap();
+      const counts = { 'Not Contacted': 0, 'Contacted': 0, 'Responded': 0, 'No Response': 0 };
+      prospects.forEach(function(p) {
+        const s = map[p.id] || 'Not Contacted';
+        counts[s] = (counts[s] || 0) + 1;
+      });
+      let html = '';
+      STATUSES.forEach(function(s) {
+        html += '<div class="pipeline-stat"><span class="pipeline-stat-value">' + counts[s] + '</span><span class="pipeline-stat-label">' + esc(s) + '</span></div>';
+      });
+      document.getElementById('pipelineSummary').innerHTML = html;
+    }
+
+    function cycleStatus(current) {
+      const i = STATUSES.indexOf(current);
+      return STATUSES[(i + 1) % STATUSES.length];
+    }
+
+    function statusClass(s) {
+      return 'status-' + s.toLowerCase().replace(/\s+/g, '-');
+    }
+
+    function renderGroups(prospects) {
+      const map = getStatusMap();
+      const byCategory = {};
+      const order = [];
+      prospects.forEach(function(p) {
+        if (!byCategory[p.category]) { byCategory[p.category] = []; order.push(p.category); }
+        byCategory[p.category].push(p);
+      });
+      let html = '';
+      order.forEach(function(cat) {
+        html += '<div class="pipeline-group"><h3 class="pipeline-group-title">' + esc(cat) + '</h3><ul class="pipeline-list">';
+        byCategory[cat].forEach(function(p) {
+          const s = map[p.id] || 'Not Contacted';
+          html += '<li class="pipeline-row" data-id="' + esc(p.id) + '">';
+          html += '<div class="pipeline-row-main">';
+          html += '<span class="pipeline-name">' + esc(p.name) + '</span>';
+          html += '<span class="pipeline-priority pipeline-priority-' + esc(p.priority.toLowerCase()) + '">' + esc(p.priority) + '</span>';
+          html += '</div>';
+          html += '<p class="pipeline-note">' + esc(p.note) + '</p>';
+          html += '<button type="button" class="pipeline-status ' + statusClass(s) + '" data-id="' + esc(p.id) + '" aria-label="Contact status: ' + esc(s) + '. Click to change.">' +
+            '<span class="pipeline-status-dot"></span><span class="pipeline-status-text">' + esc(s) + '</span></button>';
+          html += '</li>';
+        });
+        html += '</ul></div>';
+      });
+      document.getElementById('pipelineGroups').innerHTML = html;
+    }
+
+    function wireStatusButtons(prospects) {
+      document.querySelectorAll('.pipeline-status').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const id = btn.dataset.id;
+          const map = getStatusMap();
+          const current = map[id] || 'Not Contacted';
+          const next = cycleStatus(current);
+          setStatus(id, next);
+          STATUSES.forEach(function(s) { btn.classList.remove(statusClass(s)); });
+          btn.classList.add(statusClass(next));
+          btn.querySelector('.pipeline-status-text').textContent = next;
+          btn.setAttribute('aria-label', 'Contact status: ' + next + '. Click to change.');
+          renderSummary(prospects);
+        });
+      });
+    }
+
+    function unlock(data) {
+      gate.hidden = true;
+      content.hidden = false;
+      document.getElementById('pipelineNote').textContent = data.note;
+      renderSummary(data.prospects);
+      renderGroups(data.prospects);
+      wireStatusButtons(data.prospects);
+      content.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('in-view');
+      });
+    }
+
+    // Unlock state persists in localStorage on this device/browser, so the
+    // passphrase only needs to be entered once. Clear site data to re-lock.
+    const LOCK_KEY = 'bs_pipeline_data';
+    const cached = localStorage.getItem(LOCK_KEY);
+    if (cached) {
+      try { unlock(JSON.parse(cached)); } catch (e) { localStorage.removeItem(LOCK_KEY); }
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const passphrase = input.value.trim();
+      if (!passphrase) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Decrypting…';
+      decrypt(passphrase).then(function(data) {
+        error.classList.remove('show');
+        localStorage.setItem(LOCK_KEY, JSON.stringify(data));
+        unlock(data);
+      }).catch(function() {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+      }).finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enter';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

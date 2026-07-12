@@ -198,10 +198,12 @@
       });
     }
 
-    // No unlock state is persisted anywhere (sessionStorage, localStorage, cookies).
-    // The passphrase must be re-entered on every page load, on every page.
-    sessionStorage.removeItem('bs_investors_data');
-    sessionStorage.removeItem('bs_investors_unlocked');
+    // Unlock state persists in localStorage on this device/browser, so the
+    // passphrase only needs to be entered once. Clear site data to re-lock.
+    const LOCK_KEY = 'bs_inv_hub_ok';
+    if (localStorage.getItem(LOCK_KEY) === '1') {
+      unlock();
+    }
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -211,6 +213,7 @@
       submitBtn.textContent = 'Decrypting…';
       decrypt(passphrase).then(function(data) {
         error.classList.remove('show');
+        localStorage.setItem(LOCK_KEY, '1');
         unlock();
       }).catch(function() {
         error.classList.add('show');
