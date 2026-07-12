@@ -1345,6 +1345,424 @@ body.work-page {
 .gate-reach-out a { color: var(--ink); border-bottom: 1px solid var(--line-strong); }
 .gate-reach-out a:hover { border-color: var(--ink); }
 
+.inv-h1 {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.inv-public {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.grant-block, .roadmap-block {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+.grant-card {
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  padding: 28px 26px;
+  text-align: left;
+}
+
+.grant-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.grant-status {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+}
+
+.grant-amount {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.grant-name {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(20px, 3vw, 26px);
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.grant-program {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--grey);
+  margin-bottom: 18px;
+}
+
+.grant-thesis {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--body-copy);
+  margin-bottom: 18px;
+}
+.grant-thesis b { color: var(--ink); font-weight: 600; }
+
+.grant-toggle, .roadmap-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--sans);
+  color: var(--ink);
+  padding: 0;
+}
+
+.grant-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  width: 100%;
+  justify-content: space-between;
+}
+.grant-toggle .chevron { transition: transform 0.3s ease; color: var(--grey); }
+.grant-toggle.open .chevron, .roadmap-toggle.open .chevron { transform: rotate(180deg); }
+.grant-toggle:hover, .roadmap-toggle:hover { opacity: 0.8; }
+
+.grant-detail {
+  padding: 4px 0 10px;
+}
+.grant-deliverables {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.grant-deliverables li {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--body-copy);
+  padding-left: 16px;
+  position: relative;
+}
+.grant-deliverables li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--grey);
+}
+
+.grant-footnote {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--grey);
+  line-height: 1.6;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.grant-footnote a { color: var(--ink); border-bottom: 1px solid var(--line-strong); }
+.grant-footnote a:hover { border-color: var(--ink); }
+
+/* roadmap */
+.roadmap {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+}
+.roadmap-item { border-bottom: 1px solid var(--line); }
+.roadmap-item:last-child { border-bottom: none; }
+
+.roadmap-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  text-align: left;
+}
+.roadmap-q {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey);
+  flex-shrink: 0;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.roadmap-now {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 999px;
+  padding: 2px 7px;
+}
+.roadmap-headline {
+  flex: 1;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.roadmap-toggle .chevron { flex-shrink: 0; color: var(--grey); }
+
+.roadmap-detail { padding: 0 20px 18px 140px; }
+.roadmap-detail ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.roadmap-detail li {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--body-copy);
+  padding-left: 14px;
+  position: relative;
+}
+.roadmap-detail li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--grey);
+}
+
+@media (max-width: 560px) {
+  .roadmap-toggle { flex-wrap: wrap; gap: 6px 16px; }
+  .roadmap-q { width: auto; }
+  .roadmap-detail { padding-left: 20px; }
+}
+
+.roadmap-footnote {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--grey);
+  line-height: 1.6;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.inv-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 640px;
+  margin: 0 auto 48px;
+  padding-top: 8px;
+}
+.inv-divider span {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey);
+  white-space: nowrap;
+}
+.inv-divider::before, .inv-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* filmmaker timeline */
+.timeline-block {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 56px;
+  text-align: left;
+}
+.timeline-intro {
+  font-size: 14px;
+  color: var(--grey);
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+.timeline {
+  position: relative;
+}
+.timeline-item {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+.timeline-item-last { padding-bottom: 0; }
+.timeline-marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 10px;
+}
+.timeline-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink);
+  margin-top: 4px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.timeline-marker::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  bottom: -30px;
+  left: 50%;
+  width: 1px;
+  background: var(--line);
+  transform: translateX(-50%);
+}
+.timeline-item-last .timeline-marker::after { display: none; }
+.timeline-content { flex: 1; padding-top: 1px; }
+.timeline-month {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 6px;
+}
+.timeline-title {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.timeline-desc {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--body-copy);
+  max-width: 460px;
+}
+
+/* grant budget breakdown */
+.budget-block {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto 56px;
+  text-align: left;
+}
+.budget-bar {
+  display: flex;
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--line);
+  margin-bottom: 22px;
+  gap: 2px;
+}
+.budget-seg {
+  flex: none;
+  width: 0;
+  height: 100%;
+  background: var(--ink);
+  opacity: var(--op, 0.6);
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+}
+.budget-block.in-view .budget-seg { width: var(--w); }
+.budget-seg.active { opacity: 1; }
+
+.budget-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.budget-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+  cursor: default;
+}
+.budget-row:hover, .budget-row:focus-visible, .budget-row.active {
+  background: var(--line);
+  outline: none;
+}
+.budget-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ink);
+  opacity: var(--op, 0.6);
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+.budget-row.active .budget-swatch { opacity: 1; }
+.budget-name {
+  flex: 1;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink);
+}
+.budget-amt {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.budget-pct {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--grey);
+  width: 36px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.budget-footnote {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--grey);
+  line-height: 1.6;
+  margin-top: 16px;
+}
+
+@media (max-width: 480px) {
+  .budget-name { font-size: 12.5px; }
+  .budget-pct { width: 30px; }
+}
+
 .gate .label, .investors-grid .label {
   font-family: var(--mono);
   font-weight: 700;
@@ -1434,6 +1852,67 @@ body.work-page {
   text-transform: uppercase;
   color: var(--grey);
   margin-bottom: 28px;
+}
+
+/* traction card */
+.traction-card {
+  max-width: 560px;
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  padding: 26px 24px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.traction-amount {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(30px, 4.6vw, 42px);
+  color: var(--ink);
+  margin: 6px 0 10px;
+  font-variant-numeric: tabular-nums;
+}
+.traction-detail {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--body-copy);
+  max-width: 460px;
+  margin-bottom: 16px;
+}
+.traction-bar-wrap {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 14px;
+}
+.traction-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+.traction-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--ink);
+  border-radius: 999px;
+  transition: width 1s cubic-bezier(0.16,1,0.3,1);
+}
+.traction-bar-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--grey);
+  margin-top: 6px;
+}
+.traction-caveat {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--grey);
+  max-width: 460px;
+  line-height: 1.6;
 }
 
 /* stat cards */
@@ -1532,6 +2011,8 @@ body.work-page {
   transition: height 0.7s cubic-bezier(0.16,1,0.3,1), y 0.7s cubic-bezier(0.16,1,0.3,1);
 }
 .chart-wrap .bar.forecast { fill: var(--grey); opacity: 0.55; }
+.chart-wrap .bar.partial { fill: var(--ink); opacity: 0.5; stroke: var(--ink); stroke-width: 1; stroke-dasharray: 3 3; }
+.chart-wrap .bar.pending { fill: var(--line-strong); opacity: 0.4; }
 .chart-wrap .bar-value {
   font-family: var(--mono);
   font-size: 10px;
