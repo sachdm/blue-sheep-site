@@ -1317,9 +1317,33 @@ body.work-page {
 }
 
 /* ---------- investors ---------- */
-.gate, .investors-grid {
-  display: block;
+.investors-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
+.gate[hidden], .investors-grid[hidden] {
+  display: none;
+}
+
+.gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(100vh - 300px);
+}
+
+.gate-reach-out {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--grey);
+  margin-top: 20px;
+}
+.gate-reach-out a { color: var(--ink); border-bottom: 1px solid var(--line-strong); }
+.gate-reach-out a:hover { border-color: var(--ink); }
 
 .gate .label, .investors-grid .label {
   font-family: var(--mono);
@@ -1335,7 +1359,7 @@ body.work-page {
   font-size: 15px;
   color: var(--grey);
   max-width: 460px;
-  margin: 0 0 22px;
+  margin: 0 auto 22px;
   line-height: 1.6;
 }
 
@@ -1343,6 +1367,7 @@ body.work-page {
   display: flex;
   gap: 12px;
   max-width: 420px;
+  margin: 0 auto;
 }
 
 .gate-input {
@@ -1420,14 +1445,16 @@ body.work-page {
   border: 1px solid var(--line);
   border-radius: 6px;
   overflow: hidden;
-  margin-bottom: 48px;
+  margin: 0 auto 48px;
   max-width: 720px;
+  width: 100%;
 }
 .stat-card {
   background: var(--bg);
   padding: 22px 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
 }
 .stat-label {
@@ -1452,14 +1479,15 @@ body.work-page {
 /* chart block */
 .chart-block {
   max-width: 720px;
-  margin-bottom: 48px;
+  width: 100%;
+  margin: 0 auto 48px;
 }
 .chart-head {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
   margin-bottom: 16px;
 }
 .chart-label {
@@ -1540,7 +1568,7 @@ body.work-page {
 
 .story-block {
   max-width: 640px;
-  margin-bottom: 44px;
+  margin: 0 auto 44px;
 }
 .story-text {
   font-size: 16px;
@@ -1550,10 +1578,14 @@ body.work-page {
 
 .ask-card {
   max-width: 460px;
+  width: 100%;
   border: 1px solid var(--line-strong);
   border-radius: 6px;
   padding: 26px 24px;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .ask-amount {
   font-family: var(--sans);
@@ -1575,7 +1607,19 @@ body.work-page {
   color: var(--grey);
   max-width: 500px;
   line-height: 1.6;
+  margin: 0 auto;
 }
+
+.inv-security-note {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--grey);
+  max-width: 500px;
+  line-height: 1.6;
+  margin: 14px auto 0;
+}
+.inv-security-note a { color: var(--ink); border-bottom: 1px solid var(--line-strong); }
+.inv-security-note a:hover { border-color: var(--ink); }
 
 footer {
   border-top: 1px solid var(--line);
