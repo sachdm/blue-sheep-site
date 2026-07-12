@@ -210,6 +210,9 @@
   <div class="legend-bar" id="legendBar" aria-hidden="true"><div class="legend-bar-fill" id="legendBarFill"></div></div>
 </nav>
 
+<button class="slide-arrow prev" id="workSlidePrev" aria-label="Previous project">‹</button>
+<button class="slide-arrow next" id="workSlideNext" aria-label="Next project">›</button>
+
 <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Project video player" tabindex="-1">
   <div class="video-modal-inner" id="videoModalInner">
     <div class="video-modal-header">
@@ -365,7 +368,7 @@
     }
   });
 
-  const revealEls = document.querySelectorAll('.work-tile, .reveal');
+  const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -376,59 +379,64 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   revealEls.forEach(el => observer.observe(el));
 
-  // Scroll legend: project counter + progress markers
+  // Horizontal work slider: one project fills the screen at a time
   const scrollLegend = document.getElementById('scrollLegend');
   const legendCurrent = document.getElementById('legendCurrent');
   const legendTotalEl = document.querySelector('.legend-total');
   const legendMarkers = Array.from(document.querySelectorAll('.legend-marker'));
   const legendBarFill = document.getElementById('legendBarFill');
-  const legendWorkTiles = Array.from(document.querySelectorAll('.work-tile'));
-  const legendTotal = legendWorkTiles.length;
+  const workGrid = document.querySelector('.work-grid');
+  const workTiles = Array.from(document.querySelectorAll('.work-tile'));
+  const totalSlides = workTiles.length;
+  const workSlidePrev = document.getElementById('workSlidePrev');
+  const workSlideNext = document.getElementById('workSlideNext');
 
-  if (legendTotalEl) legendTotalEl.textContent = String(legendTotal).padStart(2, '0');
+  if (legendTotalEl) legendTotalEl.textContent = String(totalSlides).padStart(2, '0');
+  if (scrollLegend) scrollLegend.classList.add('visible');
 
-  let activeProjectIndex = -1;
-  const activeProjectSet = new Set();
+  let currentSlide = 0;
 
   function setActiveProject(index) {
-    if (index === activeProjectIndex) return;
-    activeProjectIndex = index;
+    currentSlide = index;
     if (legendCurrent) legendCurrent.textContent = String(index + 1).padStart(2, '0');
     legendMarkers.forEach((m, i) => m.classList.toggle('active', i === index));
-    if (legendBarFill) legendBarFill.style.width = `${((index + 1) / legendTotal) * 100}%`;
+    if (legendBarFill) legendBarFill.style.width = `${((index + 1) / totalSlides) * 100}%`;
+    if (workSlidePrev) workSlidePrev.disabled = index === 0;
+    if (workSlideNext) workSlideNext.disabled = index === totalSlides - 1;
   }
 
-  function updateLegendVisibility() {
-    if (!scrollLegend) return;
-    if (activeProjectSet.size > 0) {
-      scrollLegend.classList.add('visible');
-      setActiveProject(Math.min(...activeProjectSet));
-    } else {
-      scrollLegend.classList.remove('visible');
+  function goToSlide(index) {
+    const clamped = Math.max(0, Math.min(totalSlides - 1, index));
+    if (workTiles[clamped]) {
+      workTiles[clamped].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
     }
   }
 
-  if (scrollLegend && legendWorkTiles.length) {
-    const legendObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const idx = legendWorkTiles.indexOf(entry.target);
-        if (idx === -1) return;
-        if (entry.isIntersecting) {
-          activeProjectSet.add(idx);
-        } else {
-          activeProjectSet.delete(idx);
-        }
-      });
-      updateLegendVisibility();
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-
-    legendWorkTiles.forEach((tile) => legendObserver.observe(tile));
+  if (workGrid && workTiles.length) {
+    let scrollRAF = null;
+    function syncFromScroll() {
+      const idx = Math.round(workGrid.scrollLeft / workGrid.clientWidth);
+      setActiveProject(Math.max(0, Math.min(totalSlides - 1, idx)));
+    }
+    workGrid.addEventListener('scroll', () => {
+      if (scrollRAF) return;
+      scrollRAF = requestAnimationFrame(() => { syncFromScroll(); scrollRAF = null; });
+    }, { passive: true });
+    syncFromScroll();
 
     legendMarkers.forEach((marker, i) => {
       const dot = marker.querySelector('.legend-dot');
-      dot.addEventListener('click', () => {
-        legendWorkTiles[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
+      dot.addEventListener('click', () => goToSlide(i));
+    });
+
+    if (workSlidePrev) workSlidePrev.addEventListener('click', () => goToSlide(currentSlide - 1));
+    if (workSlideNext) workSlideNext.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+    document.addEventListener('keydown', (e) => {
+      if (videoModal.classList.contains('open')) return;
+      if (linkGroup && linkGroup.classList.contains('open')) return;
+      if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+      if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
     });
   }
 

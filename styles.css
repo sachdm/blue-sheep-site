@@ -58,19 +58,21 @@ button:focus-visible {
 .preloader-mark {
   width: clamp(120px, 16vw, 200px);
   height: auto;
-  filter: blur(26px) brightness(1.4);
+  filter: blur(30px) brightness(1.3);
   opacity: 0;
-  transform: scale(1.12);
+  transform: scale(1.1);
   -webkit-mask-image: radial-gradient(circle, #000 38%, transparent 72%);
   mask-image: radial-gradient(circle, #000 38%, transparent 72%);
   animation:
-    preloaderReveal 1.7s cubic-bezier(0.16, 1, 0.3, 1) forwards,
-    preloaderBreathe 2.4s ease-in-out 1.7s infinite;
+    preloaderReveal 3.2s ease-out forwards,
+    preloaderBreathe 2.4s ease-in-out 3.2s infinite;
 }
 
+/* Only a start and end state, so the browser interpolates blur/brightness/
+   opacity/scale as one continuous curve instead of visibly changing rate
+   partway through (which read as an awkward "snap" with extra keyframes). */
 @keyframes preloaderReveal {
-  0% { opacity: 0; filter: blur(34px) brightness(1.4); transform: scale(1.16); }
-  65% { opacity: 0.8; filter: blur(9px) brightness(1); }
+  0%   { opacity: 0;    filter: blur(30px) brightness(1.3); transform: scale(1.1); }
   100% { opacity: 0.72; filter: blur(3px) brightness(0.7); transform: scale(1); }
 }
 
@@ -299,6 +301,51 @@ a { color: inherit; text-decoration: none; }
   .video-modal-arrow { font-size: 26px; padding: 8px; }
   .video-modal-arrow.prev { left: 0; }
   .video-modal-arrow.next { right: 0; }
+}
+
+/* prev/next controls for the full-page horizontal work slider (same plain-
+   glyph language as the video modal arrows, but fixed to the viewport) */
+.slide-arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  border: none;
+  background: none;
+  color: #f3f2ee;
+  font-family: var(--sans);
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.slide-arrow:hover,
+.slide-arrow:focus-visible {
+  opacity: 1;
+}
+
+.slide-arrow.prev { left: 8px; }
+.slide-arrow.prev:hover { transform: translateY(-50%) translateX(-3px); }
+.slide-arrow.next { right: 8px; }
+.slide-arrow.next:hover { transform: translateY(-50%) translateX(3px); }
+
+.slide-arrow:disabled {
+  opacity: 0.15;
+  cursor: default;
+}
+.slide-arrow:disabled:hover { transform: translateY(-50%); }
+
+@media (max-width: 800px) {
+  .slide-arrow { font-size: 28px; padding: 12px; }
+  .slide-arrow.prev { left: 0; }
+  .slide-arrow.next { right: 0; }
 }
 
 .video-modal-legend {
@@ -832,28 +879,44 @@ header nav {
   padding: 148px 0 30px;
 }
 
-/* ---------- work list ---------- */
+/* ---------- work list (horizontal slider: one project per screen) ---------- */
 .work-grid {
   display: flex;
-  flex-direction: column;
-  padding-bottom: 110px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
+
+.work-grid::-webkit-scrollbar { display: none; }
 
 .work-tile {
-  padding: 70px 0 0;
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
-.work-grid .work-tile:first-child { padding-top: 0; }
-
-/* first tile sits flush under the fixed header, so it needs the same
+/* every slide sits flush under the fixed header, so each needs the same
    dark-fade scrim project-hero pages use to keep header text legible */
-.work-grid .work-tile:first-child .frame {
+.work-tile .frame {
   position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  aspect-ratio: unset;
 }
-.work-grid .work-tile:first-child .frame::before {
+.work-tile .frame::before {
   content: "";
   position: absolute;
   top: 0;
@@ -865,14 +928,13 @@ header nav {
   pointer-events: none;
 }
 
-.work-tile.in-view { opacity: 1; transform: translateY(0); }
-
 .tile-info {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
-  padding: 26px 0 0;
+  padding: 22px 0;
+  flex: 0 0 auto;
   flex-wrap: wrap;
 }
 
@@ -1419,8 +1481,6 @@ footer .socials a:hover { color: var(--ink); }
   .tile-info { flex-direction: column; align-items: flex-start; gap: 14px; }
   .work-tile .credits { text-align: left; }
   footer { flex-direction: column; align-items: flex-start; }
-  .work-tile { padding-top: 56px; }
-  .work-grid .work-tile:first-child { padding-top: 0; }
   .section-head { padding: 116px 0 20px; }
   .page-main { padding-top: 110px; }
 }
