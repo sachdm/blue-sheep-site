@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grants — Investors — Blue Sheep</title>
+<meta name="description" content="Private, encrypted grant application details for Blue Sheep — independent film production based in Toronto, Ontario.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="author" content="Blue Sheep">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/investors-grants.html">
+<meta name="view-transition" content="same-origin">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23f3f2ee' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap-wide">
+    <a class="brand" href="index.html">Blue Sheep</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="investors.html">Investors</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </nav>
+</header>
+
+<section id="main" class="wrap page-main">
+
+  <a class="inv-back reveal" href="investors.html">&larr; Investors</a>
+  <h1 class="label reveal inv-h1">Grants</h1>
+
+  <div class="gate reveal" id="investorsGate">
+    <div>
+      <p class="blurb">This page is encrypted. Enter the passphrase to continue.</p>
+      <form class="gate-form" id="gateForm" autocomplete="off">
+        <input type="password" class="gate-input" id="gateInput" placeholder="Passphrase" aria-label="Passphrase" autocomplete="off" spellcheck="false">
+        <button type="submit" class="gate-submit" id="gateSubmit">Enter</button>
+      </form>
+      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect passphrase. Try again.</p>
+      <p class="gate-reach-out">Don't have a passphrase? <a href="mailto:info@bluesheepfilms.com">Reach out</a> for access.</p>
+    </div>
+  </div>
+
+  <div class="inv-public" id="grantsContent" hidden>
+
+    <div class="grant-block reveal" id="grantBlock">
+      <span class="mini-label">Grant Applications</span>
+      <div class="grant-card" id="grantCard"></div>
+    </div>
+
+    <div class="timeline-block reveal" id="timelineBlock">
+      <span class="mini-label">One-Year Filmmaker Trajectory</span>
+      <p class="timeline-intro">How a selected filmmaker moves through the Production Lab, start to finish.</p>
+      <div class="timeline" id="timelineList"></div>
+    </div>
+
+    <div class="budget-block reveal" id="budgetBlockEl">
+      <span class="mini-label">$100,000 Grant Allocation — Proposed</span>
+      <div class="budget-bar" id="budgetBar"></div>
+      <ul class="budget-list" id="budgetList"></ul>
+      <p class="budget-footnote" id="budgetFootnote"></p>
+    </div>
+
+    <div class="roadmap-block reveal" id="roadmapBlockEl">
+      <span class="mini-label">Blue Sheep — One-Year Plan</span>
+      <div class="roadmap" id="roadmapList"></div>
+      <p class="roadmap-footnote" id="roadmapFootnote"></p>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  <span>© 2026 Blue Sheep</span>
+  <span class="clock" id="clock">Toronto</span>
+  <div class="socials">
+    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
+    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      var raw = a.getAttribute('href') || '';
+      if (raw.charAt(0) === '#') return;
+      var href = raw.split('#')[0] || 'index.html';
+      if (href === path) a.setAttribute('aria-current', 'page');
+    });
+  })();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const linkGroup = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = linkGroup.classList.toggle('open');
+    toggle.textContent = isOpen ? 'Close' : 'Menu';
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      const firstLink = linkGroup.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      toggle.focus();
+    }
+  });
+  linkGroup.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && linkGroup.classList.contains('open')) {
+      linkGroup.classList.remove('open');
+      toggle.textContent = 'Menu';
+      toggle.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+      toggle.focus();
+    }
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  const progressBar = document.querySelector('.progress-bar');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrollable = h.scrollHeight - h.clientHeight;
+    const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const clockEl = document.getElementById('clock');
+  if (clockEl) {
+    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
+    function updateClock() {
+      clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+
+  (function() {
+    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
+    // is opaque without the passphrase — nothing legible ships in this file.
+    const ENC = {
+      salt: "LnCPxzXYo/kcEZrBbXrJVg==",
+      iv: "KsfexU20Z+sFQIjm",
+      ciphertext: "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",
+      iterations: 600000
+    };
+
+    const gate = document.getElementById('investorsGate');
+    const content = document.getElementById('grantsContent');
+    const form = document.getElementById('gateForm');
+    const input = document.getElementById('gateInput');
+    const submitBtn = document.getElementById('gateSubmit');
+    const error = document.getElementById('gateError');
+
+    function b64ToBuf(b64) {
+      const bin = atob(b64);
+      const buf = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+      return buf;
+    }
+
+    async function decrypt(passphrase) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: b64ToBuf(ENC.salt), iterations: ENC.iterations, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(ENC.iv) }, key, b64ToBuf(ENC.ciphertext));
+      return JSON.parse(new TextDecoder().decode(plainBuf));
+    }
+
+    function wireToggles() {
+      document.querySelectorAll('.grant-toggle, .roadmap-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          const detail = btn.nextElementSibling;
+          btn.setAttribute('aria-expanded', String(!expanded));
+          btn.classList.toggle('open', !expanded);
+          if (detail) detail.hidden = expanded;
+        });
+      });
+      document.querySelectorAll('.roadmap-detail:not([hidden])').forEach(function(detail) {
+        const btn = detail.previousElementSibling;
+        if (btn) btn.classList.add('open');
+      });
+    }
+
+    function wireBudgetHover() {
+      document.querySelectorAll('.budget-row').forEach(function(row) {
+        const key = row.dataset.key;
+        const seg = document.querySelector('.budget-seg[data-key="' + key + '"]');
+        function on() { row.classList.add('active'); if (seg) seg.classList.add('active'); }
+        function off() { row.classList.remove('active'); if (seg) seg.classList.remove('active'); }
+        row.addEventListener('mouseenter', on);
+        row.addEventListener('mouseleave', off);
+        row.addEventListener('focus', on);
+        row.addEventListener('blur', off);
+        if (seg) {
+          seg.addEventListener('mouseenter', on);
+          seg.addEventListener('mouseleave', off);
+        }
+      });
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function renderGrant(g) {
+      const card = document.getElementById('grantCard');
+      let html = '';
+      html += '<div class="grant-card-head"><span class="grant-status">' + esc(g.status) + '</span><span class="grant-amount">' + esc(g.amount) + '</span></div>';
+      html += '<h3 class="grant-name">' + esc(g.name) + '</h3>';
+      html += '<div class="grant-program">' + esc(g.program) + '</div>';
+      html += '<p class="grant-thesis">' + g.thesisHtml + '</p>';
+      html += '<button type="button" class="grant-toggle" aria-expanded="false"><span>What\'s included</span><svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+      html += '<div class="grant-detail" hidden><ul class="grant-deliverables">';
+      g.deliverables.forEach(function(d) { html += '<li>' + esc(d) + '</li>'; });
+      html += '</ul></div>';
+      html += '<p class="grant-footnote">' + g.footnoteHtml + '</p>';
+      card.innerHTML = html;
+    }
+
+    function renderTimeline(items) {
+      const wrap = document.getElementById('timelineList');
+      let html = '';
+      items.forEach(function(it, i) {
+        const lastCls = i === items.length - 1 ? ' timeline-item-last' : '';
+        html += '<div class="timeline-item' + lastCls + '">';
+        html += '<div class="timeline-marker"><span class="timeline-dot"></span></div>';
+        html += '<div class="timeline-content"><span class="timeline-month">' + esc(it.month) + '</span><h4 class="timeline-title">' + esc(it.title) + '</h4><p class="timeline-desc">' + esc(it.desc) + '</p></div>';
+        html += '</div>';
+      });
+      wrap.innerHTML = html;
+    }
+
+    function fmtUSD(n) {
+      return '$' + Math.round(n).toLocaleString('en-US');
+    }
+
+    function renderBudget(items, footnote) {
+      const bar = document.getElementById('budgetBar');
+      const list = document.getElementById('budgetList');
+      let barHtml = '';
+      let listHtml = '';
+      const n = items.length;
+      items.forEach(function(it, i) {
+        const op = (1 - (i / n) * 0.8).toFixed(2);
+        barHtml += '<span class="budget-seg" data-key="' + it.key + '" data-w="' + it.pct + '" style="--op:' + op + '"></span>';
+        listHtml += '<li class="budget-row" data-key="' + it.key + '" tabindex="0">' +
+          '<span class="budget-swatch" style="--op:' + op + '"></span>' +
+          '<span class="budget-name">' + esc(it.name) + '</span>' +
+          '<span class="budget-amt">' + fmtUSD(it.amount) + '</span>' +
+          '<span class="budget-pct">' + it.pct + '%</span></li>';
+      });
+      bar.innerHTML = barHtml;
+      list.innerHTML = listHtml;
+      document.getElementById('budgetFootnote').textContent = footnote;
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          document.querySelectorAll('.budget-seg').forEach(function(seg) {
+            seg.style.width = seg.dataset.w + '%';
+          });
+        });
+      });
+    }
+
+    function renderRoadmap(items, footnote) {
+      const wrap = document.getElementById('roadmapList');
+      let html = '';
+      items.forEach(function(it, i) {
+        const expanded = it.now ? 'true' : 'false';
+        html += '<div class="roadmap-item">';
+        html += '<button type="button" class="roadmap-toggle" aria-expanded="' + expanded + '">';
+        html += '<span class="roadmap-q">' + esc(it.q) + (it.now ? ' <span class="roadmap-now">Now</span>' : '') + '</span>';
+        html += '<span class="roadmap-headline">' + esc(it.headline) + '</span>';
+        html += '<svg class="chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        html += '</button>';
+        html += '<div class="roadmap-detail"' + (it.now ? '' : ' hidden') + '><ul>';
+        it.items.forEach(function(li) { html += '<li>' + esc(li) + '</li>'; });
+        html += '</ul></div></div>';
+      });
+      wrap.innerHTML = html;
+      document.getElementById('roadmapFootnote').textContent = footnote;
+    }
+
+    function unlock(data) {
+      gate.hidden = true;
+      content.hidden = false;
+      renderGrant(data.grant);
+      renderTimeline(data.timeline);
+      renderBudget(data.budget, data.budgetFootnote);
+      renderRoadmap(data.roadmap, data.roadmapFootnote);
+      wireToggles();
+      wireBudgetHover();
+      content.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('in-view');
+      });
+    }
+
+    // No unlock state is persisted anywhere (sessionStorage, localStorage, cookies).
+    // The passphrase must be re-entered on every page load.
+    sessionStorage.removeItem('bs_investors_data');
+    sessionStorage.removeItem('bs_investors_unlocked');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const passphrase = input.value.trim();
+      if (!passphrase) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Decrypting…';
+      decrypt(passphrase).then(function(data) {
+        error.classList.remove('show');
+        unlock(data);
+      }).catch(function() {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+      }).finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enter';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

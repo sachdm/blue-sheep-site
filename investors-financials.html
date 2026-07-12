@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Summary — Investors — Blue Sheep</title>
+<meta name="description" content="Private, encrypted financial summary for Blue Sheep — independent film production based in Toronto, Ontario.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="author" content="Blue Sheep">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/investors-financials.html">
+<meta name="view-transition" content="same-origin">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23f3f2ee' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap-wide">
+    <a class="brand" href="index.html">Blue Sheep</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="investors.html">Investors</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </nav>
+</header>
+
+<section id="main" class="wrap page-main">
+
+  <a class="inv-back reveal" href="investors.html">&larr; Investors</a>
+  <h1 class="label reveal inv-h1">Financial Summary</h1>
+
+  <div class="gate reveal" id="investorsGate">
+    <div>
+      <p class="blurb">This page is encrypted. Enter the passphrase to continue.</p>
+      <form class="gate-form" id="gateForm" autocomplete="off">
+        <input type="password" class="gate-input" id="gateInput" placeholder="Passphrase" aria-label="Passphrase" autocomplete="off" spellcheck="false">
+        <button type="submit" class="gate-submit" id="gateSubmit">Enter</button>
+      </form>
+      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect passphrase. Try again.</p>
+      <p class="gate-reach-out">Don't have a passphrase? <a href="mailto:info@bluesheepfilms.com">Reach out</a> for access.</p>
+    </div>
+  </div>
+
+  <div class="investors-grid" id="investorsContent" hidden>
+
+    <div class="inv-period reveal" id="invPeriod"></div>
+
+    <div class="traction-card reveal" id="tractionCard">
+      <span class="mini-label">Traction — <span id="tractionDate"></span></span>
+      <div class="traction-amount" id="tractionAmount">$0</div>
+      <p class="traction-detail" id="tractionDetail"></p>
+      <div class="traction-bar-wrap">
+        <div class="traction-bar"><div class="traction-bar-fill" id="tractionBarFill"></div></div>
+        <span class="traction-bar-label" id="tractionBarLabel"></span>
+      </div>
+      <p class="traction-caveat" id="tractionCaveat"></p>
+    </div>
+
+    <div class="stat-grid reveal" id="statGrid"></div>
+
+    <div class="chart-block reveal">
+      <div class="chart-head">
+        <span class="chart-label">Quarterly trajectory</span>
+        <div class="metric-toggle" id="metricToggle" role="tablist" aria-label="Chart metric">
+          <button type="button" class="metric-btn active" data-metric="revenue" role="tab" aria-selected="true">Revenue</button>
+          <button type="button" class="metric-btn" data-metric="margin" role="tab" aria-selected="false">Margin</button>
+          <button type="button" class="metric-btn" data-metric="net" role="tab" aria-selected="false">Net</button>
+        </div>
+      </div>
+      <div class="chart-wrap" id="chartWrap"></div>
+      <p class="chart-note" id="breakevenNote"></p>
+    </div>
+
+    <div class="story-block reveal">
+      <span class="mini-label">The margin story</span>
+      <p class="story-text" id="storyText"></p>
+    </div>
+
+    <div class="ask-card reveal" id="askCard">
+      <span class="mini-label">The ask</span>
+      <div class="ask-amount" id="askAmount">$0</div>
+      <p class="ask-use" id="askUse"></p>
+    </div>
+
+    <p class="inv-note reveal" id="invNote"></p>
+
+    <p class="inv-security-note reveal">This page is protected with client-side passphrase encryption — nothing here is stored or sent as plain text. Want more detail than what's shown? <a href="mailto:info@bluesheepfilms.com">Reach out</a>.</p>
+
+    <h2><a href="mailto:info@bluesheepfilms.com">info@bluesheepfilms.com</a></h2>
+  </div>
+
+</section>
+
+<footer>
+  <span>© 2026 Blue Sheep</span>
+  <span class="clock" id="clock">Toronto</span>
+  <div class="socials">
+    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
+    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      var raw = a.getAttribute('href') || '';
+      if (raw.charAt(0) === '#') return;
+      var href = raw.split('#')[0] || 'index.html';
+      if (href === path) a.setAttribute('aria-current', 'page');
+    });
+  })();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const linkGroup = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = linkGroup.classList.toggle('open');
+    toggle.textContent = isOpen ? 'Close' : 'Menu';
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      const firstLink = linkGroup.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      toggle.focus();
+    }
+  });
+  linkGroup.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && linkGroup.classList.contains('open')) {
+      linkGroup.classList.remove('open');
+      toggle.textContent = 'Menu';
+      toggle.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+      toggle.focus();
+    }
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  const progressBar = document.querySelector('.progress-bar');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrollable = h.scrollHeight - h.clientHeight;
+    const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const clockEl = document.getElementById('clock');
+  if (clockEl) {
+    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
+    function updateClock() {
+      clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+
+  (function() {
+    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
+    // is opaque without the passphrase — nothing legible ships in this file.
+    const ENC = {
+      salt: "Xtdwo088KRU+0vp7VrE/sQ==",
+      iv: "KqdH/G5VQZGJjVoF",
+      ciphertext: "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",
+      iterations: 600000
+    };
+
+    const gate = document.getElementById('investorsGate');
+    const content = document.getElementById('investorsContent');
+    const form = document.getElementById('gateForm');
+    const input = document.getElementById('gateInput');
+    const submitBtn = document.getElementById('gateSubmit');
+    const error = document.getElementById('gateError');
+
+    function b64ToBuf(b64) {
+      const bin = atob(b64);
+      const buf = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+      return buf;
+    }
+
+    async function decrypt(passphrase) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: b64ToBuf(ENC.salt), iterations: ENC.iterations, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(ENC.iv) }, key, b64ToBuf(ENC.ciphertext));
+      return JSON.parse(new TextDecoder().decode(plainBuf));
+    }
+
+    function fmtUSD(n) {
+      const sign = n < 0 ? '-' : '';
+      return sign + '$' + Math.abs(Math.round(n)).toLocaleString('en-US');
+    }
+
+    function countUp(el, target, fmt, duration) {
+      const start = performance.now();
+      const isMoney = fmt === 'money';
+      function tick(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const val = target * eased;
+        el.textContent = isMoney ? fmtUSD(val) : (val.toFixed(1) + '%');
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = isMoney ? fmtUSD(target) : (target.toFixed(1) + '%');
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function renderStats(data) {
+      const grid = document.getElementById('statGrid');
+      const a = data.actuals;
+      const stats = [
+        { label: 'Revenue', value: a.revenue, fmt: 'money' },
+        { label: 'Gross margin', value: a.grossMarginPct, fmt: 'pct' },
+        { label: 'Net', value: a.net, fmt: 'money' }
+      ];
+      grid.innerHTML = '';
+      stats.forEach(function(s, i) {
+        const card = document.createElement('div');
+        card.className = 'stat-card';
+        card.innerHTML = '<span class="stat-label">' + s.label + '</span><span class="stat-value" data-target="' + s.value + '" data-fmt="' + s.fmt + '">' + (s.fmt === 'money' ? '$0' : '0.0%') + '</span>';
+        grid.appendChild(card);
+      });
+      document.getElementById('invPeriod').textContent = data.actualsPeriod;
+    }
+
+    function renderChart(data) {
+      const wrap = document.getElementById('chartWrap');
+      const quarters = data.quarters;
+      const W = 640, H = 220, PAD = 30;
+      let metric = 'revenue';
+
+      function rawValueFor(q) {
+        return metric === 'revenue' ? q.revenue : metric === 'margin' ? q.marginPct : q.net;
+      }
+      function isPending(q) {
+        return metric !== 'revenue' && (q.marginPct === null || q.marginPct === undefined || q.net === null || q.net === undefined);
+      }
+      function valueFor(q) {
+        const v = rawValueFor(q);
+        return (v === null || v === undefined) ? 0 : v;
+      }
+
+      function draw() {
+        const values = quarters.map(valueFor);
+        const min = Math.min(0, ...values);
+        const max = Math.max(0, ...values) * 1.2 || 1;
+        const range = (max - min) || 1;
+        const zeroY = H - PAD - ((0 - min) / range) * (H - PAD * 2);
+        const bw = (W - PAD * 2) / quarters.length * 0.55;
+        const step = (W - PAD * 2) / quarters.length;
+
+        let bars = '';
+        let labels = '';
+        quarters.forEach(function(q, i) {
+          const pending = isPending(q);
+          const v = valueFor(q);
+          const x = PAD + step * i + (step - bw) / 2;
+          const y = H - PAD - ((v - min) / range) * (H - PAD * 2);
+          const barY = v >= 0 ? y : zeroY;
+          const barH = Math.abs(zeroY - y);
+          const cls = pending ? 'bar pending' : q.type === 'forecast' ? 'bar forecast' : q.type === 'partial' ? 'bar partial' : 'bar actual';
+          bars += '<rect class="' + cls + '" x="' + x + '" y="' + zeroY + '" width="' + bw + '" height="0" data-y="' + barY + '" data-h="' + barH + '" rx="3"></rect>';
+          const valText = pending ? 'Pending' : (metric === 'margin' ? v.toFixed(1) + '%' : fmtUSD(v));
+          bars += '<text class="bar-value" x="' + (x + bw / 2) + '" y="' + (barY - 8) + '" text-anchor="middle">' + valText + '</text>';
+          const suffix = q.type === 'forecast' ? ' (F)' : q.type === 'partial' ? ' (Partial)' : '';
+          labels += '<text class="bar-label" x="' + (x + bw / 2) + '" y="' + (H - 8) + '" text-anchor="middle">' + q.label + suffix + '</text>';
+        });
+
+        wrap.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Quarterly ' + metric + ' chart">' +
+          '<line class="zero-line" x1="' + PAD + '" y1="' + zeroY + '" x2="' + (W - PAD) + '" y2="' + zeroY + '"></line>' +
+          bars + labels + '</svg>';
+
+        requestAnimationFrame(function() {
+          wrap.querySelectorAll('rect.bar').forEach(function(r) {
+            r.setAttribute('y', r.dataset.y);
+            r.setAttribute('height', r.dataset.h);
+          });
+        });
+      }
+
+      draw();
+
+      document.querySelectorAll('.metric-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.metric-btn').forEach(function(b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          metric = btn.dataset.metric;
+          draw();
+        });
+      });
+
+      document.getElementById('breakevenNote').textContent = data.breakeven;
+    }
+
+    function renderNarrative(data) {
+      document.getElementById('storyText').textContent = data.story;
+      document.getElementById('askAmount').setAttribute('data-target', data.ask.amount);
+      document.getElementById('askUse').textContent = data.ask.use;
+      document.getElementById('invNote').textContent = data.note;
+    }
+
+    function renderTraction(data) {
+      const t = data.traction;
+      const card = document.getElementById('tractionCard');
+      if (!t) { card.hidden = true; return; }
+      document.getElementById('tractionDate').textContent = t.asOf;
+      document.getElementById('tractionAmount').setAttribute('data-target', t.amount);
+      document.getElementById('tractionDetail').textContent =
+        fmtUSD(t.amount) + ' across ' + t.deposits + ' deposits — ' + t.pctBooked + '% of the ' + fmtUSD(t.quarterForecast) + ' quarter forecast, booked by day 10.';
+      document.getElementById('tractionBarLabel').textContent = t.pctBooked + '% of quarter';
+      document.getElementById('tractionCaveat').textContent =
+        t.caveat + ' Implied run-rate if this pace holds: ' + fmtUSD(t.runRate) + '/quarter.';
+      requestAnimationFrame(function() {
+        document.getElementById('tractionBarFill').style.width = Math.min(100, t.pctBooked) + '%';
+      });
+    }
+
+    function unlock(data) {
+      gate.hidden = true;
+      content.hidden = false;
+      renderStats(data);
+      renderTraction(data);
+      renderChart(data);
+      renderNarrative(data);
+      content.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('in-view');
+      });
+      document.querySelectorAll('.stat-value').forEach(function(el) {
+        countUp(el, parseFloat(el.dataset.target), el.dataset.fmt, 1100);
+      });
+      const askEl = document.getElementById('askAmount');
+      countUp(askEl, parseFloat(askEl.getAttribute('data-target')), 'money', 1100);
+      if (data.traction) {
+        const tractionEl = document.getElementById('tractionAmount');
+        countUp(tractionEl, parseFloat(tractionEl.getAttribute('data-target')), 'money', 1100);
+      }
+    }
+
+    // No unlock state is persisted anywhere (sessionStorage, localStorage, cookies).
+    // The passphrase must be re-entered on every page load.
+    sessionStorage.removeItem('bs_investors_data');
+    sessionStorage.removeItem('bs_investors_unlocked');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const passphrase = input.value.trim();
+      if (!passphrase) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Decrypting…';
+      decrypt(passphrase).then(function(data) {
+        error.classList.remove('show');
+        unlock(data);
+      }).catch(function() {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+      }).finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enter';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

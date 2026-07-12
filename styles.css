@@ -1323,7 +1323,7 @@ body.work-page {
   align-items: center;
   text-align: center;
 }
-.gate[hidden], .investors-grid[hidden] {
+.gate[hidden], .investors-grid[hidden], .inv-public[hidden], .inv-hub[hidden] {
   display: none;
 }
 
@@ -1355,6 +1355,77 @@ body.work-page {
   text-align: center;
   margin-bottom: 44px;
 }
+
+.inv-back {
+  display: block;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--grey);
+  margin-bottom: 20px;
+  transition: color 0.2s ease;
+}
+.inv-back:hover { color: var(--ink); }
+
+/* investors hub */
+.inv-hub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.inv-hub-intro {
+  font-size: 14px;
+  color: var(--grey);
+  max-width: 460px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+.inv-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 640px;
+}
+@media (max-width: 560px) {
+  .inv-hub-grid { grid-template-columns: 1fr; }
+}
+.inv-hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 8px;
+  padding: 26px 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.inv-hub-card:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+.inv-hub-label {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+}
+.inv-hub-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--grey);
+}
+.inv-hub-arrow {
+  margin-top: 6px;
+  font-family: var(--sans);
+  font-size: 16px;
+  color: var(--ink);
+  transition: transform 0.2s ease;
+}
+.inv-hub-card:hover .inv-hub-arrow { transform: translateX(4px); }
 
 .inv-public {
   display: flex;
