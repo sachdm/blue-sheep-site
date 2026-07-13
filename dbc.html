@@ -10,7 +10,6 @@
 <link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/dbc.html">
 <link rel="alternate" hreflang="en" href="https://sachdm.github.io/blue-sheep-site/dbc.html">
 <meta name="view-transition" content="same-origin">
-<script>(function(){try{if(localStorage.getItem('bs-theme')==='light'){document.documentElement.setAttribute('data-theme','light');var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content','#f4f2ec');}}catch(e){}})();</script>
 <meta property="og:title" content="DBC — Blue Sheep">
 <meta property="og:description" content="A visual study built around rhythm, texture, and motion.">
 <meta property="og:type" content="video.other">
@@ -32,7 +31,7 @@
 <link rel="preconnect" href="https://player.vimeo.com">
 <link rel="preconnect" href="https://i.vimeocdn.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=3">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -71,12 +70,14 @@
 <header>
   <nav class="wrap-wide">
     <a class="brand" href="index.html">Blue Sheep</a>
-    <div class="nav-links" id="navLinks">
-      <a href="work.html">Work</a>
-      <a href="contact.html">Contact</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="investors.html">Investors</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
     </div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">☾</button>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
   </nav>
 </header>
 
@@ -193,28 +194,6 @@
       toggle.focus();
     }
   });
-
-  const themeToggle = document.getElementById('themeToggle');
-  if (themeToggle) {
-    if (document.documentElement.getAttribute('data-theme') === 'light') {
-      themeToggle.textContent = '☀';
-    }
-    themeToggle.addEventListener('click', () => {
-      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-      const meta = document.querySelector('meta[name="theme-color"]');
-      if (isLight) {
-        document.documentElement.removeAttribute('data-theme');
-        themeToggle.textContent = '☾';
-        if (meta) meta.setAttribute('content', '#0a0a0a');
-        try { localStorage.setItem('bs-theme', 'dark'); } catch (e) {}
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeToggle.textContent = '☀';
-        if (meta) meta.setAttribute('content', '#f4f2ec');
-        try { localStorage.setItem('bs-theme', 'light'); } catch (e) {}
-      }
-    });
-  }
 
   const progressBar = document.querySelector('.progress-bar');
   function updateProgress() {
