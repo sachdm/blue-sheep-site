@@ -565,7 +565,7 @@ header nav {
 /* Homepage nav sits directly over the autoplaying hero video, so it gets
    a noticeably stronger blur than the base pill used on other pages. */
 body.home-page header nav {
-  background: rgba(var(--bg-rgb), 0.68);
+  background: rgba(var(--bg-rgb), 0.4);
   backdrop-filter: blur(32px) saturate(160%);
   -webkit-backdrop-filter: blur(32px) saturate(160%);
 }
@@ -1444,13 +1444,10 @@ body.work-page {
 }
 .inv-hub-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   width: 100%;
-  max-width: 760px;
-}
-@media (max-width: 700px) {
-  .inv-hub-grid { grid-template-columns: repeat(2, 1fr); }
+  max-width: 640px;
 }
 @media (max-width: 560px) {
   .inv-hub-grid { grid-template-columns: 1fr; }
@@ -1584,7 +1581,7 @@ body.work-page {
   justify-content: space-between;
 }
 .grant-toggle .chevron { transition: transform 0.3s ease; color: var(--grey); }
-.grant-toggle.open .chevron, .roadmap-toggle.open .chevron { transform: rotate(180deg); }
+.grant-toggle.open .chevron, .roadmap-toggle.open .chevron, .budget-row-toggle.open .chevron { transform: rotate(180deg); }
 .grant-toggle:hover, .roadmap-toggle:hover { opacity: 0.8; }
 
 .grant-detail {
@@ -1872,18 +1869,27 @@ body.work-page {
   gap: 2px;
 }
 .budget-row {
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+.budget-row:hover, .budget-row.active {
+  background: var(--line);
+}
+.budget-row-toggle {
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 100%;
   padding: 10px 8px;
-  border-radius: 4px;
-  transition: background 0.2s ease;
-  cursor: default;
+  background: none;
+  border: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
 }
-.budget-row:hover, .budget-row:focus-visible, .budget-row.active {
-  background: var(--line);
-  outline: none;
-}
+.budget-row-toggle:focus-visible { outline: none; }
+.budget-row-toggle .chevron { flex-shrink: 0; color: var(--grey); }
 .budget-swatch {
   width: 10px;
   height: 10px;
@@ -1914,6 +1920,31 @@ body.work-page {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
+.budget-subs {
+  list-style: none;
+  padding: 0 8px 10px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.budget-sub-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.budget-sub-name {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--grey);
+}
+.budget-sub-amt {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--grey);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
 .budget-footnote {
   font-family: var(--mono);
   font-size: 11.5px;
@@ -1925,6 +1956,44 @@ body.work-page {
 @media (max-width: 480px) {
   .budget-name { font-size: 12.5px; }
   .budget-pct { width: 30px; }
+  .budget-subs { padding-left: 24px; }
+}
+
+/* slate strategy: stack rows carry an explanatory note under each source,
+   laid out via .budget-row-top (flex header line) + .budget-row-note (block
+   paragraph below) — both are just block-level children of .budget-row. */
+.budget-row-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.budget-row-note {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--grey);
+  line-height: 1.5;
+  padding-left: 22px;
+}
+
+.stack-subtitle {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--grey);
+  line-height: 1.6;
+  max-width: 640px;
+  margin: -4px 0 20px;
+}
+
+.risk-block {
+  max-width: 640px;
+  margin: 0 auto 56px;
+  border-left: 2px solid var(--ink);
+  padding-left: 20px;
+}
+.risk-text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--body-copy);
 }
 
 .gate .label, .investors-grid .label {

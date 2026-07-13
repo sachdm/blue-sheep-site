@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slate Strategy — Investors — Blue Sheep</title>
+<meta name="description" content="Private, encrypted slate-financing strategy for Blue Sheep — independent film production based in Toronto, Ontario.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="author" content="Blue Sheep">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/investors-slate.html">
+<meta name="view-transition" content="same-origin">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23f3f2ee' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap-wide">
+    <a class="brand" href="index.html">Blue Sheep</a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="investors.html">Investors</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </nav>
+</header>
+
+<section id="main" class="wrap page-main">
+
+  <a class="inv-back reveal" href="investors.html">&larr; Investors</a>
+  <h1 class="label reveal inv-h1">Slate Strategy</h1>
+
+  <div class="gate reveal" id="investorsGate">
+    <div>
+      <p class="blurb">This page is encrypted. Enter the passphrase to continue.</p>
+      <form class="gate-form" id="gateForm" autocomplete="off">
+        <input type="password" class="gate-input" id="gateInput" placeholder="Passphrase" aria-label="Passphrase" autocomplete="off" spellcheck="false">
+        <button type="submit" class="gate-submit" id="gateSubmit">Enter</button>
+      </form>
+      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect passphrase. Try again.</p>
+      <p class="gate-reach-out">Don't have a passphrase? <a href="mailto:info@bluesheepfilms.com">Reach out</a> for access.</p>
+    </div>
+  </div>
+
+  <div class="inv-public" id="slateContent" hidden>
+
+    <div class="story-block reveal" id="thesisBlock">
+      <span class="mini-label">The Pivot</span>
+      <p class="story-text" id="thesisText"></p>
+    </div>
+
+    <div class="budget-block reveal" id="stackBlockEl">
+      <span class="mini-label" id="stackTitle"></span>
+      <p class="stack-subtitle" id="stackSubtitle"></p>
+      <div class="budget-bar" id="stackBar"></div>
+      <ul class="budget-list stack-list" id="stackList"></ul>
+      <p class="budget-footnote" id="stackFootnote"></p>
+    </div>
+
+    <div class="risk-block reveal" id="riskBlockEl">
+      <span class="mini-label">Risk to Watch</span>
+      <p class="risk-text" id="riskText"></p>
+    </div>
+
+    <div class="timeline-block reveal" id="timelineBlockEl">
+      <span class="mini-label">Slate Roadmap</span>
+      <p class="timeline-intro">How Blue Sheep moves from service work to a sustaining feature slate.</p>
+      <div class="timeline" id="timelineList"></div>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  <span>© 2026 Blue Sheep</span>
+  <span class="clock" id="clock">Toronto</span>
+  <div class="socials">
+    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
+    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      var raw = a.getAttribute('href') || '';
+      if (raw.charAt(0) === '#') return;
+      var href = raw.split('#')[0] || 'index.html';
+      if (href === path) a.setAttribute('aria-current', 'page');
+    });
+  })();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const linkGroup = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = linkGroup.classList.toggle('open');
+    toggle.textContent = isOpen ? 'Close' : 'Menu';
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      const firstLink = linkGroup.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      toggle.focus();
+    }
+  });
+  linkGroup.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && linkGroup.classList.contains('open')) {
+      linkGroup.classList.remove('open');
+      toggle.textContent = 'Menu';
+      toggle.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+      toggle.focus();
+    }
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  const progressBar = document.querySelector('.progress-bar');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrollable = h.scrollHeight - h.clientHeight;
+    const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const clockEl = document.getElementById('clock');
+  if (clockEl) {
+    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
+    function updateClock() {
+      clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+
+  (function() {
+    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
+    // is opaque without the passphrase — nothing legible ships in this file.
+    const ENC = {
+      salt: "6Pka2FwK+qwLVXZxZRd2nA==",
+      iv: "jdRdwwNw0pvKEG6b",
+      ciphertext: "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",
+      iterations: 600000
+    };
+
+    const gate = document.getElementById('investorsGate');
+    const content = document.getElementById('slateContent');
+    const form = document.getElementById('gateForm');
+    const input = document.getElementById('gateInput');
+    const submitBtn = document.getElementById('gateSubmit');
+    const error = document.getElementById('gateError');
+
+    function b64ToBuf(b64) {
+      const bin = atob(b64);
+      const buf = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+      return buf;
+    }
+
+    async function decrypt(passphrase) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: b64ToBuf(ENC.salt), iterations: ENC.iterations, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(ENC.iv) }, key, b64ToBuf(ENC.ciphertext));
+      return JSON.parse(new TextDecoder().decode(plainBuf));
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function fmtUSD(n) {
+      return '$' + Math.round(n).toLocaleString('en-US');
+    }
+
+    function renderStack(items, title, subtitle, footnote) {
+      document.getElementById('stackTitle').textContent = title;
+      document.getElementById('stackSubtitle').textContent = subtitle;
+      const bar = document.getElementById('stackBar');
+      const list = document.getElementById('stackList');
+      let barHtml = '';
+      let listHtml = '';
+      const n = items.length;
+      items.forEach(function(it, i) {
+        const op = (1 - (i / n) * 0.8).toFixed(2);
+        barHtml += '<span class="budget-seg" data-key="' + it.key + '" data-w="' + it.pct + '" style="--op:' + op + '"></span>';
+        listHtml += '<li class="budget-row" data-key="' + it.key + '" tabindex="0">' +
+          '<div class="budget-row-top">' +
+          '<span class="budget-swatch" style="--op:' + op + '"></span>' +
+          '<span class="budget-name">' + esc(it.name) + '</span>' +
+          '<span class="budget-amt">' + fmtUSD(it.amount) + '</span>' +
+          '<span class="budget-pct">' + it.pct + '%</span>' +
+          '</div>' +
+          '<p class="budget-row-note">' + esc(it.note) + '</p>' +
+          '</li>';
+      });
+      bar.innerHTML = barHtml;
+      list.innerHTML = listHtml;
+      document.getElementById('stackFootnote').textContent = footnote;
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          document.querySelectorAll('.budget-seg').forEach(function(seg) {
+            seg.style.width = seg.dataset.w + '%';
+          });
+        });
+      });
+    }
+
+    function wireStackHover() {
+      document.querySelectorAll('.stack-list .budget-row').forEach(function(row) {
+        const key = row.dataset.key;
+        const seg = document.querySelector('.budget-seg[data-key="' + key + '"]');
+        function on() { row.classList.add('active'); if (seg) seg.classList.add('active'); }
+        function off() { row.classList.remove('active'); if (seg) seg.classList.remove('active'); }
+        row.addEventListener('mouseenter', on);
+        row.addEventListener('mouseleave', off);
+        row.addEventListener('focus', on);
+        row.addEventListener('blur', off);
+        if (seg) {
+          seg.addEventListener('mouseenter', on);
+          seg.addEventListener('mouseleave', off);
+        }
+      });
+    }
+
+    function renderTimeline(items) {
+      const wrap = document.getElementById('timelineList');
+      let html = '';
+      items.forEach(function(it, i) {
+        const lastCls = i === items.length - 1 ? ' timeline-item-last' : '';
+        html += '<div class="timeline-item' + lastCls + '">';
+        html += '<div class="timeline-marker"><span class="timeline-dot"></span></div>';
+        html += '<div class="timeline-content"><span class="timeline-month">' + esc(it.month) + '</span><h4 class="timeline-title">' + esc(it.title) + '</h4><p class="timeline-desc">' + esc(it.desc) + '</p></div>';
+        html += '</div>';
+      });
+      wrap.innerHTML = html;
+    }
+
+    function unlock(data) {
+      gate.hidden = true;
+      content.hidden = false;
+      document.getElementById('thesisText').innerHTML = data.thesisHtml;
+      renderStack(data.stack, data.stackTitle, data.stackSubtitle, data.stackFootnote);
+      document.getElementById('riskText').textContent = data.riskNote;
+      renderTimeline(data.timeline);
+      wireStackHover();
+      content.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('in-view');
+      });
+    }
+
+    // Unlock state persists in localStorage on this device/browser, so the
+    // passphrase only needs to be entered once. Clear site data to re-lock.
+    const LOCK_KEY = 'bs_inv_slate_data';
+    const cached = localStorage.getItem(LOCK_KEY);
+    if (cached) {
+      try { unlock(JSON.parse(cached)); } catch (e) { localStorage.removeItem(LOCK_KEY); }
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const passphrase = input.value.trim();
+      if (!passphrase) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Decrypting…';
+      decrypt(passphrase).then(function(data) {
+        error.classList.remove('show');
+        localStorage.setItem(LOCK_KEY, JSON.stringify(data));
+        unlock(data);
+      }).catch(function() {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+      }).finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enter';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
