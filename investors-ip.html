@@ -30,7 +30,7 @@
 
 <header>
   <nav class="wrap-wide">
-    <a class="brand" href="index.html">Blue Sheep</a>
+    <a class="brand" href="index.html" aria-label="Blue Sheep — Home"><img class="brand-logo" src="small-sheep.png" alt="Blue Sheep" width="309" height="240"></a>
     <div class="nav-right">
       <div class="nav-links" id="navLinks">
         <a href="work.html">Work</a>
@@ -64,6 +64,11 @@
     <p class="pipeline-intro reveal" id="ipNote"></p>
 
     <div class="pipeline-groups" id="ipGroups"></div>
+
+    <div class="pipeline-automation reveal">
+      <span class="mini-label">Tracking Fields</span>
+      <p class="pipeline-automation-text">Format, logline, budget, and notes are editable — click into any field and type. This is a static site with no backend, so edits save to this browser only (not synced across devices, not sent anywhere). Fill these in as each project firms up.</p>
+    </div>
 
     <p class="inv-security-note reveal">This page is protected with client-side passphrase encryption — nothing here is stored or sent as plain text. Want more detail on any title? <a href="mailto:info@bluesheepfilms.com">Reach out</a>.</p>
 
@@ -150,9 +155,9 @@
     // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
     // is opaque without the passphrase — nothing legible ships in this file.
     const ENC = {
-      salt: "XHASPKovXEjGVUY+HLAdKA==",
-      iv: "g1dNLm8kJA3U3dLz",
-      ciphertext: "8D1t8Cxr+CRdOOFFVy4iVGmAcGkO336WkWD+mo7FHPPzh6uO71NXweYAxOlBUuiVIdrkHHpfgr1ILRbLTNvisdCmjOXAiGHJ7Ks9cMDQKerFCJ/TYUwNs0ZpzFXeMZKHg/NgqK2TNyTpetf9PuYB1d0Wjfwkz0gRvZitB2t9GEXiCqf58ADpOI75R0a2xr9jMp298ByUHPI84YUXVEAtiGVU3LmCk7iE8/2szsvNLzg30Dxix96W5s0r4H45ipCZ658HUPUCOKLz5/VEu/v5wesmvDsJYgq6mtF8mkN7xAHJwdjUZO6+f20jv8rLD2ijFvmv+/GjVJGFoY3kL5p+9cVYBzLJWTvby6gTvGqKy4FE1I7h7IZsHEC5rdvWTIcKest7YsvXKO19WUEbVaZEmj3sESQ9JDUtx0fCXNWtdBaf10TstkzFMioKyxgfcu4pnRcTybGjQrTH5RE2W+B9As7qjVChchzNQAMhc/cy/b9X2D+LkbCx6HeDlBiLfOY5U1QXr2GOsizOlhVfeuUVg0LN07i5jC+p98kv22cBEwFJK3M6aOjmd8qv313l7OoKM9PYn26vOZhlIdjHTYq5ngeyubqiAUC8K0X1ibFTU2THuf5s0u0WiMLFsXzXcSn++S1aq4MVqJ4uJMtkXIEZUpCRgf4hBTol9SJVMSnx4uoxa5ELqmz4o51uBa9JA6nw1dWMexQ4wKq+0zwNuiqaAbGPOV1KQfNU2/wP78QrQDR1sr3FdVeKs0rYdsZ2+OyjTJn80jrSJoSXQk2FlyYXNzMly4KtQ1hIRXdTDb2OlGy1D5olLHVe2M0QlkpzNlENfNGnz12bGaVkJTSdaJ+LKvaobpdELKoMpuuLDFV/uyo4nGwuyO7HndGqZ7K9sB4YaljnTtfoHF4OTbLTUEF8EdcLSVCPRQKQFw5HNwLfbZpV37FMGx/Y7Ek=",
+      salt: "Y0BGJQDh5AkOMSe4ZXyMQg==",
+      iv: "EVDSdeRX9z6QtR/7",
+      ciphertext: "r6pQr/wTlRJe33zx+5bkKLwE8XUACiZ6zOwg7xE34VwzKka1VR1d9tbOSo36S5Up4qBMroCLREte/RFdQS1R/LXB1PYTAI9ihW1Z+KgbXxmf2zeVBcVMNSHOXx5RDZmBzPpxaNQ16quAA2B+UwJ6Xpr5X5twNEgW1m4coYKHb+mdNMa6yDUkEPV3RN4I1s1QJuDEk2dUm8YCglvCrnnnh1ilSWLgUK3GWP6/YLcnTFJ33W7h10PrkuKPKDu52IIXbU0Szq4UcPvbg15Nwo93JawxM71Iee/qkhhyDbjZNVjlUR52ufpZgMc/YherRc9+D+mhFxrBmuwt9rBjrUt0PBVOFpp3/21xntzYVJDi4t4L99aBIoTOqKLEXM1babNFOXQFyNVwgP1JKo+RZsaJg1Bo/8bwMg5du4d6bUIgzo9BvfqJzql0dvXru+jrT4jPX+cxGZyB/xjc5CF6KSKIze+lL3LWITBWyMCXIJkQTWJ/osxtpcEMKhxdgekpjfMIav0ct9Af4RePj+UM/ZUt8kUj1lKNI8n2p/wMtojyzVtssJZL7MKUMF1V55IMTJrycBG4oxdRiPo0FFt1t6FfKZJfd+En2tnNb9lLtqnQJYy3SGpM/a6tMe43UShxhyThUvizsFcG3mglTZljnYtmQXiKxEZH7DmTMTkWpxtkYMMGIB31V55lj/fkrIcaKPm9d06so8oEKwUWkNfU4YMZLxyKMtkW+TQ3ZmM3iZIWvNm6UdpIXFXAwRm5DBIoS/tadfIqQv6eBkLPo6AF/7hqw31PD+YXPI7yzhotwC7pvnqI/zQbFVv0JllvnCNcBOZJlFpa5DWbvp8Nfvy+fAmLywaqGxQywu9f38I/8yYa0WofoQ/wendDw5nmwOdKrfEgXR8OhnxBA8IDn2QvZOs7gj0u08APUbYWbbLnNx4g6IyU3qlmWvOkBxtDqBbgBVX+a6d+6DhRjSDNDvdhswpWsNbTUMdnse3IAWiQ2Cyc/3dhRSFQaNxqQO7HuVjmyy0IyY4H+2bsRrlYRnIrkCJfMJpKNhcv9RjqItQ3aqWrJJSr5XxAKUKbpRiTwbXW7+bwza5Kp/U/FUb3kIlUkStrRDSAUqTcXyICVicB8BSEgcZeMoqDakVmRMOnRZ6TdBRWt8IceNCogeGCFVWLdyszMy2RgRlNF5UAgKlmlTIZb7N2XqBnF+zN+MUZVsy/fn6P7N1PXs3Smq83RL4JXaM6j0HjAWhZzMFd+Paa5+0uxf6kzHjW2CBs5FnBNEc+oLK6bQA+OvR4aqk79k8vRGBBQ64wzl4KCIvXlbMHe3EGFm3zsNm+1Toz5MF1tip6rNuB2zTc0MrUPkmg7Fm4Wyt8lckFD7D7tb4lR6rfcD/4lt8xFp2vW4DBKgb6kUc1xixuiWV9Een4/Mza0in9EZ0lqcS53jeob/CtSDOE5ZQnb/RzAzieYE8tEX/EPWih6Who70jBvO7oNGhZzxqM43uUXQ5BBMz4ZJEnKNYMsjW9ShTdCYMWCc+3ddv2UOBRXKNxwOpWd7Ue7ptkxZMy0nwzGb/xyn5PTKPL6GyfVCmtNVBYTNWW+b1edMter3EV/DG/SyMsRHL1EIQdpLKn901I+6FcGB4v0Iu0I0FbwH+TXibE",
       iterations: 600000
     };
 
@@ -189,8 +194,26 @@
     }
 
     const STAGE_ORDER = ['Script/Dev', 'Post-Production', 'Festival Run'];
+    const TRACK_FIELDS = [
+      { key: 'format', label: 'Format', type: 'input', placeholder: 'Feature / Short / Series…' },
+      { key: 'logline', label: 'Logline', type: 'input', placeholder: 'One-line summary…' },
+      { key: 'budget', label: 'Budget', type: 'input', placeholder: 'Target budget…' },
+      { key: 'notes', label: 'Notes', type: 'textarea', placeholder: 'Status, next steps, anything worth tracking…' }
+    ];
+    const FIELDS_KEY = 'bs_ip_fields';
+
+    function getFieldsMap() {
+      try { return JSON.parse(localStorage.getItem(FIELDS_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function setField(id, key, value) {
+      const map = getFieldsMap();
+      if (!map[id]) map[id] = {};
+      map[id][key] = value;
+      localStorage.setItem(FIELDS_KEY, JSON.stringify(map));
+    }
 
     function renderGroups(projects) {
+      const fieldsMap = getFieldsMap();
       const byStage = {};
       STAGE_ORDER.forEach(function(s) { byStage[s] = []; });
       projects.forEach(function(p) {
@@ -203,20 +226,31 @@
         if (!items || !items.length) return;
         html += '<div class="pipeline-group"><h3 class="pipeline-group-title">' + esc(stage) + '</h3><ul class="pipeline-list">';
         items.forEach(function(p) {
-          html += '<li class="pipeline-row">';
+          const saved = fieldsMap[p.id] || {};
+          html += '<li class="pipeline-row ip-track-row" data-id="' + esc(p.id) + '">';
           html += '<div class="pipeline-row-main">';
           if (p.link) {
             html += '<a class="pipeline-name ip-title-link" href="' + esc(p.link) + '">' + esc(p.title) + '</a>';
           } else {
             html += '<span class="pipeline-name">' + esc(p.title) + '</span>';
           }
-          if (p.format) {
-            html += '<span class="pipeline-priority">' + esc(p.format) + '</span>';
-          }
           html += '</div>';
           if (p.note) {
             html += '<p class="pipeline-note">' + esc(p.note) + '</p>';
           }
+          html += '<div class="ip-track-grid">';
+          TRACK_FIELDS.forEach(function(f) {
+            const current = saved[f.key] !== undefined ? saved[f.key] : (p[f.key] || '');
+            html += '<div class="ip-track-field">';
+            html += '<label class="ip-track-label">' + esc(f.label) + '</label>';
+            if (f.type === 'textarea') {
+              html += '<textarea class="ip-track-input" data-id="' + esc(p.id) + '" data-field="' + f.key + '" placeholder="' + esc(f.placeholder) + '" rows="2">' + esc(current) + '</textarea>';
+            } else {
+              html += '<input type="text" class="ip-track-input" data-id="' + esc(p.id) + '" data-field="' + f.key + '" placeholder="' + esc(f.placeholder) + '" value="' + esc(current) + '">';
+            }
+            html += '</div>';
+          });
+          html += '</div>';
           html += '</li>';
         });
         html += '</ul></div>';
@@ -224,11 +258,20 @@
       document.getElementById('ipGroups').innerHTML = html;
     }
 
+    function wireTrackFields() {
+      document.querySelectorAll('.ip-track-input').forEach(function(el) {
+        el.addEventListener('change', function() {
+          setField(el.dataset.id, el.dataset.field, el.value);
+        });
+      });
+    }
+
     function unlock(data) {
       gate.hidden = true;
       content.hidden = false;
       document.getElementById('ipNote').textContent = data.note;
       renderGroups(data.projects);
+      wireTrackFields();
       content.querySelectorAll('.reveal').forEach(function(el) {
         el.classList.add('in-view');
       });
