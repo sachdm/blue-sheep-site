@@ -63,11 +63,17 @@
 
     <p class="pipeline-intro reveal" id="ipNote"></p>
 
+    <div class="team-editor-bar reveal">
+      <label class="team-editor-label" for="editorNameInput">Editing as</label>
+      <input type="text" class="team-editor-input" id="editorNameInput" placeholder="Your name…" autocomplete="off">
+      <span class="team-editor-hint">Shared across the internal pages on this browser.</span>
+    </div>
+
     <div class="pipeline-groups" id="ipGroups"></div>
 
     <div class="pipeline-automation reveal">
       <span class="mini-label">Tracking Fields</span>
-      <p class="pipeline-automation-text">Format, logline, budget, and notes are editable — click into any field and type. This is a static site with no backend, so edits save to this browser only (not synced across devices, not sent anywhere). Fill these in as each project firms up.</p>
+      <p class="pipeline-automation-text">Format, logline, budget, notes, priority, and stage are all editable. Click a priority pill to cycle it, use the stage dropdown to move a title between groups. This is a static site with no backend, so edits save to this browser only (not synced across devices, not sent anywhere). Fill these in as each project firms up.</p>
     </div>
 
     <p class="inv-security-note reveal">This page is protected with client-side passphrase encryption — nothing here is stored or sent as plain text. Want more detail on any title? <a href="mailto:info@bluesheepfilms.com">Reach out</a>.</p>
@@ -212,13 +218,26 @@
       localStorage.setItem(FIELDS_KEY, JSON.stringify(map));
     }
 
+    // ---------- shared editor identity (also used on Team Hub) ----------
+    const EDITOR_KEY = 'bs_team_editor';
+    function getEditor() { return localStorage.getItem(EDITOR_KEY) || ''; }
+    function setEditor(name) { localStorage.setItem(EDITOR_KEY, name); }
+
+    const PRIORITY_CYCLE = ['', 'Low', 'Medium', 'High'];
+    function nextPriority(current) {
+      const i = PRIORITY_CYCLE.indexOf(current || '');
+      return PRIORITY_CYCLE[(i + 1) % PRIORITY_CYCLE.length];
+    }
+
     function renderGroups(projects) {
       const fieldsMap = getFieldsMap();
       const byStage = {};
       STAGE_ORDER.forEach(function(s) { byStage[s] = []; });
       projects.forEach(function(p) {
-        if (!byStage[p.stage]) byStage[p.stage] = [];
-        byStage[p.stage].push(p);
+        const saved = fieldsMap[p.id] || {};
+        const effectiveStage = saved.stageOverride || p.stage;
+        if (!byStage[effectiveStage]) byStage[effectiveStage] = [];
+        byStage[effectiveStage].push(p);
       });
       let html = '';
       STAGE_ORDER.forEach(function(stage) {
@@ -227,6 +246,8 @@
         html += '<div class="pipeline-group"><h3 class="pipeline-group-title">' + esc(stage) + '</h3><ul class="pipeline-list">';
         items.forEach(function(p) {
           const saved = fieldsMap[p.id] || {};
+          const priority = saved.priority || '';
+          const effectiveStage = saved.stageOverride || p.stage;
           html += '<li class="pipeline-row ip-track-row" data-id="' + esc(p.id) + '">';
           html += '<div class="pipeline-row-main">';
           if (p.link) {
@@ -234,6 +255,14 @@
           } else {
             html += '<span class="pipeline-name">' + esc(p.title) + '</span>';
           }
+          html += '<div class="ip-row-controls">';
+          html += '<button type="button" class="ip-priority-btn' + (priority ? ' priority-' + priority.toLowerCase() : '') + '" data-id="' + esc(p.id) + '">' + (priority || 'Priority: —') + '</button>';
+          html += '<select class="ip-stage-select" data-id="' + esc(p.id) + '" aria-label="Stage for ' + esc(p.title) + '">';
+          STAGE_ORDER.forEach(function(s) {
+            html += '<option value="' + esc(s) + '"' + (s === effectiveStage ? ' selected' : '') + '>' + esc(s) + '</option>';
+          });
+          html += '</select>';
+          html += '</div>';
           html += '</div>';
           if (p.note) {
             html += '<p class="pipeline-note">' + esc(p.note) + '</p>';
@@ -251,6 +280,9 @@
             html += '</div>';
           });
           html += '</div>';
+          if (saved.updatedAt) {
+            html += '<p class="ip-updated-meta">Updated ' + esc(new Date(saved.updatedAt).toLocaleDateString()) + (saved.updatedBy ? ' by ' + esc(saved.updatedBy) : '') + '</p>';
+          }
           html += '</li>';
         });
         html += '</ul></div>';
@@ -258,20 +290,56 @@
       document.getElementById('ipGroups').innerHTML = html;
     }
 
-    function wireTrackFields() {
+    function stampUpdate(id) {
+      const map = getFieldsMap();
+      if (!map[id]) map[id] = {};
+      map[id].updatedAt = new Date().toISOString();
+      const editor = getEditor();
+      if (editor) map[id].updatedBy = editor;
+      localStorage.setItem(FIELDS_KEY, JSON.stringify(map));
+    }
+
+    function wireTrackFields(projects) {
       document.querySelectorAll('.ip-track-input').forEach(function(el) {
         el.addEventListener('change', function() {
           setField(el.dataset.id, el.dataset.field, el.value);
+          stampUpdate(el.dataset.id);
         });
       });
+      document.querySelectorAll('.ip-priority-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const map = getFieldsMap();
+          const current = (map[btn.dataset.id] || {}).priority || '';
+          const next = nextPriority(current);
+          setField(btn.dataset.id, 'priority', next);
+          stampUpdate(btn.dataset.id);
+          btn.className = 'ip-priority-btn' + (next ? ' priority-' + next.toLowerCase() : '');
+          btn.textContent = next || 'Priority: —';
+        });
+      });
+      document.querySelectorAll('.ip-stage-select').forEach(function(sel) {
+        sel.addEventListener('change', function() {
+          setField(sel.dataset.id, 'stageOverride', sel.value);
+          stampUpdate(sel.dataset.id);
+          renderGroups(projects);
+          wireTrackFields(projects);
+        });
+      });
+    }
+
+    function wireEditor() {
+      const editorInput = document.getElementById('editorNameInput');
+      editorInput.value = getEditor();
+      editorInput.addEventListener('change', function() { setEditor(editorInput.value.trim()); });
     }
 
     function unlock(data) {
       gate.hidden = true;
       content.hidden = false;
       document.getElementById('ipNote').textContent = data.note;
+      wireEditor();
       renderGroups(data.projects);
-      wireTrackFields();
+      wireTrackFields(data.projects);
       content.querySelectorAll('.reveal').forEach(function(el) {
         el.classList.add('in-view');
       });

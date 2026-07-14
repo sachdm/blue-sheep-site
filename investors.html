@@ -60,6 +60,13 @@
 
   <div class="inv-hub" id="invHub" hidden>
     <p class="inv-hub-intro reveal">Enter any section below. Each is independently encrypted with the same passphrase.</p>
+
+    <div class="hub-snapshot reveal" id="hubSnapshot">
+      <span class="mini-label">Snapshot — This Device</span>
+      <div class="pipeline-summary hub-snapshot-grid" id="hubSnapshotGrid"></div>
+      <p class="hub-snapshot-note">Pulled from the tracking you've done in this browser. Visit a section below at least once for it to show up here — nothing here is shared across devices.</p>
+    </div>
+
     <div class="inv-hub-grid">
       <a class="inv-hub-card reveal" href="investors-financials.html">
         <span class="inv-hub-label">Financial Summary</span>
@@ -89,6 +96,11 @@
       <a class="inv-hub-card reveal" href="investors-founders.html">
         <span class="inv-hub-label-row"><span class="inv-hub-label">Founder Statements</span><span class="inv-hub-badge">Internal</span></span>
         <span class="inv-hub-desc">Personal statements from Sacha and Will on the studio and the slate.</span>
+        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="inv-hub-card reveal" href="team-hub.html">
+        <span class="inv-hub-label-row"><span class="inv-hub-label">Team Hub</span><span class="inv-hub-badge">Internal</span></span>
+        <span class="inv-hub-desc">Roadmap status, objectives, a task board, and an idea board — built for the whole team to use.</span>
         <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
       </a>
     </div>
@@ -210,9 +222,58 @@
       return JSON.parse(new TextDecoder().decode(plainBuf));
     }
 
+    // ---------- cross-page snapshot (reads localStorage set by other pages) ----------
+    function readJSON(key) {
+      try { return JSON.parse(localStorage.getItem(key)); } catch (e) { return null; }
+    }
+
+    function buildSnapshot() {
+      const stats = [];
+
+      const ipFields = readJSON('bs_ip_fields');
+      stats.push({
+        label: 'Working IP',
+        value: ipFields ? Object.keys(ipFields).length : '—'
+      });
+
+      const kanban = readJSON('bs_team_kanban');
+      const openTasks = kanban ? (kanban.todo || []).length + (kanban.progress || []).length : null;
+      stats.push({
+        label: 'Team Hub — Open Tasks',
+        value: openTasks === null ? '—' : openTasks
+      });
+
+      const slateStatus = readJSON('bs_slate_status');
+      const slateUpdated = slateStatus ? Object.values(slateStatus).filter(function(s) { return s !== 'not-applied'; }).length : null;
+      stats.push({
+        label: 'Slate — Applications Moving',
+        value: slateUpdated === null ? '—' : slateUpdated
+      });
+
+      const checklist = readJSON('bs_grants_checklist');
+      const checked = checklist ? Object.values(checklist).filter(Boolean).length : null;
+      stats.push({
+        label: 'Grants — Deliverables Checked',
+        value: checked === null ? '—' : checked
+      });
+
+      const pipelineStatus = readJSON('bs_pipeline_status');
+      const responded = pipelineStatus ? Object.values(pipelineStatus).filter(function(s) { return s === 'Responded'; }).length : null;
+      stats.push({
+        label: 'Pipeline — Responded',
+        value: responded === null ? '—' : responded
+      });
+
+      const grid = document.getElementById('hubSnapshotGrid');
+      grid.innerHTML = stats.map(function(s) {
+        return '<div class="pipeline-stat"><span class="pipeline-stat-value">' + s.value + '</span><span class="pipeline-stat-label">' + s.label + '</span></div>';
+      }).join('');
+    }
+
     function unlock() {
       gate.hidden = true;
       hub.hidden = false;
+      buildSnapshot();
       hub.querySelectorAll('.reveal').forEach(function(el) {
         el.classList.add('in-view');
       });

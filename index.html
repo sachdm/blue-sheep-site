@@ -58,11 +58,16 @@
 
 <script>
 (function() {
+  // Only play the full intro once per browser session — clicking the logo
+  // or navigating back to the homepage from elsewhere on the site shouldn't
+  // replay a 5-second animation every time.
+  if (sessionStorage.getItem('bs_intro_shown') === '1') return;
+  sessionStorage.setItem('bs_intro_shown', '1');
   var pre = document.createElement('div');
   pre.className = 'preloader';
   pre.id = 'preloader';
   pre.setAttribute('aria-hidden', 'true');
-  pre.innerHTML = '<img class="preloader-mark" src="logo.png" alt="" width="200" height="200">';
+  pre.innerHTML = '<img class="preloader-mark" src="icon-512.png" alt="" width="200" height="200">';
   document.documentElement.style.overflow = 'hidden';
   document.body.appendChild(pre);
   setTimeout(function() {

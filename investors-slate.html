@@ -77,6 +77,7 @@
       <div class="budget-bar" id="stackBar"></div>
       <ul class="budget-list stack-list" id="stackList"></ul>
       <p class="budget-footnote" id="stackFootnote"></p>
+      <p class="stack-status-hint">Click a status pill to move it through Not Applied → Applied → Pending → Secured. Saves to this browser only.</p>
     </div>
 
     <div class="risk-block reveal" id="riskBlockEl">
@@ -215,16 +216,31 @@
       return '$' + Math.round(n).toLocaleString('en-US');
     }
 
+    // ---------- financing application status (local device tracker) ----------
+    const STATUS_KEY = 'bs_slate_status';
+    const STATUS_CYCLE = ['not-applied', 'applied', 'pending', 'secured'];
+    const STATUS_LABEL = { 'not-applied': 'Not Applied', 'applied': 'Applied', 'pending': 'Pending', 'secured': 'Secured' };
+    function getStatusMap() {
+      try { return JSON.parse(localStorage.getItem(STATUS_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function setStatus(key, status) {
+      const map = getStatusMap();
+      map[key] = status;
+      localStorage.setItem(STATUS_KEY, JSON.stringify(map));
+    }
+
     function renderStack(items, title, subtitle, footnote) {
       document.getElementById('stackTitle').textContent = title;
       document.getElementById('stackSubtitle').textContent = subtitle;
       const bar = document.getElementById('stackBar');
       const list = document.getElementById('stackList');
+      const statusMap = getStatusMap();
       let barHtml = '';
       let listHtml = '';
       const n = items.length;
       items.forEach(function(it, i) {
         const op = (1 - (i / n) * 0.8).toFixed(2);
+        const status = statusMap[it.key] || 'not-applied';
         barHtml += '<span class="budget-seg" data-key="' + it.key + '" data-w="' + it.pct + '" style="--op:' + op + '"></span>';
         listHtml += '<li class="budget-row" data-key="' + it.key + '" tabindex="0">' +
           '<div class="budget-row-top">' +
@@ -234,6 +250,7 @@
           '<span class="budget-pct">' + it.pct + '%</span>' +
           '</div>' +
           '<p class="budget-row-note">' + esc(it.note) + '</p>' +
+          '<button type="button" class="slate-status-btn status-' + status + '" data-key="' + it.key + '">' + STATUS_LABEL[status] + '</button>' +
           '</li>';
       });
       bar.innerHTML = barHtml;
@@ -244,6 +261,18 @@
           document.querySelectorAll('.budget-seg').forEach(function(seg) {
             seg.style.width = seg.dataset.w + '%';
           });
+        });
+      });
+      document.querySelectorAll('.slate-status-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const key = btn.dataset.key;
+          const map = getStatusMap();
+          const current = map[key] || 'not-applied';
+          const next = STATUS_CYCLE[(STATUS_CYCLE.indexOf(current) + 1) % STATUS_CYCLE.length];
+          setStatus(key, next);
+          btn.className = 'slate-status-btn status-' + next;
+          btn.textContent = STATUS_LABEL[next];
         });
       });
     }

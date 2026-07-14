@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Hub — Investors — Blue Sheep</title>
+<meta name="description" content="Private, encrypted team workspace for Blue Sheep — independent film production based in Toronto, Ontario.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="author" content="Blue Sheep">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/team-hub.html">
+<meta name="view-transition" content="same-origin">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23f3f2ee' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap-wide">
+    <a class="brand" href="index.html" aria-label="Blue Sheep — Home"><img class="brand-logo" src="small-sheep.png" alt="Blue Sheep" width="309" height="240"></a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="work.html">Work</a>
+        <a href="contact.html">Contact</a>
+        <a href="investors.html">Investors</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </nav>
+</header>
+
+<section id="main" class="wrap page-main">
+
+  <a class="inv-back reveal" href="investors.html">&larr; Investors</a>
+  <h1 class="label reveal inv-h1">Team Hub</h1>
+
+  <div class="gate reveal" id="investorsGate">
+    <div>
+      <p class="blurb">This page is encrypted. Enter the passphrase to continue.</p>
+      <form class="gate-form" id="gateForm" autocomplete="off">
+        <input type="password" class="gate-input" id="gateInput" placeholder="Passphrase" aria-label="Passphrase" autocomplete="off" spellcheck="false">
+        <button type="submit" class="gate-submit" id="gateSubmit">Enter</button>
+      </form>
+      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect passphrase. Try again.</p>
+      <p class="gate-reach-out">Don't have a passphrase? <a href="mailto:info@bluesheepfilms.com">Reach out</a> for access.</p>
+    </div>
+  </div>
+
+  <div class="inv-public" id="teamContent" hidden>
+
+    <p class="pipeline-intro reveal" id="teamNote"></p>
+
+    <div class="team-editor-bar reveal">
+      <label class="team-editor-label" for="editorNameInput">Editing as</label>
+      <input type="text" class="team-editor-input" id="editorNameInput" placeholder="Your name…" autocomplete="off">
+      <span class="team-editor-hint">Tags what you add below. Saved to this browser only.</span>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Roadmap</span>
+      <div class="team-timeline" id="teamTimeline"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Objectives</span>
+      <div id="okrGroups"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Task Board</span>
+      <div class="kanban-board" id="kanbanBoard"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Idea Board</span>
+      <p class="team-section-sub">Loose ideas, references, things worth remembering. Add a note below.</p>
+      <form class="idea-add-form" id="ideaAddForm">
+        <textarea class="idea-add-input" id="ideaAddInput" placeholder="Type an idea and pick a tag…" rows="2"></textarea>
+        <div class="idea-add-row">
+          <select class="idea-tag-select" id="ideaTagSelect">
+            <option value="story">Story</option>
+            <option value="visual">Visual</option>
+            <option value="business">Business</option>
+            <option value="logistics">Logistics</option>
+          </select>
+          <button type="submit" class="idea-add-btn">Add Note</button>
+        </div>
+      </form>
+      <div class="idea-board" id="ideaBoard"></div>
+    </div>
+
+    <div class="team-section reveal team-sync-block">
+      <span class="mini-label">Sharing Between Devices</span>
+      <p class="team-section-sub">This is a static site with no backend — everything above saves to this browser only, not synced across devices or team members. To share your board with someone else: export your data, send them the text, and they import it into their browser. To make something permanent site-wide, send it to whoever maintains the site so it can be baked into the encrypted page itself.</p>
+      <div class="team-sync-actions">
+        <button type="button" class="team-sync-btn" id="exportBtn">Export My Data</button>
+        <button type="button" class="team-sync-btn" id="importBtn">Import Data</button>
+      </div>
+      <textarea class="team-sync-area" id="syncArea" hidden placeholder="Paste exported data here, then click Apply Import." rows="6"></textarea>
+      <div class="team-sync-actions" id="syncApplyRow" hidden>
+        <button type="button" class="team-sync-btn" id="applyImportBtn">Apply Import</button>
+        <button type="button" class="team-sync-btn team-sync-btn-ghost" id="cancelImportBtn">Cancel</button>
+      </div>
+      <p class="team-sync-status" id="syncStatus" role="status" aria-live="polite"></p>
+    </div>
+
+    <p class="inv-security-note reveal">This page is protected with client-side passphrase encryption — nothing here is stored or sent as plain text. Want more detail on any item? <a href="mailto:info@bluesheepfilms.com">Reach out</a>.</p>
+
+  </div>
+
+</section>
+
+<footer>
+  <span>© 2026 Blue Sheep</span>
+  <span class="clock" id="clock">Toronto</span>
+  <div class="socials">
+    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
+    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      var raw = a.getAttribute('href') || '';
+      if (raw.charAt(0) === '#') return;
+      var href = raw.split('#')[0] || 'index.html';
+      if (href === path) a.setAttribute('aria-current', 'page');
+    });
+  })();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const linkGroup = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = linkGroup.classList.toggle('open');
+    toggle.textContent = isOpen ? 'Close' : 'Menu';
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      const firstLink = linkGroup.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      toggle.focus();
+    }
+  });
+  linkGroup.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && linkGroup.classList.contains('open')) {
+      linkGroup.classList.remove('open');
+      toggle.textContent = 'Menu';
+      toggle.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+      toggle.focus();
+    }
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  const progressBar = document.querySelector('.progress-bar');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrollable = h.scrollHeight - h.clientHeight;
+    const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const clockEl = document.getElementById('clock');
+  if (clockEl) {
+    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
+    function updateClock() {
+      clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+
+  (function() {
+    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
+    // is opaque without the passphrase — nothing legible ships in this file.
+    const ENC = {
+      salt: "WJ8g4UxDau2hyR3IPV2qmQ==",
+      iv: "0eMkjqaJb/FY9UN0",
+      ciphertext: "O0hsxEikOX+QgKCEw/884oykc70rmEuJHwWe8aClu5o9KAyb2yDIH2EqLObosnSRVVB3B/ovId1i3qVQ4vWKzetZaovvfXX6VylS4fVPQ0oMIFc/Jksa4XUqMaY69pPZr9rXEqaoTvISpQ62sXZbYrksYRZkrOIU/PfjEFLqIT8ambU9aHT8bH9cgIxUWM0LCH3uJPMvz0QgammKFZNE18ZiWIYjMFQ5k0Hf9KF2ANfu1qYtEhHtCyD1X3fDbPYQflvZgwP4ppE6Kc3neim/Xf5IHNm91zjLClG8JVs/E+xr/avGv+avavwidI+aAxpe5LlfSSROJw+zffkmhYZ2AXKWkE9b8kXnwC9IksRocKws5OE2M3gDKAZHfr3i4exjq4XhLkxjuLAdwQOrchegbLDgldedqlAFqZduVP9q0SzuNgAl2zCrxyVLDkf2F4VT2s6e/sAM6Qtk0ErjB18BQIi6bvQfMCO1S/RJmJHmoLnMEubB0tGs/sdLe8agRORvkI2lvB5xJ8KqUh99+a1wm/0QXHGIvaKzWbIu5bXF8JxXB5aoKIKZ9GtKdmovPKpC+cyClodoX8kQtzshFbXf+/ZKh3mWLJ+p2iG66PAb5in6dXBiYRFLht1RKGvHlPUUaL9I0sbLZv6elH7uKQtRDxekilLszkj5eITZu0ZwWD8C7DQZSc17Jgd7RnriOSLuZyUnLmFi66sXSH4p7O6kgBjscR45nkY/49ppyECYJ0S28507EIRDGD9zQlQ2Vc9pAMgOtzcaNrqjPeW5iSOlFBs3YQdWu9W+3h++4m+W28eGwA6KLYhsXJ7soVwFtEZLCHAxHbz0myIrNercwc6802S+i2ukCk31L5GSidivDQ9ThfsmG5920ZTarIxoNWuzOlM6NwC4gaJ5WsW2QJXyRbX9Xsv+Zg93RTqnOKiukIJkvY/GPy/pAhaUZgRX72FXYe43AzGvhhKeRcrdx2DhBn1odtJyfYy87HBahmEvxjK/RDSmcYGx1+2qHP1UcM4hdGkJZw8OuI6ekzwrRzG0jHqAyTbpOsA5t437BSsKSFk7pgPWWiAyPZnlvaAXHOY1pUbFq82INoEJ6p00vQIPZjpByCT5KAlFs/uUUiB1iANQG/W6w+n03R6SevUELXfO/mWEzqVqDc0Ru0om7+cUX5fgVxUagGxuCo/9O5WG3ARqAgpJQty8KdSnnVqo1804jfV42GDA39MyPz4ZIVkffrJgR4a8Wnn/uVgl049OruBfuDvUsqDRdFG3NDBhvgvmDrI2mhamK0zSwx8hUQvKjydmoKbQplmf9J2jvklDILY0dBiJJF7acMtAAUHM/bgNGyaBuEzwRQGO+dE+eIPGuFlGkgvG+ytBSubYBzl3lULiRZKtj7HUsxd+1KkVMR1ZupPhZloHWy45YQl9RCm8hCbuibURRfV2B0ppCiJUfc3dwN/f+tMzLKYjeQUn3K9kjM30vyNBBLgd4ZPb0YKJccYX4NkXEuHttQCGK2/lOVIGij9IU3KwVXNNjLWxQOV6Tm2MfWV27iRb+cmpKm+/oUGC1YsqZSRZKCK68uAG/y4X2K5MJb/A/WV5qW4084LSF+Uc7ILxJpopfuHMDsna9DRMxpDQjrIldqplQP1i+ZqykWNN9lx6r3jcE0IE14bN2eOOr5c61kf2s6BTNTUUvsJwTkfiuV/w5+qvPjUZlXqnre+ODkxaCrDEFrv4sV+XBG26bmnAf2/Gafe1C2RUvbGLdn1NhyH0I/4zDgXXM1PfGh9ACCCbGFcRq/NmK+wJp3f1cW14szmZyvgp6sCfE7q9Bk6ah+i6WKRiFmgm6+GYZG7LmxdkUSmobPOv1fhRCfg5pee5d8tm4aiO3BUPo2VodQUsXV4yZlc6R24yQb2AJsq4jGKsnGYxIvWpK6I3UJbP1GHkD/eNWCoLR9gqrYsu39gC91ZTdyA01BVwujAnGjsMzwj+NFgkp79xLq1Wa1YAGgvmeuBZR6L2EyyoF1eBTjz6zfc8cKsy9OURbrxtE1yVhMaXoSEouXB72MNT7oQELUvcRueWlbbsB/0adeSVduJhuGw6B0VW5eIoqsUI3YjTr/4DJuavY90ujvUcaWmQxfAnITGj2Win2zXjFoVZJ6CrxkfvPyl5cXBL+reWnLTX8NU/pl5GvLnqdHfHTfpIchxAm9clzylj9PEujgsIhQTQWVNPHFXFwB1k0z8RN7DV1o/BoWip+fY9LNOV6+XnKWFPvGu6w+VIITMVw94+rNWVbsz2WkBHu2oiXXxbquYbOcXPUHarvgrOTU/nn8kClvVxFe1GEiZ6Xjagvvr1+htjOs05iasJfevaVtb9WQFgjO1oRY1OaTD0lQFy5W9dnzmRqbVYpZez+IqqimVAeka99XcsBDGkgip15RgVAT1Re7HHTK8+A3ZTZJ079TeEb3OuEzs0rL/rFq/xwpbZwneLNaTHsmz/l9Z+kYj7risP8id/EKIKz/egaL8j2N8eidRceQMSKoLpzzZbv5Wle89ayjilf11VY78KISQm1LXAVzQUyymvISfHVwGZcTA21nB2CnCTsrSLoX558HcfsNiYovXY/uPDO+klqHohjsc3ze9aeyhCbwc0CN7vivqP/5ReeQe4j+AMfhmGa3vEdFJeaRzXcCiGQO9qtqLl7wJ3DPhoelqPu+F2L7xHBIHbwcsQCLE2GDDccWiLrdE6JvXfvlojhIAXVXXIlhaI+7f+wSHVOSYFVoaWQpKegP7PAu8pBjG56GuWNy00UCKiag3KekXV35J+Y+GbBsbQOXiBMtoGbiey3BYaciWrF7VHX6GJ/CiPbs8q/5IOlj2j4wCAo/q0BhDNHFfw0zQM4eMxh/BIspe8X6yiGCL/9qUmhWQcEWugUfK0keCTpK0LVBl988jnEUhdUOtXIpAwHMfaR8yx09i1BgZn5Lo7ySJc/6dBTnOBbZ0u/ae9RSHy11W62yjubE+JQbVWZBdI9Cawy9nwElFiCrtCJjeuaJlGAjzIQ7m7Jtfn2/wd4FEzlPAzqVNVG8+GVQXHzUEtqNVgxkI/FoX2xyoUU57sM2ioSoH1Djr9yEMZ8vwJVNZGSvDI1LDNJ1AVk7sFzQagemW4OpP5OEaRHOi8Uhj16wiO7pa0WtjOn6maSM61x3xvVQBaOqWheXJ3xBi5aM+fZIeT8RaDPrXmy5Bq+obmttcxd84XiHGRwZPI4X2QxLKtH63mZ9QSgDm5x035uFI8v6qxUmUU4CKs10mOQC74nxwTOZgd0PfYl1kyii3WMyrobRMmoBmpCG3pgUfbdpOFaEUtPfXMhDnMwze5A8sJF36xjDrbFtOaU6nIe5JApFPvwCq7dTDPHTaeZD3ZZnRSOrz3WfITLDT0DehXn3N0lnorftUALx+nVFaES8MeJxQcaZEDOI0ijpbkEFU8wexAbsEC5egQ2x8KW/1u17t09+el+CxguxZnMDVjfR5qH16xTo+9HwuvcXiGjozZAz9FfzlctlydfBRwESx2ItTLmoDDRfIgEc3a6PmgaVb1Eu2ulN08AUIQUKJ3SbXdAyhO+WRkjxvkjryMCNHMZ4o8S7okM0mEU6bvSsFzXhUv6hwKS5QTBPOe0hoob85SdSh8YlJqhdeZ0rSt+pcYsktSnaQvR5xPuH6/eG+r8Xw4XNXOAz8cCPj/X5mRe17pvtL7ucabPn5C5efI4XjawFyvbKQDvlcZc0pNsOCUS/Nh1QvMIZxpDSqUGS5NnzTeqzWYJ7Rh58OSG3VZsocxQamgdgezBpG0DMSJydEiztq/Xjc9NXTYcM7H9CGMwY7gIFcC0Hon9LEMeuKVijPx0YuEyhckQi0VOjZOWSLNKj2HGkToBNWUatSlnbR44VvI5uTKHW0qeFz7gw3EaWtVzcKWC8fFzx3CSlCRCuehsMcC5f9FyX2I+uRaaCu/IUq6I6PJaaCH89ljqjuazhiw47RCCW1/HzJ9LVIXVsuvYeAjjC0DM+oJLJgUZX80aNT4UMxu0JDTPv7aXy1D4gzeY7IueQaP5AIxpaUG1jb3gppJJl8NyWjvwjVQ2dU+srOsTPGzhEQ+tWKNcjPQuL1DXHczp5AE5yP1mAo9sAIMPdHQ9guWIb2W33Prm53c/adVffsS96HRC/kOI5KciSsF9SL6fBdQ1yF6dIqcoru/4bDw8OdC3wu8ALDqBeYhZ2OH7rnExA9XlJR7s5H5hQhE5iX5FOR2NPhvVfdeB98loGUG2EM+R/LXLsyJ5NcQlFlCwlVCgtfBwIm3aoavyQ1eLNsMPRopVNlYqTt8xo5rtMG9QbRaZoZL/60Tx3twbpTQ5KZDEl0wSz2dSID3Jdj5WiQNjpOkyFFHA2jmVlVPdk3C6kayHp+muwDgWt1zCoQoViqEF7u0vAVTtpP/+MKVUrbV4m2JNL/NcZHkoV/p8wZgtbdm+wMk0sX+GlsqFu7vNxSkMe37S53SXOwqadxoJgD1IdnIEUBRxnO52ScAFVgiH6Xtq8xvBIpEFnmEkxoEmEd7kkOR7obUAUbK6Ei/f78rncn9hX0M2b6VYxoz3XYUPwWHbvHYFXwInxXiXRk1o6t9BfnN3ivlx5fTVKYIMjrRzSCz/VkcsHIZKhzqtIiliFpZOZQ2EphY+6NvC1GU8Oa6aQEMFxHxBA2cvbfTbJkx26YErOBlOzcPEKVOMwUPE30msgp89Bxh0lOiqLKR32ur9Y4WjIuwiidAJWbH1qYcDjwGXICsiM3oPBmt/G48orlFaIFgVlsFdFAi3tWoRSLhoXWRWpMdnOpFNlvjaw46QqTcURJfTwGTD0R7dV7mT7sayO1VmVWtMM7ewNzzdpWL86EExY7A+nChkWmKD6KSuvLPQQ7dpYPjPcSFWIuF9IrFOCEb+Ct41B5ar5Zhhpi7x3dCDfzCIVPRHpxYZSAW8sgXW6U51ShQ6uuTgsnfMBOmXYkDgrnhe+6Mm7lVGwOV+Us0h9Il",
+      iterations: 600000
+    };
+
+    const gate = document.getElementById('investorsGate');
+    const content = document.getElementById('teamContent');
+    const form = document.getElementById('gateForm');
+    const input = document.getElementById('gateInput');
+    const submitBtn = document.getElementById('gateSubmit');
+    const error = document.getElementById('gateError');
+
+    function b64ToBuf(b64) {
+      const bin = atob(b64);
+      const buf = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+      return buf;
+    }
+
+    async function decrypt(passphrase) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: b64ToBuf(ENC.salt), iterations: ENC.iterations, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(ENC.iv) }, key, b64ToBuf(ENC.ciphertext));
+      return JSON.parse(new TextDecoder().decode(plainBuf));
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // ---------- editor name ----------
+    const EDITOR_KEY = 'bs_team_editor';
+    function getEditor() { return localStorage.getItem(EDITOR_KEY) || ''; }
+    function setEditor(name) { localStorage.setItem(EDITOR_KEY, name); }
+
+    // ---------- OKR progress ----------
+    const OKR_KEY = 'bs_team_okr';
+    function getOkrMap() {
+      try { return JSON.parse(localStorage.getItem(OKR_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function setOkrProgress(id, val) {
+      const map = getOkrMap();
+      map[id] = val;
+      localStorage.setItem(OKR_KEY, JSON.stringify(map));
+    }
+
+    function renderOKR(groups) {
+      const map = getOkrMap();
+      let html = '';
+      groups.forEach(function(g) {
+        html += '<div class="okr-group">';
+        html += '<div class="okr-group-head"><span class="okr-group-title">' + esc(g.title) + '</span>';
+        if (g.sourceLink) html += '<a class="okr-group-source" href="' + esc(g.sourceLink) + '">' + esc(g.source) + ' &rarr;</a>';
+        html += '</div>';
+        g.items.forEach(function(item) {
+          const val = map[item.id] !== undefined ? map[item.id] : 0;
+          html += '<div class="okr-item" data-id="' + esc(item.id) + '">';
+          html += '<p class="okr-item-text">' + esc(item.text) + '</p>';
+          html += '<div class="okr-progress-row">';
+          html += '<input type="range" class="okr-progress-input" min="0" max="100" step="5" value="' + val + '" data-id="' + esc(item.id) + '" aria-label="Progress for ' + esc(item.text) + '">';
+          html += '<span class="okr-progress-value" data-id="' + esc(item.id) + '">' + val + '%</span>';
+          html += '</div></div>';
+        });
+        html += '</div>';
+      });
+      document.getElementById('okrGroups').innerHTML = html;
+      document.querySelectorAll('.okr-progress-input').forEach(function(el) {
+        el.addEventListener('input', function() {
+          const v = el.value;
+          document.querySelector('.okr-progress-value[data-id="' + el.dataset.id + '"]').textContent = v + '%';
+        });
+        el.addEventListener('change', function() {
+          setOkrProgress(el.dataset.id, Number(el.value));
+        });
+      });
+    }
+
+    // ---------- timeline / milestone status ----------
+    const MILESTONE_KEY = 'bs_team_milestones';
+    const STATUS_CYCLE = ['upcoming', 'active', 'done'];
+    const STATUS_LABEL = { upcoming: 'Upcoming', active: 'In Progress', done: 'Done' };
+    function getMilestoneMap() {
+      try { return JSON.parse(localStorage.getItem(MILESTONE_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function setMilestoneStatus(idx, status) {
+      const map = getMilestoneMap();
+      map[idx] = status;
+      localStorage.setItem(MILESTONE_KEY, JSON.stringify(map));
+    }
+
+    function renderTimeline(timeline) {
+      const map = getMilestoneMap();
+      let html = '<div class="timeline">';
+      timeline.forEach(function(m, idx) {
+        const status = map[idx] || m.defaultStatus || 'upcoming';
+        const isLast = idx === timeline.length - 1;
+        html += '<div class="timeline-item' + (isLast ? ' timeline-item-last' : '') + '" data-idx="' + idx + '">';
+        html += '<div class="timeline-marker"><span class="timeline-dot"></span></div>';
+        html += '<div class="timeline-content">';
+        html += '<span class="timeline-month">' + esc(m.month) + '</span>';
+        html += '<div class="timeline-title-row"><span class="timeline-title">' + esc(m.title) + '</span>';
+        html += '<button type="button" class="team-milestone-status status-' + status + '" data-idx="' + idx + '">' + STATUS_LABEL[status] + '</button></div>';
+        html += '<p class="timeline-desc">' + esc(m.desc) + '</p>';
+        html += '</div></div>';
+      });
+      html += '</div>';
+      document.getElementById('teamTimeline').innerHTML = html;
+      document.querySelectorAll('.team-milestone-status').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const idx = btn.dataset.idx;
+          const map2 = getMilestoneMap();
+          const current = map2[idx] || (window.__teamData.timeline[idx].defaultStatus || 'upcoming');
+          const next = STATUS_CYCLE[(STATUS_CYCLE.indexOf(current) + 1) % STATUS_CYCLE.length];
+          setMilestoneStatus(idx, next);
+          btn.className = 'team-milestone-status status-' + next;
+          btn.textContent = STATUS_LABEL[next];
+        });
+      });
+    }
+
+    // ---------- kanban ----------
+    const KANBAN_KEY = 'bs_team_kanban';
+    const COLS = ['todo', 'progress', 'done'];
+    const COL_LABEL = { todo: 'To Do', progress: 'In Progress', done: 'Done' };
+    function getKanban(seed) {
+      try {
+        const stored = localStorage.getItem(KANBAN_KEY);
+        if (stored) return JSON.parse(stored);
+      } catch (e) {}
+      const board = { todo: [], progress: [], done: [] };
+      (seed && seed.todo || []).forEach(function(t) {
+        board.todo.push({ id: 'k_' + Math.random().toString(36).slice(2, 9), text: t, author: '' });
+      });
+      localStorage.setItem(KANBAN_KEY, JSON.stringify(board));
+      return board;
+    }
+    function setKanban(board) { localStorage.setItem(KANBAN_KEY, JSON.stringify(board)); }
+    function addCard(col, text, author) {
+      const board = getKanban();
+      board[col].push({ id: 'k_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), text: text, author: author || '' });
+      setKanban(board);
+      renderKanban();
+    }
+    function moveCard(col, id, dir) {
+      const board = getKanban();
+      const idx = board[col].findIndex(function(c) { return c.id === id; });
+      if (idx === -1) return;
+      const card = board[col][idx];
+      const colIdx = COLS.indexOf(col);
+      const newColIdx = colIdx + dir;
+      if (newColIdx < 0 || newColIdx >= COLS.length) return;
+      board[col].splice(idx, 1);
+      board[COLS[newColIdx]].push(card);
+      setKanban(board);
+      renderKanban();
+    }
+    function deleteCard(col, id) {
+      const board = getKanban();
+      board[col] = board[col].filter(function(c) { return c.id !== id; });
+      setKanban(board);
+      renderKanban();
+    }
+
+    function renderKanban() {
+      const board = getKanban(window.__teamData.kanbanSeed);
+      let html = '';
+      COLS.forEach(function(col, colIdx) {
+        html += '<div class="kanban-col">';
+        html += '<div class="kanban-col-head"><span class="kanban-col-title">' + COL_LABEL[col] + '</span><span class="kanban-col-count">' + board[col].length + '</span></div>';
+        html += '<div class="kanban-cards">';
+        board[col].forEach(function(card) {
+          html += '<div class="kanban-card">';
+          html += '<p class="kanban-card-text">' + esc(card.text) + '</p>';
+          if (card.author) html += '<span class="kanban-card-author">' + esc(card.author) + '</span>';
+          html += '<div class="kanban-card-actions">';
+          if (colIdx > 0) html += '<button type="button" class="kanban-move" data-col="' + col + '" data-id="' + card.id + '" data-dir="-1" aria-label="Move left">&larr;</button>';
+          if (colIdx < COLS.length - 1) html += '<button type="button" class="kanban-move" data-col="' + col + '" data-id="' + card.id + '" data-dir="1" aria-label="Move right">&rarr;</button>';
+          html += '<button type="button" class="kanban-delete" data-col="' + col + '" data-id="' + card.id + '" aria-label="Delete card">&times;</button>';
+          html += '</div></div>';
+        });
+        html += '</div>';
+        html += '<form class="kanban-add-form" data-col="' + col + '"><input type="text" class="kanban-add-input" placeholder="Add a task…" aria-label="Add a task to ' + COL_LABEL[col] + '"><button type="submit" class="kanban-add-btn" aria-label="Add">+</button></form>';
+        html += '</div>';
+      });
+      document.getElementById('kanbanBoard').innerHTML = html;
+      document.querySelectorAll('.kanban-move').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          moveCard(btn.dataset.col, btn.dataset.id, Number(btn.dataset.dir));
+        });
+      });
+      document.querySelectorAll('.kanban-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          deleteCard(btn.dataset.col, btn.dataset.id);
+        });
+      });
+      document.querySelectorAll('.kanban-add-form').forEach(function(f) {
+        f.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const inputEl = f.querySelector('.kanban-add-input');
+          const text = inputEl.value.trim();
+          if (!text) return;
+          addCard(f.dataset.col, text, getEditor());
+          inputEl.value = '';
+        });
+      });
+    }
+
+    // ---------- idea board ----------
+    const IDEAS_KEY = 'bs_team_ideas';
+    function getIdeas() {
+      try { return JSON.parse(localStorage.getItem(IDEAS_KEY)) || []; } catch (e) { return []; }
+    }
+    function setIdeas(arr) { localStorage.setItem(IDEAS_KEY, JSON.stringify(arr)); }
+    function addIdea(text, tag, author) {
+      const ideas = getIdeas();
+      ideas.unshift({ id: 'i_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), text: text, tag: tag, author: author || '' });
+      setIdeas(ideas);
+      renderIdeas();
+    }
+    function deleteIdea(id) {
+      setIdeas(getIdeas().filter(function(i) { return i.id !== id; }));
+      renderIdeas();
+    }
+    const TAG_LABEL = { story: 'Story', visual: 'Visual', business: 'Business', logistics: 'Logistics' };
+    function renderIdeas() {
+      const ideas = getIdeas();
+      if (!ideas.length) {
+        document.getElementById('ideaBoard').innerHTML = '<p class="idea-empty">No notes yet — add the first one above.</p>';
+        return;
+      }
+      let html = '';
+      ideas.forEach(function(idea) {
+        html += '<div class="idea-note" data-tag="' + esc(idea.tag) + '">';
+        html += '<span class="idea-note-tag">' + esc(TAG_LABEL[idea.tag] || idea.tag) + '</span>';
+        html += '<p class="idea-note-text">' + esc(idea.text) + '</p>';
+        html += '<div class="idea-note-foot">';
+        html += '<span class="idea-note-author">' + (idea.author ? esc(idea.author) : 'Anonymous') + '</span>';
+        html += '<button type="button" class="idea-note-delete" data-id="' + idea.id + '" aria-label="Delete note">&times;</button>';
+        html += '</div></div>';
+      });
+      document.getElementById('ideaBoard').innerHTML = html;
+      document.querySelectorAll('.idea-note-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteIdea(btn.dataset.id); });
+      });
+    }
+
+    // ---------- export / import ----------
+    const TEAM_KEYS = [OKR_KEY, MILESTONE_KEY, KANBAN_KEY, IDEAS_KEY, EDITOR_KEY, 'bs_ip_fields'];
+    function exportData() {
+      const blob = {};
+      TEAM_KEYS.forEach(function(k) {
+        const v = localStorage.getItem(k);
+        if (v !== null) blob[k] = v;
+      });
+      blob._exportedAt = new Date().toISOString();
+      blob._exportedBy = getEditor() || 'Unknown';
+      return JSON.stringify(blob);
+    }
+    function importData(str) {
+      const blob = JSON.parse(str);
+      Object.keys(blob).forEach(function(k) {
+        if (TEAM_KEYS.indexOf(k) !== -1) localStorage.setItem(k, blob[k]);
+      });
+      return blob;
+    }
+
+    function wireSync() {
+      const syncArea = document.getElementById('syncArea');
+      const status = document.getElementById('syncStatus');
+      const applyRow = document.getElementById('syncApplyRow');
+      document.getElementById('exportBtn').addEventListener('click', function() {
+        const data = exportData();
+        syncArea.hidden = false;
+        syncArea.value = data;
+        applyRow.hidden = true;
+        syncArea.focus();
+        syncArea.select();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(data).then(function() {
+            status.textContent = 'Copied to clipboard — also shown below. Send this text to a teammate.';
+          }).catch(function() {
+            status.textContent = 'Select the text below and copy it manually — send it to a teammate.';
+          });
+        } else {
+          status.textContent = 'Select the text below and copy it manually — send it to a teammate.';
+        }
+      });
+      document.getElementById('importBtn').addEventListener('click', function() {
+        syncArea.hidden = false;
+        syncArea.value = '';
+        syncArea.placeholder = 'Paste exported data here, then click Apply Import.';
+        applyRow.hidden = false;
+        status.textContent = '';
+        syncArea.focus();
+      });
+      document.getElementById('cancelImportBtn').addEventListener('click', function() {
+        syncArea.hidden = true;
+        applyRow.hidden = true;
+        status.textContent = '';
+      });
+      document.getElementById('applyImportBtn').addEventListener('click', function() {
+        try {
+          importData(syncArea.value.trim());
+          status.textContent = 'Imported. Refreshing the board…';
+          renderOKR(window.__teamData.okrGroups);
+          renderTimeline(window.__teamData.timeline);
+          renderKanban();
+          renderIdeas();
+          const name = getEditor();
+          if (name) document.getElementById('editorNameInput').value = name;
+          syncArea.hidden = true;
+          applyRow.hidden = true;
+        } catch (e) {
+          status.textContent = 'Could not read that — make sure you pasted the full exported text.';
+        }
+      });
+    }
+
+    function unlock(data) {
+      gate.hidden = true;
+      content.hidden = false;
+      window.__teamData = data;
+      document.getElementById('teamNote').textContent = data.note;
+      const editorInput = document.getElementById('editorNameInput');
+      editorInput.value = getEditor();
+      editorInput.addEventListener('change', function() { setEditor(editorInput.value.trim()); });
+      renderTimeline(data.timeline);
+      renderOKR(data.okrGroups);
+      renderKanban();
+      renderIdeas();
+      wireSync();
+      const ideaForm = document.getElementById('ideaAddForm');
+      ideaForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const ta = document.getElementById('ideaAddInput');
+        const text = ta.value.trim();
+        if (!text) return;
+        const tag = document.getElementById('ideaTagSelect').value;
+        addIdea(text, tag, getEditor());
+        ta.value = '';
+      });
+      content.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('in-view');
+      });
+    }
+
+    // Unlock state persists in localStorage on this device/browser, so the
+    // passphrase only needs to be entered once. Clear site data to re-lock.
+    const LOCK_KEY = 'bs_team_data';
+    const cached = localStorage.getItem(LOCK_KEY);
+    if (cached) {
+      try { unlock(JSON.parse(cached)); } catch (e) { localStorage.removeItem(LOCK_KEY); }
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const passphrase = input.value.trim();
+      if (!passphrase) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Decrypting…';
+      decrypt(passphrase).then(function(data) {
+        error.classList.remove('show');
+        localStorage.setItem(LOCK_KEY, JSON.stringify(data));
+        unlock(data);
+      }).catch(function() {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+      }).finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enter';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

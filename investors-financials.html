@@ -102,6 +102,13 @@
 
     <p class="inv-note reveal" id="invNote"></p>
 
+    <div class="fin-notes-block reveal">
+      <span class="mini-label">Team Notes</span>
+      <p class="fin-notes-hint">Scratchpad for reconciliation notes, questions, next steps — doesn't touch the numbers above. Saves to this browser only.</p>
+      <textarea class="fin-notes-area" id="finNotesArea" placeholder="e.g. Q3 actuals still need reconciling against the bank statement…" rows="4"></textarea>
+      <p class="fin-notes-saved" id="finNotesSaved" aria-live="polite"></p>
+    </div>
+
     <p class="inv-security-note reveal">This page is protected with client-side passphrase encryption — nothing here is stored or sent as plain text. Want more detail than what's shown? <a href="mailto:info@bluesheepfilms.com">Reach out</a>.</p>
 
     <h2><a href="mailto:info@bluesheepfilms.com">info@bluesheepfilms.com</a></h2>
@@ -355,6 +362,23 @@
       });
     }
 
+    // ---------- team notes scratchpad (local device only) ----------
+    const NOTES_KEY = 'bs_financials_notes';
+    function wireNotes() {
+      const area = document.getElementById('finNotesArea');
+      const saved = document.getElementById('finNotesSaved');
+      area.value = localStorage.getItem(NOTES_KEY) || '';
+      let t;
+      area.addEventListener('input', function() {
+        clearTimeout(t);
+        saved.textContent = '';
+        t = setTimeout(function() {
+          localStorage.setItem(NOTES_KEY, area.value);
+          saved.textContent = 'Saved to this browser.';
+        }, 500);
+      });
+    }
+
     function unlock(data) {
       gate.hidden = true;
       content.hidden = false;
@@ -362,6 +386,7 @@
       renderTraction(data);
       renderChart(data);
       renderNarrative(data);
+      wireNotes();
       content.querySelectorAll('.reveal').forEach(function(el) {
         el.classList.add('in-view');
       });
