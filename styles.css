@@ -1447,6 +1447,17 @@ body.work-page {
   line-height: 1.6;
 }
 
+.hub-unlock-status {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--grey);
+  text-align: center;
+  min-height: 16px;
+  margin: -18px auto 24px;
+  max-width: 460px;
+  transition: opacity 0.3s ease;
+}
+
 .hub-snapshot {
   max-width: 640px;
   margin: 0 auto 40px;
@@ -2602,6 +2613,63 @@ body.work-page {
   font-style: italic;
   color: var(--grey);
 }
+.founder-draft-delete {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--grey);
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.founder-draft-delete:hover { color: var(--ink); border-color: var(--line-strong); }
+
+.founder-add-block {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.founder-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.founder-add-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.founder-add-input {
+  flex: 1 1 200px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line-strong);
+  padding: 6px 2px;
+  transition: border-color 0.2s ease;
+}
+.founder-add-input::placeholder { color: var(--grey); opacity: 0.7; }
+.founder-add-input:focus { outline: none; border-color: var(--ink); }
+.founder-add-textarea {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink);
+  background: rgba(var(--bg-rgb), 0.4);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+.founder-add-textarea::placeholder { color: var(--grey); opacity: 0.7; }
+.founder-add-textarea:focus { outline: none; border-color: var(--line-strong); }
+.founder-add-form .idea-add-btn { align-self: flex-start; }
 
 .ask-card {
   max-width: 460px;

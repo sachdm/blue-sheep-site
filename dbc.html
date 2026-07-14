@@ -171,6 +171,14 @@
     });
   })();
 
+  // Clicking the logo/home link should return to a calm homepage, not
+  // replay the intro animation — flag it so index.html knows to skip it.
+  document.querySelectorAll('a.brand').forEach(function(a) {
+    a.addEventListener('click', function() {
+      try { sessionStorage.setItem('bs_skip_intro', '1'); } catch (e) {}
+    });
+  });
+
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');
   toggle.addEventListener('click', () => {

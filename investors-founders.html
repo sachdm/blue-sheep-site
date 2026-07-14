@@ -63,7 +63,26 @@
 
     <p class="pipeline-intro reveal" id="foundersNote"></p>
 
+    <div class="team-editor-bar reveal">
+      <label class="team-editor-label" for="editorNameInput">Editing as</label>
+      <input type="text" class="team-editor-input" id="editorNameInput" placeholder="Your name…" autocomplete="off">
+      <span class="team-editor-hint">Shared across the internal pages on this browser.</span>
+    </div>
+
     <div class="founders-list" id="foundersList"></div>
+
+    <div class="team-section reveal founder-add-block">
+      <span class="mini-label">Add a Statement</span>
+      <p class="team-section-sub">Anyone on the team can write their own — it stays local to this browser as a draft until it's sent in to be made permanent.</p>
+      <form class="founder-add-form" id="founderAddForm">
+        <div class="founder-add-row">
+          <input type="text" class="founder-add-input" id="founderAddName" placeholder="Your name" autocomplete="off" required>
+          <input type="text" class="founder-add-input" id="founderAddRole" placeholder="Your role" autocomplete="off" required>
+        </div>
+        <textarea class="founder-add-textarea" id="founderAddText" placeholder="Write your statement…" rows="4" required></textarea>
+        <button type="submit" class="idea-add-btn">Add Draft Statement</button>
+      </form>
+    </div>
 
     <p class="inv-security-note reveal">This page is protected with client-side passphrase encryption — nothing here is stored or sent as plain text.</p>
 
@@ -90,6 +109,14 @@
       if (href === path) a.setAttribute('aria-current', 'page');
     });
   })();
+
+  // Clicking the logo/home link should return to a calm homepage, not
+  // replay the intro animation — flag it so index.html knows to skip it.
+  document.querySelectorAll('a.brand').forEach(function(a) {
+    a.addEventListener('click', function() {
+      try { sessionStorage.setItem('bs_skip_intro', '1'); } catch (e) {}
+    });
+  });
 
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');
@@ -188,6 +215,26 @@
       return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
+    // ---------- shared editor identity (also used on Team Hub, Working IP) ----------
+    const EDITOR_KEY = 'bs_team_editor';
+    function getEditor() { return localStorage.getItem(EDITOR_KEY) || ''; }
+    function setEditor(name) { localStorage.setItem(EDITOR_KEY, name); }
+
+    // ---------- locally added draft statements ----------
+    const LOCAL_DRAFTS_KEY = 'bs_founders_local_drafts';
+    function getLocalDrafts() {
+      try { return JSON.parse(localStorage.getItem(LOCAL_DRAFTS_KEY)) || []; } catch (e) { return []; }
+    }
+    function setLocalDrafts(arr) { localStorage.setItem(LOCAL_DRAFTS_KEY, JSON.stringify(arr)); }
+    function addLocalDraft(name, role, statement) {
+      const drafts = getLocalDrafts();
+      drafts.push({ id: 'fd_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), name: name, role: role, statement: statement });
+      setLocalDrafts(drafts);
+    }
+    function deleteLocalDraft(id) {
+      setLocalDrafts(getLocalDrafts().filter(function(d) { return d.id !== id; }));
+    }
+
     function renderFounders(statements) {
       let html = '';
       statements.forEach(function(s) {
@@ -205,14 +252,52 @@
         }
         html += '</div>';
       });
+      getLocalDrafts().forEach(function(d) {
+        html += '<div class="founder-card founder-card-draft" data-local-id="' + esc(d.id) + '">';
+        html += '<div class="founder-head"><span class="founder-name">' + esc(d.name) + '</span><span class="founder-role">' + esc(d.role) + '</span></div>';
+        html += '<span class="founder-draft-tag">LOCAL DRAFT — this browser only, not yet sent in</span>';
+        const paras = String(d.statement).split(/\n\n+/);
+        paras.forEach(function(p) {
+          html += '<p class="founder-statement">' + esc(p) + '</p>';
+        });
+        html += '<button type="button" class="founder-draft-delete" data-id="' + esc(d.id) + '">Remove draft</button>';
+        html += '</div>';
+      });
       document.getElementById('foundersList').innerHTML = html;
+      document.querySelectorAll('.founder-draft-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          deleteLocalDraft(btn.dataset.id);
+          renderFounders(statements);
+        });
+      });
+    }
+
+    function wireEditor() {
+      const editorInput = document.getElementById('editorNameInput');
+      editorInput.value = getEditor();
+      editorInput.addEventListener('change', function() { setEditor(editorInput.value.trim()); });
+    }
+
+    function wireAddForm(statements) {
+      document.getElementById('founderAddForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('founderAddName').value.trim();
+        const role = document.getElementById('founderAddRole').value.trim();
+        const text = document.getElementById('founderAddText').value.trim();
+        if (!name || !role || !text) return;
+        addLocalDraft(name, role, text);
+        renderFounders(statements);
+        e.target.reset();
+      });
     }
 
     function unlock(data) {
       gate.hidden = true;
       content.hidden = false;
       document.getElementById('foundersNote').textContent = data.note;
+      wireEditor();
       renderFounders(data.statements);
+      wireAddForm(data.statements);
       content.querySelectorAll('.reveal').forEach(function(el) {
         el.classList.add('in-view');
       });

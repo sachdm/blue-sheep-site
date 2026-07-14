@@ -62,6 +62,12 @@
 
     <p class="pipeline-intro reveal" id="pipelineNote"></p>
 
+    <div class="team-editor-bar reveal">
+      <label class="team-editor-label" for="editorNameInput">Editing as</label>
+      <input type="text" class="team-editor-input" id="editorNameInput" placeholder="Your name…" autocomplete="off">
+      <span class="team-editor-hint">Shared across the internal pages on this browser.</span>
+    </div>
+
     <div class="pipeline-summary reveal" id="pipelineSummary" aria-live="polite"></div>
 
     <div class="pipeline-groups" id="pipelineGroups"></div>
@@ -94,6 +100,14 @@
       if (href === path) a.setAttribute('aria-current', 'page');
     });
   })();
+
+  // Clicking the logo/home link should return to a calm homepage, not
+  // replay the intro animation — flag it so index.html knows to skip it.
+  document.querySelectorAll('a.brand').forEach(function(a) {
+    a.addEventListener('click', function() {
+      try { sessionStorage.setItem('bs_skip_intro', '1'); } catch (e) {}
+    });
+  });
 
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');
@@ -237,6 +251,16 @@
       localStorage.setItem(ACTION_KEY, JSON.stringify(map));
     }
 
+    // ---------- shared editor identity (also used on Team Hub, Working IP, Founders) ----------
+    const EDITOR_KEY = 'bs_team_editor';
+    function getEditor() { return localStorage.getItem(EDITOR_KEY) || ''; }
+    function setEditor(name) { localStorage.setItem(EDITOR_KEY, name); }
+    function wireEditor() {
+      const editorInput = document.getElementById('editorNameInput');
+      editorInput.value = getEditor();
+      editorInput.addEventListener('change', function() { setEditor(editorInput.value.trim()); });
+    }
+
     function renderGroups(prospects) {
       const map = getStatusMap();
       const actionMap = getActionMap();
@@ -297,6 +321,7 @@
       gate.hidden = true;
       content.hidden = false;
       document.getElementById('pipelineNote').textContent = data.note;
+      wireEditor();
       renderSummary(data.prospects);
       renderGroups(data.prospects);
       wireStatusButtons(data.prospects);

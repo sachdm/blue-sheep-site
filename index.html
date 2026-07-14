@@ -58,11 +58,18 @@
 
 <script>
 (function() {
-  // Only play the full intro once per browser session — clicking the logo
-  // or navigating back to the homepage from elsewhere on the site shouldn't
-  // replay a 5-second animation every time.
-  if (sessionStorage.getItem('bs_intro_shown') === '1') return;
-  sessionStorage.setItem('bs_intro_shown', '1');
+  // Skip the intro only when we arrived here by clicking the logo/home link
+  // from elsewhere on the site (that link sets this flag right before
+  // navigating). A direct visit, a bookmark, or an actual reload of the
+  // homepage still gets the full animation, same as before.
+  var skipIntro = false;
+  try {
+    if (sessionStorage.getItem('bs_skip_intro') === '1') {
+      skipIntro = true;
+      sessionStorage.removeItem('bs_skip_intro');
+    }
+  } catch (e) {}
+  if (skipIntro) return;
   var pre = document.createElement('div');
   pre.className = 'preloader';
   pre.id = 'preloader';
@@ -221,6 +228,14 @@
       if (href === path) a.setAttribute('aria-current', 'page');
     });
   })();
+
+  // Clicking the logo/home link should return to a calm homepage, not
+  // replay the intro animation — flag it so index.html knows to skip it.
+  document.querySelectorAll('a.brand').forEach(function(a) {
+    a.addEventListener('click', function() {
+      try { sessionStorage.setItem('bs_skip_intro', '1'); } catch (e) {}
+    });
+  });
 
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');

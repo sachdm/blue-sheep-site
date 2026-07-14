@@ -61,6 +61,12 @@
 
   <div class="inv-public" id="grantsContent" hidden>
 
+    <div class="team-editor-bar reveal">
+      <label class="team-editor-label" for="editorNameInput">Editing as</label>
+      <input type="text" class="team-editor-input" id="editorNameInput" placeholder="Your name…" autocomplete="off">
+      <span class="team-editor-hint">Shared across the internal pages on this browser.</span>
+    </div>
+
     <div class="grant-block reveal" id="grantBlock">
       <span class="mini-label">Grant Applications</span>
       <div class="grant-card" id="grantCard"></div>
@@ -139,6 +145,14 @@
       if (href === path) a.setAttribute('aria-current', 'page');
     });
   })();
+
+  // Clicking the logo/home link should return to a calm homepage, not
+  // replay the intro animation — flag it so index.html knows to skip it.
+  document.querySelectorAll('a.brand').forEach(function(a) {
+    a.addEventListener('click', function() {
+      try { sessionStorage.setItem('bs_skip_intro', '1'); } catch (e) {}
+    });
+  });
 
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');
@@ -431,9 +445,20 @@
       wrap.innerHTML = col('Quantitative', m.quant) + col('Qualitative', m.qual);
     }
 
+    // ---------- shared editor identity (also used on Team Hub, Working IP, Founders, Pipeline, Slate) ----------
+    const EDITOR_KEY = 'bs_team_editor';
+    function getEditor() { return localStorage.getItem(EDITOR_KEY) || ''; }
+    function setEditor(name) { localStorage.setItem(EDITOR_KEY, name); }
+    function wireEditor() {
+      const editorInput = document.getElementById('editorNameInput');
+      editorInput.value = getEditor();
+      editorInput.addEventListener('change', function() { setEditor(editorInput.value.trim()); });
+    }
+
     function unlock(data) {
       gate.hidden = true;
       content.hidden = false;
+      wireEditor();
       renderGrant(data.grant);
       if (data.background) document.getElementById('backgroundText').textContent = data.background;
       if (data.whyBlueSheep) document.getElementById('whyBlueSheepText').innerHTML = data.whyBlueSheep;

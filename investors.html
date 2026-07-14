@@ -60,6 +60,7 @@
 
   <div class="inv-hub" id="invHub" hidden>
     <p class="inv-hub-intro reveal">Enter any section below. Each is independently encrypted with the same passphrase.</p>
+    <p class="hub-unlock-status" id="hubUnlockStatus" role="status" aria-live="polite"></p>
 
     <div class="hub-snapshot reveal" id="hubSnapshot">
       <span class="mini-label">Snapshot — This Device</span>
@@ -68,6 +69,11 @@
     </div>
 
     <div class="inv-hub-grid">
+      <a class="inv-hub-card reveal" href="team-hub.html">
+        <span class="inv-hub-label-row"><span class="inv-hub-label">Team Hub</span><span class="inv-hub-badge">Internal</span></span>
+        <span class="inv-hub-desc">Roadmap status, objectives, a task board, and an idea board — built for the whole team to use.</span>
+        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
+      </a>
       <a class="inv-hub-card reveal" href="investors-financials.html">
         <span class="inv-hub-label">Financial Summary</span>
         <span class="inv-hub-desc">H1 2026 actuals, quarterly trajectory, traction, and the ask.</span>
@@ -98,11 +104,6 @@
         <span class="inv-hub-desc">Personal statements from Sacha and Will on the studio and the slate.</span>
         <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
       </a>
-      <a class="inv-hub-card reveal" href="team-hub.html">
-        <span class="inv-hub-label-row"><span class="inv-hub-label">Team Hub</span><span class="inv-hub-badge">Internal</span></span>
-        <span class="inv-hub-desc">Roadmap status, objectives, a task board, and an idea board — built for the whole team to use.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
     </div>
   </div>
 
@@ -127,6 +128,14 @@
       if (href === path) a.setAttribute('aria-current', 'page');
     });
   })();
+
+  // Clicking the logo/home link should return to a calm homepage, not
+  // replay the intro animation — flag it so index.html knows to skip it.
+  document.querySelectorAll('a.brand').forEach(function(a) {
+    a.addEventListener('click', function() {
+      try { sessionStorage.setItem('bs_skip_intro', '1'); } catch (e) {}
+    });
+  });
 
   const toggle = document.querySelector('.nav-toggle');
   const linkGroup = document.querySelector('.nav-links');
@@ -279,6 +288,63 @@
       });
     }
 
+    // ---------- cascade unlock: decrypt every sub-page with the same
+    // passphrase right now, so clicking through doesn't ask again. ----------
+    const SUB_PAGES = [
+      { file: 'team-hub.html', lockKey: 'bs_team_data' },
+      { file: 'investors-financials.html', lockKey: 'bs_inv_financials_data' },
+      { file: 'investors-grants.html', lockKey: 'bs_inv_grants_data' },
+      { file: 'client-pipeline.html', lockKey: 'bs_pipeline_data' },
+      { file: 'investors-slate.html', lockKey: 'bs_inv_slate_data' },
+      { file: 'investors-ip.html', lockKey: 'bs_ip_data' },
+      { file: 'investors-founders.html', lockKey: 'bs_founders_data' }
+    ];
+
+    async function decryptWith(salt, iv, ciphertext, passphrase) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: b64ToBuf(salt), iterations: 600000, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(iv) }, key, b64ToBuf(ciphertext));
+      return JSON.parse(new TextDecoder().decode(plainBuf));
+    }
+
+    async function unlockSubPage(page, passphrase) {
+      // Skip pages already unlocked on this device.
+      if (localStorage.getItem(page.lockKey)) return true;
+      try {
+        const res = await fetch(page.file, { cache: 'no-store' });
+        const html = await res.text();
+        const salt = html.match(/salt: "([^"]+)"/);
+        const iv = html.match(/iv: "([^"]+)"/);
+        const ciphertext = html.match(/ciphertext: "([^"]+)"/);
+        if (!salt || !iv || !ciphertext) return false;
+        const data = await decryptWith(salt[1], iv[1], ciphertext[1], passphrase);
+        localStorage.setItem(page.lockKey, JSON.stringify(data));
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function unlockEverything(passphrase) {
+      const status = document.getElementById('hubUnlockStatus');
+      if (status) status.textContent = 'Unlocking every section…';
+      Promise.all(SUB_PAGES.map(function(p) { return unlockSubPage(p, passphrase); })).then(function(results) {
+        if (!status) return;
+        const ok = results.filter(Boolean).length;
+        status.textContent = ok === SUB_PAGES.length
+          ? 'All sections unlocked — click into any of them below, no passphrase needed.'
+          : 'Most sections unlocked. A couple may still ask for the passphrase once.';
+        setTimeout(function() { status.textContent = ''; }, 6000);
+      });
+    }
+
     // Unlock state persists in localStorage on this device/browser, so the
     // passphrase only needs to be entered once. Clear site data to re-lock.
     const LOCK_KEY = 'bs_inv_hub_ok';
@@ -296,6 +362,7 @@
         error.classList.remove('show');
         localStorage.setItem(LOCK_KEY, '1');
         unlock();
+        unlockEverything(passphrase);
       }).catch(function() {
         error.classList.add('show');
         input.value = '';
