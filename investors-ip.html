@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Investors — Blue Sheep</title>
-<meta name="description" content="Private, encrypted investor relations for Blue Sheep — independent film production based in Toronto, Ontario.">
+<title>Working IP — Investors — Blue Sheep</title>
+<meta name="description" content="Private, encrypted development slate for Blue Sheep — independent film production based in Toronto, Ontario.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Blue Sheep">
-<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/investors.html">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/investors-ip.html">
 <meta name="view-transition" content="same-origin">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23f3f2ee' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23f3f2ee'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -44,7 +44,8 @@
 
 <section id="main" class="wrap page-main">
 
-  <h1 class="label reveal inv-h1">Investors</h1>
+  <a class="inv-back reveal" href="investors.html">&larr; Investors</a>
+  <h1 class="label reveal inv-h1">Working IP</h1>
 
   <div class="gate reveal" id="investorsGate">
     <div>
@@ -58,40 +59,14 @@
     </div>
   </div>
 
-  <div class="inv-hub" id="invHub" hidden>
-    <p class="inv-hub-intro reveal">Enter any section below. Each is independently encrypted with the same passphrase.</p>
-    <div class="inv-hub-grid">
-      <a class="inv-hub-card reveal" href="investors-financials.html">
-        <span class="inv-hub-label">Financial Summary</span>
-        <span class="inv-hub-desc">H1 2026 actuals, quarterly trajectory, traction, and the ask.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="investors-grants.html">
-        <span class="inv-hub-label">Grants</span>
-        <span class="inv-hub-desc">Canada Council application, one-year filmmaker trajectory, and the $100,000 allocation.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="client-pipeline.html">
-        <span class="inv-hub-label-row"><span class="inv-hub-label">Client Pipeline</span><span class="inv-hub-badge">Internal</span></span>
-        <span class="inv-hub-desc">Prospects, outreach status, and contact tracking — internal use only.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="investors-slate.html">
-        <span class="inv-hub-label">Slate Strategy</span>
-        <span class="inv-hub-desc">The pivot to features, an illustrative financing stack, and the multi-year roadmap.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="investors-ip.html">
-        <span class="inv-hub-label-row"><span class="inv-hub-label">Working IP</span><span class="inv-hub-badge">Internal</span></span>
-        <span class="inv-hub-desc">The active development slate — titles in script/dev, post, and festival run.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="investors-founders.html">
-        <span class="inv-hub-label-row"><span class="inv-hub-label">Founder Statements</span><span class="inv-hub-badge">Internal</span></span>
-        <span class="inv-hub-desc">Personal statements from Sacha and Will on the studio and the slate.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
+  <div class="inv-public" id="ipContent" hidden>
+
+    <p class="pipeline-intro reveal" id="ipNote"></p>
+
+    <div class="pipeline-groups" id="ipGroups"></div>
+
+    <p class="inv-security-note reveal">This page is protected with client-side passphrase encryption — nothing here is stored or sent as plain text. Want more detail on any title? <a href="mailto:info@bluesheepfilms.com">Reach out</a>.</p>
+
   </div>
 
 </section>
@@ -172,18 +147,17 @@
   }
 
   (function() {
-    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. This hub only decrypts
-    // a small marker to verify the passphrase — the real content lives, separately
-    // encrypted, on the pages this unlocks.
+    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
+    // is opaque without the passphrase — nothing legible ships in this file.
     const ENC = {
-      salt: "mYTiQhkYRnLwcK1jheVkXg==",
-      iv: "gi9ArK7vv2QnDH+C",
-      ciphertext: "sY9X2j3kVAfzOFjx0mZJJ5W6jbxtKxvLQylX",
+      salt: "XHASPKovXEjGVUY+HLAdKA==",
+      iv: "g1dNLm8kJA3U3dLz",
+      ciphertext: "8D1t8Cxr+CRdOOFFVy4iVGmAcGkO336WkWD+mo7FHPPzh6uO71NXweYAxOlBUuiVIdrkHHpfgr1ILRbLTNvisdCmjOXAiGHJ7Ks9cMDQKerFCJ/TYUwNs0ZpzFXeMZKHg/NgqK2TNyTpetf9PuYB1d0Wjfwkz0gRvZitB2t9GEXiCqf58ADpOI75R0a2xr9jMp298ByUHPI84YUXVEAtiGVU3LmCk7iE8/2szsvNLzg30Dxix96W5s0r4H45ipCZ658HUPUCOKLz5/VEu/v5wesmvDsJYgq6mtF8mkN7xAHJwdjUZO6+f20jv8rLD2ijFvmv+/GjVJGFoY3kL5p+9cVYBzLJWTvby6gTvGqKy4FE1I7h7IZsHEC5rdvWTIcKest7YsvXKO19WUEbVaZEmj3sESQ9JDUtx0fCXNWtdBaf10TstkzFMioKyxgfcu4pnRcTybGjQrTH5RE2W+B9As7qjVChchzNQAMhc/cy/b9X2D+LkbCx6HeDlBiLfOY5U1QXr2GOsizOlhVfeuUVg0LN07i5jC+p98kv22cBEwFJK3M6aOjmd8qv313l7OoKM9PYn26vOZhlIdjHTYq5ngeyubqiAUC8K0X1ibFTU2THuf5s0u0WiMLFsXzXcSn++S1aq4MVqJ4uJMtkXIEZUpCRgf4hBTol9SJVMSnx4uoxa5ELqmz4o51uBa9JA6nw1dWMexQ4wKq+0zwNuiqaAbGPOV1KQfNU2/wP78QrQDR1sr3FdVeKs0rYdsZ2+OyjTJn80jrSJoSXQk2FlyYXNzMly4KtQ1hIRXdTDb2OlGy1D5olLHVe2M0QlkpzNlENfNGnz12bGaVkJTSdaJ+LKvaobpdELKoMpuuLDFV/uyo4nGwuyO7HndGqZ7K9sB4YaljnTtfoHF4OTbLTUEF8EdcLSVCPRQKQFw5HNwLfbZpV37FMGx/Y7Ek=",
       iterations: 600000
     };
 
     const gate = document.getElementById('investorsGate');
-    const hub = document.getElementById('invHub');
+    const content = document.getElementById('ipContent');
     const form = document.getElementById('gateForm');
     const input = document.getElementById('gateInput');
     const submitBtn = document.getElementById('gateSubmit');
@@ -210,19 +184,62 @@
       return JSON.parse(new TextDecoder().decode(plainBuf));
     }
 
-    function unlock() {
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    const STAGE_ORDER = ['Script/Dev', 'Post-Production', 'Festival Run'];
+
+    function renderGroups(projects) {
+      const byStage = {};
+      STAGE_ORDER.forEach(function(s) { byStage[s] = []; });
+      projects.forEach(function(p) {
+        if (!byStage[p.stage]) byStage[p.stage] = [];
+        byStage[p.stage].push(p);
+      });
+      let html = '';
+      STAGE_ORDER.forEach(function(stage) {
+        const items = byStage[stage];
+        if (!items || !items.length) return;
+        html += '<div class="pipeline-group"><h3 class="pipeline-group-title">' + esc(stage) + '</h3><ul class="pipeline-list">';
+        items.forEach(function(p) {
+          html += '<li class="pipeline-row">';
+          html += '<div class="pipeline-row-main">';
+          if (p.link) {
+            html += '<a class="pipeline-name ip-title-link" href="' + esc(p.link) + '">' + esc(p.title) + '</a>';
+          } else {
+            html += '<span class="pipeline-name">' + esc(p.title) + '</span>';
+          }
+          if (p.format) {
+            html += '<span class="pipeline-priority">' + esc(p.format) + '</span>';
+          }
+          html += '</div>';
+          if (p.note) {
+            html += '<p class="pipeline-note">' + esc(p.note) + '</p>';
+          }
+          html += '</li>';
+        });
+        html += '</ul></div>';
+      });
+      document.getElementById('ipGroups').innerHTML = html;
+    }
+
+    function unlock(data) {
       gate.hidden = true;
-      hub.hidden = false;
-      hub.querySelectorAll('.reveal').forEach(function(el) {
+      content.hidden = false;
+      document.getElementById('ipNote').textContent = data.note;
+      renderGroups(data.projects);
+      content.querySelectorAll('.reveal').forEach(function(el) {
         el.classList.add('in-view');
       });
     }
 
     // Unlock state persists in localStorage on this device/browser, so the
     // passphrase only needs to be entered once. Clear site data to re-lock.
-    const LOCK_KEY = 'bs_inv_hub_ok';
-    if (localStorage.getItem(LOCK_KEY) === '1') {
-      unlock();
+    const LOCK_KEY = 'bs_ip_data';
+    const cached = localStorage.getItem(LOCK_KEY);
+    if (cached) {
+      try { unlock(JSON.parse(cached)); } catch (e) { localStorage.removeItem(LOCK_KEY); }
     }
 
     form.addEventListener('submit', function(e) {
@@ -233,8 +250,8 @@
       submitBtn.textContent = 'Decrypting…';
       decrypt(passphrase).then(function(data) {
         error.classList.remove('show');
-        localStorage.setItem(LOCK_KEY, '1');
-        unlock();
+        localStorage.setItem(LOCK_KEY, JSON.stringify(data));
+        unlock(data);
       }).catch(function() {
         error.classList.add('show');
         input.value = '';

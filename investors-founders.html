@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Investors — Blue Sheep</title>
-<meta name="description" content="Private, encrypted investor relations for Blue Sheep — independent film production based in Toronto, Ontario.">
+<title>Founder Statements — Investors — Blue Sheep</title>
+<meta name="description" content="Private, encrypted founder statements for Blue Sheep — independent film production based in Toronto, Ontario.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0a0a0a">
 <meta name="author" content="Blue Sheep">
-<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/investors.html">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/investors-founders.html">
 <meta name="view-transition" content="same-origin">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23f3f2ee' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23f3f2ee'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -44,7 +44,8 @@
 
 <section id="main" class="wrap page-main">
 
-  <h1 class="label reveal inv-h1">Investors</h1>
+  <a class="inv-back reveal" href="investors.html">&larr; Investors</a>
+  <h1 class="label reveal inv-h1">Founder Statements</h1>
 
   <div class="gate reveal" id="investorsGate">
     <div>
@@ -58,40 +59,14 @@
     </div>
   </div>
 
-  <div class="inv-hub" id="invHub" hidden>
-    <p class="inv-hub-intro reveal">Enter any section below. Each is independently encrypted with the same passphrase.</p>
-    <div class="inv-hub-grid">
-      <a class="inv-hub-card reveal" href="investors-financials.html">
-        <span class="inv-hub-label">Financial Summary</span>
-        <span class="inv-hub-desc">H1 2026 actuals, quarterly trajectory, traction, and the ask.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="investors-grants.html">
-        <span class="inv-hub-label">Grants</span>
-        <span class="inv-hub-desc">Canada Council application, one-year filmmaker trajectory, and the $100,000 allocation.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="client-pipeline.html">
-        <span class="inv-hub-label-row"><span class="inv-hub-label">Client Pipeline</span><span class="inv-hub-badge">Internal</span></span>
-        <span class="inv-hub-desc">Prospects, outreach status, and contact tracking — internal use only.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="investors-slate.html">
-        <span class="inv-hub-label">Slate Strategy</span>
-        <span class="inv-hub-desc">The pivot to features, an illustrative financing stack, and the multi-year roadmap.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="investors-ip.html">
-        <span class="inv-hub-label-row"><span class="inv-hub-label">Working IP</span><span class="inv-hub-badge">Internal</span></span>
-        <span class="inv-hub-desc">The active development slate — titles in script/dev, post, and festival run.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-      <a class="inv-hub-card reveal" href="investors-founders.html">
-        <span class="inv-hub-label-row"><span class="inv-hub-label">Founder Statements</span><span class="inv-hub-badge">Internal</span></span>
-        <span class="inv-hub-desc">Personal statements from Sacha and Will on the studio and the slate.</span>
-        <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
+  <div class="inv-public" id="foundersContent" hidden>
+
+    <p class="pipeline-intro reveal" id="foundersNote"></p>
+
+    <div class="founders-list" id="foundersList"></div>
+
+    <p class="inv-security-note reveal">This page is protected with client-side passphrase encryption — nothing here is stored or sent as plain text.</p>
+
   </div>
 
 </section>
@@ -172,18 +147,17 @@
   }
 
   (function() {
-    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. This hub only decrypts
-    // a small marker to verify the passphrase — the real content lives, separately
-    // encrypted, on the pages this unlocks.
+    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
+    // is opaque without the passphrase — nothing legible ships in this file.
     const ENC = {
-      salt: "mYTiQhkYRnLwcK1jheVkXg==",
-      iv: "gi9ArK7vv2QnDH+C",
-      ciphertext: "sY9X2j3kVAfzOFjx0mZJJ5W6jbxtKxvLQylX",
+      salt: "e2flugEcxgqN0MGu/8ZH2Q==",
+      iv: "N1PXqSws02DngCkY",
+      ciphertext: "GKiKTvZCyWdz0HWVK+/zYFqw6YwCKUGs6RV065OnOVQNGx3tagO1ASWcmT6xMi57vipnf9FXCLBDGmeFaS1Fj3sATf0hAocSipbEBoG/EDFMZ0vT/JAwlIy5vK6DgnXUMM0acG81g/NgwB4ykThb60mDo3mQdG9WMvWR3//GkJd2DdgD1w/wmq5iIgyyN5b/tLpWbnGqVIrNWkCjipPhJb61h0PKEoJhXpCRcaGSzvjgr54NxQFzHIDzccTgjws2EVY8e6DwGL4jtIlraWpU7cruyg3JZ8+fUgZOO5GggZTHvRSxLhwJrxIjwkSS/ASvZ4SfYUNZGXLG65SdG5WpBKPMaFL3XMOCK0Z3ZuoMemnr9XZMTv1TVPumdmkkn8S75z07ImrXAsKmw7qoK3jUsJPoighNzvvO9dIVioPkaq4pJ3DhYVom2WIC0vBqMswIdsXtDhsh8EwTBegp7ItXYAH+LUsQRecRWzc0TPZhqprHFYKJb3Jl7ceyj58wvy9BARU7dp+rrWz9zOUJji4Sx1QZQ/AtJ/1eC/ggLlMajIp0+1AVS3CnXRDMN/qgHm51CASWoadwNez+y6CSd+thfMUG7AgE5VK9JU/FUEDwYE2yA5rK4CreBY3fhXHna9KGwfBoTWtstMuYRy84YE2ESyjYYIawsKjLn4YsFR3HNgTe5mZ35C48dpVtSrYb2zQ0YhKYvKx6hjicRBdRa0llMxUNrbazzyim2UKQHnuahKB2ntsyfN0ynAvrsjkrtPh3/RLi8K6Lq6JKowloAmehkT+POBGe8jsBfsvE6RXq+6ePYb9aieP26U1Nq1enTdyWoV17/km4/EsXSolSlPPcUPzuE0G3WBCMuFkNtTm9oE+/8x0CI998ERIgTJtTFil947rKRuyV2KcVo9z2ho+ltrL25qN15V1yBIZRo2G3gbAoIcCGv/0X6yQQ9zqYLOEXnklUVILIlN3iPgJZ/bFD8kcSAq51HH/B0NXY2tL205ODADbcES08LnsPWuk0uye8z+K5bztoL1IfU1Eo3KJ297t1KpEEbZ8i1peyyLIOgpM0NABe0qvy2w2YuHer99Ejb9s04fcJmj5M4qvmIc5KzJE/H6ChGqaOfm0jp5Ix58Cd+eU9BtjNekyMwEC9RCF2cHce2yNA6twZhou8r5XZ8BC6N3Y/PE2dumW9UFBFR7X58snp4AqYbuIoj7Y3BQBHicwinVLFTfNzGyFRyo8PU8V02I03qNSdrrNMfXTrr9xTm6LV+aYxT/8YdJdCpqIPrF/Dw+21cxPclw8f4Ve7zS31tKhehzgzZy0t1MHmNFkKtoRRuy+UqXZNyDmANiA17/hihhNHExPEdQNGZw5on3G7V+xeb0v1NRmBkfa0qapq2t0pNSEOT9xDmNT1yP3Sv3q1DJT1wSjC/nYxy9ABCx00KPpM8CoGBPgAmfotzxFS/ugsJHpE71QyhUolB3Y4nY1TXjC7nxMaXKJ9zPOoN1Gbe2SQylb9Xj4MzvU5gyktIlhPivblAn/5xwo6d/CpGT19d/AbvswDDYGIV0L0wx9Qifg9X4agQOI1wP4MOnaNcv1eOmyVP1WwjtKjB5tNFCQk3i+w/yybQayoZ7E+Xp+4gQmeoC3JqEzipAYYi1U621KfCpyHLWvbKRQVxy1NvsR2Jwq0PwiBR8EqNKii9/QlIMQDkrcFBFMPdeRjteHURHWjcuG4WdIh/CQxm3tgPOCwej99lW9uBnisDv26oGzQQ1ceG/P9mfJaKpNofqY/hhmklW7MFS8LmUj39oM2ourCJnWn/F5A1iLpbkby3wjkvdqhklqJzWRdRy0wW91aFiqpYUt/MVI8tutRkA/CvGkUFRYp+9FVT2hoMDY4uqubxSlbXaggV3B1HFrVquEualcZgRHwBZWi6Ttyf5NXT3Qh9o5cgCMzEHANH2oFwsRCZZfDhaQs6okea9itTNTSXGS9sYLAMd+X0kwhzrkRDMXW1ZZMrIvhj2kJqG/VgVITiVkV70Vb/YlA4oxecd6VY3bdzo0YQkmq44Z3T8tb35EC8zq1PCXxeRhVJ8GwZFrtOw5u18EeUPYgHULyM+r2l1+QWidDpFTfGb11knFYs3lMztZz8XNuuke4twJcYxEBuFcZCOYuHvuS9FCagUNVYVRwbdiqOE7/hrvNODazJ9oCd3RR2/4BflJIN2YuPGYiOaHc1kmrmX7Pi/jYqOgwAQ45GSCCoWmB/IiYsRO8XXnTqhBOvMW9Jgkw2OH6sTLk7sJAGGmjwEbXh/P6A6dSxtXdWqFHrH2wTgn2UX8HsvPAYy8S7QDHuTI5iiIUEj/BNtne2dg9o4i+tAVw57HPljOeh72QlCfNYo3V1H0AdwPM8hC2oy+jLVUVuA+ve2b7svkXdUrB10p5HNOjp7G5V3IUNGbEFrpZZbIcK051tYAR/wz0iZZcmVeyft87bdvQG2sfARxegZ7wr6Ea2zzOGUvJSWImkkPaKHqjC5HlCHwoDiZjMMreFWuzVPnxgUdegWAhdAvaI34hAWYXcnJ2zcjIdd4KaUszsR7QLRDwa5Ut2dPD5rAnU2wqB2Gxw3wstGyMihwqXY/LjIb+GIFAh3T/YJqBB5s/4kzvdgZfScUvRYlyXTN/AgpVHcc3FcpQbqIiBMYmmT0HNscoUNHY/a2lC+Gx92vFU/gzvOiuO1ZPhPbdonBNnji/Cu4zK9gHF1p4lCwdVe5XsKE9IqkDjneolDolvQKvH6BKUKF4kS1h3DBbiIcMeW54bnrUtZnD1m+b1BAAkl/3G9Ouu0YxsqtP1Ftfnf+q94uzvGKd0Y7av4ecIZ3xQOqATIjsZzXmgYrvjU7xUQFyTvscWESvfOFaNjZl32GAGwEXHF0QxhAK3Um/0Lnhm+ow9mUBXSvkeR8XlDBkkqjy/amgkD562LkL+xujlznBzaIODXujBDF+aGEq1i8a4tP19hUNH0SYCLXzCr79eM1O5E/O1H1l2xIKgCbUbfIzK/HzHE4rQqZpy3IdFepXLncwDRzuS67KrJ491Spyprk2Wcdy0qGmAT5VAXO5OQB2c3FmoIngGaiMMLYdFV7+FIlAVESM79KDQJzCRW7CpS9yfP8coD+l7LQubqrnm7mRMhNmN7mFPGLvuQEaDWxIuIsnzjZB/D8zOniwtzEwnHX7oocCTmvowxg7NYvoFrEk0Vf/eFF4dAW367/Yi0BHlsNaQtEGd3MktVKntAZ+XGMtANeDA+Eq3kVSN4VL7EX4WNDfvKrxoPsf4JWjFwxm8+LzIFR5TBarL82HOTOpmIvJ3yPqUtMDd5hN4RZ3zWQ/rrV0LxxqHvVhO11Z4iSqKZO7E5AmyC5OCHZ3YMpU4/q+h2SCB8Zzcpf47lCNIAjE9IgfI9Kcs2f4bsADphPIk7wEwkOjmksVU0A1cKJGNJs9aqHntn3fIa6FJli5qWHygs5/GlBuEUkpzUgP80v8lbdxNcjVQfS1dTdqUQveDAjuEkO2EEKcLn7Lfj4gBW7O9In5jtN6iOLLMcaGZrZG4a7P+vlmuEB17mXR7qovG8P9pkMOxgQM5VeoKszxRGi7faL+OgBN03MaRrFdaO0Vfg4YcYDmZR98f3eCkkg/DXOusvf7FyYGoUSnj1SFD/Xqd8ITyPuvRcpoCGqYXAyoWozK29RPf61FNfAldFAacpgBOwfzyWr9DEkwvgX5c3s13tMqeriM3j/VFlG5RQzk7U0524g3SxW/Y6JWqs1/9twRUU2XMFy8bT528qKlfLDndnOO/WEfFa+54/sjLkum/8ajICeAcH147lLouVNHBrX3g6n6Ukpw2JskTikllhdj9yzOc0SKN0UOHEM8ND2hDOJd3tpD8Uu8/h9Hst5vOY8Zpbf3pHjkPtsIu3gx4xQY9FKThIV4l6o3zET7AkmduHQwf3hWzFItVPGDGphD8XcSCtoH6ryjsqCZlC9OjBqtoUZJfZ85bDHfzsg/kZbv/VVwQLcytMqpyryhQGzIzAVbQixCxlfPs/lxHu1T9ALNPOirSxB6+jP6btwNlOAJ30Zi3VrqWfKj05TyyUDLkUAW01cVQifWQNRLd5kSeGIiEr/NPsUSOIC748SVq3HVAv3rvJYniLBe0HH4wyTBAnFtYclYxhLfdynfoj3VEdB+Oz5al/MK1Y5Qsek9ACnBs8qSwvBXqEORNPqCIKRiBOnISC/Ly1DEZr7Lfo7I0D0bVS/6+fTBRp6aGO+G7MzuOSHMrnmCkdOop+ymwLzIoDNI6hWdxAPYiYO2LOLhTjM9y7nB2rKQTYxfhov3oCbaxx+5tvZw0RO1WcVp9H2Nsr3eLliqpHA0P0TrKxHwVVm3Y14QhpsEWu2Z4W0OcXAZhwBOUWOfRAdC2Hn81LC0+Bv41OBporGpA6ozIuOjvcT9ZGpPYpZY4praRqMnNuHcDwwI6ZXS4t3CxIubYtj/zmaxUDdKes9OaMUHQ1WGQeZw/WJsrT0m3LrBdGJ8kbMvZSnfptDIi+S1cj2M78we+r10MBZ/7GGU5UcXxLg9kGUxePw/6tcpiixtkW+7oEV2UcdZxj8a1c6NmPQH/11DP+X4ArIVREog2wiLNkUPQeiL/IWwVSLLrCctnwSUDdntqWp332Ictrv/zGU/rduL5IXz8KG9Q7jukzUXeqQk0Cz04vGZrcVelF5RBi+JLTmOa6AMqtmdwpulIiKLaJF4lB72tHysP/5Q1AiaDMiZT3o0WEn4VBHqDhIP9qUPklSD3XuRm2Fb67HquorG7MSMnYSdziGJXWVMjT7mqaTriXhNmF6yf3ngN+u1PUk657JIYkdWK+ZHiLm1GpCVP9+nZGzJdz8anOxBA/MJ3pMHesGGy1wdezd//SugylN6TAACB5c=",
       iterations: 600000
     };
 
     const gate = document.getElementById('investorsGate');
-    const hub = document.getElementById('invHub');
+    const content = document.getElementById('foundersContent');
     const form = document.getElementById('gateForm');
     const input = document.getElementById('gateInput');
     const submitBtn = document.getElementById('gateSubmit');
@@ -210,19 +184,46 @@
       return JSON.parse(new TextDecoder().decode(plainBuf));
     }
 
-    function unlock() {
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function renderFounders(statements) {
+      let html = '';
+      statements.forEach(function(s) {
+        const isDraft = !!s.placeholder;
+        html += '<div class="founder-card' + (isDraft ? ' founder-card-draft' : '') + '">';
+        html += '<div class="founder-head"><span class="founder-name">' + esc(s.name) + '</span><span class="founder-role">' + esc(s.role) + '</span></div>';
+        if (isDraft) {
+          html += '<span class="founder-draft-tag">DRAFT — not yet written</span>';
+          html += '<p class="founder-statement founder-statement-draft">' + esc(s.placeholder) + '</p>';
+        } else {
+          const paras = String(s.statement).split(/\n\n+/);
+          paras.forEach(function(p) {
+            html += '<p class="founder-statement">' + esc(p) + '</p>';
+          });
+        }
+        html += '</div>';
+      });
+      document.getElementById('foundersList').innerHTML = html;
+    }
+
+    function unlock(data) {
       gate.hidden = true;
-      hub.hidden = false;
-      hub.querySelectorAll('.reveal').forEach(function(el) {
+      content.hidden = false;
+      document.getElementById('foundersNote').textContent = data.note;
+      renderFounders(data.statements);
+      content.querySelectorAll('.reveal').forEach(function(el) {
         el.classList.add('in-view');
       });
     }
 
     // Unlock state persists in localStorage on this device/browser, so the
     // passphrase only needs to be entered once. Clear site data to re-lock.
-    const LOCK_KEY = 'bs_inv_hub_ok';
-    if (localStorage.getItem(LOCK_KEY) === '1') {
-      unlock();
+    const LOCK_KEY = 'bs_founders_data';
+    const cached = localStorage.getItem(LOCK_KEY);
+    if (cached) {
+      try { unlock(JSON.parse(cached)); } catch (e) { localStorage.removeItem(LOCK_KEY); }
     }
 
     form.addEventListener('submit', function(e) {
@@ -233,8 +234,8 @@
       submitBtn.textContent = 'Decrypting…';
       decrypt(passphrase).then(function(data) {
         error.classList.remove('show');
-        localStorage.setItem(LOCK_KEY, '1');
-        unlock();
+        localStorage.setItem(LOCK_KEY, JSON.stringify(data));
+        unlock(data);
       }).catch(function() {
         error.classList.add('show');
         input.value = '';
