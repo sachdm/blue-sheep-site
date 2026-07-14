@@ -1468,11 +1468,28 @@ body.work-page {
   border-color: var(--ink);
   transform: translateY(-2px);
 }
+.inv-hub-label-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 .inv-hub-label {
   font-family: var(--sans);
   font-weight: 600;
   font-size: 17px;
   color: var(--ink);
+}
+.inv-hub-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 2px 7px;
 }
 .inv-hub-desc {
   font-size: 13px;
@@ -1888,7 +1905,11 @@ body.work-page {
   cursor: pointer;
   color: inherit;
 }
-.budget-row-toggle:focus-visible { outline: none; }
+.budget-row-toggle:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
 .budget-row-toggle .chevron { flex-shrink: 0; color: var(--grey); }
 .budget-swatch {
   width: 10px;
@@ -2288,6 +2309,42 @@ body.work-page {
   font-size: 16px;
   line-height: 1.7;
   color: var(--body-copy);
+}
+
+.team-block {
+  max-width: 640px;
+  margin: 0 auto 44px;
+}
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.team-member {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.team-member:first-child { border-top: none; padding-top: 0; }
+.team-name {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  margin-right: 10px;
+}
+.team-role {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.team-note {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--grey);
+  margin-top: 6px;
 }
 
 .ask-card {

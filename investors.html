@@ -59,7 +59,7 @@
   </div>
 
   <div class="inv-hub" id="invHub" hidden>
-    <p class="inv-hub-intro reveal">Enter either section below. Each is independently encrypted with the same passphrase.</p>
+    <p class="inv-hub-intro reveal">Enter any section below. Each is independently encrypted with the same passphrase.</p>
     <div class="inv-hub-grid">
       <a class="inv-hub-card reveal" href="investors-financials.html">
         <span class="inv-hub-label">Financial Summary</span>
@@ -72,7 +72,7 @@
         <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
       </a>
       <a class="inv-hub-card reveal" href="client-pipeline.html">
-        <span class="inv-hub-label">Client Pipeline</span>
+        <span class="inv-hub-label-row"><span class="inv-hub-label">Client Pipeline</span><span class="inv-hub-badge">Internal</span></span>
         <span class="inv-hub-desc">Prospects, outreach status, and contact tracking — internal use only.</span>
         <span class="inv-hub-arrow" aria-hidden="true">&rarr;</span>
       </a>
@@ -164,7 +164,7 @@
   (function() {
     // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. This hub only decrypts
     // a small marker to verify the passphrase — the real content lives, separately
-    // encrypted, on the two pages this unlocks.
+    // encrypted, on the pages this unlocks.
     const ENC = {
       salt: "mYTiQhkYRnLwcK1jheVkXg==",
       iv: "gi9ArK7vv2QnDH+C",
