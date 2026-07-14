@@ -274,8 +274,22 @@
 
     function wireEditor() {
       const editorInput = document.getElementById('editorNameInput');
+      const editorHint = document.querySelector('.team-editor-hint');
+      const editorHintDefault = editorHint ? editorHint.textContent : '';
       editorInput.value = getEditor();
-      editorInput.addEventListener('change', function() { setEditor(editorInput.value.trim()); });
+      let editorSaveTimer = null;
+      editorInput.addEventListener('input', function() {
+        setEditor(editorInput.value.trim());
+        if (editorHint) {
+          editorHint.textContent = 'Saved.';
+          editorHint.classList.add('saved');
+          if (editorSaveTimer) clearTimeout(editorSaveTimer);
+          editorSaveTimer = setTimeout(function() {
+            editorHint.textContent = editorHintDefault;
+            editorHint.classList.remove('saved');
+          }, 1200);
+        }
+      });
     }
 
     function wireAddForm(statements) {
@@ -303,12 +317,13 @@
       });
     }
 
-    // Unlock state persists in localStorage on this device/browser, so the
-    // passphrase only needs to be entered once. Clear site data to re-lock.
+    // Unlock state persists for this browser tab/session only (not stored
+    // permanently), so the passphrase is needed again each new visit —
+    // matches the hub's own gate.
     const LOCK_KEY = 'bs_founders_data';
-    const cached = localStorage.getItem(LOCK_KEY);
+    const cached = sessionStorage.getItem(LOCK_KEY);
     if (cached) {
-      try { unlock(JSON.parse(cached)); } catch (e) { localStorage.removeItem(LOCK_KEY); }
+      try { unlock(JSON.parse(cached)); } catch (e) { sessionStorage.removeItem(LOCK_KEY); }
     }
 
     form.addEventListener('submit', function(e) {
@@ -319,7 +334,7 @@
       submitBtn.textContent = 'Decrypting…';
       decrypt(passphrase).then(function(data) {
         error.classList.remove('show');
-        localStorage.setItem(LOCK_KEY, JSON.stringify(data));
+        sessionStorage.setItem(LOCK_KEY, JSON.stringify(data));
         unlock(data);
       }).catch(function() {
         error.classList.add('show');

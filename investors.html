@@ -315,8 +315,10 @@
     }
 
     async function unlockSubPage(page, passphrase) {
-      // Skip pages already unlocked on this device.
-      if (localStorage.getItem(page.lockKey)) return true;
+      // Skip pages already unlocked this tab session. Kept in sessionStorage
+      // (not localStorage) so the whole investor area re-locks the next time
+      // this browser is opened, matching the hub's own gate.
+      if (sessionStorage.getItem(page.lockKey)) return true;
       try {
         const res = await fetch(page.file, { cache: 'no-store' });
         const html = await res.text();
@@ -325,7 +327,7 @@
         const ciphertext = html.match(/ciphertext: "([^"]+)"/);
         if (!salt || !iv || !ciphertext) return false;
         const data = await decryptWith(salt[1], iv[1], ciphertext[1], passphrase);
-        localStorage.setItem(page.lockKey, JSON.stringify(data));
+        sessionStorage.setItem(page.lockKey, JSON.stringify(data));
         return true;
       } catch (e) {
         return false;
@@ -345,12 +347,11 @@
       });
     }
 
-    // Unlock state persists in localStorage on this device/browser, so the
-    // passphrase only needs to be entered once. Clear site data to re-lock.
+    // The hub always asks for the passphrase — no standing unlock is kept
+    // for this gate, so every visit to Investors is protected. (Any older
+    // cached bypass from before this change is cleared below.)
     const LOCK_KEY = 'bs_inv_hub_ok';
-    if (localStorage.getItem(LOCK_KEY) === '1') {
-      unlock();
-    }
+    localStorage.removeItem(LOCK_KEY);
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -360,7 +361,6 @@
       submitBtn.textContent = 'Decrypting…';
       decrypt(passphrase).then(function(data) {
         error.classList.remove('show');
-        localStorage.setItem(LOCK_KEY, '1');
         unlock();
         unlockEverything(passphrase);
       }).catch(function() {

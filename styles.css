@@ -570,28 +570,10 @@ body.home-page header nav {
   -webkit-backdrop-filter: blur(32px) saturate(160%);
 }
 
-/* Work page only: header stays out of the way of the video until you
-   bring the cursor back up near the top, then it fades in. Mouse-only —
-   touch devices keep it always visible since there's no hover to reveal it. */
-@media (pointer: fine) {
-  body.work-page header {
-    animation: none;
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-  }
-  body.work-page header.nav-visible,
-  body.work-page header:focus-within {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-}
-
-@media (pointer: fine) and (prefers-reduced-motion: reduce) {
-  body.work-page header { transition: none; }
-}
+/* Work page header used to hide itself until the cursor came back up near
+   the top of the screen. That hover-reveal was blocking clicks on Home/
+   Investors, so it now just stays visible and clickable, same as every
+   other page. */
 
 /* The slider is a full-viewport experience — nothing should ever push the
    page taller than 100vh, since a scrollable page here just lets the fixed
@@ -3295,6 +3277,13 @@ textarea.ip-track-input { min-height: 40px; }
   font-size: 12px;
   color: var(--grey);
   flex: 1 1 220px;
+  transition: color 0.2s ease;
+}
+.team-editor-hint.saved {
+  color: var(--ink);
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .team-section {
