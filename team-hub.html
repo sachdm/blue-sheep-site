@@ -69,9 +69,32 @@
       <span class="team-editor-hint">Tags what you add below. Saved to this browser only.</span>
     </div>
 
+    <div class="hub-snapshot reveal">
+      <span class="mini-label">At a Glance — This Device</span>
+      <div class="pipeline-summary hub-snapshot-grid" id="teamSnapshotGrid"></div>
+      <p class="hub-snapshot-attention" id="teamSnapshotAttention" hidden></p>
+    </div>
+
     <div class="team-section reveal">
       <span class="mini-label">Roadmap</span>
       <div class="team-timeline" id="teamTimeline"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Key Dates</span>
+      <p class="team-section-sub">Deadlines that actually matter — add one below and it sorts itself, oldest first.</p>
+      <form class="keydate-add-form" id="keydateAddForm">
+        <input type="date" class="keydate-add-date" id="keydateDate" aria-label="Date" required>
+        <input type="text" class="keydate-add-label" id="keydateLabel" placeholder="What's due…" aria-label="What's due" required>
+        <button type="submit" class="keydate-add-btn">Add</button>
+      </form>
+      <div class="keydate-list" id="keydateList"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Strategic Priorities</span>
+      <p class="team-section-sub">A first pass at where we should be pointed over the next year, given where Blue Sheep actually stands — service work funding the studio, a slate in development, grants in motion, IP that needs protecting. Edit, argue with it, add notes. Click a status pill to move a priority along.</p>
+      <div class="priority-board" id="priorityBoard"></div>
     </div>
 
     <div class="team-section reveal">
@@ -82,6 +105,55 @@
     <div class="team-section reveal">
       <span class="mini-label">Task Board</span>
       <div class="kanban-board" id="kanbanBoard"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">IP Moodboard</span>
+      <p class="moodboard-hint">Visual references for whatever we're developing — tone, look, casting, locations. Paste an image URL, tag it to a project, add a line on why it's relevant.</p>
+      <form class="moodboard-add-form" id="moodboardAddForm">
+        <input type="text" class="moodboard-add-tag" id="moodboardTag" placeholder="Project / reference tag…" aria-label="Project tag">
+        <input type="url" class="moodboard-add-url" id="moodboardUrl" placeholder="Image URL…" aria-label="Image URL" required>
+        <textarea class="moodboard-add-note" id="moodboardNote" placeholder="Why this — tone, look, casting, location…" rows="2"></textarea>
+        <button type="submit" class="moodboard-add-btn">Add to Board</button>
+      </form>
+      <div class="idea-filter-row" id="moodboardFilterRow"></div>
+      <div class="moodboard-grid" id="moodboardGrid"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Logistics</span>
+      <p class="team-section-sub">Crew, gear, locations, admin — one list instead of five scattered notes apps. Click a status pill to move it along.</p>
+      <form class="logistics-add-form" id="logisticsAddForm">
+        <select class="logistics-type-select" id="logisticsType" aria-label="Type">
+          <option value="crew">Crew</option>
+          <option value="gear">Gear</option>
+          <option value="location">Location</option>
+          <option value="admin">Admin</option>
+        </select>
+        <input type="text" class="logistics-label-input" id="logisticsLabel" placeholder="What is it…" aria-label="Item" required>
+        <input type="text" class="logistics-detail-input" id="logisticsDetail" placeholder="Detail — who, where, cost…" aria-label="Detail">
+        <button type="submit" class="logistics-add-btn">Add</button>
+      </form>
+      <div class="logistics-filter-row" id="logisticsFilterRow">
+        <button type="button" class="idea-filter-btn active" data-type="all">All</button>
+        <button type="button" class="idea-filter-btn" data-type="crew">Crew</button>
+        <button type="button" class="idea-filter-btn" data-type="gear">Gear</button>
+        <button type="button" class="idea-filter-btn" data-type="location">Location</button>
+        <button type="button" class="idea-filter-btn" data-type="admin">Admin</button>
+      </div>
+      <div class="logistics-list" id="logisticsList"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Meeting Notes</span>
+      <p class="team-section-sub">What was discussed, what got decided. Newest first.</p>
+      <form class="meeting-add-form" id="meetingAddForm">
+        <input type="date" class="meeting-add-date" id="meetingDate" aria-label="Meeting date" required>
+        <input type="text" class="meeting-add-title" id="meetingTitle" placeholder="What was this about…" aria-label="Title" required>
+        <textarea class="meeting-add-body" id="meetingBody" placeholder="Notes, decisions, action items…" rows="3"></textarea>
+        <button type="submit" class="meeting-add-btn">Log Entry</button>
+      </form>
+      <div class="meeting-log" id="meetingLog"></div>
     </div>
 
     <div class="team-section reveal">
@@ -99,6 +171,13 @@
           <button type="submit" class="idea-add-btn">Add Note</button>
         </div>
       </form>
+      <div class="idea-filter-row" id="ideaFilterRow">
+        <button type="button" class="idea-filter-btn active" data-tag="all">All</button>
+        <button type="button" class="idea-filter-btn" data-tag="story">Story</button>
+        <button type="button" class="idea-filter-btn" data-tag="visual">Visual</button>
+        <button type="button" class="idea-filter-btn" data-tag="business">Business</button>
+        <button type="button" class="idea-filter-btn" data-tag="logistics">Logistics</button>
+      </div>
       <div class="idea-board" id="ideaBoard"></div>
     </div>
 
@@ -248,6 +327,45 @@
       return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
+    // ---------- at-a-glance snapshot ----------
+    // Pulls straight from whatever's already in localStorage for the
+    // sections below, so it's always in sync — every mutating render
+    // function calls this again at the end.
+    function renderSnapshot() {
+      const grid = document.getElementById('teamSnapshotGrid');
+      if (!grid) return;
+      const kanban = getKanban(window.__teamData ? window.__teamData.kanbanSeed : null);
+      const openTasks = (kanban.todo || []).length + (kanban.progress || []).length;
+      const pmap = getPriorityMap();
+      const activePriorities = PRIORITIES.filter(function(p) { return (pmap[p.id] || {}).status === 'active'; }).length;
+      const dates = getKeydates();
+      const overdueDates = dates.filter(function(d) { return keydateStatus(d.date) === 'overdue'; });
+      const soonCount = dates.filter(function(d) { return keydateStatus(d.date) === 'soon'; }).length;
+      const moodboardCount = getMoodboard().length;
+      const logisticsNeeded = getLogistics().filter(function(i) { return i.status === 'needed'; }).length;
+      const stats = [
+        { label: 'Open Tasks', value: openTasks },
+        { label: 'Priorities Active', value: activePriorities },
+        { label: 'Deadlines Overdue', value: overdueDates.length },
+        { label: 'Deadlines This Month', value: soonCount },
+        { label: 'Moodboard References', value: moodboardCount },
+        { label: 'Logistics Needed', value: logisticsNeeded }
+      ];
+      grid.innerHTML = stats.map(function(s) {
+        return '<div class="pipeline-stat"><span class="pipeline-stat-value">' + s.value + '</span><span class="pipeline-stat-label">' + esc(s.label) + '</span></div>';
+      }).join('');
+      const attentionEl = document.getElementById('teamSnapshotAttention');
+      if (attentionEl) {
+        if (overdueDates.length) {
+          attentionEl.innerHTML = '<strong>Overdue:</strong> ' + overdueDates.map(function(d) { return esc(d.label); }).join(', ');
+          attentionEl.hidden = false;
+        } else {
+          attentionEl.innerHTML = '';
+          attentionEl.hidden = true;
+        }
+      }
+    }
+
     // ---------- editor name ----------
     const EDITOR_KEY = 'bs_team_editor';
     function getEditor() { return localStorage.getItem(EDITOR_KEY) || ''; }
@@ -349,15 +467,22 @@
       } catch (e) {}
       const board = { todo: [], progress: [], done: [] };
       (seed && seed.todo || []).forEach(function(t) {
-        board.todo.push({ id: 'k_' + Math.random().toString(36).slice(2, 9), text: t, author: '' });
+        board.todo.push({ id: 'k_' + Math.random().toString(36).slice(2, 9), text: t, author: '', createdAt: Date.now() });
       });
       localStorage.setItem(KANBAN_KEY, JSON.stringify(board));
       return board;
     }
     function setKanban(board) { localStorage.setItem(KANBAN_KEY, JSON.stringify(board)); }
+    function cardAgeLabel(createdAt) {
+      if (!createdAt) return '';
+      const days = Math.floor((Date.now() - createdAt) / 86400000);
+      if (days <= 0) return 'Today';
+      if (days === 1) return '1 day';
+      return days + ' days';
+    }
     function addCard(col, text, author) {
       const board = getKanban();
-      board[col].push({ id: 'k_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), text: text, author: author || '' });
+      board[col].push({ id: 'k_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), text: text, author: author || '', createdAt: Date.now() });
       setKanban(board);
       renderKanban();
     }
@@ -389,9 +514,15 @@
         html += '<div class="kanban-col-head"><span class="kanban-col-title">' + COL_LABEL[col] + '</span><span class="kanban-col-count">' + board[col].length + '</span></div>';
         html += '<div class="kanban-cards">';
         board[col].forEach(function(card) {
+          const age = cardAgeLabel(card.createdAt);
+          const days = card.createdAt ? Math.floor((Date.now() - card.createdAt) / 86400000) : 0;
+          const stale = col !== 'done' && days >= 14;
           html += '<div class="kanban-card">';
           html += '<p class="kanban-card-text">' + esc(card.text) + '</p>';
+          html += '<div class="kanban-card-meta">';
           if (card.author) html += '<span class="kanban-card-author">' + esc(card.author) + '</span>';
+          if (age) html += '<span class="kanban-card-age' + (stale ? ' stale' : '') + '">' + age + '</span>';
+          html += '</div>';
           html += '<div class="kanban-card-actions">';
           if (colIdx > 0) html += '<button type="button" class="kanban-move" data-col="' + col + '" data-id="' + card.id + '" data-dir="-1" aria-label="Move left">&larr;</button>';
           if (colIdx < COLS.length - 1) html += '<button type="button" class="kanban-move" data-col="' + col + '" data-id="' + card.id + '" data-dir="1" aria-label="Move right">&rarr;</button>';
@@ -423,10 +554,332 @@
           inputEl.value = '';
         });
       });
+      renderSnapshot();
+    }
+
+    // ---------- key dates ----------
+    const KEYDATES_KEY = 'bs_team_keydates';
+    function getKeydates() {
+      try { return JSON.parse(localStorage.getItem(KEYDATES_KEY)) || []; } catch (e) { return []; }
+    }
+    function setKeydates(arr) { localStorage.setItem(KEYDATES_KEY, JSON.stringify(arr)); }
+    function addKeydate(date, label, author) {
+      const items = getKeydates();
+      items.push({ id: 'd_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), date: date, label: label, author: author || '' });
+      setKeydates(items);
+      renderKeydates();
+    }
+    function deleteKeydate(id) {
+      setKeydates(getKeydates().filter(function(i) { return i.id !== id; }));
+      renderKeydates();
+    }
+    function keydateStatus(dateStr) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const target = new Date(dateStr + 'T00:00:00');
+      const diffDays = Math.round((target - today) / 86400000);
+      if (diffDays < 0) return 'overdue';
+      if (diffDays <= 14) return 'soon';
+      return 'upcoming';
+    }
+    const KEYDATE_STATUS_LABEL = { overdue: 'Overdue', soon: 'Soon', upcoming: 'Upcoming' };
+    function renderKeydates() {
+      const items = getKeydates().slice().sort(function(a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+      if (!items.length) {
+        document.getElementById('keydateList').innerHTML = '<p class="keydate-empty">No dates yet — add a deadline above.</p>';
+        renderSnapshot();
+        return;
+      }
+      const fmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      let html = '';
+      items.forEach(function(item) {
+        const status = keydateStatus(item.date);
+        html += '<div class="keydate-item">';
+        html += '<span class="keydate-date">' + fmt.format(new Date(item.date + 'T00:00:00')) + '</span>';
+        html += '<span class="keydate-label">' + esc(item.label) + '</span>';
+        html += '<span class="keydate-status status-' + status + '">' + KEYDATE_STATUS_LABEL[status] + '</span>';
+        html += '<button type="button" class="keydate-delete" data-id="' + item.id + '" aria-label="Remove">&times;</button>';
+        html += '</div>';
+      });
+      document.getElementById('keydateList').innerHTML = html;
+      document.querySelectorAll('.keydate-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteKeydate(btn.dataset.id); });
+      });
+      renderSnapshot();
+    }
+
+    // ---------- strategic priorities ----------
+    // Not part of the encrypted payload — a first draft grounded in what's
+    // actually going on across the other pages (service work funding the
+    // studio, a slate in development, a grant in motion, IP worth
+    // protecting). Meant to be argued with, not treated as final.
+    const PRIORITY_KEY = 'bs_team_priorities';
+    const PRIORITY_STATUS_CYCLE = ['proposed', 'active', 'achieved'];
+    const PRIORITY_STATUS_LABEL = { proposed: 'Proposed', active: 'Active', achieved: 'Achieved' };
+    const PRIORITIES = [
+      {
+        id: 'diversify-revenue',
+        title: 'Diversify Revenue Beyond Service Work',
+        desc: 'Client and commercial production work is what keeps the lights on right now, but leaning on any single client is a real risk. Grow the pipeline wide enough that no one relationship can sink a quarter, and use the margin from that work to fund original development instead of just covering overhead.',
+        link: { href: 'client-pipeline.html', label: 'See the pipeline' }
+      },
+      {
+        id: 'financeable-slate',
+        title: 'Move the Slate From Ideas to Financeable Packages',
+        desc: 'A slate only matters once it’s packaged well enough to raise against — attached talent, a real budget, a stacked financing plan. Pick the strongest one or two properties and push them from "idea" to "package" rather than spreading effort thin across everything at once.',
+        link: { href: 'investors-slate.html', label: 'See the slate strategy' }
+      },
+      {
+        id: 'win-production-lab',
+        title: 'Land the Production Lab Grant',
+        desc: 'The Production Lab isn’t just funding — it’s a structured way to bring in a cohort of emerging filmmakers, generate new IP on a schedule, and build the kind of track record that makes the next grant and the next investor conversation easier.',
+        link: { href: 'investors-grants.html', label: 'See the grant plan' }
+      },
+      {
+        id: 'protect-ip',
+        title: 'Treat the IP Library Like an Asset, Not a Pitch Deck',
+        desc: 'Every script, format, and original concept sitting in a drawer is worth less than one that’s tracked, dated, and actively moved forward. Keep ownership, rights, and development status current for everything Blue Sheep originates.',
+        link: { href: 'investors-ip.html', label: 'See the IP tracker' }
+      },
+      {
+        id: 'formalize-team',
+        title: 'Formalize the Team as the Company Scales',
+        desc: 'The founding team is small and wears a lot of hats. As the slate and client roster grow, get clear on who owns what — even informally — before it becomes a bottleneck.',
+        link: { href: 'investors-founders.html', label: 'See founder statements' }
+      }
+    ];
+    function getPriorityMap() {
+      try { return JSON.parse(localStorage.getItem(PRIORITY_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function setPriorityState(id, patch) {
+      const map = getPriorityMap();
+      map[id] = Object.assign({ status: 'proposed', notes: '' }, map[id] || {}, patch);
+      localStorage.setItem(PRIORITY_KEY, JSON.stringify(map));
+      return map[id];
+    }
+    function renderPriorities() {
+      const map = getPriorityMap();
+      let html = '';
+      PRIORITIES.forEach(function(p) {
+        const state = Object.assign({ status: 'proposed', notes: '' }, map[p.id] || {});
+        html += '<div class="priority-card" data-id="' + p.id + '">';
+        html += '<div class="priority-card-head"><span class="priority-title">' + esc(p.title) + '</span>';
+        html += '<button type="button" class="priority-status status-' + state.status + '" data-id="' + p.id + '">' + PRIORITY_STATUS_LABEL[state.status] + '</button></div>';
+        html += '<p class="priority-desc">' + esc(p.desc) + '</p>';
+        if (p.link) html += '<a class="priority-link" href="' + esc(p.link.href) + '">' + esc(p.link.label) + ' &rarr;</a>';
+        html += '<label class="priority-notes-label" for="priorityNotes-' + p.id + '">Team Notes</label>';
+        html += '<textarea class="priority-notes" id="priorityNotes-' + p.id + '" data-id="' + p.id + '" placeholder="Agree, disagree, add detail…" rows="2">' + esc(state.notes) + '</textarea>';
+        html += '<p class="priority-notes-saved" data-id="' + p.id + '"></p>';
+        html += '</div>';
+      });
+      document.getElementById('priorityBoard').innerHTML = html;
+      document.querySelectorAll('.priority-status').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const map2 = getPriorityMap();
+          const current = (map2[btn.dataset.id] || {}).status || 'proposed';
+          const next = PRIORITY_STATUS_CYCLE[(PRIORITY_STATUS_CYCLE.indexOf(current) + 1) % PRIORITY_STATUS_CYCLE.length];
+          setPriorityState(btn.dataset.id, { status: next });
+          btn.className = 'priority-status status-' + next;
+          btn.textContent = PRIORITY_STATUS_LABEL[next];
+          renderSnapshot();
+        });
+      });
+      let priorityNotesTimer = null;
+      document.querySelectorAll('.priority-notes').forEach(function(ta) {
+        ta.addEventListener('input', function() {
+          setPriorityState(ta.dataset.id, { notes: ta.value });
+          const savedEl = document.querySelector('.priority-notes-saved[data-id="' + ta.dataset.id + '"]');
+          if (savedEl) {
+            savedEl.textContent = 'Saved.';
+            if (priorityNotesTimer) clearTimeout(priorityNotesTimer);
+            priorityNotesTimer = setTimeout(function() { savedEl.textContent = ''; }, 1200);
+          }
+        });
+      });
+      renderSnapshot();
+    }
+
+    // ---------- IP moodboard ----------
+    const MOODBOARD_KEY = 'bs_team_moodboard';
+    function getMoodboard() {
+      try { return JSON.parse(localStorage.getItem(MOODBOARD_KEY)) || []; } catch (e) { return []; }
+    }
+    function setMoodboard(arr) { localStorage.setItem(MOODBOARD_KEY, JSON.stringify(arr)); }
+    function addMoodboardItem(tag, url, note, author) {
+      const items = getMoodboard();
+      items.unshift({ id: 'm_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), tag: tag, url: url, note: note, author: author || '' });
+      setMoodboard(items);
+      renderMoodboard();
+    }
+    function deleteMoodboardItem(id) {
+      setMoodboard(getMoodboard().filter(function(i) { return i.id !== id; }));
+      renderMoodboard();
+    }
+    let moodboardFilter = 'all';
+    function renderMoodboardFilters(items) {
+      const tags = [];
+      items.forEach(function(item) {
+        const t = (item.tag || '').trim();
+        if (t && tags.indexOf(t) === -1) tags.push(t);
+      });
+      const row = document.getElementById('moodboardFilterRow');
+      if (!row) return;
+      if (!tags.length) { row.innerHTML = ''; return; }
+      if (tags.indexOf(moodboardFilter) === -1 && moodboardFilter !== 'all') moodboardFilter = 'all';
+      let html = '<button type="button" class="idea-filter-btn' + (moodboardFilter === 'all' ? ' active' : '') + '" data-tag="all">All</button>';
+      tags.forEach(function(t) {
+        html += '<button type="button" class="idea-filter-btn' + (moodboardFilter === t ? ' active' : '') + '" data-tag="' + esc(t) + '">' + esc(t) + '</button>';
+      });
+      row.innerHTML = html;
+      row.querySelectorAll('.idea-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          moodboardFilter = btn.dataset.tag;
+          renderMoodboard();
+        });
+      });
+    }
+    function renderMoodboard() {
+      const all = getMoodboard();
+      renderMoodboardFilters(all);
+      const items = moodboardFilter === 'all' ? all : all.filter(function(i) { return (i.tag || '').trim() === moodboardFilter; });
+      if (!items.length) {
+        document.getElementById('moodboardGrid').innerHTML = '<p class="moodboard-empty">' + (all.length ? 'No references with this tag yet.' : 'No references yet — paste an image URL above to start the board.') + '</p>';
+        renderSnapshot();
+        return;
+      }
+      let html = '';
+      items.forEach(function(item) {
+        html += '<div class="moodboard-card">';
+        html += '<div class="moodboard-img-wrap">';
+        html += '<img class="moodboard-img" src="' + esc(item.url) + '" alt="" loading="lazy" onerror="this.parentElement.style.background=\'var(--line)\';this.style.display=\'none\';">';
+        if (item.tag) html += '<span class="moodboard-tag">' + esc(item.tag) + '</span>';
+        html += '</div>';
+        html += '<div class="moodboard-body">';
+        if (item.note) html += '<p class="moodboard-note">' + esc(item.note) + '</p>';
+        html += '<div class="moodboard-foot"><span class="moodboard-author">' + (item.author ? esc(item.author) : 'Anonymous') + '</span>';
+        html += '<button type="button" class="moodboard-delete" data-id="' + item.id + '" aria-label="Remove">&times;</button></div>';
+        html += '</div></div>';
+      });
+      document.getElementById('moodboardGrid').innerHTML = html;
+      document.querySelectorAll('.moodboard-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteMoodboardItem(btn.dataset.id); });
+      });
+      renderSnapshot();
+    }
+
+    // ---------- logistics ----------
+    const LOGISTICS_KEY = 'bs_team_logistics';
+    const LOGISTICS_STATUS_CYCLE = ['needed', 'progress', 'confirmed'];
+    const LOGISTICS_STATUS_LABEL = { needed: 'Needed', progress: 'In Progress', confirmed: 'Confirmed' };
+    const LOGISTICS_TYPE_LABEL = { crew: 'Crew', gear: 'Gear', location: 'Location', admin: 'Admin' };
+    let logisticsFilter = 'all';
+    function getLogistics() {
+      try { return JSON.parse(localStorage.getItem(LOGISTICS_KEY)) || []; } catch (e) { return []; }
+    }
+    function setLogistics(arr) { localStorage.setItem(LOGISTICS_KEY, JSON.stringify(arr)); }
+    function addLogisticsItem(type, label, detail, author) {
+      const items = getLogistics();
+      items.push({ id: 'l_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), type: type, label: label, detail: detail, status: 'needed', author: author || '' });
+      setLogistics(items);
+      renderLogistics();
+    }
+    function setLogisticsStatus(id, status) {
+      const items = getLogistics();
+      const item = items.find(function(i) { return i.id === id; });
+      if (item) item.status = status;
+      setLogistics(items);
+    }
+    function deleteLogisticsItem(id) {
+      setLogistics(getLogistics().filter(function(i) { return i.id !== id; }));
+      renderLogistics();
+    }
+    function renderLogistics() {
+      const items = getLogistics().filter(function(i) { return logisticsFilter === 'all' || i.type === logisticsFilter; });
+      if (!items.length) {
+        document.getElementById('logisticsList').innerHTML = '<p class="logistics-empty">Nothing here yet — add crew, gear, locations, or admin items above.</p>';
+        renderSnapshot();
+        return;
+      }
+      let html = '';
+      items.forEach(function(item) {
+        html += '<div class="logistics-item" data-id="' + item.id + '">';
+        html += '<span class="logistics-type">' + (LOGISTICS_TYPE_LABEL[item.type] || item.type) + '</span>';
+        html += '<span class="logistics-label">' + esc(item.label) + '</span>';
+        if (item.detail) html += '<span class="logistics-detail">' + esc(item.detail) + '</span>';
+        html += '<button type="button" class="logistics-status status-' + item.status + '" data-id="' + item.id + '">' + LOGISTICS_STATUS_LABEL[item.status] + '</button>';
+        html += '<button type="button" class="logistics-delete" data-id="' + item.id + '" aria-label="Remove">&times;</button>';
+        html += '</div>';
+      });
+      document.getElementById('logisticsList').innerHTML = html;
+      document.querySelectorAll('.logistics-status').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const items2 = getLogistics();
+          const item = items2.find(function(i) { return i.id === btn.dataset.id; });
+          const current = item ? item.status : 'needed';
+          const next = LOGISTICS_STATUS_CYCLE[(LOGISTICS_STATUS_CYCLE.indexOf(current) + 1) % LOGISTICS_STATUS_CYCLE.length];
+          setLogisticsStatus(btn.dataset.id, next);
+          btn.className = 'logistics-status status-' + next;
+          btn.textContent = LOGISTICS_STATUS_LABEL[next];
+          renderSnapshot();
+        });
+      });
+      document.querySelectorAll('.logistics-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteLogisticsItem(btn.dataset.id); });
+      });
+      renderSnapshot();
+    }
+    function wireLogisticsFilter() {
+      document.querySelectorAll('#logisticsFilterRow .idea-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#logisticsFilterRow .idea-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          logisticsFilter = btn.dataset.type;
+          renderLogistics();
+        });
+      });
+    }
+
+    // ---------- meeting notes ----------
+    const MEETINGS_KEY = 'bs_team_meetings';
+    function getMeetings() {
+      try { return JSON.parse(localStorage.getItem(MEETINGS_KEY)) || []; } catch (e) { return []; }
+    }
+    function setMeetings(arr) { localStorage.setItem(MEETINGS_KEY, JSON.stringify(arr)); }
+    function addMeeting(date, title, body, author) {
+      const items = getMeetings();
+      items.unshift({ id: 'n_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), date: date, title: title, body: body, author: author || '' });
+      setMeetings(items);
+      renderMeetings();
+    }
+    function deleteMeeting(id) {
+      setMeetings(getMeetings().filter(function(i) { return i.id !== id; }));
+      renderMeetings();
+    }
+    function renderMeetings() {
+      const items = getMeetings();
+      if (!items.length) {
+        document.getElementById('meetingLog').innerHTML = '<p class="meeting-empty">No entries yet — log the next meeting above.</p>';
+        return;
+      }
+      const fmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      let html = '';
+      items.forEach(function(item) {
+        html += '<div class="meeting-entry">';
+        html += '<div class="meeting-entry-head"><span class="meeting-entry-date">' + fmt.format(new Date(item.date + 'T00:00:00')) + '</span><span class="meeting-entry-title">' + esc(item.title) + '</span></div>';
+        if (item.body) html += '<p class="meeting-entry-body">' + esc(item.body) + '</p>';
+        html += '<div class="meeting-entry-foot"><span class="meeting-entry-author">' + (item.author ? esc(item.author) : 'Anonymous') + '</span>';
+        html += '<button type="button" class="meeting-entry-delete" data-id="' + item.id + '" aria-label="Remove">&times;</button></div>';
+        html += '</div>';
+      });
+      document.getElementById('meetingLog').innerHTML = html;
+      document.querySelectorAll('.meeting-entry-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteMeeting(btn.dataset.id); });
+      });
     }
 
     // ---------- idea board ----------
     const IDEAS_KEY = 'bs_team_ideas';
+    let ideaFilter = 'all';
     function getIdeas() {
       try { return JSON.parse(localStorage.getItem(IDEAS_KEY)) || []; } catch (e) { return []; }
     }
@@ -441,11 +894,22 @@
       setIdeas(getIdeas().filter(function(i) { return i.id !== id; }));
       renderIdeas();
     }
+    function wireIdeaFilter() {
+      document.querySelectorAll('#ideaFilterRow .idea-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#ideaFilterRow .idea-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          ideaFilter = btn.dataset.tag;
+          renderIdeas();
+        });
+      });
+    }
     const TAG_LABEL = { story: 'Story', visual: 'Visual', business: 'Business', logistics: 'Logistics' };
     function renderIdeas() {
-      const ideas = getIdeas();
+      const all = getIdeas();
+      const ideas = ideaFilter === 'all' ? all : all.filter(function(i) { return i.tag === ideaFilter; });
       if (!ideas.length) {
-        document.getElementById('ideaBoard').innerHTML = '<p class="idea-empty">No notes yet — add the first one above.</p>';
+        document.getElementById('ideaBoard').innerHTML = '<p class="idea-empty">' + (all.length ? 'No notes with this tag yet.' : 'No notes yet — add the first one above.') + '</p>';
         return;
       }
       let html = '';
@@ -455,17 +919,34 @@
         html += '<p class="idea-note-text">' + esc(idea.text) + '</p>';
         html += '<div class="idea-note-foot">';
         html += '<span class="idea-note-author">' + (idea.author ? esc(idea.author) : 'Anonymous') + '</span>';
+        html += '<span class="idea-note-actions">';
+        html += '<button type="button" class="idea-to-task" data-id="' + idea.id + '">&rarr; Task</button>';
         html += '<button type="button" class="idea-note-delete" data-id="' + idea.id + '" aria-label="Delete note">&times;</button>';
+        html += '</span>';
         html += '</div></div>';
       });
       document.getElementById('ideaBoard').innerHTML = html;
+      document.querySelectorAll('.idea-to-task').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const idea = getIdeas().find(function(i) { return i.id === btn.dataset.id; });
+          if (!idea) return;
+          addCard('todo', idea.text, idea.author || getEditor());
+          const original = btn.textContent;
+          btn.textContent = 'Added';
+          btn.disabled = true;
+          setTimeout(function() {
+            btn.textContent = original;
+            btn.disabled = false;
+          }, 1500);
+        });
+      });
       document.querySelectorAll('.idea-note-delete').forEach(function(btn) {
         btn.addEventListener('click', function() { deleteIdea(btn.dataset.id); });
       });
     }
 
     // ---------- export / import ----------
-    const TEAM_KEYS = [OKR_KEY, MILESTONE_KEY, KANBAN_KEY, IDEAS_KEY, EDITOR_KEY, 'bs_ip_fields'];
+    const TEAM_KEYS = [OKR_KEY, MILESTONE_KEY, KANBAN_KEY, IDEAS_KEY, EDITOR_KEY, 'bs_ip_fields', PRIORITY_KEY, MOODBOARD_KEY, LOGISTICS_KEY, KEYDATES_KEY, MEETINGS_KEY];
     function exportData() {
       const blob = {};
       TEAM_KEYS.forEach(function(k) {
@@ -526,6 +1007,11 @@
           renderTimeline(window.__teamData.timeline);
           renderKanban();
           renderIdeas();
+          renderPriorities();
+          renderMoodboard();
+          renderLogistics();
+          renderKeydates();
+          renderMeetings();
           const name = getEditor();
           if (name) document.getElementById('editorNameInput').value = name;
           syncArea.hidden = true;
@@ -561,8 +1047,44 @@
       renderTimeline(data.timeline);
       renderOKR(data.okrGroups);
       renderKanban();
+      renderKeydates();
+      renderPriorities();
+      renderMoodboard();
+      renderLogistics();
+      wireLogisticsFilter();
+      renderMeetings();
       renderIdeas();
+      wireIdeaFilter();
       wireSync();
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const meetingDateInput = document.getElementById('meetingDate');
+      if (meetingDateInput) meetingDateInput.value = todayStr;
+      const keydateForm = document.getElementById('keydateAddForm');
+      keydateForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const dateInput = document.getElementById('keydateDate');
+        const labelInput = document.getElementById('keydateLabel');
+        const date = dateInput.value;
+        const label = labelInput.value.trim();
+        if (!date || !label) return;
+        addKeydate(date, label, getEditor());
+        dateInput.value = '';
+        labelInput.value = '';
+      });
+      const meetingForm = document.getElementById('meetingAddForm');
+      meetingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const dateInput = document.getElementById('meetingDate');
+        const titleInput = document.getElementById('meetingTitle');
+        const bodyInput = document.getElementById('meetingBody');
+        const date = dateInput.value || todayStr;
+        const title = titleInput.value.trim();
+        if (!title) return;
+        addMeeting(date, title, bodyInput.value.trim(), getEditor());
+        titleInput.value = '';
+        bodyInput.value = '';
+        dateInput.value = todayStr;
+      });
       const ideaForm = document.getElementById('ideaAddForm');
       ideaForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -572,6 +1094,32 @@
         const tag = document.getElementById('ideaTagSelect').value;
         addIdea(text, tag, getEditor());
         ta.value = '';
+      });
+      const moodboardForm = document.getElementById('moodboardAddForm');
+      moodboardForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const urlInput = document.getElementById('moodboardUrl');
+        const url = urlInput.value.trim();
+        if (!url) return;
+        const tag = document.getElementById('moodboardTag').value.trim();
+        const note = document.getElementById('moodboardNote').value.trim();
+        addMoodboardItem(tag, url, note, getEditor());
+        urlInput.value = '';
+        document.getElementById('moodboardTag').value = '';
+        document.getElementById('moodboardNote').value = '';
+      });
+      const logisticsForm = document.getElementById('logisticsAddForm');
+      logisticsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const labelInput = document.getElementById('logisticsLabel');
+        const label = labelInput.value.trim();
+        if (!label) return;
+        const type = document.getElementById('logisticsType').value;
+        const detailInput = document.getElementById('logisticsDetail');
+        const detail = detailInput.value.trim();
+        addLogisticsItem(type, label, detail, getEditor());
+        labelInput.value = '';
+        detailInput.value = '';
       });
       content.querySelectorAll('.reveal').forEach(function(el) {
         el.classList.add('in-view');
