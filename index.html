@@ -171,46 +171,65 @@
   .dialog blockquote { text-align: center; border: none; font-style: normal; color: var(--fg); padding: 0; }
 
   /* ---------- white screenplay page (master script) ---------- */
-  #content.page-mode { background: #3a3d3a; }
+  /* no scanlines on the script page */
+  #content.page-mode { background: #33352f; }
+  #content.page-mode::before { display: none; }
+  body:has(#content.page-mode)::after { display: none; }
+
+  .page-wrap { position: relative; max-width: 1060px; margin: 0 auto; }
   .page {
     background: #fff; color: #111;
     font-family: "Courier Prime", "Courier New", Courier, monospace;
-    font-size: 13px; line-height: 1.35;
-    max-width: 660px; margin: 26px auto;
-    padding: 88px 92px 96px;
-    box-shadow: 0 4px 24px rgba(0,0,0,.45);
-    border-radius: 2px;
+    font-size: 13.5px; line-height: 1.5;
+    width: 640px; margin: 26px 0 26px 26px;
+    padding: 76px 84px 92px;
+    box-shadow: 0 6px 30px rgba(0,0,0,.5);
   }
+  /* --- title page --- */
   .page .titlepage {
-    min-height: 78vh;
+    min-height: 74vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    text-align: center;
-    border-bottom: 1px dashed #bbb; margin-bottom: 40px; padding-bottom: 40px;
+    text-align: center; position: relative;
   }
-  .page .titlepage .logo { width: 116px; height: auto; margin-bottom: 34px; }
-  .page .titlepage .t { font-size: 20px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 30px; }
-  .page .titlepage .by { margin: 4px 0; }
-  .page .titlepage .meta { margin-top: 40px; font-size: 12px; color: #444; }
-  .page .titlepage .contact { margin-top: 64px; font-size: 12px; color: #333; align-self: flex-end; text-align: left; }
-  .page h1 { display: none; }
-  .page h2 { /* sluglines */
-    text-transform: uppercase; font-weight: bold; font-size: 13px;
-    margin: 22px 0 10px;
+  .page .titlepage .logo { width: 150px; height: auto; margin-bottom: 40px; }
+  .page .titlepage .t { font-size: 22px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 34px; }
+  .page .titlepage .by { margin: 3px 0; }
+  .page .titlepage .contact { position: absolute; bottom: 0; right: 0; font-size: 12.5px; color: #222; text-align: right; }
+  .page .titlepage + .sp-body { border-top: 1px dashed #ccc; padding-top: 44px; margin-top: 44px; }
+
+  /* --- screenplay elements (professional indents, Courier) --- */
+  .sp-slug   { text-transform: uppercase; font-weight: bold; margin: 26px 0 12px; }
+  .sp-slug.first { margin-top: 0; }
+  .sp-action { margin: 0 0 12px; }
+  .sp-char   { text-transform: uppercase; margin: 12px 0 0; padding-left: 21ch; }
+  .sp-paren  { margin: 0; padding-left: 15ch; max-width: 30ch; color: #222; }
+  .sp-dialog { margin: 0; padding-left: 10ch; max-width: 45ch; }
+  .sp-trans  { text-transform: uppercase; text-align: right; margin: 14px 0; }
+  .sp-center { text-align: center; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; margin: 34px 0 18px; }
+  .sp-super  { margin: 0 0 12px; }
+  .noteref {
+    display: inline-block; width: 15px; height: 15px; margin-left: 3px;
+    background: #2f6df6; color: #fff; border-radius: 50%;
+    font-size: 9px; line-height: 15px; text-align: center; vertical-align: super;
+    font-family: monospace; cursor: default;
   }
-  .page h2.top { margin-top: 0; }
-  .page p { margin: 10px 0; }
-  .page .dialog { max-width: 40ch; margin: 12px auto; }
-  .page .dialog h3 { text-align: center; text-transform: uppercase; color: #111 !important; font-size: 13px !important; font-weight: normal; margin: 0 0 1px !important; }
-  .page .dialog h3 em { color: #555; text-transform: none; }
-  .page .dialog p { margin: 0 !important; }
-  .page .dialog p.paren { text-align: center; max-width: 26ch; margin: 0 auto !important; color: #333; }
-  .page .dialog p.paren em { color: #333; font-style: normal; }
-  .page .dialog blockquote { text-align: center; border: none; font-style: normal; color: #111; padding: 0; margin: 4px 0; }
-  .page strong { color: #111; }
-  .page em { color: #111; }
-  .page hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
-  .page #meta-inline { font-size: 11px; color: #888; text-align: right; margin-bottom: 8px; }
-  .page #meta-inline a { color: #666; }
+
+  /* --- notes in the grey gutter, never on the paper --- */
+  .notes-layer { position: absolute; top: 0; left: 776px; width: 236px; }
+  .note-card {
+    position: absolute; width: 236px;
+    background: #23251f; color: #c8e6c9; border-left: 2px solid #2f6df6;
+    font-family: "SF Mono","Menlo",monospace; font-size: 11px; line-height: 1.5;
+    padding: 7px 10px; border-radius: 3px;
+  }
+  .note-card .n { color: #2f6df6; font-weight: bold; margin-right: 4px; }
+
+  /* if the content pane is too narrow for a gutter, notes stack under the page */
+  @media (max-width: 1120px) {
+    .page-wrap { max-width: 692px; }
+    .notes-layer { position: static; width: auto; margin: 4px 26px 40px; }
+    .note-card { position: static !important; width: auto; margin: 6px 0; }
+  }
 
   #welcome { color: var(--dim); margin-top: 10vh; text-align: center; }
   #welcome .big { color: var(--green); font-size: 18px; }
@@ -225,6 +244,13 @@
     #app { flex-direction: column; height: auto; }
     #sidebar { width: 100%; min-width: 0; max-height: 45vh; border-right: none; border-bottom: 1px solid #1e2a20; }
     #content { padding: 20px 16px 20vh; }
+    .page { width: auto; max-width: 100%; margin: 12px 0; padding: 40px 26px 60px; }
+    .page .sp-char { padding-left: 40%; }
+    .page .sp-dialog { padding-left: 14%; }
+    .page .sp-paren { padding-left: 28%; }
+    /* notes fall inline as small cards under the page */
+    .notes-layer { position: static; width: auto; margin-top: 16px; }
+    .note-card { position: static !important; width: auto; margin: 6px 0; }
   }
 </style>
 </head>
@@ -296,6 +322,98 @@ function md(src) {
 }
 
 function slugOf(e) { return e.file.replace(/\.md$/, ''); }
+
+// ---- professional screenplay renderer (for the master script page) ----
+// Parses the raw markdown into properly-indented screenplay elements,
+// pulling [[ notes ]] out into the grey gutter.
+function renderScreenplay(src) {
+  const notes = [];
+  let noteId = 0;
+  // extract [[ note ]] markers -> replace with a numbered ref span, collect text
+  const pullNotes = s => s.replace(/\[\[\s*([^\]]+?)\s*\]\]/g, (_, t) => {
+    noteId++;
+    notes.push({ id: noteId, text: t.trim() });
+    return `<span class="noteref" data-note="${noteId}">${noteId}</span>`;
+  });
+
+  const rawLines = src.split('\n');
+  // drop the title h1 and the render-note and leading rule
+  const lines = [];
+  for (const raw of rawLines) {
+    const t = raw.trim();
+    if (/^#\s+NOMAD/.test(t)) continue;
+    if (/^\*\*Rendered/.test(t)) continue;
+    lines.push(raw);
+  }
+
+  const isSlug = l => /^(?:##\s*)?(INT|EXT|INT\/EXT|EST)[.\s]/i.test(l.trim());
+  const isTrans = l => /^(CUT TO:|CUT TO BLACK\.?|FADE (IN|OUT)|SMASH CUT|THE END)$/.test(l.trim());
+  const isCue = l => {
+    const t = l.trim();
+    if (t.length === 0 || t.length > 38) return false;
+    if (/^(INSERT|SUPER|INT|EXT)/i.test(t)) return false;
+    // uppercase letters only (allow spaces, (), ', ., digits) and contain a letter
+    return /[A-Z]/.test(t) && t === t.toUpperCase() && /^[A-Z0-9 '().\-/&]+$/.test(t);
+  };
+
+  let html = '', firstSlug = true, i = 0;
+  const esc2 = s => esc(s);
+  while (i < lines.length) {
+    let l = lines[i].trim();
+    if (l === '' || /^---+$/.test(l)) { i++; continue; }
+
+    // section header (## that isn't a slug) -> centered
+    const hh = l.match(/^##\s+(.*)/);
+    if (hh && !isSlug(l)) { html += `<div class="sp-center">${pullNotes(esc2(hh[1]))}</div>`; i++; continue; }
+
+    if (isSlug(l)) {
+      const txt = l.replace(/^##\s*/, '');
+      html += `<div class="sp-slug${firstSlug ? ' first' : ''}">${pullNotes(esc2(txt))}</div>`;
+      firstSlug = false; i++; continue;
+    }
+    if (isTrans(l)) { html += `<div class="sp-trans">${esc2(l)}</div>`; i++; continue; }
+    if (/^SUPER:/i.test(l)) { html += `<div class="sp-super">${pullNotes(esc2(l))}</div>`; i++; continue; }
+
+    // character cue + dialogue block
+    if (isCue(l)) {
+      html += `<div class="sp-char">${esc2(l)}</div>`;
+      i++;
+      while (i < lines.length && lines[i].trim() !== '') {
+        const d = lines[i].trim();
+        if (/^\(.*\)$/.test(d)) html += `<div class="sp-paren">${pullNotes(esc2(d))}</div>`;
+        else html += `<div class="sp-dialog">${pullNotes(esc2(d))}</div>`;
+        i++;
+      }
+      continue;
+    }
+
+    // default: action
+    html += `<div class="sp-action">${pullNotes(esc2(l))}</div>`;
+    i++;
+  }
+  return { html, notes };
+}
+
+// place note cards in the grey gutter, vertically aligned to their refs
+function layoutNotes(wrap, notes) {
+  const layer = wrap.querySelector('.notes-layer');
+  if (!layer) return;
+  const wrapTop = wrap.getBoundingClientRect().top;
+  let lastBottom = -100;
+  wrap.querySelectorAll('.noteref').forEach(ref => {
+    const id = ref.dataset.note;
+    const note = notes.find(n => String(n.id) === id);
+    if (!note) return;
+    const card = document.createElement('div');
+    card.className = 'note-card';
+    card.innerHTML = `<span class="n">${id}</span>${esc(note.text)}`;
+    layer.appendChild(card);
+    let top = ref.getBoundingClientRect().top - wrapTop;
+    if (top < lastBottom + 8) top = lastBottom + 8;  // avoid overlap
+    card.style.top = top + 'px';
+    lastBottom = top + card.offsetHeight;
+  });
+}
 
 // Celtx-style screenplay transform: slugline h2s + character-cue h3 dialogue blocks
 function screenplayify(container) {
@@ -372,39 +490,27 @@ async function open(idx, push = true) {
     const cat = e.category || 'journal';
     const editUrl = `https://github.com/${REPO}/edit/main/entries/${e.file}`;
 
-    // --- the rendered master script: white Celtx-style page with a title page ---
+    // --- the rendered master script: white professional screenplay page + gutter notes ---
     if (e.file === SCRIPT_FILE) {
       contentEl.classList.add('page-mode');
-      // strip the render-note header lines (the "# NOMAD..." H1 and the do-not-edit note) from the body
-      const body = text
-        .replace(/^#\s+NOMAD[^\n]*\n/, '')
-        .replace(/^\*\*Rendered[^\n]*\*\*[^\n]*\n/m, '')
-        .replace(/^---\s*$/m, '');
+      const { html, notes } = renderScreenplay(text);
       reader.innerHTML = `
-        <div class="page">
-          <div id="meta-inline"><a href="${editUrl}" target="_blank" rel="noopener">edit source ✎</a> · rendered from the master draft</div>
-          <div class="titlepage">
-            <img class="logo" src="logo.png" alt="Blue Sheep Films" onerror="this.onerror=null;this.src='entries/bluesheep-logo.svg'">
-            <div class="t">NOMAD</div>
-            <div class="by">written by</div>
-            <div class="by">Lambo</div>
-            <div class="meta">The Short · rendered from master draft</div>
-            <div class="contact">Blue Sheep Films<br>sacha@bluesheepfilms.com</div>
+        <div class="page-wrap">
+          <div class="page">
+            <div class="titlepage">
+              <img class="logo" src="logo.png" alt="Blue Sheep Films">
+              <div class="t">NOMAD</div>
+              <div class="by">written by</div>
+              <div class="by">Lambo</div>
+              <div class="contact">Blue Sheep Films<br>sacha@bluesheepfilms.com</div>
+            </div>
+            <div class="sp-body">${html}</div>
           </div>
-          <div class="entry script">${md(body)}</div>
-        </div>
-        <div id="prevnext" style="max-width:660px;margin:0 auto 40px;color:#ccc">
-          <span id="pn-prev">${entries[idx-1] ? '← ' + esc(entries[idx-1].title) : ''}</span>
-          <span id="pn-next">${entries[idx+1] ? esc(entries[idx+1].title) + ' →' : ''}</span>
+          <div class="notes-layer"></div>
         </div>`;
-      screenplayify(reader.querySelector('.entry'));
-      // mark the very first slug so it hugs the top
-      const firstSlug = reader.querySelector('.entry h2');
-      if (firstSlug) firstSlug.classList.add('top');
       contentEl.scrollTop = 0;
-      const p = document.getElementById('pn-prev'), n = document.getElementById('pn-next');
-      if (p) p.onclick = () => open(idx - 1);
-      if (n) n.onclick = () => open(idx + 1);
+      // place gutter notes after layout settles
+      requestAnimationFrame(() => layoutNotes(reader.querySelector('.page-wrap'), notes));
       return;
     }
 
