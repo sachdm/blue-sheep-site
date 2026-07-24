@@ -1,0 +1,22 @@
+[
+  { "date": "2026-07-23", "title": "NOMAD — MASTER SCRIPT (rendered from v0.8)", "file": "script.md", "category": "master" },
+  { "date": "2026-07-23", "title": "NOMAD — MASTER DRAFT (v0.8)", "file": "master.md", "category": "master" },
+  { "date": "2026-07-21", "title": "The Short — blocking notes (superseded)", "file": "short-script.md", "category": "draft" },
+  { "date": "2026-07-21", "title": "Act Two — Working Script v0.1", "file": "act-2.md", "category": "draft" },
+  { "date": "2026-07-21", "title": "Act One — Working Script v0.2", "file": "act-1.md", "category": "draft" },
+  { "date": "2026-07-21", "title": "Story Mind Map", "file": "mindmap.svg", "category": "dev" },
+  { "date": "2026-07-23", "title": "Thirteen Passes — Nolan / Villeneuve / Fincher", "file": "dev-ten-passes.md", "category": "dev" },
+  { "date": "2026-07-21", "title": "The Short — Acts 1+2 compressed", "file": "dev-short.md", "category": "dev" },
+  { "date": "2026-07-21", "title": "The Office — World & Erosion", "file": "dev-office.md", "category": "dev" },
+  { "date": "2026-07-21", "title": "Story — Structure & Open Questions", "file": "dev-notes.md", "category": "dev" },
+  { "date": "2026-07-21", "title": "Scene #1 — The Call (v1.2)", "file": "scene-1.md", "category": "scene" },
+  { "date": "2026-07-21", "title": "Cold Open — Cairns' Last Day (beat sheet)", "file": "scene-cold-open.md", "category": "scene" },
+  { "date": "2026-07-21", "title": "Session — 2026-07-21: The Office", "file": "session-2026-07-21.md", "category": "log" },
+  { "date": "2026-07-23", "title": "Notebook — Notes on v0.6", "file": "notebook-notes-2026-07-23.md", "category": "archive" },
+  { "date": "2026-07-22", "title": "Notebook — Notes on v0.5", "file": "notebook-notes-2026-07-22b.md", "category": "archive" },
+  { "date": "2026-07-22", "title": "Notebook — Notes on Master Draft", "file": "notebook-notes-2026-07-22.md", "category": "archive" },
+  { "date": "2026-07-20", "title": "Notebook — Log 01: Nomad concept", "file": "log-01.md", "category": "archive" },
+  { "date": "2026-07-20", "title": "Notebook — Log 02: Scene #1 (scripted)", "file": "log-02.md", "category": "archive" },
+  { "date": "2026-07-20", "title": "Notebook — Raw transcription (all pages)", "file": "notebook-raw.md", "category": "archive" },
+  { "date": "2026-07-20", "title": "First entry", "file": "2026-07-20.md", "category": "journal" }
+]

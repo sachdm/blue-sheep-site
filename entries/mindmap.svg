@@ -1,0 +1,93 @@
+<svg viewBox="0 0 880 660" xmlns="http://www.w3.org/2000/svg" role="img" font-family="ui-monospace, Menlo, Monaco, monospace">
+  <title>NOMAD story mind map</title>
+  <desc>Central NOMAD node connected to four branches — characters, theme, devices, formats — and a plot engine chain from erosion to the cycle repeating on John.</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#5b7360"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="880" height="660" fill="#0c0f0d"/>
+
+  <g stroke="#2f3f33" fill="none" stroke-width="1.3">
+    <path d="M375,285 C300,240 250,180 195,102"/>
+    <path d="M505,285 C580,240 630,180 688,102"/>
+    <path d="M375,315 C300,350 240,370 190,388"/>
+    <path d="M505,315 C580,350 640,370 692,388"/>
+    <path d="M440,330 L440,498"/>
+  </g>
+
+  <rect x="360" y="272" width="160" height="56" rx="10" fill="#0c0f0d" stroke="#4ade80" stroke-width="1.6"/>
+  <text x="440" y="296" text-anchor="middle" fill="#4ade80" font-size="17" font-weight="bold">NOMAD</text>
+  <text x="440" y="315" text-anchor="middle" fill="#5b7360" font-size="10.5">the ad is the trap</text>
+
+  <rect x="70" y="72" width="180" height="30" rx="6" fill="#0c0f0d" stroke="#2f3f33"/>
+  <text x="160" y="92" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="bold">CHARACTERS</text>
+  <g fill="#c8e6c9" font-size="11.5">
+    <text x="76" y="124">Will — fraud ops, the edge case</text>
+    <text x="76" y="142">Cairns — canary, then likeness</text>
+    <text x="76" y="160">John — the friend who stays</text>
+    <text x="76" y="178">Michelle — pipeline, never seen</text>
+    <text x="76" y="196">Robot Boss — the polite erosion</text>
+    <text x="76" y="214">The Group — monetizing colonizers</text>
+  </g>
+
+  <rect x="630" y="72" width="180" height="30" rx="6" fill="#0c0f0d" stroke="#2f3f33"/>
+  <text x="720" y="92" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="bold">THEME</text>
+  <g fill="#c8e6c9" font-size="11.5">
+    <text x="636" y="124">nomads as colonizers</text>
+    <text x="636" y="142">the erosion = the legal scam</text>
+    <text x="636" y="160">nobody knows their job anymore</text>
+    <text x="636" y="178">grief wearing a concept</text>
+  </g>
+
+  <rect x="70" y="388" width="180" height="30" rx="6" fill="#0c0f0d" stroke="#2f3f33"/>
+  <text x="160" y="408" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="bold">DEVICES</text>
+  <g fill="#c8e6c9" font-size="11.5">
+    <text x="76" y="440">three calls, escalating grammar</text>
+    <text x="76" y="458">the 0.4-second delay</text>
+    <text x="76" y="476">bilingual subtitle rule</text>
+    <text x="76" y="494">the tell — eyes don't remember</text>
+  </g>
+
+  <rect x="630" y="388" width="180" height="30" rx="6" fill="#0c0f0d" stroke="#2f3f33"/>
+  <text x="720" y="408" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="bold">FORMATS</text>
+  <g fill="#c8e6c9" font-size="11.5">
+    <text x="636" y="440">short — acts 1+2, three calls</text>
+    <text x="636" y="458">feature — act 3 inside the scheme</text>
+    <text x="636" y="476">ending — hold on John, cut early</text>
+  </g>
+
+  <text x="440" y="520" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="bold">THE ENGINE</text>
+
+  <g fill="#0c0f0d" stroke="#2f3f33">
+    <rect x="60"  y="534" width="160" height="32" rx="6"/>
+    <rect x="270" y="534" width="160" height="32" rx="6"/>
+    <rect x="480" y="534" width="160" height="32" rx="6"/>
+    <rect x="690" y="534" width="160" height="32" rx="6"/>
+    <rect x="60"  y="598" width="160" height="32" rx="6"/>
+    <rect x="270" y="598" width="160" height="32" rx="6"/>
+    <rect x="480" y="598" width="160" height="32" rx="6"/>
+    <rect x="690" y="598" width="160" height="32" rx="6"/>
+  </g>
+  <g fill="#c8e6c9" font-size="11.5" text-anchor="middle">
+    <text x="140" y="554">the erosion</text>
+    <text x="350" y="554">the call (Cairns sells)</text>
+    <text x="560" y="554">the move — biometric heist</text>
+    <text x="770" y="554">honeymoon / false peak</text>
+    <text x="770" y="618">the tell (Cairns fails)</text>
+    <text x="560" y="618">the drained pool</text>
+    <text x="350" y="618">the handover</text>
+    <text x="140" y="618">"Will" texts John</text>
+  </g>
+  <g stroke="#5b7360" fill="none" stroke-width="1.3" marker-end="url(#arr)">
+    <line x1="220" y1="550" x2="266" y2="550"/>
+    <line x1="430" y1="550" x2="476" y2="550"/>
+    <line x1="640" y1="550" x2="686" y2="550"/>
+    <line x1="770" y1="566" x2="770" y2="594"/>
+    <line x1="690" y1="614" x2="644" y2="614"/>
+    <line x1="480" y1="614" x2="434" y2="614"/>
+    <line x1="270" y1="614" x2="224" y2="614"/>
+  </g>
+  <path d="M60,614 C20,614 20,550 56,550" stroke="#4ade80" stroke-dasharray="4 3" fill="none" stroke-width="1.3" marker-end="url(#arr)"/>
+  <text x="30" y="588" fill="#5b7360" font-size="10" transform="rotate(-90 30 588)">cycle repeats</text>
+</svg>
