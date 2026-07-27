@@ -47,21 +47,9 @@
   <a class="inv-back reveal" href="investors.html">&larr; Investors</a>
   <h1 class="label reveal inv-h1">Working IP</h1>
 
-  <div class="gate reveal" id="investorsGate">
-    <div>
-      <p class="blurb">This page is encrypted. Enter the passphrase to continue.</p>
-      <form class="gate-form" id="gateForm" autocomplete="off">
-        <input type="text" class="gate-input" id="gateInput" placeholder="Passphrase" aria-label="Passphrase" autocomplete="off" spellcheck="false">
-        <button type="submit" class="gate-submit" id="gateSubmit">Enter</button>
-      </form>
-      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect passphrase. Try again.</p>
-      <p class="gate-reach-out">Don't have a passphrase? <a href="mailto:info@bluesheepfilms.com">Reach out</a> for access.</p>
-    </div>
-  </div>
+  <div class="inv-public" id="ipContent">
 
-  <div class="inv-public" id="ipContent" hidden>
-
-    <p class="pipeline-intro reveal" id="ipNote"></p>
+    <p class="pipeline-intro reveal" id="ipNote">Active development slate — titles in script/dev, post, and festival run.</p>
 
     <div class="team-editor-bar reveal">
       <label class="team-editor-label" for="editorNameInput">Editing as</label>
@@ -69,7 +57,9 @@
       <span class="team-editor-hint">Shared across the internal pages on this browser.</span>
     </div>
 
-    <div class="pipeline-groups" id="ipGroups"></div>
+    <div class="pipeline-groups" id="ipGroups">
+      <p class="pipeline-note">The project tracker that used to live here (titles, budgets, notes, stage) was stored as encrypted content and isn't recoverable without the original passphrase. Add entries back as projects firm up.</p>
+    </div>
 
     <div class="script-section reveal">
       <span class="mini-label">Scripts</span>
@@ -179,42 +169,7 @@
   }
 
   (function() {
-    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
-    // is opaque without the passphrase — nothing legible ships in this file.
-    const ENC = {
-      salt: "Y0BGJQDh5AkOMSe4ZXyMQg==",
-      iv: "EVDSdeRX9z6QtR/7",
-      ciphertext: "r6pQr/wTlRJe33zx+5bkKLwE8XUACiZ6zOwg7xE34VwzKka1VR1d9tbOSo36S5Up4qBMroCLREte/RFdQS1R/LXB1PYTAI9ihW1Z+KgbXxmf2zeVBcVMNSHOXx5RDZmBzPpxaNQ16quAA2B+UwJ6Xpr5X5twNEgW1m4coYKHb+mdNMa6yDUkEPV3RN4I1s1QJuDEk2dUm8YCglvCrnnnh1ilSWLgUK3GWP6/YLcnTFJ33W7h10PrkuKPKDu52IIXbU0Szq4UcPvbg15Nwo93JawxM71Iee/qkhhyDbjZNVjlUR52ufpZgMc/YherRc9+D+mhFxrBmuwt9rBjrUt0PBVOFpp3/21xntzYVJDi4t4L99aBIoTOqKLEXM1babNFOXQFyNVwgP1JKo+RZsaJg1Bo/8bwMg5du4d6bUIgzo9BvfqJzql0dvXru+jrT4jPX+cxGZyB/xjc5CF6KSKIze+lL3LWITBWyMCXIJkQTWJ/osxtpcEMKhxdgekpjfMIav0ct9Af4RePj+UM/ZUt8kUj1lKNI8n2p/wMtojyzVtssJZL7MKUMF1V55IMTJrycBG4oxdRiPo0FFt1t6FfKZJfd+En2tnNb9lLtqnQJYy3SGpM/a6tMe43UShxhyThUvizsFcG3mglTZljnYtmQXiKxEZH7DmTMTkWpxtkYMMGIB31V55lj/fkrIcaKPm9d06so8oEKwUWkNfU4YMZLxyKMtkW+TQ3ZmM3iZIWvNm6UdpIXFXAwRm5DBIoS/tadfIqQv6eBkLPo6AF/7hqw31PD+YXPI7yzhotwC7pvnqI/zQbFVv0JllvnCNcBOZJlFpa5DWbvp8Nfvy+fAmLywaqGxQywu9f38I/8yYa0WofoQ/wendDw5nmwOdKrfEgXR8OhnxBA8IDn2QvZOs7gj0u08APUbYWbbLnNx4g6IyU3qlmWvOkBxtDqBbgBVX+a6d+6DhRjSDNDvdhswpWsNbTUMdnse3IAWiQ2Cyc/3dhRSFQaNxqQO7HuVjmyy0IyY4H+2bsRrlYRnIrkCJfMJpKNhcv9RjqItQ3aqWrJJSr5XxAKUKbpRiTwbXW7+bwza5Kp/U/FUb3kIlUkStrRDSAUqTcXyICVicB8BSEgcZeMoqDakVmRMOnRZ6TdBRWt8IceNCogeGCFVWLdyszMy2RgRlNF5UAgKlmlTIZb7N2XqBnF+zN+MUZVsy/fn6P7N1PXs3Smq83RL4JXaM6j0HjAWhZzMFd+Paa5+0uxf6kzHjW2CBs5FnBNEc+oLK6bQA+OvR4aqk79k8vRGBBQ64wzl4KCIvXlbMHe3EGFm3zsNm+1Toz5MF1tip6rNuB2zTc0MrUPkmg7Fm4Wyt8lckFD7D7tb4lR6rfcD/4lt8xFp2vW4DBKgb6kUc1xixuiWV9Een4/Mza0in9EZ0lqcS53jeob/CtSDOE5ZQnb/RzAzieYE8tEX/EPWih6Who70jBvO7oNGhZzxqM43uUXQ5BBMz4ZJEnKNYMsjW9ShTdCYMWCc+3ddv2UOBRXKNxwOpWd7Ue7ptkxZMy0nwzGb/xyn5PTKPL6GyfVCmtNVBYTNWW+b1edMter3EV/DG/SyMsRHL1EIQdpLKn901I+6FcGB4v0Iu0I0FbwH+TXibE",
-      iterations: 600000
-    };
-
-    const gate = document.getElementById('investorsGate');
     const content = document.getElementById('ipContent');
-    const form = document.getElementById('gateForm');
-    const input = document.getElementById('gateInput');
-    const submitBtn = document.getElementById('gateSubmit');
-    const error = document.getElementById('gateError');
-
-    function b64ToBuf(b64) {
-      const bin = atob(b64);
-      const buf = new Uint8Array(bin.length);
-      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
-      return buf;
-    }
-
-    async function decrypt(passphrase) {
-      const enc = new TextEncoder();
-      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
-      const key = await crypto.subtle.deriveKey(
-        { name: 'PBKDF2', salt: b64ToBuf(ENC.salt), iterations: ENC.iterations, hash: 'SHA-256' },
-        baseKey,
-        { name: 'AES-GCM', length: 256 },
-        false,
-        ['decrypt']
-      );
-      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(ENC.iv) }, key, b64ToBuf(ENC.ciphertext));
-      return JSON.parse(new TextDecoder().decode(plainBuf));
-    }
 
     function esc(s) {
       return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -368,45 +323,9 @@
       });
     }
 
-    function unlock(data) {
-      gate.hidden = true;
-      content.hidden = false;
-      document.getElementById('ipNote').textContent = data.note;
-      wireEditor();
-      renderGroups(data.projects);
-      wireTrackFields(data.projects);
-      content.querySelectorAll('.reveal').forEach(function(el) {
-        el.classList.add('in-view');
-      });
-    }
-
-    // Unlock state persists for this browser tab/session only (not stored
-    // permanently), so the passphrase is needed again each new visit —
-    // matches the hub's own gate.
-    const LOCK_KEY = 'bs_ip_data';
-    const cached = sessionStorage.getItem(LOCK_KEY);
-    if (cached) {
-      try { unlock(JSON.parse(cached)); } catch (e) { sessionStorage.removeItem(LOCK_KEY); }
-    }
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const passphrase = input.value.trim();
-      if (!passphrase) return;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Decrypting…';
-      decrypt(passphrase).then(function(data) {
-        error.classList.remove('show');
-        sessionStorage.setItem(LOCK_KEY, JSON.stringify(data));
-        unlock(data);
-      }).catch(function() {
-        error.classList.add('show');
-        input.value = '';
-        input.focus();
-      }).finally(function() {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Enter';
-      });
+    wireEditor();
+    content.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('in-view');
     });
   })();
 </script>
