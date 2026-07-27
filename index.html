@@ -31,26 +31,26 @@
 <link rel="preconnect" href="https://player.vimeo.com">
 <link rel="preconnect" href="https://i.vimeocdn.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Blue Sheep",
-  "url": "https://sachdm.github.io/blue-sheep-site/index.html",
-  "logo": "https://sachdm.github.io/blue-sheep-site/icon-512.png",
-  "email": "info@bluesheepfilms.com",
-  "foundingDate": "2023",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Toronto",
-    "addressRegion": "ON",
-    "addressCountry": "CA"
-  },
-  "sameAs": [
-    "https://vimeo.com/bluesheepfilms",
-    "https://www.instagram.com/bluesheep.films/"
-  ]
+"@context": "https://schema.org",
+"@type": "Organization",
+"name": "Blue Sheep",
+"url": "https://sachdm.github.io/blue-sheep-site/index.html",
+"logo": "https://sachdm.github.io/blue-sheep-site/icon-512.png",
+"email": "info@bluesheepfilms.com",
+"foundingDate": "2023",
+"address": {
+"@type": "PostalAddress",
+"addressLocality": "Toronto",
+"addressRegion": "ON",
+"addressCountry": "CA"
+},
+"sameAs": [
+"https://vimeo.com/bluesheepfilms",
+"https://www.instagram.com/bluesheep.films/"
+]
 }
 </script>
 </head>
@@ -58,30 +58,30 @@
 
 <script>
 (function() {
-  // Skip the intro only when we arrived here by clicking the logo/home link
-  // from elsewhere on the site (that link sets this flag right before
-  // navigating). A direct visit, a bookmark, or an actual reload of the
-  // homepage still gets the full animation, same as before.
-  var skipIntro = false;
-  try {
-    if (sessionStorage.getItem('bs_skip_intro') === '1') {
-      skipIntro = true;
-      sessionStorage.removeItem('bs_skip_intro');
-    }
-  } catch (e) {}
-  if (skipIntro) return;
-  var pre = document.createElement('div');
-  pre.className = 'preloader';
-  pre.id = 'preloader';
-  pre.setAttribute('aria-hidden', 'true');
-  pre.innerHTML = '<img class="preloader-mark" src="small-sheep.png" alt="" width="309" height="240">';
-  document.documentElement.style.overflow = 'hidden';
-  document.body.appendChild(pre);
-  setTimeout(function() {
-    pre.classList.add('hide');
-    document.documentElement.style.overflow = '';
-    setTimeout(function() { pre.remove(); }, 950);
-  }, 5000);
+// Skip the intro only when we arrived here by clicking the logo/home link
+// from elsewhere on the site (that link sets this flag right before
+// navigating). A direct visit, a bookmark, or an actual reload of the
+// homepage still gets the full animation, same as before.
+var skipIntro = false;
+try {
+if (sessionStorage.getItem('bs_skip_intro') === '1') {
+skipIntro = true;
+sessionStorage.removeItem('bs_skip_intro');
+}
+} catch (e) {}
+if (skipIntro) return;
+var pre = document.createElement('div');
+pre.className = 'preloader';
+pre.id = 'preloader';
+pre.setAttribute('aria-hidden', 'true');
+pre.innerHTML = '<img class="preloader-mark" src="small-sheep.png" alt="" width="309" height="240">';
+document.documentElement.style.overflow = 'hidden';
+document.body.appendChild(pre);
+setTimeout(function() {
+pre.classList.add('hide');
+document.documentElement.style.overflow = '';
+setTimeout(function() { pre.remove(); }, 950);
+}, 5000);
 })();
 </script>
 <noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
@@ -92,195 +92,194 @@
 <div class="vignette" aria-hidden="true"></div>
 
 <header>
-  <nav class="wrap-wide">
-    <a class="brand" href="index.html" aria-label="Blue Sheep — Home"><img class="brand-logo" src="small-sheep.png" alt="Blue Sheep" width="309" height="240"></a>
-    <div class="nav-right">
-      <div class="nav-links" id="navLinks">
-        <a href="work.html">Work</a>
-        <a href="contact.html">Contact</a>
-        <a href="investors.html">Investors</a>
-      </div>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
-    </div>
-  </nav>
+<nav class="wrap-wide">
+<a class="brand" href="index.html" aria-label="Blue Sheep — Home"><img class="brand-logo" src="small-sheep.png" alt="Blue Sheep" width="309" height="240"></a>
+<div class="nav-right">
+<div class="nav-links" id="navLinks">
+<a href="work.html">Work</a>
+<a href="contact.html">Contact</a>
+<a href="investors.html">Investors</a>
+</div>
+<button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+</div>
+</nav>
 </header>
 
 <section class="hero" id="main">
-  <div class="hero-bg" aria-hidden="true">
-    <iframe src="https://player.vimeo.com/video/1059939723?h=587f3bcc03&background=1&autoplay=1&loop=1&muted=1&dnt=1" allow="autoplay; fullscreen" title=""></iframe>
-  </div>
-  <div class="hero-content wrap-wide">
-    <h1 class="sr-only">Blue Sheep — Independent Film Production</h1>
-    <div class="hero-footer-row">
-      <p class="hero-sub reveal" aria-label="Blue Sheep is an independent studio making documentary, narrative, and commercial work for people who notice the details."><b class="hero-sub-trigger" id="heroSubTrigger" tabindex="0">Blue Sheep</b> <span class="scramble-words" aria-hidden="true"><span class="w">is</span> <span class="w">an</span> <span class="w">independent</span> <span class="w">studio</span> <span class="w">making</span> <span class="w">documentary,</span> <span class="w">narrative,</span> <span class="w">and</span> <span class="w">commercial</span> <span class="w">work</span> <span class="w">for</span> <span class="w">people</span> <span class="w">who</span> <span class="w">notice</span> <span class="w">the</span> <span class="w">details.</span></span></p>
-      <a href="work.html" class="cta-btn reveal"><span class="cta-label">View Selected Work</span><span class="cta-arrow">→</span></a>
-    </div>
-  </div>
+<div class="hero-bg" aria-hidden="true">
+<iframe src="https://player.vimeo.com/video/1059939723?h=587f3bcc03&background=1&autoplay=1&loop=1&muted=1&dnt=1" allow="autoplay; fullscreen" title=""></iframe>
+</div>
+<div class="hero-content wrap-wide">
+<h1 class="sr-only">Blue Sheep — Independent Film Production</h1>
+<div class="hero-footer-row">
+<p class="hero-sub reveal" aria-label="Blue Sheep is an independent studio making documentary, narrative, and commercial work for people who notice the details."><b class="hero-sub-trigger" id="heroSubTrigger" tabindex="0">Blue Sheep</b> <span class="scramble-words" aria-hidden="true"><span class="w">is</span> <span class="w">an</span> <span class="w">independent</span> <span class="w">studio</span> <span class="w">making</span> <span class="w">documentary,</span> <span class="w">narrative,</span> <span class="w">and</span> <span class="w">commercial</span> <span class="w">work</span> <span class="w">for</span> <span class="w">people</span> <span class="w">who</span> <span class="w">notice</span> <span class="w">the</span> <span class="w">details.</span></span></p>
+<a href="work.html" class="cta-btn reveal"><span class="cta-label">View Selected Work</span><span class="cta-arrow">→</span></a>
+</div>
+</div>
 </section>
 
 <footer>
-  <span>© 2026 Blue Sheep</span>
-  <span class="clock" id="clock">Toronto</span>
-  <div class="socials">
-    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
-    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
-  </div>
+<span>© 2026 Blue Sheep</span>
+<span class="clock" id="clock">Toronto</span>
+<div class="socials">
+<a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
+<a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
+</div>
 </footer>
 
 <script>
-  // Hero headline replays its animation every time it scrolls back into view
-  const heroRevealEls = document.querySelectorAll('.hero-content .reveal');
-  const heroRevealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      entry.target.classList.toggle('in-view', entry.isIntersecting);
-    });
-  }, { threshold: 0.15 });
-  heroRevealEls.forEach(el => heroRevealObserver.observe(el));
+// Hero headline replays its animation every time it scrolls back into view
+const heroRevealEls = document.querySelectorAll('.hero-content .reveal');
+const heroRevealObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+entry.target.classList.toggle('in-view', entry.isIntersecting);
+});
+}, { threshold: 0.15 });
+heroRevealEls.forEach(el => heroRevealObserver.observe(el));
 
-  // Hero subtext plays coy: everything after "Blue Sheep" sits as scrambled
-  // letters until you hover (or focus) the name, then each word resolves
-  // into place one at a time — same scramble language as the work page.
-  (function() {
-    var trigger = document.getElementById('heroSubTrigger');
-    var heroSub = document.querySelector('.hero-sub');
-    var words = Array.from(document.querySelectorAll('.scramble-words .w'));
-    if (!trigger || !words.length || !heroSub) return;
-    var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var SCRAMBLE_CHARS = 'abcdefghijklmnopqrstuvwxyz';
+// Hero subtext plays coy: everything after "Blue Sheep" sits as scrambled
+// letters until you hover (or focus) the name, then each word resolves
+// into place one at a time — same scramble language as the work page.
+(function() {
+var trigger = document.getElementById('heroSubTrigger');
+var heroSub = document.querySelector('.hero-sub');
+var words = Array.from(document.querySelectorAll('.scramble-words .w'));
+if (!trigger || !words.length || !heroSub) return;
+var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var SCRAMBLE_CHARS = 'abcdefghijklmnopqrstuvwxyz';
 
-    words.forEach(function(el) { el.dataset.original = el.textContent; });
+words.forEach(function(el) { el.dataset.original = el.textContent; });
 
-    function randomGibberish(text) {
-      return text.split('').map(function(ch) {
-        return /[a-z]/i.test(ch) ? SCRAMBLE_CHARS[(Math.random() * SCRAMBLE_CHARS.length) | 0] : ch;
-      }).join('');
-    }
+function randomGibberish(text) {
+return text.split('').map(function(ch) {
+return /[a-z]/i.test(ch) ? SCRAMBLE_CHARS[(Math.random() * SCRAMBLE_CHARS.length) | 0] : ch;
+}).join('');
+}
 
-    function scrambleTo(el, toText) {
-      if (prefersReducedMotion) { el.textContent = toText; return; }
-      if (el._raf) cancelAnimationFrame(el._raf);
-      var cycle = 420;
-      var start = performance.now();
-      function step(now) {
-        if (now - start < cycle) {
-          el.textContent = randomGibberish(toText);
-          el._raf = requestAnimationFrame(step);
-        } else {
-          el.textContent = toText;
-          el._raf = null;
-        }
-      }
-      el._raf = requestAnimationFrame(step);
-    }
+function scrambleTo(el, toText) {
+if (prefersReducedMotion) { el.textContent = toText; return; }
+if (el._raf) cancelAnimationFrame(el._raf);
+var cycle = 420;
+var start = performance.now();
+function step(now) {
+if (now - start < cycle) {
+el.textContent = randomGibberish(toText);
+el._raf = requestAnimationFrame(step);
+} else {
+el.textContent = toText;
+el._raf = null;
+}
+}
+el._raf = requestAnimationFrame(step);
+}
 
-    if (!prefersReducedMotion) {
-      words.forEach(function(el) { el.textContent = randomGibberish(el.dataset.original); });
-    }
+if (!prefersReducedMotion) {
+words.forEach(function(el) { el.textContent = randomGibberish(el.dataset.original); });
+}
 
-    var revealTimers = [];
-    function clearTimers() { revealTimers.forEach(clearTimeout); revealTimers = []; }
+var revealTimers = [];
+function clearTimers() { revealTimers.forEach(clearTimeout); revealTimers = []; }
 
-    function revealAll() {
-      if (!prefersReducedMotion) {
-        clearTimers();
-        words.forEach(function(el, i) {
-          revealTimers.push(setTimeout(function() { scrambleTo(el, el.dataset.original); }, i * 150));
-        });
-      }
-      heroSub.classList.add('magnify');
-    }
+function revealAll() {
+if (!prefersReducedMotion) {
+clearTimers();
+words.forEach(function(el, i) {
+revealTimers.push(setTimeout(function() { scrambleTo(el, el.dataset.original); }, i * 150));
+});
+}
+heroSub.classList.add('magnify');
+}
 
-    function obscureAll() {
-      if (!prefersReducedMotion) {
-        clearTimers();
-        words.forEach(function(el, i) {
-          revealTimers.push(setTimeout(function() { scrambleTo(el, randomGibberish(el.dataset.original)); }, i * 90));
-        });
-      }
-      heroSub.classList.remove('magnify');
-    }
+function obscureAll() {
+if (!prefersReducedMotion) {
+clearTimers();
+words.forEach(function(el, i) {
+revealTimers.push(setTimeout(function() { scrambleTo(el, randomGibberish(el.dataset.original)); }, i * 90));
+});
+}
+heroSub.classList.remove('magnify');
+}
 
-    // Custom circular cursor takes over from the system pointer while you're
-    // hovering the trigger, echoing the "Play" cursor used on the work page.
-    var cursorLabel = document.querySelector('.cursor-label');
-    var hasFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-    if (cursorLabel && hasFinePointer) {
-      window.addEventListener('mousemove', function(e) {
-        cursorLabel.style.left = e.clientX + 'px';
-        cursorLabel.style.top = e.clientY + 'px';
-      });
-      trigger.addEventListener('mouseenter', function() { cursorLabel.classList.add('show'); });
-      trigger.addEventListener('mouseleave', function() { cursorLabel.classList.remove('show'); });
-    }
+// Custom circular cursor takes over from the system pointer while you're
+// hovering the trigger, echoing the "Play" cursor used on the work page.
+var cursorLabel = document.querySelector('.cursor-label');
+var hasFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+if (cursorLabel && hasFinePointer) {
+window.addEventListener('mousemove', function(e) {
+cursorLabel.style.left = e.clientX + 'px';
+cursorLabel.style.top = e.clientY + 'px';
+});
+trigger.addEventListener('mouseenter', function() { cursorLabel.classList.add('show'); });
+trigger.addEventListener('mouseleave', function() { cursorLabel.classList.remove('show'); });
+}
 
-    trigger.addEventListener('mouseenter', revealAll);
-    trigger.addEventListener('focus', revealAll);
-    trigger.addEventListener('mouseleave', obscureAll);
-    trigger.addEventListener('blur', obscureAll);
-  })();
+trigger.addEventListener('mouseenter', revealAll);
+trigger.addEventListener('focus', revealAll);
+trigger.addEventListener('mouseleave', obscureAll);
+trigger.addEventListener('blur', obscureAll);
+})();
 
-  (function() {
-    var path = location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.nav-links a').forEach(function(a) {
-      var raw = a.getAttribute('href') || '';
-      if (raw.charAt(0) === '#') return;
-      var href = raw.split('#')[0] || 'index.html';
-      if (href === path) a.setAttribute('aria-current', 'page');
-    });
-  })();
+(function() {
+var path = location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+var raw = a.getAttribute('href') || '';
+if (raw.charAt(0) === '#') return;
+var href = raw.split('#')[0] || 'index.html';
+if (href === path) a.setAttribute('aria-current', 'page');
+});
+})();
 
-  // Clicking the logo/home link should return to a calm homepage, not
-  // replay the intro animation — flag it so index.html knows to skip it.
-  document.querySelectorAll('a.brand').forEach(function(a) {
-    a.addEventListener('click', function() {
-      try { sessionStorage.setItem('bs_skip_intro', '1'); } catch (e) {}
-    });
-  });
+// Clicking the logo/home link should return to a calm homepage, not
+// replay the intro animation — flag it so index.html knows to skip it.
+document.querySelectorAll('a.brand').forEach(function(a) {
+a.addEventListener('click', function() {
+try { sessionStorage.setItem('bs_skip_intro', '1'); } catch (e) {}
+});
+});
 
-  const toggle = document.querySelector('.nav-toggle');
-  const linkGroup = document.querySelector('.nav-links');
-  toggle.addEventListener('click', () => {
-    const isOpen = linkGroup.classList.toggle('open');
-    toggle.textContent = isOpen ? 'Close' : 'Menu';
-    toggle.setAttribute('aria-expanded', String(isOpen));
-    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
-    if (isOpen) {
-      const firstLink = linkGroup.querySelector('a');
-      if (firstLink) firstLink.focus();
-    } else {
-      toggle.focus();
-    }
-  });
-  linkGroup.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && linkGroup.classList.contains('open')) {
-      linkGroup.classList.remove('open');
-      toggle.textContent = 'Menu';
-      toggle.setAttribute('aria-expanded', 'false');
-      document.documentElement.style.overflow = '';
-      toggle.focus();
-    }
-  });
+const toggle = document.querySelector('.nav-toggle');
+const linkGroup = document.querySelector('.nav-links');
+toggle.addEventListener('click', () => {
+const isOpen = linkGroup.classList.toggle('open');
+toggle.textContent = isOpen ? 'Close' : 'Menu';
+toggle.setAttribute('aria-expanded', String(isOpen));
+document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+if (isOpen) {
+const firstLink = linkGroup.querySelector('a');
+if (firstLink) firstLink.focus();
+} else {
+toggle.focus();
+}
+});
+linkGroup.addEventListener('keydown', (e) => {
+if (e.key === 'Escape' && linkGroup.classList.contains('open')) {
+linkGroup.classList.remove('open');
+toggle.textContent = 'Menu';
+toggle.setAttribute('aria-expanded', 'false');
+document.documentElement.style.overflow = '';
+toggle.focus();
+}
+});
 
+const progressBar = document.querySelector('.progress-bar');
+function updateProgress() {
+const h = document.documentElement;
+const scrollable = h.scrollHeight - h.clientHeight;
+const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+progressBar.style.width = pct + '%';
+}
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
 
-  const progressBar = document.querySelector('.progress-bar');
-  function updateProgress() {
-    const h = document.documentElement;
-    const scrollable = h.scrollHeight - h.clientHeight;
-    const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
-    progressBar.style.width = pct + '%';
-  }
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  updateProgress();
-
-  const clockEl = document.getElementById('clock');
-  if (clockEl) {
-    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
-    function updateClock() {
-      clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
-    }
-    updateClock();
-    setInterval(updateClock, 30000);
-  }
+const clockEl = document.getElementById('clock');
+if (clockEl) {
+const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
+function updateClock() {
+clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
+}
+updateClock();
+setInterval(updateClock, 30000);
+}
 </script>
 
 </body>
