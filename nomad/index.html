@@ -192,6 +192,25 @@ kbd {
   .page .sp-paren { padding-left: 28%; }
 }
 
+@media print {
+  #sidebar, .sp-toolbar { display: none !important; }
+  body::after, .grain, .vignette { display: none !important; }
+  html, body, #app, #content { height: auto !important; overflow: visible !important; }
+  body { background: #fff !important; }
+  #content { padding: 0 !important; background: #fff !important; }
+  .page-wrap { max-width: none !important; margin: 0 !important; }
+  .page {
+    box-shadow: none !important; width: auto !important; max-width: none !important;
+    margin: 0 !important; padding: 0 !important; background: #fff !important; color: #000 !important;
+  }
+  .page .titlepage {
+    height: 9in; min-height: 0;
+    break-after: page; page-break-after: always;
+  }
+  .sp-slug, .sp-char { break-after: avoid; page-break-after: avoid; break-inside: avoid; page-break-inside: avoid; }
+  @page { size: letter; margin: 1in 1in 1in 1.5in; }
+}
+
 </style>
 </head>
 <body>
