@@ -104,7 +104,8 @@ body::after {
   border-top: 1px solid #1e2a20;
   color: var(--dim); font-size: 11px;
 }
-#sidebar-foot a { color: var(--cyan); text-decoration: none; }
+#sidebar-foot a { color: var(--cyan); text-decoration: none; display: inline-block; margin-top: 6px; }
+#sidebar-foot a:first-child { margin-top: 0; }
 #sidebar-foot a:hover { text-decoration: underline; }
 
 #meta {
@@ -213,7 +214,8 @@ kbd {
     </div>
     <div id="nav"></div>
     <div id="sidebar-foot">
-      <a href="../investors-ip.html">← back to Working IP</a>
+      <a href="../investors-ip.html">← back to Working IP</a><br>
+      <a href="NOMAD-Master-Script.pdf" download>Download PDF ↓</a>
     </div>
   </div>
   <div id="content">
