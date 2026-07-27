@@ -192,17 +192,10 @@ kbd {
   .page .sp-paren { padding-left: 28%; }
 }
 
-.sp-toolbar a.sp-pdf-link {
-  background: #23251f; color: var(--fg); border: 1px solid #33402f;
-  border-radius: 5px; padding: 5px 11px; font: inherit; font-size: 12px;
-  text-decoration: none; cursor: pointer;
-}
-.sp-toolbar a.sp-pdf-link:hover { background: #2b2e26; }
-.sp-toolbar .sp-toolbar-spacer { flex: 1; }
-.sp-print-note { color: var(--dim); font-size: 11px; margin-left: 4px; }
+.sp-toolbar { background: #33352f; }
 
 @media print {
-  #sidebar, .sp-toolbar, .sp-print-note { display: none !important; }
+  #sidebar, .sp-toolbar { display: none !important; }
   body::after { display: none !important; }
   html, body { height: auto; background: #fff !important; }
   #app { display: block; height: auto; }
@@ -386,26 +379,19 @@ async function open(idx) {
       contentEl.classList.add('page-mode');
       const html = renderScreenplay(text);
       reader.innerHTML = `
-        <div class="sp-toolbar">
-          <button id="printBtn" type="button">Print</button>
-          <a class="sp-pdf-link" href="NOMAD-Master-Script.pdf" target="_blank" rel="noopener">Download PDF</a>
-          <span class="sp-toolbar-spacer"></span>
-          <span class="sp-print-note">Print uses your browser dialog — enable "headers and footers" for page numbers, or use Download PDF for a pre-paginated numbered copy.</span>
-        </div>
+        <div class="sp-toolbar"></div>
         <div class="page-wrap">
           <div class="page">
             <div class="titlepage">
               <img class="logo" src="../small-sheep.png" alt="Blue Sheep">
               <div class="t">NOMAD</div>
-              <div class="by">written by Lambo</div>
+              <div class="by">written by Lambo &amp; Sacha Mitchell</div>
               <div class="contact">Blue Sheep<br>info@bluesheepfilms.com</div>
             </div>
             <div class="sp-body">${html}</div>
           </div>
         </div>`;
       contentEl.scrollTop = 0;
-      const printBtn = document.getElementById('printBtn');
-      if (printBtn) printBtn.addEventListener('click', () => window.print());
       return;
     }
 
