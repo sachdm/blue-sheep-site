@@ -192,26 +192,6 @@ kbd {
   .page .sp-paren { padding-left: 28%; }
 }
 
-.sp-toolbar { background: #33352f; }
-
-@media print {
-  #sidebar, .sp-toolbar { display: none !important; }
-  body::after { display: none !important; }
-  html, body { height: auto; background: #fff !important; }
-  #app { display: block; height: auto; }
-  #content { padding: 0 !important; background: #fff !important; overflow: visible !important; }
-  #content.page-mode { background: #fff !important; }
-  .page-wrap { max-width: none; margin: 0; }
-  .page {
-    box-shadow: none !important; width: auto !important; max-width: none !important;
-    margin: 0 !important; padding: 0 !important; background: #fff !important; color: #000 !important;
-  }
-  .page .titlepage { min-height: 90vh; page-break-after: always; }
-  .sp-slug { page-break-after: avoid; }
-  .sp-char { page-break-after: avoid; page-break-inside: avoid; }
-  .sp-paren, .sp-dialog { page-break-before: avoid; }
-  @page { size: letter; margin: 1in 1in 1in 1.5in; }
-}
 </style>
 </head>
 <body>
