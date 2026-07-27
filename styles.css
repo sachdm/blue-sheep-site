@@ -8,7 +8,7 @@
   --body-copy: #cfcec8;
   --sans: 'Inter', sans-serif;
   --mono: 'Space Mono', monospace;
-  --serif: 'Playfair Display', serif;
+  --serif: 'Source Serif 4', serif;
   --grotesk: 'Helvetica Neue', Inter, Arial, sans-serif;
   color-scheme: dark;
 }
@@ -626,7 +626,7 @@ body.work-page {
   font-style: italic;
   font-size: 15px;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
 }
@@ -704,7 +704,7 @@ body.work-page {
   .nav-links.open a {
     font-family: var(--serif);
     font-style: italic;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 28px;
     letter-spacing: 0;
     text-transform: none;
@@ -1248,8 +1248,8 @@ body.work-page {
 
 .about-grid .label {
   font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 300;
   font-size: clamp(30px, 4.4vw, 44px);
   letter-spacing: 0;
   text-transform: none;
@@ -1314,8 +1314,8 @@ body.work-page {
 
 .contact-grid .label {
   font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 300;
   font-size: clamp(30px, 4.4vw, 44px);
   letter-spacing: 0;
   text-transform: none;
@@ -1406,8 +1406,8 @@ body.work-page {
 
 .inv-h1 {
   font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 300;
   font-size: clamp(28px, 4vw, 40px);
   letter-spacing: 0;
   text-transform: none;
@@ -2128,8 +2128,8 @@ body.work-page {
 
 .gate .label, .investors-grid .label {
   font-family: var(--serif);
-  font-style: italic;
-  font-weight: 500;
+  font-style: normal;
+  font-weight: 300;
   font-size: clamp(30px, 4.4vw, 44px);
   letter-spacing: 0;
   text-transform: none;
@@ -3726,6 +3726,191 @@ textarea.ip-track-input { min-height: 40px; }
 }
 .idea-filter-btn:hover { color: var(--ink); }
 .idea-filter-btn.active { color: var(--bg); background: var(--ink); border-color: var(--ink); }
+
+/* scripts (Working IP page) */
+.script-section { margin-top: 40px; }
+.script-card {
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  padding: 24px 22px;
+  text-align: left;
+  margin-top: 14px;
+}
+.script-card-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.script-title {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(18px, 2.4vw, 22px);
+  color: var(--ink);
+}
+.script-format {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.script-desc {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--body-copy);
+  margin-bottom: 16px;
+}
+.script-link {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+.script-link:hover { border-color: var(--ink); }
+
+/* company schedule */
+.schedule-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.schedule-tile {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+  min-width: 120px;
+  flex: 1 1 120px;
+}
+.schedule-tile-value {
+  display: block;
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.schedule-tile-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-top: 3px;
+}
+.schedule-standing {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--grey);
+  margin-bottom: 16px;
+}
+.schedule-standing strong { color: var(--ink); }
+.schedule-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.schedule-controls .idea-filter-row { margin-bottom: 0; flex: 1 1 auto; }
+.schedule-search {
+  flex: 0 1 220px;
+  min-width: 160px;
+  font-family: var(--sans);
+  font-size: 13px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: none;
+  color: var(--ink);
+}
+.schedule-search::placeholder { color: var(--grey); }
+#scheduleList { margin-top: 14px; }
+.schedule-month { margin-bottom: 20px; }
+.schedule-month-head {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.schedule-today-rule {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 2px 0 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.schedule-today-rule::before, .schedule-today-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+}
+.schedule-card {
+  display: grid;
+  grid-template-columns: 84px 1fr auto;
+  gap: 4px 14px;
+  align-items: start;
+  padding: 9px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.schedule-card:last-child { border-bottom: none; }
+.schedule-card.past { opacity: 0.4; }
+.schedule-date {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--grey);
+  line-height: 1.4;
+  padding-top: 1px;
+}
+.schedule-date .soon {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-top: 3px;
+}
+.schedule-body .t { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.schedule-body .m { font-size: 12px; color: var(--grey); margin-top: 3px; line-height: 1.5; }
+.schedule-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--grey);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 3px 9px;
+  white-space: nowrap;
+  align-self: start;
+}
+.schedule-empty { color: var(--grey); font-size: 13px; text-align: center; padding: 24px 0; }
+@media (max-width: 640px) {
+  .schedule-card { grid-template-columns: 1fr; }
+  .schedule-tag { justify-self: start; }
+  .schedule-search { flex: 1 1 100%; }
+}
 
 /* strategic priorities */
 .priority-board {
