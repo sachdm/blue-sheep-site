@@ -1,6 +1,6 @@
 # NOMAD — MASTER SCRIPT
 
-**Rendered from MASTER DRAFT v1.5. Do not edit — changes go to the draft; this re-renders.**
+**Rendered from MASTER DRAFT v1.6. Do not edit — changes go to the draft; this re-renders.**
 
 ---
 
@@ -17,6 +17,12 @@ MAIN TITLE: NOMAD
 A floor at its midpoint. Bodies among empty desks. Nobody looks up.
 
 CAIRNS (30s, loud, likeable) packs his desk into a printer-paper box, performing an exit for a floor that isn't watching. Only WILL and JOHN are.
+
+CAIRNS
+(raising an invisible glass, to the empty desks)
+To four incredible years. Truly. Some of the best emails of my life.
+
+Nobody looks up. He toasts anyway.
 
 A ROBOT BOSS — a monitor on a wheeled stand, running the boss's warm AI likeness — rolls up. Cairns puts a hand to his heart and gives it a review.
 
@@ -84,12 +90,10 @@ Later. The dashboard, a river of decisions. Will spots a fraud he's sure of. INT
 
 His screen dims. A coaching module auto-plays — "Trusting Your Tools," a cheerful presenter who blinks at perfectly regular intervals. In the corner, the system clears his case without him.
 
-## INT. OFFICE SPACE — WILL'S DESK — DAY
-
-Will's display: CAIRNS, poolside, sun, abundance.
+His screen blinks — an incoming call cuts straight through the coaching module. CAIRNS, poolside, sun, abundance.
 
 CAIRNS
-You wouldn't believe it, bro. Everything down here's two for one. Everything.
+You wouldn't believe this place. Everything's two-for-one — everything.
 
 He lowers his voice like it's a secret.
 
@@ -134,11 +138,17 @@ The lights are on. Hole 7 uses the old CEO's office door as a ramp.
 JOHN
 You know I've never even been out of the states?
 
-They let it sit.
+WILL
+Neither had Cairns, till Tuesday.
+
+JOHN
+Yeah, well. Some of us like it here.
+
+He doesn't sound sure of that. Will lines up a putt.
 
 Then — who's Michelle? The Service was a company. Since when does it have a first name? Neither of them knows. They shrug it off.
 
-Will lines up a putt, sinks it, doesn't celebrate. Somewhere else entirely.
+Will sinks the putt, doesn't celebrate. Somewhere else entirely.
 
 ## INT. WILL'S APARTMENT — NIGHT
 
@@ -166,6 +176,15 @@ Then you know it's painless.
 
 The coordinator winks — a half-beat late.
 
+COORDINATOR (CONT'D)
+One more. For the file — describe your dream place. Take your time.
+
+WILL
+(to camera, easy, unprompted)
+High floor. Light in the morning. Somewhere I don't have to explain myself to anybody.
+
+He means it as a throwaway. The camera keeps rolling a beat after he's done.
+
 ## INT. WILL'S CAR — PARKING LOT — CONTINUOUS
 
 The email arrives before he's out of the lot. MICHELLE — template-warm, exclamation points, a scheduling link.
@@ -183,7 +202,13 @@ BACK TO SCENE. He blames the compression.
 
 ## INT. OFFICE SPACE — DAY
 
-A bloodless email: THE FLOOR IS CLOSING. Full remote by end of October.
+The ROBOT BOSS rolls to the center of the floor. An all-hands. On its screen: the real boss, on a treadmill somewhere sun-bleached, barely winded.
+
+BOSS
+(V.O., warm, unbothered)
+Big news, team — the floor's closing! Full remote by end of October. Genuinely so excited for what's next.
+
+A half-beat late, he raises a coconut water like a toast. The feed freezes on his smile a second too long, then cuts.
 
 John's answer: the last day in the office is the MINI-PUTT CHAMPIONSHIP. He starts the bracket.
 
@@ -207,7 +232,13 @@ A viewing. Perfect. And not empty.
 
 CAMILA (20s) and her family box up the place they've lived in for years. The Service is turning the building over to arrivals.
 
-Will sees it. He understands exactly what he's looking at. The agent asks if he wants it.
+AGENT
+Unit's just come available — they don't usually turn this fast. You'd be moving in the same week as the family moving out.
+
+Will sees it. He understands exactly what he's looking at.
+
+AGENT (CONT'D)
+Interested?
 
 He takes it.
 
@@ -287,23 +318,29 @@ He goes a day early. Cairns, finally, at a place he can walk to.
 
 ## INT. CAIRNS' BUILDING — DAY
 
-Reception expects him tomorrow. Today, nobody manages what he sees. The service stairs.
+Mid-morning — the lobby's dead, the front desk mid shift-change. Will slips in behind a delivery cart, badge-less, unremarked. Nobody's watching the door; the cameras are watching the residents. The service stairs.
 
-Upstairs: nothing. No set, no pool. An empty floor — chairs, capture rigs like the storefront's, racks of humming servers.
+Upstairs: nothing. No set, no pool. An empty floor — chairs, capture rigs like the storefront's, racks of humming servers. A propped fire door, someone's cigarette break, forgotten.
 
-Through a doorway: the RENDER FARM. An operator types a line. A poolside evening assembles in seconds — Cairns' pool, water that has never been wet.
+Through it: the RENDER FARM. An operator types a line. A poolside evening assembles in seconds — Cairns' pool, water that has never been wet.
 
 On another screen, a girl who doesn't exist is thrown laughing into it. A slider drags her laugh warmer.
 
 On a third: familiar faces, likenesses at work, attending standups.
 
-On one screen, mid-generation: WILL'S OWN welcome ad, refining. Him, poolside, saying things he's never said.
+On one screen, mid-generation: WILL'S OWN welcome ad, refining. Him, poolside, saying things he's never said. The line about the high floor and the morning light plays back, exactly as he gave it.
 
 From the next row — WILL'S OWN LAUGH. The real one. He follows his own voice.
 
 The worst screen in the building: CAIRNS' LIKENESS on a call with WILL'S LIKENESS. Poolside together. Their in-jokes. Version numbers in the corner.
 
 Will slips out. An operator clocks him in a doorway reflection, and doesn't care.
+
+He heads for the stairwell — and finds it blocked. Building security, apologetic, procedural: anyone without a resident badge gets verified before they leave. Standard, since an incident with a tenant last month.
+
+Will almost laughs. He wrote a version of this exact policy for a different building, a different company, a lifetime ago.
+
+There's no way out he hasn't already used to get in. He goes where they point.
 
 ## INT. DEAD SALES DEPARTMENT — DAY / INT. VERIFICATION ROOM — DAY — INTERCUT
 
