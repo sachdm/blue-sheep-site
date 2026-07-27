@@ -46,21 +46,8 @@
 
   <h1 class="label reveal inv-h1">Investors</h1>
 
-  <div class="gate reveal" id="investorsGate">
-    <div>
-      <p class="blurb">This page is encrypted. Enter the passphrase to continue.</p>
-      <form class="gate-form" id="gateForm" autocomplete="off">
-        <input type="text" class="gate-input" id="gateInput" placeholder="Passphrase" aria-label="Passphrase" autocomplete="off" spellcheck="false">
-        <button type="submit" class="gate-submit" id="gateSubmit">Enter</button>
-      </form>
-      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect passphrase. Try again.</p>
-      <p class="gate-reach-out">Don't have a passphrase? <a href="mailto:info@bluesheepfilms.com">Reach out</a> for access.</p>
-    </div>
-  </div>
-
-  <div class="inv-hub" id="invHub" hidden>
-    <p class="inv-hub-intro reveal">Enter any section below. Each is independently encrypted with the same passphrase.</p>
-    <p class="hub-unlock-status" id="hubUnlockStatus" role="status" aria-live="polite"></p>
+  <div class="inv-hub" id="invHub">
+    <p class="inv-hub-intro reveal">Enter any section below.</p>
 
     <div class="hub-snapshot reveal" id="hubSnapshot">
       <span class="mini-label">Snapshot — This Device</span>
@@ -193,43 +180,7 @@
   }
 
   (function() {
-    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. This hub only decrypts
-    // a small marker to verify the passphrase — the real content lives, separately
-    // encrypted, on the pages this unlocks.
-    const ENC = {
-      salt: "mYTiQhkYRnLwcK1jheVkXg==",
-      iv: "gi9ArK7vv2QnDH+C",
-      ciphertext: "sY9X2j3kVAfzOFjx0mZJJ5W6jbxtKxvLQylX",
-      iterations: 600000
-    };
-
-    const gate = document.getElementById('investorsGate');
     const hub = document.getElementById('invHub');
-    const form = document.getElementById('gateForm');
-    const input = document.getElementById('gateInput');
-    const submitBtn = document.getElementById('gateSubmit');
-    const error = document.getElementById('gateError');
-
-    function b64ToBuf(b64) {
-      const bin = atob(b64);
-      const buf = new Uint8Array(bin.length);
-      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
-      return buf;
-    }
-
-    async function decrypt(passphrase) {
-      const enc = new TextEncoder();
-      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
-      const key = await crypto.subtle.deriveKey(
-        { name: 'PBKDF2', salt: b64ToBuf(ENC.salt), iterations: ENC.iterations, hash: 'SHA-256' },
-        baseKey,
-        { name: 'AES-GCM', length: 256 },
-        false,
-        ['decrypt']
-      );
-      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(ENC.iv) }, key, b64ToBuf(ENC.ciphertext));
-      return JSON.parse(new TextDecoder().decode(plainBuf));
-    }
 
     // ---------- cross-page snapshot (reads localStorage set by other pages) ----------
     function readJSON(key) {
@@ -279,98 +230,9 @@
       }).join('');
     }
 
-    function unlock() {
-      gate.hidden = true;
-      hub.hidden = false;
-      buildSnapshot();
-      hub.querySelectorAll('.reveal').forEach(function(el) {
-        el.classList.add('in-view');
-      });
-    }
-
-    // ---------- cascade unlock: decrypt every sub-page with the same
-    // passphrase right now, so clicking through doesn't ask again. ----------
-    const SUB_PAGES = [
-      { file: 'team-hub.html', lockKey: 'bs_team_data' },
-      { file: 'investors-financials.html', lockKey: 'bs_inv_financials_data' },
-      { file: 'investors-grants.html', lockKey: 'bs_inv_grants_data' },
-      { file: 'client-pipeline.html', lockKey: 'bs_pipeline_data' },
-      { file: 'investors-slate.html', lockKey: 'bs_inv_slate_data' },
-      { file: 'investors-ip.html', lockKey: 'bs_ip_data' },
-      { file: 'investors-founders.html', lockKey: 'bs_founders_data' }
-    ];
-
-    async function decryptWith(salt, iv, ciphertext, passphrase) {
-      const enc = new TextEncoder();
-      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
-      const key = await crypto.subtle.deriveKey(
-        { name: 'PBKDF2', salt: b64ToBuf(salt), iterations: 600000, hash: 'SHA-256' },
-        baseKey,
-        { name: 'AES-GCM', length: 256 },
-        false,
-        ['decrypt']
-      );
-      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(iv) }, key, b64ToBuf(ciphertext));
-      return JSON.parse(new TextDecoder().decode(plainBuf));
-    }
-
-    async function unlockSubPage(page, passphrase) {
-      // Skip pages already unlocked this tab session. Kept in sessionStorage
-      // (not localStorage) so the whole investor area re-locks the next time
-      // this browser is opened, matching the hub's own gate.
-      if (sessionStorage.getItem(page.lockKey)) return true;
-      try {
-        const res = await fetch(page.file, { cache: 'no-store' });
-        const html = await res.text();
-        const salt = html.match(/salt: "([^"]+)"/);
-        const iv = html.match(/iv: "([^"]+)"/);
-        const ciphertext = html.match(/ciphertext: "([^"]+)"/);
-        if (!salt || !iv || !ciphertext) return false;
-        const data = await decryptWith(salt[1], iv[1], ciphertext[1], passphrase);
-        sessionStorage.setItem(page.lockKey, JSON.stringify(data));
-        return true;
-      } catch (e) {
-        return false;
-      }
-    }
-
-    function unlockEverything(passphrase) {
-      const status = document.getElementById('hubUnlockStatus');
-      if (status) status.textContent = 'Unlocking every section…';
-      Promise.all(SUB_PAGES.map(function(p) { return unlockSubPage(p, passphrase); })).then(function(results) {
-        if (!status) return;
-        const ok = results.filter(Boolean).length;
-        status.textContent = ok === SUB_PAGES.length
-          ? 'All sections unlocked — click into any of them below, no passphrase needed.'
-          : 'Most sections unlocked. A couple may still ask for the passphrase once.';
-        setTimeout(function() { status.textContent = ''; }, 6000);
-      });
-    }
-
-    // The hub always asks for the passphrase — no standing unlock is kept
-    // for this gate, so every visit to Investors is protected. (Any older
-    // cached bypass from before this change is cleared below.)
-    const LOCK_KEY = 'bs_inv_hub_ok';
-    localStorage.removeItem(LOCK_KEY);
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const passphrase = input.value.trim();
-      if (!passphrase) return;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Decrypting…';
-      decrypt(passphrase).then(function(data) {
-        error.classList.remove('show');
-        unlock();
-        unlockEverything(passphrase);
-      }).catch(function() {
-        error.classList.add('show');
-        input.value = '';
-        input.focus();
-      }).finally(function() {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Enter';
-      });
+    buildSnapshot();
+    hub.querySelectorAll('.reveal').forEach(function(el) {
+      el.classList.add('in-view');
     });
   })();
 </script>
