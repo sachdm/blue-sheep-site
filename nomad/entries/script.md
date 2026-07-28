@@ -1,14 +1,111 @@
 # NOMAD — MASTER SCRIPT
 
-**v1.8 - revised 28 July 2026. Screenplay format.**
+**v1.9 - revised 28 July 2026.**
 
 ---
 
-EXT. INFINITY POOL - GOLDEN HOUR
+INT. OFFICE SPACE - DEAD SALES DEPARTMENT - NIGHT
 
-Full frame, no context. Paradise. Water like poured glass, too perfect. A laugh on the soundtrack lands a half-beat late.
+Sales emptied out in the spring. Nobody came for the furniture.
 
-A single frame STUTTERS.
+Half the floor is dark. In the lit half, three men who should have gone home four hours ago.
+
+WILL, CAIRNS and JOHN (30s) are building a golf course out of a dead department. A ramp made of binders. A water hazard that is a mop bucket with water in it.
+
+Cairns is taking the old CEO's office door off its hinges with a butter knife.
+
+CAIRNS
+He's not using it.
+
+JOHN
+He's not using it because he's in Lisbon.
+
+CAIRNS
+Then he's really not using it.
+
+The door comes free. All three of them carry it. It is much heavier than any of them expected, and they get it eight feet before they have to put it down and stand there breathing.
+
+They lean it against a filing cabinet. A ramp. John writes 7 on a Post-it and sticks it to the wall.
+
+Will putts. The ball climbs the door, runs the length of the cabinet, and drops into a coffee mug on the far side.
+
+A silence while all three of them work out that it went in.
+
+Then they lose it — the helpless laughter of people who are extremely tired and nowhere near going home.
+
+Later. Backs against the cabinets, on the carpet, shoes off.
+
+CAIRNS
+Nine years I've been on this floor.
+
+JOHN
+Eight.
+
+WILL
+Six.
+
+CAIRNS
+(to the ceiling)
+Nine years. You know what I've got out of it?
+(beat)
+A really good chair.
+
+It's a joke. It doesn't land like one. Nobody says anything for a second longer than they should.
+
+Then John throws a golf ball at him and it's over.
+
+Later still. Cairns is trying to teach them something and it is not going well.
+
+CAIRNS (CONT'D)
+No. No. Fist, fist, roll it, then the thing.
+
+WILL
+What thing.
+
+CAIRNS
+The thing. The little —
+(does something with his hand that means nothing)
+That.
+
+They try it. They get it wrong. They try it again and get it wrong in a completely new way. Will is laughing so hard he has to hold onto the cabinet.
+
+JOHN
+This is the stupidest —
+
+CAIRNS
+It's not stupid. It's ours.
+
+They go again. Fist, fist, roll — and then a small dumb extra beat on the end. A half-second of nothing, both hands open, like putting something down.
+
+They get it.
+
+Cairns points at the two of them like a man who has won an argument.
+
+CAIRNS (CONT'D)
+Again.
+
+They do it again. Clean.
+
+CAIRNS (CONT'D)
+Again.
+
+John steps in for the third slot and does it deliberately, catastrophically wrong.
+
+CAIRNS (CONT'D)
+Out. You're out. You're banned for life.
+
+JOHN
+(delighted)
+I don't want it.
+
+He wants it.
+
+Will and Cairns run it once more, fast, already muscle memory. Cairns holds the last open-handed beat a moment longer than he needs to, looking at it.
+
+CAIRNS (CONT'D)
+That's a good one.
+
+On the far side of the floor the lights click off on a timer. Nobody moves.
 
 MAIN TITLE: NOMAD
 
@@ -48,11 +145,46 @@ INT. OFFICE SPACE - ELEVATOR BANK - CONTINUOUS
 
 Will and John flank Cairns, carrying nothing. Happy for him. A little jealous.
 
-Cairns brags about a SERVICE — handles everything, one fee — and can't answer a single follow-up. Nobody grills him.
+CAIRNS
+One fee. That's the whole thing. They handle everything.
 
-Will and Cairns run their handshake. The dumb elaborate one. Fast, perfect, muscle memory.
+WILL
+Everything meaning what.
 
-The doors close on Cairns mid-sell.
+CAIRNS
+Everything meaning everything.
+
+JOHN
+Visa?
+
+CAIRNS
+Handled.
+
+WILL
+By who?
+
+A gap, small. Cairns fills it fast.
+
+CAIRNS (CONT'D)
+By — they've got people. It's a whole thing. Michelle walks you through it.
+
+Neither of them asks who Michelle is. He has already moved on.
+
+CAIRNS (CONT'D)
+You should come. Both of you. I'm serious.
+
+He says it like a joke, so that it can be one if they don't take it.
+
+Nobody takes it.
+
+The elevator arrives. Cairns steps in, turns, and raises a fist.
+
+Will meets it. Fist, fist, roll, and the dumb open-handed beat on the end.
+
+CAIRNS (CONT'D)
+Next year. I'm telling you.
+
+The doors close on him mid-sell.
 
 INT. OFFICE SPACE - MOMENTS LATER
 
@@ -152,9 +284,27 @@ Neither had Cairns.
 JOHN
 Yeah, well. Some of us like it here.
 
-He doesn't sound sure of that. Will lines up a putt.
+He doesn't sound sure of that. Will lines up a putt, then stops.
 
-Then — who's Michelle? The Service was a company. Since when does it have a first name? Neither of them knows. They shrug it off.
+WILL
+Who's Michelle?
+
+JOHN
+What?
+
+WILL
+He keeps saying Michelle. Like we know her.
+
+JOHN
+The Service is a company.
+
+WILL
+Right.
+
+JOHN
+Since when do companies have a first name?
+
+Neither of them has an answer, and neither of them wants one badly enough to keep going.
 
 Will sinks the putt, doesn't celebrate. Somewhere else entirely.
 
@@ -268,7 +418,9 @@ He takes it.
 
 EXT. MEXICO CITY - DAY
 
-Will haggles a vendor down for sport. Overtips elsewhere to feel generous. Lives entirely in English, always accommodated. Charming. Oblivious.
+A market. Will haggles a vendor down over a bag of limes — forty pesos, nothing — and wins, and is delighted. Two stalls on, he overtips a man for a coffee by three times the price of the coffee, and is delighted by that too.
+
+At a counter he orders in English. The girl answers in English. He tries the Spanish for thank you and she says it back to him, correctly. He doesn't hear the correction.
 
 He texts Cairns on landing. Cairns is warm, specific, flaky — "in Oaxaca for a thing, next week for SURE, I already told everyone you're here."
 
@@ -297,16 +449,23 @@ Then the reflex he has spent a year putting down puts this down too. Phone up. H
 
 INT. WILL'S APARTMENT, MEXICO CITY - NIGHT / INT. DEAD OFFICE - NIGHT - INTERCUT
 
-Will calls JOHN. Mini-putt updates from the dark floor. Will poolside, pretending he isn't lonely at a party.
+Will steps out of a rooftop party to take the call, and then doesn't go back in. Behind him, through glass, people he doesn't know are having a good night.
+
+John walks the dark floor with the phone in one hand and a putter under his arm.
 
 JOHN
-Cairns liked my bracket post. So he's in. So you better be in.
+Cairns liked my bracket post. So you better be in.
 
 WILL
 Course.
 
 JOHN
 It's gonna be everybody.
+
+Will looks back through the glass at the party.
+
+WILL
+Yeah.
 
 INT. WILL'S APARTMENT, MEXICO CITY - NIGHT
 
@@ -366,6 +525,10 @@ On a third screen: familiar faces, likenesses at work, attending standups.
 
 On a fourth, an outbound queue — hundreds of warm, exclamation-pointed emails going out at once. Every one of them signed MICHELLE.
 
+Across the room, an operator clocks him in a doorway reflection. Doesn't stand, doesn't call out. Just reaches over and taps something in, and goes back to work.
+
+Will has perhaps four minutes and no idea how many he has.
+
 On one screen, mid-generation: WILL'S OWN welcome ad, refining. Him, poolside, saying things he's never said. The line about the high floor and the morning light plays back, exactly as he gave it.
 
 In the corner of it, a readout he has looked at every working day of his life: WILL 96.8. Beside it, the model's number. Higher.
@@ -374,7 +537,7 @@ From the next row — WILL'S OWN LAUGH. The real one. He follows his own voice.
 
 The worst screen in the building: CAIRNS' LIKENESS on a call with WILL'S LIKENESS. Poolside together. Their in-jokes. Version numbers in the corner.
 
-Will slips out. An operator clocks him in a doorway reflection — and doesn't hurry. Just reaches over and taps something in. Routine.
+Will slips out. Nobody stops him. Nobody has to.
 
 The fire door has swung shut behind him. No handle on this side.
 
@@ -439,9 +602,7 @@ The call ends. John sits alone in the half-dismantled floor, lit by the screen. 
 
 He reaches for his phone.
 
-Slowly, uncertainly, he starts to type back.
-
-A single frame stutters — almost too fast to catch.
+He starts to type back.
 
 We stay on John. His face, lit by the screen. Hold.
 

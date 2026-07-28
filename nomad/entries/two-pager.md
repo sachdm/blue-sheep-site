@@ -8,7 +8,9 @@
 
 ## The Story
 
-NOMAD is a short film — roughly eighteen minutes — set close enough to now that nothing in it needs explaining. Synthetic video has become indistinguishable from real footage, except for a latency the eye learns to feel: a half-beat, four tenths of a second, landing in exactly the same place every time. Humans are never that consistent. In this world, paradise is usually a render.
+NOMAD opens on three men who should have gone home. A dead sales department after hours, a golf course being built out of an emptied floor, and a handshake getting invented — badly, flubbed three times, then perfected, with a dumb open-handed beat on the end that none of them can explain. It is the only warm room in the film, and everything after it is measured against it.
+
+The film runs roughly eighteen minutes and is set close enough to now that nothing in it needs explaining. Synthetic video has become indistinguishable from real footage, except for a latency the eye learns to feel: a half-beat, four tenths of a second, landing in exactly the same place every time. Humans are never that consistent. In this world, paradise is usually a render.
 
 WILL works identity verification. He audits the machine's fraud calls from a floor that emptied years ago — motion-sensor lights clicking on ahead of him like a runway for nobody, a coffee machine brewing a full pot at 8:55 so he can pour its only cup. He is the top human performer on a system that scores him 96.8 against its own 99.1, and he is very good at the one thing he is being eroded out of: knowing when a face isn't a person.
 
@@ -26,7 +28,7 @@ The film ends where it has to. Will is declared synthetic by the system he serve
 
 ---
 
-**Form.** ~18 minutes. 22 scenes. Mostly behaviour; dialogue only where it earns the space.
+**Form.** ~18–20 minutes. 22 scenes. Mostly behaviour; dialogue only where it earns the space.
 
 **Why now.** Verification is quietly becoming the infrastructure of personhood — your face is your bank, your border, your job. NOMAD asks what happens when the reference model reads as more authentic than the person, and answers it in the smallest possible terms: two friends, a stupid handshake, and the one thing a dataset can never contain because nobody ever recorded it.
 

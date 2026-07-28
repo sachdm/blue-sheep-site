@@ -2,7 +2,7 @@
 
 **Logline.** In a near future where your verified digital likeness *is* your legal self, a burnt-out identity-verification worker chases his best friend into a paradise abroad — and discovers the paradise is a render, the friend is a machine, and the operation harvesting them both is coming for the next one.
 
-**Form.** A short (~17–19 min), currently 22 scenes. Mostly action and behaviour; scripted dialogue only where it earns its place. Ends on a friend typing back to a person who is gone.
+**Form.** A short (~18–20 min), 22 scenes. Mostly action and behaviour; dialogue where it earns its place. Opens on the night three friends built a mini-putt course through a dead sales department and invented a handshake. Ends on the last of them typing back to a person who is gone.
 
 ---
 
@@ -35,6 +35,8 @@
 ## The spine (three calls)
 
 The film is three video calls with the same poolside frame. **Cairns sells Will** → **Cairns fails Will** (the likeness gets the handshake and the warmth a half-beat wrong) → **"Will" sells John**. The frame teaches you to read it, then turns on you: by the third call the audience recognises the pool before John does. The last image is John.
+
+The spine only works because of the cold open. The handshake is invented on screen in the first two minutes — badly, flubbed three times, laughed at, then perfected, with a dumb open-handed beat on the end that nobody can explain. The audience owns it before the machine ever attempts it. That beat is the film's whole argument: a model can hold everything about you that was ever recorded, and not the one thing that only ever existed between two people.
 
 ## What happens to Will
 
