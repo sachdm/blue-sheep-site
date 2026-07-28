@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-07-28",
-    "title": "NOMAD — MASTER SCRIPT (v1.8)",
+    "title": "NOMAD — MASTER SCRIPT (v1.9)",
     "file": "script.md",
     "category": "master"
   },
@@ -13,7 +13,7 @@
   },
   {
     "date": "2026-07-28",
-    "title": "NOMAD — Reader's Report",
+    "title": "NOMAD — Reader's Report (v1.9)",
     "file": "readers-report.md",
     "category": "master"
   },
