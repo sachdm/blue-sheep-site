@@ -230,8 +230,8 @@ kbd {
 
 <script>
 const SCRIPT_FILE = 'script.md';
-const GROUP_ORDER = ['master'];
-const GROUP_NAMES = { master: 'master script' };
+const GROUP_ORDER = ['master', 'notes'];
+const GROUP_NAMES = { master: 'master script', notes: 'notes & revisions' };
 
 let entries = [];
 let current = -1;
@@ -274,7 +274,7 @@ function renderScreenplay(src) {
   for (const raw of rawLines) {
     const t = raw.trim();
     if (/^#\s+NOMAD/.test(t)) continue;
-    if (/^\*\*Rendered/.test(t)) continue;
+    if (/^\*\*(Rendered|v\d)/.test(t)) continue;
     lines.push(raw);
   }
 

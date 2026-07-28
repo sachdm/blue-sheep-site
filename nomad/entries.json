@@ -1,14 +1,20 @@
 [
   {
-    "date": "2026-07-27",
-    "title": "NOMAD — MASTER SCRIPT (rendered from v1.6)",
+    "date": "2026-07-28",
+    "title": "NOMAD — MASTER SCRIPT (v1.7)",
     "file": "script.md",
     "category": "master"
   },
   {
-    "date": "2026-07-25",
+    "date": "2026-07-28",
     "title": "NOMAD — Summary / Overview",
     "file": "summary.md",
     "category": "master"
+  },
+  {
+    "date": "2026-07-28",
+    "title": "Notes pass — v1.6 → v1.7",
+    "file": "notes-2026-07-28.md",
+    "category": "notes"
   }
 ]
