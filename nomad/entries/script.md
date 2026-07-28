@@ -1,10 +1,10 @@
 # NOMAD — MASTER SCRIPT
 
-**v1.7 — revised 28 July 2026.**
+**v1.8 - revised 28 July 2026. Screenplay format.**
 
 ---
 
-## EXT. INFINITY POOL — GOLDEN HOUR
+EXT. INFINITY POOL - GOLDEN HOUR
 
 Full frame, no context. Paradise. Water like poured glass, too perfect. A laugh on the soundtrack lands a half-beat late.
 
@@ -12,7 +12,7 @@ A single frame STUTTERS.
 
 MAIN TITLE: NOMAD
 
-## INT. OFFICE SPACE — DAY
+INT. OFFICE SPACE - DAY
 
 A floor at its midpoint. Bodies among empty desks. Nobody looks up.
 
@@ -38,13 +38,13 @@ Will's laugh catches for a second. He knows that lag — he knows it the way a p
 
 Then he lets it go. It's a Tuesday. It's a joke.
 
-## INT. BOSS'S HOUSE — CONTINUOUS
+INT. BOSS'S HOUSE - CONTINUOUS
 
 The real boss, mid golf-sim swing. The office feed props against a lamp, unwatched.
 
 On it, his own face is still working — nodding, agreeing, answering for him. It has been answering for him all morning.
 
-## INT. OFFICE SPACE — ELEVATOR BANK — CONTINUOUS
+INT. OFFICE SPACE - ELEVATOR BANK - CONTINUOUS
 
 Will and John flank Cairns, carrying nothing. Happy for him. A little jealous.
 
@@ -54,7 +54,7 @@ Will and Cairns run their handshake. The dumb elaborate one. Fast, perfect, musc
 
 The doors close on Cairns mid-sell.
 
-## INT. OFFICE SPACE — MOMENTS LATER
+INT. OFFICE SPACE - MOMENTS LATER
 
 Cairns' desk, cleared to the laminate — except for a branded welcome folder, left behind on purpose, squared to the edge to be found.
 
@@ -69,7 +69,7 @@ The chair slows. Nobody touches the folder.
 
 SUPER: ONE YEAR LATER
 
-## INT. OFFICE SPACE — MORNING
+INT. OFFICE SPACE - MORNING
 
 The same floor, mostly empty. Motion-sensor lights click on ahead of Will in sequence — a runway for nobody.
 
@@ -77,7 +77,7 @@ He passes dark departments. Cairns' desk, untouched, the folder gathering a year
 
 At 8:55 the coffee machine brews a full pot. Will pours its only cup.
 
-## INT. OFFICE SPACE — WILL'S DESK — DAY
+INT. OFFICE SPACE - WILL'S DESK - DAY
 
 A queue of faces. Machine verdicts. One button: APPROVE. Will clicks. A streak counter climbs.
 
@@ -139,7 +139,7 @@ Is that Cairns? Nice.
 
 Will kills the tab and turns. John, holding six beers — for the two of them.
 
-## INT. DEAD SALES DEPARTMENT — MINI-PUTT COURSE — LATER
+INT. DEAD SALES DEPARTMENT - MINI-PUTT COURSE - LATER
 
 The lights are on. Hole 7 uses the old CEO's office door as a ramp.
 
@@ -158,7 +158,7 @@ Then — who's Michelle? The Service was a company. Since when does it have a fi
 
 Will sinks the putt, doesn't celebrate. Somewhere else entirely.
 
-## INT. WILL'S APARTMENT — NIGHT
+INT. WILL'S APARTMENT - NIGHT
 
 A facetime with family. A parent, bad connection, distracted. The call ends first from their side.
 
@@ -168,7 +168,7 @@ His building — lockboxes on every door, rolling suitcases in the hall, a diffe
 
 He opens the Service page. The logo he's walked past on Cairns' dead desk for a year.
 
-## INT. SERVICE STOREFRONT — DAY
+INT. SERVICE STOREFRONT - DAY
 
 An office park. The Service sits between a vape shop and a notary. Brochure rack, folding chairs, a paradise reel looping over a dying pothos.
 
@@ -197,11 +197,11 @@ High floor. Light in the morning. Somewhere I don't have to explain myself to an
 
 He means it as a throwaway. The camera keeps rolling a beat after he's done.
 
-## INT. WILL'S CAR — PARKING LOT — CONTINUOUS
+INT. WILL'S CAR - PARKING LOT - CONTINUOUS
 
 The email arrives before he's out of the lot. MICHELLE — template-warm, exclamation points, a scheduling link.
 
-## INT. WILL'S APARTMENT — NIGHT
+INT. WILL'S APARTMENT - NIGHT
 
 Michelle's welcome preview: an automated ad starring WILL. His face, his walk, composited into Cairns' paradise. "See yourself there."
 
@@ -216,7 +216,7 @@ He is one keystroke from the form he fills out for a living.
 
 He closes the window instead. Compression. Everybody's compression is bad.
 
-## INT. OFFICE SPACE — DAY
+INT. OFFICE SPACE - DAY
 
 The ROBOT BOSS rolls to the center of the floor. An all-hands. On its screen: the real boss, on a treadmill somewhere sun-bleached, barely winded.
 
@@ -234,7 +234,7 @@ He picks one.
 
 John's answer: the last day in the office is the MINI-PUTT CHAMPIONSHIP. He starts the bracket.
 
-## INT. WILL'S APARTMENT — NIGHT
+INT. WILL'S APARTMENT - NIGHT
 
 John helps Will pack. He finds Will's putter, tapes WILL on the grip, keeps it.
 
@@ -248,7 +248,7 @@ It's the last one.
 
 It sits there. Will promises to be back for it. Half-listening.
 
-## INT. APARTMENT, MEXICO CITY — DAY
+INT. APARTMENT, MEXICO CITY - DAY
 
 A viewing. High floor. Morning light. Perfect.
 
@@ -266,7 +266,7 @@ Interested?
 
 He takes it.
 
-## EXT. MEXICO CITY — DAY
+EXT. MEXICO CITY - DAY
 
 Will haggles a vendor down for sport. Overtips elsewhere to feel generous. Lives entirely in English, always accommodated. Charming. Oblivious.
 
@@ -295,7 +295,7 @@ And Will sees him. For one full second, Will sees him.
 
 Then the reflex he has spent a year putting down puts this down too. Phone up. He steps around, and is gone.
 
-## INT. WILL'S APARTMENT, MEXICO CITY — NIGHT / INT. DEAD OFFICE — NIGHT — INTERCUT
+INT. WILL'S APARTMENT, MEXICO CITY - NIGHT / INT. DEAD OFFICE - NIGHT - INTERCUT
 
 Will calls JOHN. Mini-putt updates from the dark floor. Will poolside, pretending he isn't lonely at a party.
 
@@ -308,7 +308,7 @@ Course.
 JOHN
 It's gonna be everybody.
 
-## INT. WILL'S APARTMENT, MEXICO CITY — NIGHT
+INT. WILL'S APARTMENT, MEXICO CITY - NIGHT
 
 The poolside frame. Cairns, still selling, still "next week."
 
@@ -328,7 +328,7 @@ I love you, man.
 
 A half-beat late. Will closes the laptop and sits very still in the best apartment he's ever had.
 
-## INT. WILL'S APARTMENT, MEXICO CITY — NIGHT — LATER
+INT. WILL'S APARTMENT, MEXICO CITY - NIGHT - LATER
 
 Desk lamp. Blue screen light. Two video windows side by side: an old real Cairns clip and tonight's call. Will drags them frame by frame.
 
@@ -340,13 +340,13 @@ Then the thing he's actually hunting for. He runs the call metadata. Every messa
 
 One building. Twenty minutes away. He has the address because he found it.
 
-## EXT. CAIRNS' BUILDING — DAY
+EXT. CAIRNS' BUILDING - DAY
 
 From below. Monolithic. It fills the frame.
 
 He doesn't have an appointment. He has an address, and nobody knows he has it.
 
-## INT. CAIRNS' BUILDING — DAY
+INT. CAIRNS' BUILDING - DAY
 
 Mid-morning — the lobby's dead, the front desk mid shift-change. Will slips in behind a delivery cart, badge-less, unremarked. Nobody's watching the door; the cameras are watching the residents. The service stairs.
 
@@ -384,7 +384,7 @@ The main stairwell, then. The lift lobby. Every way down runs through the same d
 
 He goes where they point. He is still, on some level he will spend the rest of his life examining, certain this will clear.
 
-## INT. DEAD SALES DEPARTMENT — DAY / INT. VERIFICATION ROOM — DAY — INTERCUT
+INT. DEAD SALES DEPARTMENT - DAY / INT. VERIFICATION ROOM - DAY - INTERCUT
 
 In the DEAD SALES DEPARTMENT: last day. The floor half-dismantled — desks tagged, cables coiled, the coffee machine unplugged. A paper banner sags at one corner. The bracket: most names never filled in, one crossed out and rewritten smaller — WILL (REMOTE?).
 
