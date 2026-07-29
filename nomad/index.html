@@ -141,16 +141,21 @@ body:has(#content.page-mode)::after { display: none; }
   padding: 76px 84px 92px;
   box-shadow: 0 6px 30px rgba(0,0,0,.5);
 }
-.page .titlepage {
-  min-height: 780px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; position: relative;
-}
-.page .titlepage .logo { width: 90px; height: auto; margin-bottom: 46px; }
-.page .titlepage .t { font-size: 24px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 40px; }
-.page .titlepage .by { margin: 3px 0; color: #333; }
-.page .titlepage .contact { position: absolute; bottom: 8px; right: 0; font-size: 12px; color: #333; text-align: right; line-height: 1.5; }
-.page .titlepage + .sp-body { margin-top: 40px; }
+/* documents (summary, two-pager, reader's report) on the same white page */
+.page.doc { font-size: 13px; line-height: 1.62; }
+.page.doc #meta { color: #666; margin-bottom: 22px; }
+.page.doc #meta .tag { color: #8a6d00; }
+.page.doc .entry h1 { color: #111; font-size: 17px; margin: 0 0 18px; letter-spacing: 1px; }
+.page.doc .entry h2 { color: #111; font-size: 14px; margin: 26px 0 8px; }
+.page.doc .entry h3 { color: #333; font-size: 13px; margin: 18px 0 4px; }
+.page.doc .entry p { margin: 11px 0; }
+.page.doc .entry strong { color: #111; font-weight: bold; }
+.page.doc .entry em { color: #333; }
+.page.doc .entry ul li::before { color: #111; }
+.page.doc .entry blockquote { color: #444; border-left-color: #bbb; }
+.page.doc .entry code { background: #eee; color: #111; }
+.page.doc .entry hr { border-top: 1px dashed #bbb; margin: 24px 0; }
+.page.doc .entry a { color: #14507d; }
 
 .sp-slug { text-transform: uppercase; font-weight: bold; margin: 26px 0 12px; }
 .sp-slug.first { margin-top: 0; }
@@ -372,12 +377,6 @@ async function open(idx) {
       reader.innerHTML = `
         <div class="page-wrap">
           <div class="page">
-            <div class="titlepage">
-              <img class="logo" src="../small-sheep.png" alt="Blue Sheep">
-              <div class="t">NOMAD</div>
-              <div class="by">written by Sacha Mitchell</div>
-              <div class="contact">Blue Sheep<br>info@bluesheepfilms.com</div>
-            </div>
             <div class="sp-body">${html}</div>
           </div>
         </div>`;
@@ -385,12 +384,17 @@ async function open(idx) {
       return;
     }
 
+    contentEl.classList.add('page-mode');
     reader.innerHTML = `
-      <div id="meta">
-        <span>${e.date}</span>
-        <span class="tag">[${esc(e.category || 'master')}]</span>
-      </div>
-      <div class="entry">${md(text)}</div>`;
+      <div class="page-wrap">
+        <div class="page doc">
+          <div id="meta">
+            <span>${e.date}</span>
+            <span class="tag">[${esc(e.category || 'master')}]</span>
+          </div>
+          <div class="entry">${md(text)}</div>
+        </div>
+      </div>`;
     contentEl.scrollTop = 0;
   } catch (err) {
     reader.innerHTML = `<div style="color:var(--red)">could not load ${esc(e.file)}</div>`;
