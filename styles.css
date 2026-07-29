@@ -6,10 +6,10 @@
   --line: rgba(243, 242, 238, 0.12);
   --line-strong: rgba(243, 242, 238, 0.3);
   --body-copy: #cfcec8;
-  --sans: 'Inter', sans-serif;
-  --mono: 'Space Mono', monospace;
-  --serif: 'Source Serif 4', serif;
-  --grotesk: 'Helvetica Neue', Inter, Arial, sans-serif;
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --grotesk: 'Inter', system-ui, sans-serif;
   color-scheme: dark;
 }
 
