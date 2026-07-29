@@ -51,19 +51,7 @@
 
     <p class="pipeline-intro reveal" id="ipNote">Active development slate — titles in script/dev, post, and festival run.</p>
 
-    <div class="team-editor-bar reveal">
-      <label class="team-editor-label" for="editorNameInput">Editing as</label>
-      <input type="text" class="team-editor-input" id="editorNameInput" placeholder="Your name…" autocomplete="off">
-      <span class="team-editor-hint">Shared across the internal pages on this browser.</span>
-    </div>
-
-    <div class="pipeline-groups" id="ipGroups">
-      <p class="pipeline-note">The project tracker that used to live here (titles, budgets, notes, stage) was stored as encrypted content and isn't recoverable without the original passphrase. Add entries back as projects firm up.</p>
-    </div>
-
     <div class="script-section reveal">
-      <span class="mini-label">Scripts</span>
-      <p class="pipeline-automation-text">Screenplays in active development. Each one lives in its own repo with full draft history — the link below is the read/share version.</p>
       <div class="script-card">
         <div class="script-card-head">
           <span class="script-title">NOMAD</span>
@@ -80,11 +68,6 @@
         <p class="script-desc">A gonzo journalist, eaten by his own myth, says the world would be better off without him &mdash; and the people listening agree. Written with Cairns Nolan, based on the life of Hunter S. Thompson. Script, two-pager and reader's report on the site.</p>
         <a class="script-link" href="naw/">Read the script &rarr;</a>
       </div>
-    </div>
-
-    <div class="pipeline-automation reveal">
-      <span class="mini-label">Tracking Fields</span>
-      <p class="pipeline-automation-text">Format, logline, budget, notes, priority, and stage are all editable. Click a priority pill to cycle it, use the stage dropdown to move a title between groups. This is a static site with no backend, so edits save to this browser only (not synced across devices, not sent anywhere). Fill these in as each project firms up.</p>
     </div>
 
     <p class="inv-security-note reveal">Want more detail on any title? <a href="mailto:info@bluesheepfilms.com">Reach out</a>.</p>
@@ -178,160 +161,7 @@
 
   (function() {
     const content = document.getElementById('ipContent');
-
-    function esc(s) {
-      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
-
-    const STAGE_ORDER = ['Script/Dev', 'Post-Production', 'Festival Run'];
-    const TRACK_FIELDS = [
-      { key: 'format', label: 'Format', type: 'input', placeholder: 'Feature / Short / Series…' },
-      { key: 'logline', label: 'Logline', type: 'input', placeholder: 'One-line summary…' },
-      { key: 'budget', label: 'Budget', type: 'input', placeholder: 'Target budget…' },
-      { key: 'notes', label: 'Notes', type: 'textarea', placeholder: 'Status, next steps, anything worth tracking…' }
-    ];
-    const FIELDS_KEY = 'bs_ip_fields';
-
-    function getFieldsMap() {
-      try { return JSON.parse(localStorage.getItem(FIELDS_KEY)) || {}; } catch (e) { return {}; }
-    }
-    function setField(id, key, value) {
-      const map = getFieldsMap();
-      if (!map[id]) map[id] = {};
-      map[id][key] = value;
-      localStorage.setItem(FIELDS_KEY, JSON.stringify(map));
-    }
-
-    // ---------- shared editor identity (also used on Team Hub) ----------
-    const EDITOR_KEY = 'bs_team_editor';
-    function getEditor() { return localStorage.getItem(EDITOR_KEY) || ''; }
-    function setEditor(name) { localStorage.setItem(EDITOR_KEY, name); }
-
-    const PRIORITY_CYCLE = ['', 'Low', 'Medium', 'High'];
-    function nextPriority(current) {
-      const i = PRIORITY_CYCLE.indexOf(current || '');
-      return PRIORITY_CYCLE[(i + 1) % PRIORITY_CYCLE.length];
-    }
-
-    function renderGroups(projects) {
-      const fieldsMap = getFieldsMap();
-      const byStage = {};
-      STAGE_ORDER.forEach(function(s) { byStage[s] = []; });
-      projects.forEach(function(p) {
-        const saved = fieldsMap[p.id] || {};
-        const effectiveStage = saved.stageOverride || p.stage;
-        if (!byStage[effectiveStage]) byStage[effectiveStage] = [];
-        byStage[effectiveStage].push(p);
-      });
-      let html = '';
-      STAGE_ORDER.forEach(function(stage) {
-        const items = byStage[stage];
-        if (!items || !items.length) return;
-        html += '<div class="pipeline-group"><h3 class="pipeline-group-title">' + esc(stage) + '</h3><ul class="pipeline-list">';
-        items.forEach(function(p) {
-          const saved = fieldsMap[p.id] || {};
-          const priority = saved.priority || '';
-          const effectiveStage = saved.stageOverride || p.stage;
-          html += '<li class="pipeline-row ip-track-row" data-id="' + esc(p.id) + '">';
-          html += '<div class="pipeline-row-main">';
-          if (p.link) {
-            html += '<a class="pipeline-name ip-title-link" href="' + esc(p.link) + '">' + esc(p.title) + '</a>';
-          } else {
-            html += '<span class="pipeline-name">' + esc(p.title) + '</span>';
-          }
-          html += '<div class="ip-row-controls">';
-          html += '<button type="button" class="ip-priority-btn' + (priority ? ' priority-' + priority.toLowerCase() : '') + '" data-id="' + esc(p.id) + '">' + (priority || 'Priority: —') + '</button>';
-          html += '<select class="ip-stage-select" data-id="' + esc(p.id) + '" aria-label="Stage for ' + esc(p.title) + '">';
-          STAGE_ORDER.forEach(function(s) {
-            html += '<option value="' + esc(s) + '"' + (s === effectiveStage ? ' selected' : '') + '>' + esc(s) + '</option>';
-          });
-          html += '</select>';
-          html += '</div>';
-          html += '</div>';
-          if (p.note) {
-            html += '<p class="pipeline-note">' + esc(p.note) + '</p>';
-          }
-          html += '<div class="ip-track-grid">';
-          TRACK_FIELDS.forEach(function(f) {
-            const current = saved[f.key] !== undefined ? saved[f.key] : (p[f.key] || '');
-            html += '<div class="ip-track-field">';
-            html += '<label class="ip-track-label">' + esc(f.label) + '</label>';
-            if (f.type === 'textarea') {
-              html += '<textarea class="ip-track-input" data-id="' + esc(p.id) + '" data-field="' + f.key + '" placeholder="' + esc(f.placeholder) + '" rows="2">' + esc(current) + '</textarea>';
-            } else {
-              html += '<input type="text" class="ip-track-input" data-id="' + esc(p.id) + '" data-field="' + f.key + '" placeholder="' + esc(f.placeholder) + '" value="' + esc(current) + '">';
-            }
-            html += '</div>';
-          });
-          html += '</div>';
-          if (saved.updatedAt) {
-            html += '<p class="ip-updated-meta">Updated ' + esc(new Date(saved.updatedAt).toLocaleDateString()) + (saved.updatedBy ? ' by ' + esc(saved.updatedBy) : '') + '</p>';
-          }
-          html += '</li>';
-        });
-        html += '</ul></div>';
-      });
-      document.getElementById('ipGroups').innerHTML = html;
-    }
-
-    function stampUpdate(id) {
-      const map = getFieldsMap();
-      if (!map[id]) map[id] = {};
-      map[id].updatedAt = new Date().toISOString();
-      const editor = getEditor();
-      if (editor) map[id].updatedBy = editor;
-      localStorage.setItem(FIELDS_KEY, JSON.stringify(map));
-    }
-
-    function wireTrackFields(projects) {
-      document.querySelectorAll('.ip-track-input').forEach(function(el) {
-        el.addEventListener('change', function() {
-          setField(el.dataset.id, el.dataset.field, el.value);
-          stampUpdate(el.dataset.id);
-        });
-      });
-      document.querySelectorAll('.ip-priority-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          const map = getFieldsMap();
-          const current = (map[btn.dataset.id] || {}).priority || '';
-          const next = nextPriority(current);
-          setField(btn.dataset.id, 'priority', next);
-          stampUpdate(btn.dataset.id);
-          btn.className = 'ip-priority-btn' + (next ? ' priority-' + next.toLowerCase() : '');
-          btn.textContent = next || 'Priority: —';
-        });
-      });
-      document.querySelectorAll('.ip-stage-select').forEach(function(sel) {
-        sel.addEventListener('change', function() {
-          setField(sel.dataset.id, 'stageOverride', sel.value);
-          stampUpdate(sel.dataset.id);
-          renderGroups(projects);
-          wireTrackFields(projects);
-        });
-      });
-    }
-
-    function wireEditor() {
-      const editorInput = document.getElementById('editorNameInput');
-      const editorHint = document.querySelector('.team-editor-hint');
-      const editorHintDefault = editorHint ? editorHint.textContent : '';
-      editorInput.value = getEditor();
-      let editorSaveTimer = null;
-      editorInput.addEventListener('input', function() {
-        setEditor(editorInput.value.trim());
-        if (editorHint) {
-          editorHint.textContent = 'Saved.';
-          editorHint.classList.add('saved');
-          if (editorSaveTimer) clearTimeout(editorSaveTimer);
-          editorSaveTimer = setTimeout(function() {
-            editorHint.textContent = editorHintDefault;
-            editorHint.classList.remove('saved');
-          }, 1200);
-        }
-      });
-    }
-
-    wireEditor();
+    if (!content) return;
     content.querySelectorAll('.reveal').forEach(function(el) {
       el.classList.add('in-view');
     });
