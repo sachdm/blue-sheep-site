@@ -388,10 +388,6 @@ async function open(idx) {
     reader.innerHTML = `
       <div class="page-wrap">
         <div class="page doc">
-          <div id="meta">
-            <span>${e.date}</span>
-            <span class="tag">[${esc(e.category || 'master')}]</span>
-          </div>
           <div class="entry">${md(text)}</div>
         </div>
       </div>`;
