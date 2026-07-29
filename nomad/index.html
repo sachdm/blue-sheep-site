@@ -132,15 +132,6 @@ body::after {
 #content.page-mode { background: #33352f; }
 body:has(#content.page-mode)::after { display: none; }
 
-.page-wrap { position: relative; max-width: 1060px; margin: 0 auto; }
-.page {
-  background: #fff; color: #111;
-  font-family: "Courier Prime", "Courier New", Courier, monospace;
-  font-size: 13.5px; line-height: 1.5;
-  width: 640px; margin: 26px 0 26px 26px;
-  padding: 76px 84px 92px;
-  box-shadow: 0 6px 30px rgba(0,0,0,.5);
-}
 /* documents (summary, two-pager, reader's report) on the same white page */
 .page.doc { font-size: 13px; line-height: 1.62; }
 .page.doc #meta { color: #666; margin-bottom: 22px; }
@@ -157,21 +148,47 @@ body:has(#content.page-mode)::after { display: none; }
 .page.doc .entry hr { border-top: 1px dashed #bbb; margin: 24px 0; }
 .page.doc .entry a { color: #14507d; }
 
-.page .titleblock { text-align: center; margin: 0 0 46px; }
-.page .titleblock .t { text-transform: uppercase; letter-spacing: 2px; }
-.page .titleblock .by { margin-top: 18px; }
-.page .titleblock .who { margin-top: 18px; }
-.page .titleblock .note { margin-top: 18px; color: #444; }
 
-.sp-slug { text-transform: uppercase; font-weight: bold; margin: 26px 0 12px; }
-.sp-slug.first { margin-top: 0; }
-.sp-action { margin: 12px 0; }
-.sp-char { text-transform: uppercase; margin: 12px 0 0; padding-left: 21ch; }
-.sp-paren { margin: 0; padding-left: 15ch; max-width: 42ch; color: #222; }
-.sp-dialog { margin: 0; padding-left: 10ch; max-width: 45ch; }
-.sp-trans { text-transform: uppercase; text-align: right; margin: 14px 0; }
-.sp-center { text-align: center; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; margin: 34px 0 18px; }
-.sp-super { margin: 0 0 12px; }
+
+/* --- screenplay sheets: true US-Letter proportions, 60 cols x 54 lines --- */
+#content.page-mode #reader { max-width: none; }
+.page-wrap {
+  max-width: none;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 30px; padding: 30px 0 60px;
+}
+.page {
+  position: relative;
+  background: #fff; color: #111;
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-size: 15px; line-height: 15px; letter-spacing: 0;
+  width: 765px; min-height: 990px;
+  margin: 0;
+  padding: 90px 90px 90px 135px;
+  box-shadow: 0 8px 34px rgba(0,0,0,.55);
+}
+.page .sp-body { width: 540px; }
+/* lines are pre-wrapped to exact column counts — never let the browser re-wrap */
+.page .sp-body > div { white-space: pre; }
+.page-num {
+  position: absolute; top: 46px; right: 90px;
+  font-size: 15px; line-height: 15px; color: #111;
+}
+.sp-blank { height: 15px; }
+.page.titlepage { display: flex; align-items: center; justify-content: center; }
+.titleblock { text-align: center; }
+.titleblock .tp-t { text-transform: uppercase; letter-spacing: 3px; }
+.titleblock .tp-by { margin-top: 45px; }
+.titleblock .tp-who { margin-top: 45px; }
+.titleblock .tp-note { margin-top: 45px; color: #333; }
+
+.sp-slug { text-transform: uppercase; font-weight: bold; margin: 0; }
+.sp-action { margin: 0; }
+.sp-char { text-transform: uppercase; margin: 0; padding-left: 22ch; }
+.sp-paren { margin: 0; padding-left: 16ch; }
+.sp-dialog { margin: 0; padding-left: 10ch; }
+.sp-trans { text-transform: uppercase; text-align: right; margin: 0; }
+.sp-super { margin: 0; }
 
 .sp-toolbar {
   position: sticky; top: 0; z-index: 5;
@@ -198,11 +215,11 @@ kbd {
   #app { flex-direction: column; height: auto; }
   #sidebar { width: 100%; min-width: 0; max-height: 45vh; border-right: none; border-bottom: 1px solid #1e2a20; }
   #content { padding: 20px 16px 20vh; }
-  .page { width: auto; max-width: 100%; margin: 12px 0; padding: 40px 26px 60px; }
-  .page .sp-char { padding-left: 40%; }
-  .page .sp-dialog { padding-left: 14%; }
-  .page .sp-paren { padding-left: 28%; }
-}
+  .page { width: 100%; min-height: 0; padding: 40px 22px 50px 34px; font-size: 12px; line-height: 12px; }
+  .page .sp-body { width: 100%; }
+  .page-num { top: 20px; right: 22px; font-size: 12px; }
+  .sp-blank { height: 12px; }
+  .page   .page   .page }
 
 @media print {
   #sidebar, .sp-toolbar { display: none !important; }
@@ -281,60 +298,80 @@ function md(src) {
 
 function slugOf(e) { return e.file.replace(/\.md$/, ''); }
 
-function renderScreenplay(src) {
-  const rawLines = src.split('\n');
-  const lines = [];
-  for (const raw of rawLines) {
-    const t = raw.trim();
-    if (/^#\s+NOMAD/.test(t)) continue;
-    if (/^\*\*(Rendered|v\d)/.test(t)) continue;
-    lines.push(raw);
-  }
+// --- screenplay pagination: mirrors the PDF generator exactly ---
+const SP_LINES_PER_PAGE = 54, SP_W_ACTION = 60, SP_W_DIALOG = 35, SP_W_PAREN = 28;
 
+function spWrap(text, width) {
+  const words = String(text).split(/\s+/);
+  const out = [];
+  let cur = '';
+  for (const w of words) {
+    const next = cur ? cur + ' ' + w : w;
+    if (next.length > width && cur) { out.push(cur); cur = w; } else { cur = next; }
+  }
+  out.push(cur);
+  return out.length ? out : [''];
+}
+
+function renderScreenplay(src) {
+  const raw = src.split('\n');
   const isSlug = l => /^(?:##\s*)?(INT|EXT|INT\/EXT|EST)[.\s]/i.test(l.trim());
   const isTrans = l => /^(CUT TO:|CUT TO BLACK\.?|FADE (IN|OUT)|SMASH CUT|THE END)$/.test(l.trim());
   const isCue = l => {
     const t = l.trim();
-    if (t.length === 0 || t.length > 38) return false;
+    if (!t.length || t.length > 38) return false;
     if (/^(INSERT|SUPER|INT|EXT)/i.test(t)) return false;
     if (/\.$/.test(t)) return false;
     return /[A-Z]/.test(t) && t === t.toUpperCase() && /^[A-Z0-9 '().\-/&]+$/.test(t);
   };
 
-  let html = '', firstSlug = true, i = 0;
-  while (i < lines.length) {
-    let l = lines[i].trim();
-    if (l === '' || /^---+$/.test(l)) { i++; continue; }
-
-    if (/^WORLD:/i.test(l)) { i++; continue; }
-
-    const hh = l.match(/^##\s+(.*)/);
-    if (hh && !isSlug(l)) { html += `<div class="sp-center">${esc(hh[1])}</div>`; i++; continue; }
-
-    if (isSlug(l)) {
-      const txt = l.replace(/^##\s*/, '');
-      html += `<div class="sp-slug${firstSlug ? ' first' : ''}">${esc(txt)}</div>`;
-      firstSlug = false; i++; continue;
-    }
-    if (isTrans(l)) { html += `<div class="sp-trans">${esc(l)}</div>`; i++; continue; }
-    if (/^SUPER:/i.test(l)) { html += `<div class="sp-super">${esc(l)}</div>`; i++; continue; }
-
+  const atoms = [];
+  let i = 0, started = false;
+  while (i < raw.length) {
+    const l = raw[i].trim();
+    if (!l || /^---+$/.test(l) || /^#\s/.test(l) || /^\*\*(Rendered|v\d)/.test(l)) { i++; continue; }
     if (isCue(l)) {
-      html += `<div class="sp-char">${esc(l)}</div>`;
+      const rows = [['sp-char', l.toUpperCase()]];
       i++;
-      while (i < lines.length && lines[i].trim() !== '') {
-        const d = lines[i].trim();
-        if (/^\(.*\)$/.test(d)) html += `<div class="sp-paren">${esc(d)}</div>`;
-        else html += `<div class="sp-dialog">${esc(d)}</div>`;
+      while (i < raw.length && raw[i].trim()) {
+        const d = raw[i].trim();
+        const paren = /^\(.*\)$/.test(d);
+        spWrap(d, paren ? SP_W_PAREN : SP_W_DIALOG)
+          .forEach(x => rows.push([paren ? 'sp-paren' : 'sp-dialog', x]));
         i++;
       }
+      atoms.push({ rows, blank: 1, kind: 'speech' });
       continue;
     }
-
-    html += `<div class="sp-action">${esc(l)}</div>`;
+    if (isSlug(l)) {
+      const txt = l.replace(/^##\s*/, '').toUpperCase();
+      atoms.push({ rows: spWrap(txt, SP_W_ACTION).map(x => ['sp-slug', x]), blank: started ? 1 : 0, kind: 'slug' });
+      started = true;
+    } else if (isTrans(l)) {
+      atoms.push({ rows: [['sp-trans', l.toUpperCase()]], blank: 1, kind: 'trans' });
+    } else if (/^(SUPER:|MAIN TITLE:)/i.test(l)) {
+      atoms.push({ rows: [['sp-super', l.toUpperCase()]], blank: 1, kind: 'super' });
+    } else {
+      atoms.push({ rows: spWrap(l, SP_W_ACTION).map(x => ['sp-action', x]), blank: 1, kind: 'action' });
+    }
     i++;
   }
-  return html;
+
+  const pages = [];
+  let cur = [], used = 0;
+  const flush = () => { if (cur.length) { pages.push(cur.join('')); cur = []; used = 0; } };
+  for (let n = 0; n < atoms.length; n++) {
+    const a = atoms[n], nxt = atoms[n + 1];
+    let need = a.blank + a.rows.length;
+    if (a.kind === 'slug' && nxt) need += nxt.blank + Math.min(2, nxt.rows.length);
+    if (used && used + need > SP_LINES_PER_PAGE) flush();
+    const pad = used ? a.blank : 0;
+    for (let b = 0; b < pad; b++) cur.push('<div class="sp-blank"></div>');
+    a.rows.forEach(function (r) { cur.push('<div class="' + r[0] + '">' + esc(r[1]) + '</div>'); });
+    used += pad + a.rows.length;
+  }
+  flush();
+  return pages;
 }
 
 function buildSidebar(filter = '') {
@@ -380,14 +417,14 @@ async function open(idx) {
 
     if (e.file === SCRIPT_FILE) {
       contentEl.classList.add('page-mode');
-      const html = renderScreenplay(text);
-      reader.innerHTML = `
-        <div class="page-wrap">
-          <div class="page">
-            <div class="titleblock"><div class="t">NOMAD</div><div class="by">by</div><div class="who">Sacha Mitchell</div></div>
-            <div class="sp-body">${html}</div>
-          </div>
-        </div>`;
+      const pages = renderScreenplay(text);
+      const sheets = pages.map(function (pg, n) {
+        return '<div class="page"><div class="sp-body">' + pg + '</div><div class="page-num">' + (n + 1) + '.</div></div>';
+      }).join('');
+      reader.innerHTML =
+        '<div class="page-wrap">' +
+        '<div class="page titlepage"><div class="titleblock"><div class="tp-t">NOMAD</div><div class="tp-by">by</div><div class="tp-who">Sacha Mitchell</div></div></div>' +
+        sheets + '</div>';
       contentEl.scrollTop = 0;
       return;
     }
