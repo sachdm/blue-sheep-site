@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2026-07-28",
+    "title": "NOT ANOTHER WORD — MASTER SCRIPT",
+    "file": "script.md",
+    "category": "master"
+  },
+  {
+    "date": "2026-07-28",
+    "title": "NOT ANOTHER WORD — Two-Pager / Pitch",
+    "file": "two-pager.md",
+    "category": "master"
+  },
+  {
+    "date": "2026-07-28",
+    "title": "NOT ANOTHER WORD — Reader's Report",
+    "file": "readers-report.md",
+    "category": "master"
+  },
+  {
+    "date": "2026-07-28",
+    "title": "NOT ANOTHER WORD — Summary / Overview",
+    "file": "summary.md",
+    "category": "master"
+  }
+]
