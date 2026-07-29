@@ -157,6 +157,12 @@ body:has(#content.page-mode)::after { display: none; }
 .page.doc .entry hr { border-top: 1px dashed #bbb; margin: 24px 0; }
 .page.doc .entry a { color: #14507d; }
 
+.page .titleblock { text-align: center; margin: 0 0 46px; }
+.page .titleblock .t { text-transform: uppercase; letter-spacing: 2px; }
+.page .titleblock .by { margin-top: 18px; }
+.page .titleblock .who { margin-top: 18px; }
+.page .titleblock .note { margin-top: 18px; color: #444; }
+
 .sp-slug { text-transform: uppercase; font-weight: bold; margin: 26px 0 12px; }
 .sp-slug.first { margin-top: 0; }
 .sp-action { margin: 12px 0; }
@@ -291,6 +297,7 @@ function renderScreenplay(src) {
     const t = l.trim();
     if (t.length === 0 || t.length > 38) return false;
     if (/^(INSERT|SUPER|INT|EXT)/i.test(t)) return false;
+    if (/\.$/.test(t)) return false;
     return /[A-Z]/.test(t) && t === t.toUpperCase() && /^[A-Z0-9 '().\-/&]+$/.test(t);
   };
 
@@ -377,6 +384,7 @@ async function open(idx) {
       reader.innerHTML = `
         <div class="page-wrap">
           <div class="page">
+            <div class="titleblock"><div class="t">NOMAD</div><div class="by">by</div><div class="who">Sacha Mitchell</div></div>
             <div class="sp-body">${html}</div>
           </div>
         </div>`;
