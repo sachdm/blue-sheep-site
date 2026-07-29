@@ -1,22 +1,4 @@
-# BLUE SHEEP FILMS — Reader's Report
-
-**TITLE:** NOMAD
-
-**WRITER:** Sacha Mitchell
-
-**READER:** Internal development pass
-
-**DATE:** July 28, 2026
-
-**FORMAT:** Short screenplay. Draft v1.9, 22 scenes, approx. 18–20 min. Accompanying 2-page pitch document and summary. Supersedes the report on v1.8 of the same date.
-
-**Genre:** Drama / near-future thriller
-
-**Period:** Near future — deliberately close to contemporary
-
-**Location:** An emptying North American office floor; a suburban apartment block; a relocation storefront in an office park; Mexico City
-
----
+# NOMAD — Reader's Report
 
 **CONCEPT:** In a near future where synthetic video is indistinguishable from real footage except for a sub-second latency the eye learns to feel, a burnt-out identity-verification worker follows his best friend into a paradise abroad — and finds the paradise is a render, the friend is a machine, and the operation harvesting them both is already recruiting the next one through him.
 
@@ -67,3 +49,7 @@ From a production standpoint this remains notably achievable, and the new openin
 **READER'S RECOMMENDATION:** Recommended
 
 A distinctive and formally disciplined short with a premise that is genuinely its own, an image no one else has staged — the retained original, kept alive as a calibration reference — and, as of this draft, a heart. The three reservations against v1.8 have been addressed at the root rather than patched: the friendship is dramatised, the film has a warm room to measure its losses against, and the passages that were summary are now scenes. The remaining questions — the passivity of the middle act, and whether the film should travel at all — are creative decisions rather than deficiencies. This is ready to go out.
+
+---
+
+*Short screenplay, draft v1.9 — 22 scenes, approx. 18–20 min. Written by Sacha Mitchell. Drama / near-future thriller, near future. An emptying North American office floor; a suburban apartment block; a relocation storefront; Mexico City. Accompanying two-pager and summary. Internal development pass, 28 July 2026 — supersedes the report on v1.8 of the same date.*

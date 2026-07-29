@@ -1,4 +1,4 @@
-# NOMAD — FEATURE-ADJACENT SHORT
+# NOMAD — A SHORT FILM
 
 **A near-future thriller about the last man who can tell a person from a copy.**
 
