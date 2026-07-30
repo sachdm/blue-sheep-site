@@ -1,6 +1,6 @@
 # NOMAD — MASTER SCRIPT
 
-**v3.0 - revised 30 July 2026. Converged draft — two hundred passes, twelve rounds (Log 05). Final two rounds produced no changes.**
+**v3.2 - locked, 30 July 2026. One thousand passes across twenty chairs (Log 07): two continuity fixes adopted in round one, nothing after. This is the draft.**
 
 ---
 
@@ -50,6 +50,23 @@ A chair that leans back really far.
 It's a joke. It isn't one. Nobody says anything for a second longer than they should. Cairns catches Will's eye across the carpet — a look that asks for backup. Will studies the ceiling instead.
 
 Then John throws a golf ball at him and it's over.
+
+Across the floor, one monitor still glows. TED'S desk. Ted has not been seen since March. His cardigan is still on the chair.
+
+On the screen, a standup is in progress. Ted's face nods at the right moments. Agrees. Asks one good question.
+
+The three of them drift over and watch it the way you watch a nature documentary.
+
+JOHN
+Does anybody know?
+
+CAIRNS
+HR renewed his parking pass.
+
+On screen, Ted agrees with something.
+
+WILL
+That's the most he's said in years.
 
 Later still. Cairns is trying to teach them something and it is not going well.
 
@@ -102,23 +119,6 @@ Will and Cairns run it once more, fast, already muscle memory. Cairns holds the 
 CAIRNS (CONT'D)
 That's a good one.
 
-Across the floor, one monitor still glows. TED'S desk. Ted has not been seen since March. His cardigan is still on the chair.
-
-On the screen, a standup is in progress. Ted's face nods at the right moments. Agrees. Asks one good question.
-
-The three of them drift over and watch it the way you watch a nature documentary.
-
-JOHN
-Does anybody know?
-
-CAIRNS
-HR renewed his parking pass.
-
-On screen, Ted agrees with something.
-
-WILL
-That's the most he's said in years.
-
 On the far side of the floor the lights click off on a timer. Nobody moves.
 
 MAIN TITLE: NOMAD
@@ -162,7 +162,7 @@ Everything meaning what.
 CAIRNS
 Everything meaning everything. The visa. The apartment. The — everything, man. You know what my rent is down there? A phone bill.
 (gesturing at the floor with the box)
-Nine years I ate lunch over a keyboard for a department that doesn't exist anymore. Sixty hours a week and my chair got promoted before I did. I did the math on my life, and the math said leave.
+I did the math on my life, and the math said leave.
 
 JOHN
 Visa?
@@ -408,8 +408,6 @@ A half-beat late, he raises the coffee like a toast. The feed freezes on his smi
 
 Will counts the lag without meaning to. Four tenths.
 
-Nobody else was looking for it, so nobody else saw it.
-
 Then: bad wifi, a satellite, a Tuesday. A hundred honest reasons, and he only needs one.
 
 He picks one.
@@ -514,7 +512,7 @@ Then the reflex he has spent a year putting down puts this down too. Phone up. T
 
 Will steps around, and is gone.
 
-INT. WILL'S APARTMENT, MEXICO CITY - NIGHT / INT. DEAD OFFICE - NIGHT - INTERCUT
+EXT. ROOFTOP, MEXICO CITY - NIGHT / INT. DEAD SALES DEPARTMENT - NIGHT - INTERCUT
 
 Will steps out of a rooftop party to take the call, and then doesn't go back in. Behind him, through glass, people he doesn't know are having a good night.
 
