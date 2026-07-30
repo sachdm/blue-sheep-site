@@ -1,7 +1,7 @@
 [
   {
     "date": "2026-07-30",
-    "title": "NOMAD — MASTER SCRIPT (v3.1 — festival cut)",
+    "title": "NOMAD — MASTER SCRIPT (v3.2 — locked)",
     "file": "script.md",
     "category": "master"
   },
@@ -39,6 +39,12 @@
     "date": "2026-07-30",
     "title": "Log 06 — The Festival Gauntlet (v3.0 → v3.1)",
     "file": "log-06.md",
+    "category": "notes"
+  },
+  {
+    "date": "2026-07-30",
+    "title": "Log 07 — One Thousand Passes: The Lock (v3.1 → v3.2)",
+    "file": "log-07.md",
     "category": "notes"
   }
 ]
