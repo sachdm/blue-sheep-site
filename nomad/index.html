@@ -364,6 +364,7 @@ function renderScreenplay(src) {
     const a = atoms[n], nxt = atoms[n + 1];
     let need = a.blank + a.rows.length;
     if (a.kind === 'slug' && nxt) need += nxt.blank + Math.min(2, nxt.rows.length);
+    if (a.kind === 'slug' && used) flush();
     if (used && used + need > SP_LINES_PER_PAGE) flush();
     const pad = used ? a.blank : 0;
     for (let b = 0; b < pad; b++) cur.push('<div class="sp-blank"></div>');
