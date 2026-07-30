@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2026-07-30",
+    "title": "NOMAD — MASTER SCRIPT (v2.0)",
+    "file": "script.md",
+    "category": "master"
+  },
+  {
+    "date": "2026-07-28",
+    "title": "NOMAD — Two-Pager / Pitch",
+    "file": "two-pager.md",
+    "category": "master"
+  },
+  {
+    "date": "2026-07-28",
+    "title": "NOMAD — Reader's Report (v1.9)",
+    "file": "readers-report.md",
+    "category": "master"
+  },
+  {
+    "date": "2026-07-28",
+    "title": "NOMAD — Summary / Overview",
+    "file": "summary.md",
+    "category": "master"
+  },
+  {
+    "date": "2026-07-30",
+    "title": "Log 04 — Margin Notes (ten programmers + producer lens)",
+    "file": "log-04.md",
+    "category": "notes"
+  }
+]
