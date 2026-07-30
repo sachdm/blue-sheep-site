@@ -2,7 +2,7 @@
 
 **Logline.** In a near future where your verified digital likeness *is* your legal self, a burnt-out identity-verification worker chases his best friend into a paradise abroad — and discovers the paradise is a render, the friend is a machine, and the operation harvesting them both is coming for the next one.
 
-**Form.** A short (~18–20 min), 22 scenes. Mostly action and behaviour; dialogue where it earns its place. Opens on the night three friends built a mini-putt course through a dead sales department and invented a handshake. Ends on the last of them typing back to a person who is gone.
+**Form.** A short (~16 min), 24 scenes, v3.3 (locked). Mostly action and behaviour; dialogue where it earns its place. Opens on the night three friends played a mini-putt course through a dead sales department and invented a handshake — while a propped phone filmed the only footage of any of them that was never for anyone. Ends on the last of them running the handshake alone in the half-dark: both hands open, like putting something down.
 
 ---
 
@@ -13,7 +13,7 @@
 - **Identity verification is load-bearing infrastructure:** your verified likeness IS your legal and financial self. Humans audit the machine's fraud calls — for now. The system already stalls on real, tired, inconsistent human faces.
 - **Post-remote, millions of Western workers went "nomad"** — chasing weak currencies and cheap living abroad, exporting their loneliness with them.
 - **Remote work and mobile capital dissolved physical community.** Family homes became listings; whole neighbourhoods became short-term rentals.
-- **In host cities, foreign capital priced locals out at scale.** Whole buildings turned over to new arrivals within weeks — and the film stages this as absence, not confrontation: nail holes, height marks on a door frame, mail still in the slot.
+- **In host cities, foreign capital priced locals out at scale.** Whole buildings turned over to new arrivals within weeks — bought in a currency nobody local is paid in. The film stages this as absence, not confrontation: nail holes, height marks on a door frame, mail still in the slot. In the render farm the whole business is one wall dashboard: likeness-hours billed in dollars, housing priced in pesos, the spread between the columns.
 - **"Relocation services" proliferated** to move nomads abroad frictionlessly. Most are legitimate. Some are fronts for identity harvesting.
 - **Generative advertising renders in real time and stars the viewer** — the pitch is literally you, already living the life. Locations are scanned, catalogued and resold; the paradise you're sold may be a roof you stood on last week.
 - **Harvested likenesses run as autonomous remote workers** — attending meetings, filing work, running the pipeline's own outbound. The operation's product is capacity: a likeness never sleeps, never quits, and never has to be paid.
@@ -27,6 +27,7 @@
 - **Will** — identity-verification / fraud ops; good at spotting the synthetic, being eroded out of relevance. Sees the tell four times and puts it down four times. The one who follows.
 - **Cairns** — the fun one, a bit of a dick, and you like him. The friend who left first; later, the likeness; finally, the released original on a curb, explaining himself to people already walking away.
 - **John** — never left the country; the friend who stays; the film's conscience and its last, unguarded face.
+- **Ted** — four lines of office gossip and the whole mechanic before the title card: not seen since March, cardigan still on the chair, his face still attending standups. HR renewed his parking pass.
 - **Michelle** — never a person you meet. She resolves, in the render farm, as an outbound queue: hundreds of warm exclamation-pointed emails going out at once, every one signed with her name.
 - **The Service / the operation** — an industrial phishing-and-harvesting factory, not a vendetta. It runs the same play on everyone, and Will's capture is procedure, not pursuit.
 

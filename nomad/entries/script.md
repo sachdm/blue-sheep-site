@@ -1,6 +1,6 @@
 # NOMAD — MASTER SCRIPT
 
-**v3.2 - locked, 30 July 2026. One thousand passes across twenty chairs (Log 07): two continuity fixes adopted in round one, nothing after. This is the draft.**
+**v3.3 - locked, 30 July 2026. Dialogue pass: one hundred creative iterations (Log 08), two adoptions. Re-locked.**
 
 ---
 
@@ -473,7 +473,18 @@ INT. WILL'S APARTMENT, MEXICO CITY - NIGHT
 
 A call with John. Nothing happens in it. That is the whole point of it.
 
-John's mouth is full. Will narrates the contents of his fridge. The putter is visible behind John, leaned against hole 7.
+John's mouth is full. The putter is visible behind him, leaned against hole 7.
+
+JOHN
+What've you got in there.
+
+Will opens the fridge and shows him.
+
+WILL
+Limes. I won them.
+
+JOHN
+Living the dream, man.
 
 It's the easiest either of them has sounded in a year.
 
@@ -502,7 +513,13 @@ He can speak. He has been saying his own name all morning. He holds his phone up
 INSERT - PHONE
 IDENTITY NOT VERIFIED — REFERENCE ON FILE.
 
-BACK TO SCENE. He turns the screen around and starts explaining it, again, to somebody already gone. There is no reason to look at a man the machine has already answered.
+BACK TO SCENE. He turns the screen around and starts explaining it, again, to somebody already gone.
+
+CAIRNS
+(to nobody in particular, reasonable, almost gentle)
+Ask me something only I'd know. Anybody. Ask me anything.
+
+There is no reason to look at a man the machine has already answered.
 
 He reaches — not quite toward Will, just toward the street.
 
