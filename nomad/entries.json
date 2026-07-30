@@ -1,24 +1,24 @@
 [
   {
     "date": "2026-07-30",
-    "title": "NOMAD — MASTER SCRIPT (v3.2 — locked)",
+    "title": "NOMAD — MASTER SCRIPT (v3.3 — locked)",
     "file": "script.md",
     "category": "master"
   },
   {
-    "date": "2026-07-28",
+    "date": "2026-07-30",
     "title": "NOMAD — Two-Pager / Pitch",
     "file": "two-pager.md",
     "category": "master"
   },
   {
     "date": "2026-07-30",
-    "title": "NOMAD — Reader's Report (v2.0)",
+    "title": "NOMAD — Reader's Report (v3.3)",
     "file": "readers-report.md",
     "category": "master"
   },
   {
-    "date": "2026-07-28",
+    "date": "2026-07-30",
     "title": "NOMAD — Summary / Overview",
     "file": "summary.md",
     "category": "master"
@@ -45,6 +45,12 @@
     "date": "2026-07-30",
     "title": "Log 07 — One Thousand Passes: The Lock (v3.1 → v3.2)",
     "file": "log-07.md",
+    "category": "notes"
+  },
+  {
+    "date": "2026-07-30",
+    "title": "Log 08 — The Dialogue Pass (v3.2 → v3.3)",
+    "file": "log-08.md",
     "category": "notes"
   }
 ]
