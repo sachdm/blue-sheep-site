@@ -129,7 +129,7 @@ body::after {
 .entry hr { border: none; border-top: 1px dashed var(--dim); margin: 22px 0; }
 .entry a { color: var(--cyan); }
 
-#content.page-mode { background: #33352f; }
+#content.page-mode { background: #33352f; overflow-x: auto; }
 body:has(#content.page-mode)::after { display: none; }
 
 /* documents (summary, two-pager, reader's report) on the same white page */
@@ -219,7 +219,7 @@ kbd {
   .page .sp-body { width: 100%; }
   .page-num { top: 20px; right: 22px; font-size: 12px; }
   .sp-blank { height: 12px; }
-  .page   .page   .page }
+}
 
 @media print {
   #sidebar, .sp-toolbar { display: none !important; }
@@ -426,6 +426,7 @@ async function open(idx) {
         '<div class="page titlepage"><div class="titleblock"><div class="tp-t">Twist the Tango</div><div class="tp-by">written by</div><div class="tp-who">Cairns Nolan</div><div class="tp-note">Episode 1 — &ldquo;4th House on Grand St&rdquo;</div></div></div>' +
         sheets + '</div>';
       contentEl.scrollTop = 0;
+    fitPages();
       return;
     }
 
@@ -437,10 +438,22 @@ async function open(idx) {
         </div>
       </div>`;
     contentEl.scrollTop = 0;
+    fitPages();
   } catch (err) {
     reader.innerHTML = `<div style="color:var(--red)">could not load ${esc(e.file)}</div>`;
   }
 }
+
+function fitPages() {
+  var c = document.getElementById('content');
+  if (!c) return;
+  var avail = c.clientWidth - 36;
+  var k = Math.min(1, avail / 765);
+  document.querySelectorAll('.page-wrap').forEach(function (w) {
+    w.style.zoom = (k < 0.999) ? k : '';
+  });
+}
+window.addEventListener('resize', fitPages);
 
 async function loadManifest(file) {
   const raw = await fetch(file, { cache: 'no-store' }).then(r => r.json());
