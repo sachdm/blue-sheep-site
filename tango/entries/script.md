@@ -1,6 +1,6 @@
 # TWIST THE TANGO — EP.1 SCRIPT
 
-**Episode 1 — "4th House on Grand St." Written by Cairns Nolan. Working draft (Celtx), July 2026. In progress — draft currently runs through Scene 7.**
+**v0.1 — July 2026 working draft (Celtx). Episode 1 — "4th House on Grand St". Written by Cairns Nolan. Draft currently runs through Scene 7.**
 
 ---
 
@@ -26,9 +26,7 @@ A couple men walk by his desk and wish him a pleasant evening. He glances up at 
 
 Moments pass. The phone remains dark.
 
-In defeat, Vincent rises from his desk and stretches. He puts his laptop into its carrier and retrieves the phone, just as it lights up with the name:
-
-"UNKOWN"
+In defeat, Vincent rises from his desk and stretches. He puts his laptop into its carrier and retrieves the phone, just as it lights up with the name: "UNKOWN"
 
 He answers, hastily.
 
@@ -44,47 +42,66 @@ He looks down, checks his phone, fidgets with the device before resigning it to 
 
 He pulls out a pack of cigarettes, gives them the obligatory smack, before pulling out a stick and raising it to his lips.
 
-As he raises his head to light, his eyes meet her. SHORTY #1 is all but matching Corey, her white baseball jersey completely covers the shorts she has underneath. She walks over, phone in hand, smiling smugly with pink lips.
+As he raises his head to light, his eyes meet her. SHORTY 1 is all but matching Corey, her white baseball jersey completely covers the shorts she has underneath. She walks over, phone in hand, smiling smugly with pink lips.
 
 Corey resigns the cigarette to the pack.
 
-COREY: Oh, hi.
+COREY
+Oh, hi.
 
-SHORTY #1 *(observing him)*: So, this is Corey.
+SHORTY 1
+(observing him)
+So, this is Corey.
 
-COREY: Home grown, one and only.
+COREY
+Home grown, one and only.
 
-SHORTY #1: Your profile says 6'1 ...
+SHORTY 1
+Your profile says 6'1 ...
 
-COREY: I am 6'1.
+COREY
+I am 6'1.
 
-SHORTY #1: I'm sure.
+SHORTY 1
+I'm sure.
 
-COREY: So am I, you're just super tall.
+COREY
+So am I, you're just super tall.
 
-SHORTY #1: I'm 5'8.
+SHORTY 1
+I'm 5'8.
 
-COREY: Yeah maybe before the recession...
+COREY
+Yeah maybe before the recession...
 
 He puts his arm around her, turning them into the direction of the stadium.
 
-COREY (CONT'D): ... But in this economy?
+COREY (CONT'D)
+... But in this economy?
 
 The two walk off towards the stadium, slipping through the crowd. They weave through families and other couples, searching for their enterance into the stadium.
 
-COREY: I think we're next but fuck it, lines small here.
+COREY
+I think we're next but fuck it, lines
+small here.
 
 He moves forward towards the lines but Shorty stops him.
 
-SHORTY #1: Are you tryna smoke?
+SHORTY 1
+Are you tryna smoke?
 
 Her sentence trails as she slides a joint out of her tiny bag.
 
-COREY: Oh you bet.
+COREY
+Oh you bet.
 
-SHORTY #1: Okay but you hit first, or you'll be covered in my lip gloss.
+SHORTY 1
+Okay but you hit first, or you'll be
+covered in my lip gloss.
 
-COREY *(sarcastic)*: How horrible.
+COREY
+(sarcastic)
+How horrible.
 
 The two step from the direction of the crowd and into a park.
 
@@ -100,11 +117,13 @@ He sits back and puts his hands behind his head. He rubs his face, and breathes 
 
 His head raises.
 
-VINCENT: Reba!
+VINCENT
+Reba!
 
 No response.
 
-VINCENT (CONT'D): ... Reba?
+VINCENT (CONT'D)
+... Reba?
 
 Vincent gets out of his chair and pokes his head out of his small office. The place is abandoned, no computers alight, all chairs tucked in.
 
@@ -150,76 +169,129 @@ His face remains stone as the text populate his phone. One after another his fac
 
 Vincent picked up the call after one ring, with the strength of a man trying to lift a car.
 
-VINCENT: Hey - yeah I saw Eric's texts in the chat. It's speculators though, I don't know why he's up in arms over shit we already knew about ...
+VINCENT
+Hey - yeah I saw Eric's texts in the
+chat. It's speculators though, I don't
+know why he's up in arms over shit we
+already knew about ...
 
 Vincent paces in front of his desk listening to the phone. He opens a new tab on google and brings up an article.
 
-VINCENT (CONT'D): ... the Star has reported nothing since Wednesday's update. Plus, any of SayFlair's client list wouldn't be released until Monday, even if the takeover happened today.
+VINCENT (CONT'D)
+... the Star has reported nothing
+since Wednesday's update. Plus, any of
+SayFlair's client list wouldn't be
+released until Monday, even if the
+takeover happened today.
 
 Vincent takes the phone off his ear and lends it to speaker, while he begins to type up a message to Corey.
 
 TEXT - News on Sayflair?
 
-MAN ON PHONE: ... fuck whatever the star is telling you. They're owned by a PMG shell company, they won't release shit. This is coming from the whores mouth.
+MAN ON PHONE
+... fuck whatever the star is telling
+you. They're owned by a PMG shell
+company, they won't release shit. This
+is coming from the whores mouth.
 
-VINCENT: Horses Mouth.
+VINCENT
+Horses Mouth.
 
-MAN ON PHONE: Same thing.
+MAN ON PHONE
+Same thing.
 
-VINCENT: How? Where did Eric hear that this is signed and sealed?
+VINCENT
+How? Where did Eric hear that this is
+signed and sealed?
 
-MAN ON PHONE: His aunt, dude. His fucking aunt is an exec at Sayflair. Apparently she just texted his Dad that it went through.
+MAN ON PHONE
+His aunt, dude. His fucking aunt is an
+exec at Sayflair. Apparently she just
+texted his Dad that it went through.
 
-VINCENT: What? Why? She gets laid off and texts her brother?
+VINCENT
+What? Why? She gets laid off and texts
+her brother?
 
-MAN ON PHONE: No idea. But he's adamant.
+MAN ON PHONE
+No idea. But he's adamant.
 
-VINCENT: Yeah clearly, he hasn't stopped texting since. I just don't trust it.
+VINCENT
+Yeah clearly, he hasn't stopped
+texting since. I just don't trust it.
 
-MAN ON PHONE: Either way, this won't be actionable till Monday.
+MAN ON PHONE
+Either way, this won't be actionable
+till Monday.
 
 Vincent goes quiet, and begins to ponder. He traces his jaw with his fingers while unfocusing his eyes.
 
-MAN ON PHONE (CONT'D): ... Vin?
+MAN ON PHONE (CONT'D)
+... Vin?
 
-VINCENT: Yeah, here.
+VINCENT
+Yeah, here.
 
-MAN ON PHONE: ... what are you thinking.
+MAN ON PHONE
+... what are you thinking.
 
-VINCENT: Nothing, nothing till Monday ...
+VINCENT
+Nothing, nothing till Monday ...
 
-MAN ON PHONE: Vin.
+MAN ON PHONE
+Vin.
 
-VINCENT: I'm gonna call Paul.
+VINCENT
+I'm gonna call Paul.
 
-MAN ON PHONE: From Canacor?
+MAN ON PHONE
+From Canacor?
 
-VINCENT: Yeah, doesn't hurt to confirm this right?
+VINCENT
+Yeah, doesn't hurt to confirm this
+right?
 
-MAN ON PHONE: Would he know?
+MAN ON PHONE
+Would he know?
 
-VINCENT: Well the news seems to travel, he might.
+VINCENT
+Well the news seems to travel, he
+might.
 
-MAN ON PHONE: If he does tell me.
+MAN ON PHONE
+If he does tell me.
 
-VINCENT: Oh yeah, why's that?
+VINCENT
+Oh yeah, why's that?
 
-MAN ON PHONE: Hey who was the guy who told you to stay late in the office tonight in preparation for this shit.
+MAN ON PHONE
+Hey who was the guy who told you to
+stay late in the office tonight in
+preparation for this shit.
 
-VINCENT: Yeah sure you did pal, not like these 100 messages wouldn't tip me off.
+VINCENT
+Yeah sure you did pal, not like these
+100 messages wouldn't tip me off.
 
-MAN ON PHONE: Don't be a cunt. We don't even have competing clients dude.
+MAN ON PHONE
+Don't be a cunt. We don't even have
+competing clients dude.
 
-VINCENT: Hm. Fine, but for the record - this is what a favour looks like.
+VINCENT
+Hm. Fine, but for the record - this is
+what a favour looks like.
 
-MAN ON PHONE: Yeah, yeah.
+MAN ON PHONE
+Yeah, yeah.
 
-VINCENT: Kisses.
+VINCENT
+Kisses.
 
-MAN ON PHONE: Fuck off.
+MAN ON PHONE
+Fuck off.
 
 The call ends, and Vincent is left burning in his small office.
 
 INT. BASEBALL GAME - 7:30PM
 
-*(Draft continues from here — beats 7–18 on the episode beat sheet.)*
+Draft in progress. The episode continues from here - beats 7 through 18 on the beat sheet.
