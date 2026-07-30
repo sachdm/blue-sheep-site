@@ -1,6 +1,6 @@
 # NOMAD — MASTER SCRIPT
 
-**v2.0 - revised 30 July 2026. Log 04 margin notes integrated.**
+**v3.0 - revised 30 July 2026. Converged draft — two hundred passes, twelve rounds (Log 05). Final two rounds produced no changes.**
 
 ---
 
@@ -11,6 +11,8 @@ Sales emptied out in the spring. Nobody came for the furniture.
 Half the floor is dark. In the lit half, a nine-hole golf course that used to be a sales department. A ramp made of binders. A water hazard that is a mop bucket with water in it. Hole 7 is the old CEO's office door, off its hinges, leaned against a filing cabinet. A Post-it on the wall says 7.
 
 WILL, CAIRNS and JOHN (late 20s) — three men who should have gone home four hours ago — are playing it like it matters.
+
+Somewhere in the dark, a phone is propped against a stapler, filming. Nobody is running it. Half of what it sees is carpet.
 
 CAIRNS
 (re: the door)
@@ -146,12 +148,6 @@ A half-beat late. John and Will crack up.
 Will's laugh catches for a second. He knows that lag — he knows it the way a piano tuner knows a flat note. He looks at the screen a moment too long.
 
 Then he lets it go. It's a Tuesday. It's a joke.
-
-INT. BOSS'S HOUSE - CONTINUOUS
-
-The real boss, mid golf-sim swing. The office feed props against a lamp, unwatched.
-
-On it, his own face is still working — nodding, agreeing, answering for him. It has been answering for him all morning.
 
 INT. OFFICE SPACE - ELEVATOR BANK - CONTINUOUS
 
@@ -359,7 +355,11 @@ A bored coordinator checks Will in like a dentist's office.
 INSERT - PASSPORT
 A scanner's green line crosses it.
 
-BACK TO SCENE. Face capture: look left, look right, read this aloud. Will jokes that he does this for a living.
+BACK TO SCENE. Face capture: look left, look right, read this aloud.
+
+WILL
+(mid-capture)
+I do this for a living, you know.
 
 COORDINATOR
 Then you can skip the orientation video.
@@ -469,7 +469,7 @@ A market. Will haggles a vendor down over a bag of limes — forty pesos, nothin
 
 At a counter he orders in English. The girl answers in English. He tries the Spanish for thank you and she says it back to him, correctly. He doesn't hear the correction.
 
-He texts Cairns on landing. Cairns is warm, specific, flaky — "in Oaxaca for a thing, next week for SURE, I already told everyone you're here."
+He texts Cairns. The reply is warm, specific, flaky — "in Oaxaca for a thing, next week for SURE, I already told everyone you're here."
 
 INT. WILL'S APARTMENT, MEXICO CITY - NIGHT
 
@@ -479,11 +479,17 @@ John's mouth is full. Will narrates the contents of his fridge. The putter is vi
 
 It's the easiest either of them has sounded in a year.
 
-EXT. MEXICO CITY - NIGHT
+EXT. MEXICO CITY - ROOFTOP - NIGHT
 
-MICHELLE's email: a building mixer!! Everyone in the building is new. Everyone in the building is from somewhere colder.
+On Will's phone, MICHELLE: "Building mixer tonight!!"
 
-At the rooftop party, a flicker of familiarity — the light, the pool, the shape of the night. Like a place he's already been sold. He shrugs it off.
+Everyone at the party is new. Everyone at the party is from somewhere colder.
+
+A flicker of familiarity — the light, the pool, the shape of the night. Like a place he's already been sold. He shrugs it off.
+
+EXT. MEXICO CITY - STREET - MORNING
+
+Will, coffee in hand, walks a block he is starting to think of as his.
 
 He passes two locals mid-conversation, subtitled for us — about the building on the corner that emptied inside a month. Eleven apartments, bought in a currency nobody here gets paid in. Nobody knows where the fourth floor went. The new ones are never home.
 
@@ -504,7 +510,9 @@ He reaches — not quite toward Will, just toward the street.
 
 And Will sees him. For one full second, Will sees him.
 
-Then the reflex he has spent a year putting down puts this down too. Phone up. He steps around, and is gone.
+Then the reflex he has spent a year putting down puts this down too. Phone up. The camera passes across the man on the curb and offers nothing. Nothing worth stopping for.
+
+Will steps around, and is gone.
 
 INT. WILL'S APARTMENT, MEXICO CITY - NIGHT / INT. DEAD OFFICE - NIGHT - INTERCUT
 
@@ -548,11 +556,21 @@ A half-beat late. Will closes the laptop and sits very still in the best apartme
 
 INT. WILL'S APARTMENT, MEXICO CITY - NIGHT - LATER
 
-Desk lamp. Blue screen light. Two video windows side by side: an old real Cairns clip and tonight's call. Will drags them frame by frame.
+Desk lamp. Blue screen light. This is the room he works in, doing the thing he does.
 
-A call Cairns swore he'd just woken up for. The light behind him is five o'clock light. On the far wall, reflected in the water, three pixels of a clock — wrong.
+Two video windows side by side. On the left, tonight's call, paused mid-laugh. On the right, a shaky phone video — the dead floor, 2am, a golf ball dropping into a coffee mug, three men losing it. Half of it is carpet. It is the only footage of Cairns that was never for anyone.
 
-The laugh, isolated on a waveform: 0.4 late. The same 0.4, in the same place, every time he laughs. No human is that consistent.
+He drags them frame by frame.
+
+A call Cairns swore he'd just woken up for: the light behind him is five o'clock light. On the far wall, reflected in the water, three pixels of a clock — wrong.
+
+The laugh next. He isolates tonight's on a waveform, lays the 2am laugh above it, and plays them together.
+
+They land like a flam — one drum hit, split in two. 0.4 apart.
+
+He plays it again. Same 0.4, same place. He pulls laughs from other calls — weeks of them — and stacks the waveforms. 0.4. 0.4. 0.4. No human is that consistent.
+
+Three windows now. Four. The desk stops being a desk and becomes the station he sat at for nine years — queue, evidence, verdict. He is doing to his best friend exactly what he did to strangers, and he is better at it than the machine ever let him be.
 
 Then the thing he's actually hunting for. He runs the call metadata. Every message from Cairns — every call, for months — pings the same coordinates. Will drops them on a map.
 
@@ -570,7 +588,7 @@ JOHN
 It's a bad connection, man. It's a resort.
 
 WILL
-I ran it against two years of him. And every call he's made in months comes off one rooftop. One building, John. Twenty minutes from me.
+I ran it against the video from the office. The real one. And every call he's made in months comes off one rooftop. One building, John. Twenty minutes from me.
 
 A long quiet. John, waking up properly now.
 
@@ -641,7 +659,7 @@ In the VERIFICATION ROOM: Will sits in the chair — good light, a liveness rig,
 
 Nine years of being right about this machine. He puts his face to it.
 
-It reads the polished model as authentic. It flags the live man as SYNTHETIC. The examiner reads a number. The number is confident.
+It reads the polished model as authentic. It flags the live man as SYNTHETIC. The machine reads a number to the room. The number is confident.
 
 INSERT - SCREEN
 STATUS: SYNTHETIC · RETAINED FOR REFERENCE.
@@ -688,7 +706,17 @@ He reaches for his phone.
 
 He starts to type back.
 
-We stay on John. His face, lit by the screen. Hold.
+He stops.
+
+He sets the phone down on the carpet, screen up, still lit.
+
+Alone, in the half-dark, his hands do it once — fist, fist, roll.
+
+And the dumb open-handed beat on the end. Both hands open.
+
+Like putting something down.
+
+Hold on John.
 
 CUT TO BLACK.
 
