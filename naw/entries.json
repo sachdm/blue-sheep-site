@@ -31,6 +31,12 @@
   },
   {
     "date": "2026-08-01",
+    "title": "NOT ANOTHER WORD — Production Package (working)",
+    "file": "production-package.md",
+    "category": "master"
+  },
+  {
+    "date": "2026-08-01",
     "title": "Log 01 — One Hundred Programmers (short film v1.0 → v1.1)",
     "file": "log-01.md",
     "category": "notes"
