@@ -1,14 +1,8 @@
 [
   {
-    "date": "2026-07-30",
-    "title": "NOMAD — MASTER SCRIPT (v3.3 — locked)",
-    "file": "script.md",
-    "category": "master"
-  },
-  {
     "date": "2026-08-01",
-    "title": "NOMAD — SCRIPT (v3.4 — working draft)",
-    "file": "script-v3-4.md",
+    "title": "NOMAD — MASTER SCRIPT (v3.4)",
+    "file": "script.md",
     "category": "master"
   },
   {
