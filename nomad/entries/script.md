@@ -1,6 +1,6 @@
 # NOMAD — MASTER SCRIPT
 
-**v3.3 - locked, 30 July 2026. Dialogue pass: one hundred creative iterations (Log 08), two adoptions. Re-locked.**
+**v3.4 — working master, 1 August 2026. Producer's margins applied (Log 09). Supersedes v3.3.**
 
 ---
 
@@ -12,23 +12,25 @@ Half the floor is dark. In the lit half, a nine-hole golf course that used to be
 
 WILL, CAIRNS and JOHN (late 20s) — three men who should have gone home four hours ago — are playing it like it matters.
 
-Somewhere in the dark, a phone is propped against a stapler, filming. Nobody is running it. Half of what it sees is carpet.
+Cairns is filming it. Phone out, handheld, walking backwards through the course, narrating like a man defending a title.
 
 CAIRNS
-(re: the door)
-He wasn't using it.
+(to the phone)
+Hole seven. The door. Nobody has birdied the door since it was a door.
 
 JOHN
-He's not using it because he's in Lisbon.
+You're in the shot.
 
 CAIRNS
-Then he's really not using it.
+I'm the coverage.
+
+He props the phone against a stapler on a dead desk — framing it, checking it, adjusting it half an inch — and forgets about it. Half of what it sees is carpet.
 
 Will putts. The ball climbs the door, runs the length of the cabinet, and drops into a coffee mug on the far side.
 
 A silence while all three of them work out that it went in.
 
-Then they lose it — the helpless laughter of people who are extremely tired and nowhere near going home.
+Will shrugs. Taps his putter on the carpet twice. That's the whole celebration. They've done this a hundred times.
 
 Later. Backs against the cabinets, on the carpet, shoes off.
 
@@ -45,9 +47,9 @@ CAIRNS
 (to the ceiling)
 Nine years. You know what I've got out of it?
 (beat)
-A chair that leans back really far.
+A cubicle with my name on it. Spelled wrong.
 
-It's a joke. It isn't one. Nobody says anything for a second longer than they should. Cairns catches Will's eye across the carpet — a look that asks for backup. Will studies the ceiling instead.
+Nobody says anything for a second longer than they should. Cairns catches Will's eye across the carpet — a look that asks for backup. Will studies the ceiling instead.
 
 Then John throws a golf ball at him and it's over.
 
@@ -68,7 +70,7 @@ On screen, Ted agrees with something.
 WILL
 That's the most he's said in years.
 
-Later still. Cairns is trying to teach them something and it is not going well.
+Later still. Cairns is trying to teach them something and it is not going well. It is well past midnight and all three of them know how dumb this is. That is not stopping anyone.
 
 CAIRNS (CONT'D)
 No. No. Fist, fist, roll it, then the thing.
@@ -119,6 +121,8 @@ Will and Cairns run it once more, fast, already muscle memory. Cairns holds the 
 CAIRNS (CONT'D)
 That's a good one.
 
+On the dead desk, the phone is still filming. Nobody has looked at it in an hour. It has all of it.
+
 On the far side of the floor the lights click off on a timer. Nobody moves.
 
 MAIN TITLE: NOMAD
@@ -127,23 +131,27 @@ INT. OFFICE SPACE - DAY
 
 A floor at its midpoint. Bodies among empty desks. Nobody looks up.
 
-CAIRNS' last day. He packs his desk into a printer-paper box, performing an exit for a floor that isn't watching. Only WILL and JOHN are.
+CAIRNS' last day. His desk is packed into a printer-paper box. On the box: three beers, sweating. Will and John flank him, drinking at 2pm like men getting away with something, because they are.
 
 CAIRNS
-(raising an invisible glass, to the empty desks)
+(raising his can, to the empty desks)
 To four incredible years. Truly. Some of the best emails of my life.
 
 Nobody looks up. He toasts anyway.
 
-A ROBOT BOSS — a monitor on a wheeled stand — rolls up. The boss's face fills it: warm, attentive, always available. Cairns puts a hand to his heart and gives it a review.
+A ROBOT BOSS — a monitor on a wheeled stand — rolls up. The boss's face fills it: warm, attentive, always available. It has detected the beers.
+
+ROBOT BOSS
+Hi team! Just a reminder that consumption of alcohol in the workspace is —
 
 CAIRNS
+(hand to his heart)
 Five stars. Best boss I never met.
 
 ROBOT BOSS
 Thanks for the feedback!
 
-A half-beat late. John and Will crack up.
+A half-beat late. The reprimand is gone, wherever dropped threads go. John and Will crack up.
 
 Will's laugh catches for a second. He knows that lag — he knows it the way a piano tuner knows a flat note. He looks at the screen a moment too long.
 
@@ -154,29 +162,17 @@ INT. OFFICE SPACE - ELEVATOR BANK - CONTINUOUS
 Will and John flank Cairns, carrying nothing. Happy for him. A little jealous.
 
 CAIRNS
-One fee. That's the whole thing. They handle everything.
-
-WILL
-Everything meaning what.
-
-CAIRNS
-Everything meaning everything. The visa. The apartment. The — everything, man. You know what my rent is down there? A phone bill.
+One fee. And everything is covered. The visa. The apartment. The whole enchilada. You know what my rent is down there? A phone bill.
 (gesturing at the floor with the box)
 I did the math on my life, and the math said leave.
 
-JOHN
-Visa?
-
-CAIRNS
-Handled.
-
 WILL
-By who?
+Covered by who?
 
 A gap, small. Cairns fills it fast.
 
-CAIRNS (CONT'D)
-By — they've got people. It's a whole thing. Michelle walks you through it.
+CAIRNS
+They've got people. It's a whole thing. This girl — rep — Michelle. She walks you through it. They even do three-month probationary terms. You hate it, you come home.
 
 Neither of them asks who Michelle is. He has already moved on.
 
@@ -198,43 +194,52 @@ The doors close on him mid-sell.
 
 INT. OFFICE SPACE - MOMENTS LATER
 
-Cairns' desk, cleared to the laminate — except for a branded welcome folder, left behind on purpose, squared to the edge to be found.
+Cairns' desk, cleared to the laminate — except for a branded welcome folder, left behind on purpose, squared to the edge to be found. And a photo, pinned to the cubicle wall: the three of them, mini-putt night, holding putters like a victorious army.
 
 John eyes the empty chair.
 
 JOHN
-I always liked that chair.
+Shotty the chair.
 
-He drops into it, gives it a spin. Will cracks up despite himself.
+He drops into it, gives it a spin, and wheels it away out of frame without another word. Will cracks up despite himself.
 
-The chair slows. Will squares the welcome folder to the edge of the desk without deciding to. Neither of them opens it.
+Will squares the welcome folder to the edge of the desk without deciding to. Neither of them opens it.
+
+The photo stays pinned. Nobody takes the photo.
 
 SUPER: ONE YEAR LATER
+
+EXT. CITY - MORNING - MONTAGE
+
+Will's entire commute. A bus window with weather on it. A transfer. An underpass. A parking structure. Not one pretty thing between his door and the office, and he has stopped looking for one.
 
 INT. OFFICE SPACE - MORNING
 
 The same floor, mostly empty. Motion-sensor lights click on ahead of Will in sequence — a runway for nobody.
 
-He passes dark departments. Ted's monitor, still on, still attending. Cairns' desk, untouched, the folder gathering a year of dust.
+He passes dark departments. Ted's monitor, still on, still attending. Cairns' desk, untouched, the folder gathering a year of dust. The photo of the three of them, sun-faded now.
 
 At 8:55 the coffee machine brews a full pot. Will pours its only cup.
 
 INT. OFFICE SPACE - WILL'S DESK - DAY
 
-A queue of faces. Machine verdicts. One button: APPROVE. Will clicks. A streak counter climbs.
+Will sits. Before the system gives him anything, it wants him: face to the camera, look left, look right.
 
-A face, machine-verified 98%. Will stops. Replays three seconds — the man is asked about his childhood; his eyes go nowhere.
+INSERT - SCREEN
+
+IDENTITY: LOW CONFIDENCE — RETRY.
+
+BACK TO SCENE. He sighs, does it again. VERIFIED. Routine.
+
+Then the work. A queue of faces — visa interviews, loan applications, insurance claims — each one flagged with a machine verdict: REAL or SYNTHETIC. Will is the human backstop. His job is to catch the fakes the machine misses and confirm the ones it doesn't. One button: APPROVE.
+
+Will clicks. A streak counter climbs.
+
+A face, machine-verified 98% REAL. Will stops. Replays three seconds — the man is asked about his childhood; his eyes go nowhere.
 
 Will overrides: SYNTHETIC. The system concedes. His streak resets to zero. No one looks up.
 
 On his monitor: SYSTEM 99.1 / WILL 96.8 — TOP HUMAN PERFORMER.
-
-To log back in, Will re-verifies himself — face to the camera, look left, look right.
-
-INSERT - SCREEN
-IDENTITY: LOW CONFIDENCE — RETRY.
-
-BACK TO SCENE. He sighs, does it again. VERIFIED. Routine.
 
 Later. The dashboard, a river of decisions. Will spots a fraud he's sure of. INTERVENE.
 
@@ -243,12 +248,12 @@ His screen dims. A coaching module auto-plays — "Trusting Your Tools," a cheer
 His screen blinks — an incoming call cuts straight through the coaching module. CAIRNS, poolside, sun, abundance.
 
 CAIRNS
-Heyyy! There he is!
+Heyyy! Willy Will Will!!
 
 Then, before Will can answer:
 
 CAIRNS (CONT'D)
-You wouldn't believe this place. Everything's two-for-one — everything.
+I just don't know why you put yourself through it, man. You have the ultimate out and you're clinging to your cubicle.
 
 He lowers his voice like it's a secret.
 
@@ -257,15 +262,11 @@ You know how long since I clicked approve on anything? Since anybody checked I w
 (waving it off)
 I don't even remember my own login, man.
 
-Two GIRLS flank him at the pool's edge. To each other, dry, not for Cairns:
+Two GIRLS at the pool's edge, calling to Cairns, waving him in — one already in the water, splashing at him. To each other, between waves, dry, not for Cairns:
 
 GIRL 1
 (in Spanish; subtitled)
-He tipped me for handing him his own towel.
-
-GIRL 2
-(in Spanish; subtitled)
-Hand him another one.
+Watch. He'll tip me for this.
 
 Cairns doesn't understand a word. Delighted:
 
@@ -282,121 +283,13 @@ The screen stays on. The three run to the pool. Cairns throws one girl in.
 Will watches. A tinge of jealousy in it.
 
 JOHN (O.S.)
-Is that Cairns? Nice.
+Nice.
 
-Will kills the tab and turns. John, holding six beers — for the two of them.
+Will kills the tab and turns. John, holding six beers — for the two of them. He has his golfing glove on.
 
-INT. DEAD SALES DEPARTMENT - MINI-PUTT COURSE - LATER
+INT. OFFICE SPACE - CONFERENCE ROOM - DAY
 
-The lights are on. Hole 7 uses the old CEO's office door as a ramp.
-
-JOHN
-You know I've never even been out of the country?
-
-WILL
-Neither had Cairns.
-
-JOHN
-Yeah, well.
-(he putts; the ball misses everything)
-Somebody's got to hold the course record.
-
-He doesn't sound sure why he's still here. Will lines up a putt, then stops.
-
-WILL
-Who's Michelle?
-
-JOHN
-What?
-
-WILL
-He keeps saying Michelle. Like we know her.
-
-JOHN
-Michelle from where, though.
-
-WILL
-The Service.
-
-JOHN
-That's not a where.
-
-Neither of them has an answer, and neither of them wants one badly enough to keep going.
-
-Will sinks the putt, doesn't celebrate. Somewhere else entirely.
-
-INT. WILL'S APARTMENT - NIGHT
-
-A facetime with family. A parent, bad connection, distracted.
-
-WILL
-No, it's — the job's fine. The floor's closing but the job's fine. Everything's fine, it's just —
-
-The call ends first from their side. He finishes the sentence to a home screen.
-
-On his laptop, a real-estate listing: the family home, priced to sell. Everyone scattered. He scrolls past it.
-
-His building — lockboxes on every door, rolling suitcases in the hall, a different set of strangers each weekend. He's the last person who actually lives on his floor.
-
-He opens the Service page. The logo he's walked past on Cairns' dead desk for a year.
-
-INT. SERVICE STOREFRONT - DAY
-
-An office park. The Service sits between a vape shop and a notary. Brochure rack, folding chairs, a paradise reel looping over a dying pothos.
-
-On the rack, a brochure: YOUR DOLLAR. THREE TIMES THE LIFE.
-
-On the reel, a family laughs a half-beat late.
-
-Will clocks it instantly, professionally — and files it where it costs him nothing. Everybody renders their b-roll now. Nobody flies a crew for a brochure.
-
-A bored coordinator checks Will in like a dentist's office.
-
-INSERT - PASSPORT
-A scanner's green line crosses it.
-
-BACK TO SCENE. Face capture: look left, look right, read this aloud.
-
-WILL
-(mid-capture)
-I do this for a living, you know.
-
-COORDINATOR
-Then you can skip the orientation video.
-
-The coordinator winks. Entirely, boringly human.
-
-COORDINATOR (CONT'D)
-One more. For the file — describe your dream place. Take your time.
-
-WILL
-(to camera, easy, unprompted)
-Quiet, I guess. A high floor. Somewhere nobody needs me till nine.
-
-He means it as a throwaway. The camera keeps rolling a beat after he's done.
-
-INT. WILL'S CAR - PARKING LOT - CONTINUOUS
-
-The email arrives before he's out of the lot. MICHELLE — template-warm, exclamation points, a scheduling link.
-
-INT. WILL'S APARTMENT - NIGHT
-
-Michelle's welcome preview: an automated ad starring WILL. His face, his walk, composited into Cairns' paradise. "See yourself there."
-
-He watches himself live the ad, delighted. He says his name for the personalization. Says it again, excited. Grinning.
-
-INSERT - SCREEN
-A checkbox fills: CONFIRM MY DETAILS. It plays his own face back to him — and for half a second his eyes look wrong.
-
-BACK TO SCENE. His hand is on the scrub bar before he knows why. He drags it back. Watches the three seconds again. Then again, frame by frame, the way he has nine hundred times this year for strangers.
-
-He is one keystroke from the form he fills out for a living.
-
-He closes the window instead. Compression. Everybody's compression is bad.
-
-INT. OFFICE SPACE - DAY
-
-The ROBOT BOSS rolls to the center of the floor. An all-hands.
+An all-hands. Two dozen chairs, nine people. The ROBOT BOSS parked at the head of the table.
 
 On its screen: the boss in a crisp home office — good light, bookshelves, a coffee steaming at the same height it steamed a minute ago. Out his window, a gull crosses the sky it already crossed.
 
@@ -412,27 +305,138 @@ Then: bad wifi, a satellite, a Tuesday. A hundred honest reasons, and he only ne
 
 He picks one.
 
-John's answer: the last day in the office is the MINI-PUTT CHAMPIONSHIP. He starts the bracket.
+John's answer, announced to the emptying room: the last day in the office is the MINI-PUTT CHAMPIONSHIP. He starts the bracket.
+
+On his way out, Will passes Cairns' dead desk. He stops.
+
+He takes the welcome folder. He leaves the photo.
+
+INT. DEAD SALES DEPARTMENT - MINI-PUTT COURSE - LATER
+
+The lights are on. Hole 7 uses the old CEO's office door as a ramp.
+
+JOHN
+You know I've never even been out of the province?
+
+WILL
+Neither had Cairns.
+
+JOHN
+I'm just saying. Can't blame him.
+(he putts; the ball misses everything)
+
+He doesn't sound sure why he's still here. Will lines up a putt, then stops.
+
+WILL
+I think I'm leaning in the same direction these days.
+
+JOHN
+That direction being?
+
+A half-second flat. Then Will grins.
+
+WILL
+Mexico City, baby.
+
+They share a laugh. It mostly works.
+
+WILL (CONT'D)
+We're lucky to even have the option. Feels like a waste not to. Over there I can live like a king.
+
+JOHN
+Yeah.
+
+Neither of them says anything else, and neither of them wants to badly enough to keep going.
+
+Will sinks the putt. Doesn't celebrate. Somewhere else entirely.
 
 INT. WILL'S APARTMENT - NIGHT
 
-John helps Will pack. He finds Will's putter, tapes WILL on the grip, keeps it.
-
-Will holds it up, half-laughing.
+A facetime with family. A parent, bad connection, distracted.
 
 WILL
-It's a putt-putt bracket, John.
+No, it's — the job's fine. The floor's closing but the job's fine. I think I just want to try something different. New.
 
-JOHN
-It's the last one.
+The call ends first from their side. He finishes the sentence to a home screen.
 
-It sits there. Will promises to be back for it. Half-listening.
+He sits with it a second. Then his eyes go across the room.
+
+On the counter: the branded welcome folder. A year of office dust still on it.
+
+He looks at it for a long time.
+
+INT. SERVICE STOREFRONT - DAY
+
+An office park. The Service sits between a vape shop and a notary. Brochure rack, folding chairs, a paradise reel looping over a dying pothos.
+
+On the rack, a brochure: SAME DOLLAR. THREE TIMES THE LIFE.
+
+On the reel, a family laughs a half-beat late.
+
+Will clocks it instantly, professionally — and files it where it costs him nothing. Everybody renders their b-roll now. Nobody flies a crew for a brochure.
+
+A bored COORDINATOR checks Will in like a dentist's office.
+
+COORDINATOR
+Passport, please.
+
+INSERT - PASSPORT
+
+A scanner's green line crosses it.
+
+BACK TO SCENE. Face capture: look left, look right, read this aloud.
+
+WILL
+(mid-capture)
+I do this for a living, you know.
+
+COORDINATOR
+(flat, sarcastic, entirely human)
+Interesting.
+
+COORDINATOR (CONT'D)
+One more. For the file — describe your dream apartment. Take your time. They use this to curate your space.
+
+WILL
+(to camera, easy, unprompted)
+High ceilings. Lots of light. A view. A patio — with a grill. Simple. Clean.
+(a beat; he surprises himself)
+Beautiful.
+
+The camera keeps rolling a beat after he's done.
+
+Last station: a form on a tablet. The coordinator rotates it toward him without ceremony.
+
+COORDINATOR
+Likeness release. Promotional use. Standard.
+
+Will signs it the way everyone signs everything. Last initial, no flourish. The tablet chimes, pleased.
+
+INT. WILL'S CAR - PARKING LOT - CONTINUOUS
+
+The email arrives before he's out of the lot. MICHELLE — template-warm, exclamation points, a scheduling link.
+
+INT. WILL'S APARTMENT - NIGHT
+
+Michelle's welcome preview: an automated ad starring WILL. His face, his walk, composited into Cairns' paradise. "See yourself there."
+
+He watches himself live the ad, delighted. He says his name for the personalization. Says it again, excited. Grinning.
+
+INSERT - SCREEN
+
+A checkbox fills: CONFIRM MY DETAILS. It plays his own face back to him — and for half a second his eyes look wrong.
+
+BACK TO SCENE. His hand is on the scrub bar before he knows why. He drags it back. Watches the three seconds again. Then again, frame by frame, the way he has nine hundred times this year for strangers.
+
+He is one keystroke from the form he fills out for a living.
+
+He closes the window instead. Compression. Everybody's compression is bad.
 
 EXT. WILL'S BUILDING - DAY
 
 A cab idles. Will's keys go into a lockbox in a lobby that used to have neighbours in it — left for a landlord he's never met.
 
-John came to carry a bag. There's only one bag.
+John came to carry a bag. There's only one bag. Under John's arm: Will's putter, a strip of tape on the grip with WILL written on it in marker. He doesn't explain it. Will doesn't ask.
 
 At the curb, neither of them makes a speech. They do the handshake. Fist, fist, roll — and the dumb open-handed beat on the end, held a second longer than it needs.
 
@@ -461,6 +465,14 @@ Interested?
 
 He takes it.
 
+LATER. The same rooms, empty now. Will's one bag in the middle of the floor.
+
+High ceilings. Lots of light. A view. Out on the patio, left behind by whoever left: a grill.
+
+It is exactly what he asked for, word for word. He said it once, out loud, to a camera in an office park.
+
+He doesn't notice. It's perfect. That's the thing about perfect.
+
 EXT. MEXICO CITY - DAY
 
 A market. Will haggles a vendor down over a bag of limes — forty pesos, nothing — and wins, and is delighted. Two stalls on, he overtips a man for a coffee by three times the price of the coffee, and is delighted by that too.
@@ -473,12 +485,12 @@ INT. WILL'S APARTMENT, MEXICO CITY - NIGHT
 
 A call with John. Nothing happens in it. That is the whole point of it.
 
-John's mouth is full. The putter is visible behind him, leaned against hole 7.
+Will carries the laptop through the apartment, giving the tour. The ceilings. The light. The patio, the inherited grill. John's mouth is full. Behind him, the putter leans against hole 7.
 
 JOHN
 What've you got in there.
 
-Will opens the fridge and shows him.
+Will ends the tour at the fridge and shows him.
 
 WILL
 Limes. I won them.
@@ -492,7 +504,7 @@ EXT. MEXICO CITY - ROOFTOP - NIGHT
 
 On Will's phone, MICHELLE: "Building mixer tonight!!"
 
-Everyone at the party is new. Everyone at the party is from somewhere colder.
+Everyone at the party is new. Everyone at the party is from somewhere colder. A software guy from Calgary. A woman who did claims in Rotterdam. Everyone got here through a Michelle. Nobody thinks that's the same Michelle.
 
 A flicker of familiarity — the light, the pool, the shape of the night. Like a place he's already been sold. He shrugs it off.
 
@@ -508,12 +520,13 @@ At the tail end of the block, a man on the curb. Gaunt, wrecked, talking — fas
 
 It's CAIRNS.
 
-He can speak. He has been saying his own name all morning. He holds his phone up to a passing face like ID.
+He can speak. He has been saying his own name all morning. He holds his phone up to a passing face like ID. On the cracked screen, a verification app — the same kind Will works in — with a face that matches his and a verdict that doesn't:
 
 INSERT - PHONE
-IDENTITY NOT VERIFIED — REFERENCE ON FILE.
 
-BACK TO SCENE. He turns the screen around and starts explaining it, again, to somebody already gone.
+IDENTITY NOT VERIFIED. LIKENESS MATCHES EXISTING REFERENCE ON FILE.
+
+BACK TO SCENE. The system has met Cairns before. It has decided the one on file is the real one. He turns the screen around and starts explaining it, again, to somebody already gone.
 
 CAIRNS
 (to nobody in particular, reasonable, almost gentle)
@@ -523,7 +536,9 @@ There is no reason to look at a man the machine has already answered.
 
 He reaches — not quite toward Will, just toward the street.
 
-And Will sees him. For one full second, Will sees him.
+And Will sees him. For one full second, Will sees him. The beard doesn't hide the face. Nothing hides a face from Will.
+
+A second is a long time.
 
 Then the reflex he has spent a year putting down puts this down too. Phone up. The camera passes across the man on the curb and offers nothing. Nothing worth stopping for.
 
@@ -544,7 +559,7 @@ Course.
 JOHN
 It's gonna be everybody.
 
-Will looks back through the glass at the party.
+Will looks back through the glass at the party. Everybody.
 
 WILL
 Yeah.
@@ -573,7 +588,7 @@ INT. WILL'S APARTMENT, MEXICO CITY - NIGHT - LATER
 
 Desk lamp. Blue screen light. This is the room he works in, doing the thing he does.
 
-Two video windows side by side. On the left, tonight's call, paused mid-laugh. On the right, a shaky phone video — the dead floor, 2am, a golf ball dropping into a coffee mug, three men losing it. Half of it is carpet. It is the only footage of Cairns that was never for anyone.
+Two video windows side by side. On the left, tonight's call, paused mid-laugh. On the right, a shaky phone video — the dead floor, 2am, a golf ball dropping into a coffee mug, three men losing it. Cairns' own video. He shot it defending a course record and framed himself out of half of it. It is the only footage of Cairns that was never for a buyer.
 
 He drags them frame by frame.
 
@@ -603,7 +618,7 @@ JOHN
 It's a bad connection, man. It's a resort.
 
 WILL
-I ran it against the video from the office. The real one. And every call he's made in months comes off one rooftop. One building, John. Twenty minutes from me.
+I ran it against the video from the office. The one Cairns shot. The real one. And every call he's made in months comes off one rooftop. One building, John. Twenty minutes from me.
 
 A long quiet. John, waking up properly now.
 
@@ -620,7 +635,15 @@ He doesn't have an appointment. He has an address, and nobody knows he has it.
 
 INT. CAIRNS' BUILDING - DAY
 
-Mid-morning — the lobby's dead, the front desk mid shift-change. Will slips in behind a delivery cart, badge-less, unremarked. Nobody's watching the door; the cameras are watching the residents. The service stairs.
+Mid-morning — the lobby's dead, the front desk mid shift-change. Will slips in behind a delivery cart, badge-less, unremarked. Nobody's watching the door; the cameras are watching the residents.
+
+One camera over the desk turns, without hurry, and follows him to the service stairs.
+
+On a screen behind the empty desk, for nobody: a face box locks on. A readout he'd recognize anywhere, if he looked:
+
+IDENTITY: WILL — MATCHED. REFERENCE ON FILE.
+
+He doesn't look. The service stairs.
 
 Upstairs: nothing. No set, no pool. An empty floor — chairs, capture rigs like the storefront's, racks of humming servers.
 
@@ -638,13 +661,11 @@ On a third screen: familiar faces, likenesses at work, attending standups.
 
 On a fourth, an outbound queue — hundreds of warm, exclamation-pointed emails going out at once. Every one of them signed MICHELLE.
 
-On the wall, not hidden — nobody who sees this room needs it hidden — a dashboard. Billable likeness-hours, priced in dollars. Housing, priced in pesos. The spread between the two columns is the business.
+Across the room, an operator clocks him in a doorway reflection. Doesn't stand, doesn't call out. Just glances at a screen that has been tracking Will since the lobby, taps something in, and goes back to work.
 
-Across the room, an operator clocks him in a doorway reflection. Doesn't stand, doesn't call out. Just reaches over and taps something in, and goes back to work.
+Will has perhaps four minutes. They were never his.
 
-Will has perhaps four minutes and no idea how many he has.
-
-On one screen, mid-generation: WILL'S OWN welcome ad, refining. Him, poolside, saying things he's never said. The line about the high floor plays back, exactly as he gave it.
+On one screen, mid-generation: WILL'S OWN welcome ad, refining. Him, poolside, saying things he's never said. The line about the high floor plays back, exactly as he gave it. At the bottom, boilerplate he signed without reading: LIKENESS RELEASE ON FILE — PROMOTIONAL USE.
 
 In the corner of it, a readout he has looked at every working day of his life: WILL 96.8. Beside it, the model's number. Higher.
 
@@ -668,7 +689,7 @@ In the DEAD SALES DEPARTMENT: last day. The floor half-dismantled — desks tagg
 
 John, in a homemade referee shirt, by hole 7. Two other people, coats on, already leaving. Then just John.
 
-Two beers. Will's putter leans against the hole. Reserved.
+Two beers. Will's putter leans against the hole, the tape on the grip facing out.
 
 In the VERIFICATION ROOM: Will sits in the chair — good light, a liveness rig, the machinery he's used his whole career.
 
@@ -677,6 +698,7 @@ Nine years of being right about this machine. He puts his face to it.
 It reads the polished model as authentic. It flags the live man as SYNTHETIC. The machine reads a number to the room. The number is confident.
 
 INSERT - SCREEN
+
 STATUS: SYNTHETIC · RETAINED FOR REFERENCE.
 
 Behind him, a wall of numbered lockers. Most are tagged. Some have been cleared and not refilled — the ones the model no longer needs to check itself against.
@@ -715,7 +737,7 @@ I love you, man.
 
 A half-beat late.
 
-The call ends. John sits alone in the half-dismantled floor, lit by the screen. The putter behind him. Reserved.
+The call ends. John sits alone in the half-dismantled floor, lit by the screen. The putter behind him.
 
 He reaches for his phone.
 
