@@ -41,3 +41,15 @@ Three notes from the re-rate closed the gap to the ceiling:
 - **The McGarr call lost its second wind.** The Ryder Cup digression is gone; the column line survives. A page back in the pocket.
 - **The autograph scene no longer competes with the TV.** The watching-father beat is cut; the kid, the blank stare, and "at least you're honest" carry it alone.
 
+---
+
+## Addendum — v1.3 (same day)
+
+The push from 8.5. Three moves, one idea: the film now states its thesis before it happens to Miles, and Miles understands his ending before it takes him.
+
+- **The radio plant.** The kitchen radio now carries a stranger's death — the novelist Vivian Reyes, collected editions up nine hundred percent. Miles twists past it. He wasn't listening. The business model enters the film in minute two, disguised as background.
+- **The joke that is secretly the premise.** In the voicemail, Miles laughs at it: "Best career move she ever made." The victim states the pitch, as a gag, to an answering machine, minutes before the pitch arrives at his door.
+- **The recognition beat.** Before the syringe, Miles stops fighting. The rig, the obituary, the van — the journalist gets there first. "You're not press." / "We're admirers." His last coherent words: "Nine hundred percent." He solves the story he's inside of. Too late, which is the genre — but he solves it.
+- **The bookend closes.** The final newscast now finishes the opening one's sentence — tributes pouring in, collected works out this fall — and the film cuts to black on the sales figure it opened with.
+
+

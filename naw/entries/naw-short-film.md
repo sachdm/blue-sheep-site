@@ -24,7 +24,12 @@ The cap twists. POP.
 
 Orange caught by the light floods into the crystal glass — the one that was waiting for him.
 
-A chromatic radio, dials crusted black from overuse. A twist and a popular song snaps to the news.
+A chromatic radio, dials crusted black from overuse. A twist and a popular song snaps to the news:
+
+RADIO (V.O.)
+... tributes continue to pour in for the novelist Vivian Reyes, found dead at her Vermont farmhouse this week at sixty-one. Her publisher reports collected editions selling nine hundred percent above —
+
+Another twist. Music again. Miles wasn't listening.
 
 From a worn wooden box on the windowsill: an unmarked pack of cigarettes and an old sailor's lighter, waxed rope coated with lamp oil.
 
@@ -177,6 +182,8 @@ Hey, boss. You're not going to like this, but I'm the type to rip the band-aid o
 He lights a fresh cigarette.
 
 MILES (CONT'D)
+You see what dying did for Vivian Reyes' numbers? Nine hundred percent. Christ. Best career move she ever made.
+(a drag)
 Anyway. Wanted you to know before those androids come in tonight for that interview on me. I'll try you tomorrow after it all goes down. Godspeed.
 
 He returns the receiver. Through the study window, the street below: the white van hasn't moved.
@@ -328,10 +335,23 @@ He goes to stand. The Michael on his left presses him back into the seat without
 STACEY
 This is always the most frightening part. But I promise — you will come to understand what is happening.
 
-MILES
-Fuck are you talking about —
+Miles stops fighting the hand on his shoulder. Looks at her. Really looks. The rig. The obituary. The van he's been registering like a cloud all day.
 
-The stethoscope goes back in the bag. A syringe comes out. Into the neck of Miles Goodman.
+Somewhere behind his eyes, the journalist gets there first.
+
+MILES
+(almost admiring)
+You're not press.
+
+STACEY
+We're admirers.
+
+The stethoscope goes back in the bag. A syringe comes out.
+
+MILES
+Nine hundred percent.
+
+Into the neck of Miles Goodman.
 
 MILES (CONT'D)
 Jesus Christ — the fuck are you — get the fuck off me — get the fuck out of —
@@ -388,7 +408,7 @@ On top of the liquor cabinet, the crystal glass sits washed and waiting — for 
 The radio snaps on by timer. The morning news.
 
 NEWSMAN (V.O.)
-... the body of esteemed writer and journalist Miles Goodman was found early this morning in his New York apartment...
+... the body of esteemed writer and journalist Miles Goodman was found early this morning in his New York apartment. Tributes are already pouring in — and his publisher has confirmed the collected works, out this fall, are —
 
 CUT TO BLACK.
 
