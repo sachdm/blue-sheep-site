@@ -30,6 +30,12 @@
     "category": "master"
   },
   {
+    "date": "2026-08-01",
+    "title": "NOMAD — Production Package (working)",
+    "file": "production-package.md",
+    "category": "master"
+  },
+  {
     "date": "2026-07-30",
     "title": "Log 04 — Margin Notes (ten programmers + producer lens)",
     "file": "log-04.md",
