@@ -7,7 +7,7 @@
   },
   {
     "date": "2026-08-01",
-    "title": "NOT ANOTHER WORD — SHORT FILM (v1.0)",
+    "title": "NOT ANOTHER WORD — SHORT FILM (v1.2)",
     "file": "naw-short-film.md",
     "category": "master"
   },
@@ -28,5 +28,11 @@
     "title": "NOT ANOTHER WORD — Summary / Overview",
     "file": "summary.md",
     "category": "master"
+  },
+  {
+    "date": "2026-08-01",
+    "title": "Log 01 — One Hundred Programmers (short film v1.0 → v1.1)",
+    "file": "log-01.md",
+    "category": "notes"
   }
 ]
