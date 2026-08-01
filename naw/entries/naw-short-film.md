@@ -12,11 +12,11 @@ BEEP. BEEP. BEEP.
 
 The clock strikes 3:00 PM.
 
-INT. BEDROOM - CONTINUOUS
+INT. MILES' APARTMENT - BEDROOM - CONTINUOUS
 
-A figure stirs in the unkept, unwashed bed. MILES GOODMAN (late 30s) rolls to meet the harbinger of the "morning." A hand stretches out lazily, missing its mark. One eye cocks, and with force, the alarm is silenced.
+A figure stirs in the unkempt, unwashed bed. MILES GOODMAN (late 30s) rolls to meet the harbinger of the "morning." A hand stretches out lazily, missing its mark. One eye cocks, and with force, the alarm is silenced.
 
-INT. KITCHEN - AFTERNOON
+INT. MILES' APARTMENT - KITCHEN - AFTERNOON
 
 Through an automatic stupor, the first thing he grabs is a bottle of Chivas Regal, cabinet closest to the fridge.
 
@@ -26,15 +26,15 @@ Orange caught by the light floods into the crystal glass — the one that was wa
 
 A chromatic radio, dials crusted black from overuse. A twist and a popular song snaps to the news.
 
-A worn wooden box on the windowsill. The jammed drawer is wrestled open: lighters of different shapes, an unmarked pack of cigarettes, loose tobacco. He settles on an old sailor's lighter, waxed rope coated with lamp oil.
+From a worn wooden box on the windowsill: an unmarked pack of cigarettes and an old sailor's lighter, waxed rope coated with lamp oil.
 
 He settles into his chair. Pulls a cigarette. FLICK.
 
 The cigarette crackles to the flame as he inhales. Any tension held in his body from the night before releases — a remedy only the first cigarette of the day provides.
 
-Raw beans into a grinder. A METALLIC GRIND holds the apartment in contempt. The kettle goes on the burner.
+Raw beans into a grinder, a METALLIC GRIND. The kettle goes on the burner.
 
-INT. LIVING ROOM - CONTINUOUS
+INT. MILES' APARTMENT - LIVING ROOM - CONTINUOUS
 
 On a silver tray on the coffee table: a wooden box shaped like a bearded dragon. The YUNNAN DRAGON.
 
@@ -46,7 +46,7 @@ He does what would naturally occur next.
 
 From the kitchen, a rising WHISTLE —
 
-EXT. PATIO - AFTERNOON
+EXT. MILES' APARTMENT - PATIO - AFTERNOON
 
 — and the kettle SCREAMS somewhere behind him. Miles, in his bathrobe, doesn't move. Early autumn sun. On the iron table: coffee, the Chivas, the tray, the cigarettes. The complete set.
 
@@ -62,7 +62,7 @@ Below, between the parked cars: the white van. DRAIN DISPOSAL. He registers it t
 
 He SNORTS a line. Sips his coffee without breaking focus.
 
-INT. BEDROOM - EVENING
+INT. MILES' APARTMENT - BEDROOM - EVENING
 
 Red-faced, soaking from the shower, Miles paces with a red cord phone, speaking at pace.
 
@@ -81,7 +81,7 @@ Never too early, McGarr. Never too early.
 He's pacing again, well out of range of the receiver.
 
 MILES (CONT'D)
-But in a one-man competition you'd have to compete in both of the arts — the shooting AND the golfing. I'm writing it up for the column tonight. I'm naming you and the Sheriff as founding consultants.
+I'm writing it up for the column tonight. You and the Sheriff are the founding consultants.
 
 MCGARR (V.O.)
 Can't hear you there, Miles... Miles?
@@ -103,18 +103,12 @@ Above the bar, a TV plays a talk show. The guest of honor is Miles — wasted, i
 HOST (ON TV)
 ... I'd heard writers weren't attractive folk, but c'mon, Miles, you're really leaning into it!
 
-MILES (ON TV)
-(mocking)
-Aw, Jim. I wore my best suit just for you.
-
-Studio laughter. At the bar, Miles watches himself with no expression at all.
+Studio laughter. On the TV, Miles laughs along, delighted. At the bar, Miles watches himself do it with no expression at all.
 
 A CHILD stands at his elbow. Pen and paper. Working up courage.
 
 CHILD
 Can I get your autograph please?
-
-Miles scans the room — a middle-aged man peering in on the interaction looks away too fast.
 
 MILES
 Hand me that pen and wad.
@@ -156,7 +150,7 @@ JOANSY
 We're not supposed to be expecting you.
 
 MILES
-... This about the door?
+... This about my tab?
 
 JOANSY
 More circumstantial than anything, really. I hear Allan's has a good Galway chowder. For those who have the time.
@@ -187,7 +181,7 @@ Anyway. Wanted you to know before those androids come in tonight for that interv
 
 He returns the receiver. Through the study window, the street below: the white van hasn't moved.
 
-INT. LIVING ROOM - NIGHT
+INT. MILES' APARTMENT - LIVING ROOM - NIGHT
 
 Amber Chivas swirls in the crystal glass. The sole lamp's bulb is stained black from cigarette smoke. On the tray, a small fresh pile from the Dragon. Miles' leg bounces. He checks the clock, then his watch, confirming the integrity of both timepieces.
 
@@ -302,7 +296,21 @@ Fuck is this. Some kind of cruel joke?
 STACEY
 It's tomorrow's paper.
 
-Her demeanor has changed. Upright. Rigid. The two Michaels are standing in front of the lights and camera. Then on either side of him.
+Her demeanor has changed. Upright. Rigid.
+
+Miles stands. Drops the paper on the chair like it's hot. Crosses for the door — quick, sober, ten feet from it.
+
+One of the Michaels is already there. Leaning against the frame. Not blocking it, exactly. Just there, the way furniture is there. The other Michael calmly coils a cable, watching neither of them.
+
+STACEY (CONT'D)
+(gently)
+Please sit, Miles.
+
+Miles looks at the door. At the man who is not blocking it. At his living room, rebuilt into a set around his chair.
+
+He could run. Somewhere under the Chartreuse he knows what that would make true.
+
+He sits back down. Straightens his jacket. A man deciding, for one more minute, that this is still an interview.
 
 MILES
 I — have you slipped me something?
@@ -331,7 +339,7 @@ Jesus Christ — the fuck are you — get the fuck off me — get the fuck out o
 He fades. His hand slackens on the newspaper. It slides to the carpet, open to page three — the grinning men, the fish, the smirk.
 
 MILES (V.O.)
-(pre-lap, from the boat, younger)
+(pre-lap; younger, sunlit — the voice of the photograph)
 Waste of film and a waste of fish.
 
 EXT. MILES' APARTMENT - STREET - DAWN
@@ -371,7 +379,9 @@ The door SLAMS. The van pulls away down the empty street.
 
 INT. MILES' APARTMENT - LIVING ROOM - MORNING
 
-Silence. The room, reset. Magazines in neat stacks. The ashtray, clean.
+Silence. The room, reset. Magazines in neat stacks. The ashtray, clean. The painting, straight.
+
+On the side table, the telephone sits square on its receiver. Somebody put it back.
 
 On top of the liquor cabinet, the crystal glass sits washed and waiting — for nobody.
 
