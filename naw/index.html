@@ -244,6 +244,7 @@ kbd {
     <div id="sidebar-foot">
       <a href="../investors-ip.html">← back to Working IP</a><br>
       <a href="NAW-Master-Script.pdf" download>Script PDF ↓</a><br>
+      <a href="NAW-Short-Film.pdf" download>Short film PDF ↓</a><br>
       <a href="NAW-Two-Pager.pdf" download>Two-pager PDF ↓</a><br>
       <a href="NAW-Readers-Report.pdf" download>Reader's report PDF ↓</a>
     </div>
@@ -259,7 +260,7 @@ kbd {
 </div>
 
 <script>
-const SCRIPT_FILE = 'script.md';
+const SCRIPT_FILES = ['script.md', 'naw-short-film.md'];
 const GROUP_ORDER = ['master', 'notes'];
 const GROUP_NAMES = { master: 'master script', notes: 'notes & revisions' };
 
@@ -415,15 +416,18 @@ async function open(idx) {
     if (!res.ok) throw new Error(res.status);
     const text = await res.text();
 
-    if (e.file === SCRIPT_FILE) {
+    if (SCRIPT_FILES.includes(e.file)) {
       contentEl.classList.add('page-mode');
       const pages = renderScreenplay(text);
       const sheets = pages.map(function (pg, n) {
         return '<div class="page"><div class="sp-body">' + pg + '</div><div class="page-num">' + (n + 1) + '.</div></div>';
       }).join('');
+      const tpNote = e.file === 'naw-short-film.md'
+        ? '<div class="tp-note">a short film — adapted from the pilot</div><div class="tp-note">based on the life of Hunter S. Thompson</div>'
+        : '<div class="tp-note">based on the life of Hunter S. Thompson</div>';
       reader.innerHTML =
         '<div class="page-wrap">' +
-        '<div class="page titlepage"><div class="titleblock"><div class="tp-t">Not Another Word</div><div class="tp-by">written by</div><div class="tp-who">Sacha Mitchell and Cairns Nolan</div><div class="tp-note">based on the life of Hunter S. Thompson</div></div></div>' +
+        '<div class="page titlepage"><div class="titleblock"><div class="tp-t">Not Another Word</div><div class="tp-by">written by</div><div class="tp-who">Sacha Mitchell and Cairns Nolan</div>' + tpNote + '</div></div>' +
         sheets + '</div>';
       contentEl.scrollTop = 0;
     fitPages();
