@@ -243,7 +243,8 @@ kbd {
     <div id="nav"></div>
     <div id="sidebar-foot">
       <a href="../investors-ip.html">← back to Working IP</a><br>
-      <a href="NOMAD-Master-Script.pdf" download>Script PDF ↓</a><br>
+      <a href="NOMAD-Master-Script.pdf" download>Script PDF (v3.3 locked) ↓</a><br>
+      <a href="NOMAD-v3.4-Master-Script.pdf" download>Script PDF (v3.4 draft) ↓</a><br>
       <a href="NOMAD-Two-Pager.pdf" download>Two-pager PDF ↓</a><br>
       <a href="NOMAD-Readers-Report.pdf" download>Reader's report PDF ↓</a>
     </div>
@@ -259,7 +260,7 @@ kbd {
 </div>
 
 <script>
-const SCRIPT_FILE = 'script.md';
+const SCRIPT_FILES = ['script.md', 'script-v3-4.md'];
 const GROUP_ORDER = ['master', 'notes'];
 const GROUP_NAMES = { master: 'master script', notes: 'notes & revisions' };
 
@@ -416,7 +417,7 @@ async function open(idx) {
     if (!res.ok) throw new Error(res.status);
     const text = await res.text();
 
-    if (e.file === SCRIPT_FILE) {
+    if (SCRIPT_FILES.includes(e.file)) {
       contentEl.classList.add('page-mode');
       const pages = renderScreenplay(text);
       const sheets = pages.map(function (pg, n) {
