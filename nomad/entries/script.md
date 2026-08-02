@@ -1,6 +1,6 @@
 # NOMAD — MASTER SCRIPT
 
-**v3.5 — working master · the logic pass · Blue Sheep Films**
+**v3.6 — working master · the plot build · Blue Sheep Films**
 
 ---
 
@@ -19,8 +19,6 @@ EXT. OFFICE TOWER, TORONTO - MORNING - ONE SHOT
 A blizzard, horizontal. Grey on grey on grey. One figure — WILL (late 20s), hood up, head down — crosses a parking lot the wind is actively repossessing, hauls open a lobby door against the storm, and is swallowed by a building the exact colour of the sky.
 
 Classic GTA January. Enough winter to kill the spirit of even the most Canadian kid.
-
-TITLE: ONE YEAR EARLIER... wouldn't matter. It's always this.
 
 INT. OFFICE SPACE - DEAD SALES DEPARTMENT - NIGHT
 
@@ -107,7 +105,7 @@ CAIRNS (CONT'D)
 Prove it's you.
 
 WILL
-You've spelled my name wrong on my cubicle for four years and never once fixed it.
+Nine years your cubicle's had your name spelled wrong, and you never once put in the ticket. You said the typo had seniority.
 
 CAIRNS
 Verified.
@@ -264,7 +262,7 @@ Will clicks. A streak counter climbs.
 
 A face, machine-verified 98% REAL. Will stops. Replays three seconds — the man is asked about his childhood; his eyes go nowhere.
 
-Will overrides: SYNTHETIC. The system concedes. His streak resets to zero. No one looks up.
+Will overrides: SYNTHETIC. The system concedes. The case file stamps itself: RETAINED FOR REFERENCE. Where the flagged ones go. In nine years he has never once asked where that is. His streak resets to zero. No one looks up.
 
 On his monitor: SYSTEM 99.1 / WILL 96.8 — TOP HUMAN PERFORMER.
 
@@ -610,9 +608,19 @@ Will looks back through the glass at the party. Everybody.
 WILL
 Yeah.
 
+INT. MEZCAL BAR, MEXICO CITY - NIGHT
+
+A good corner table, held for an hour. Two glasses, one poured. Will checks the door each time it opens.
+
+Cairns picked the place — "my guy's spot, you HAVE to." The guy behind the bar has never heard of Cairns.
+
+At forty minutes, the text arrives. Warm. Specific. It mentions the bar by name, apologizes for "the Oaxaca thing running long," swears next week, and lands one beat off — answering a version of tonight that Will didn't send.
+
+Will reads it twice. Types "you okay man?" Deletes it. Types "no worries." Sends that instead, and drinks both glasses, and it's fine. Everything down here is fine at volume.
+
 EXT. MEXICO CITY - STREET - MORNING
 
-Will, coffee in hand, walks a block he is starting to think of as his.
+Will, coffee in hand, hungover in a mild, imported way, walks a block he is starting to think of as his.
 
 He passes two locals mid-conversation, subtitled for us — about the building on the corner that emptied inside a month. Eleven apartments, bought in a currency nobody here gets paid in. Nobody knows where the fourth floor went. The new ones are never home.
 
@@ -646,7 +654,17 @@ Half a block on, stopped in the middle of the sidewalk, Will types: "saw a guy t
 
 The reply lands before he finishes typing it. Warm. Instant. "hahaha wild. OAXACA IS INSANE btw. next week for SURE."
 
-He looks back down the block. The curb is out of sight from here. That is where his feet keep him.
+He looks back down the block. The curb is out of sight from here. His feet keep it that way.
+
+INT. WILL'S APARTMENT, MEXICO CITY - DUSK
+
+Will, at the counter, replies to Michelle's welcome thread. Subject: MY FRIEND. He types it plainly — his friend came down two years ago, something's wrong, how does the three-month thing work, the probationary thing. How does somebody come home.
+
+The reply lands in ninety seconds. Warm. Exclamation points. It answers none of it. There is a scheduling link, and the link opens a calendar with no available times, and under that, looping, delighted forever, the GIF of Michelle shaking a hand that isn't there.
+
+He stares at the no-available-times for a long moment.
+
+The elevator, a year ago: "You hate it, you come home." Nobody ever asked who wrote that rule, or where the door was.
 
 INT. WILL'S APARTMENT, MEXICO CITY - NIGHT
 
@@ -661,11 +679,11 @@ WILL
 Prove it's you.
 
 CAIRNS
-You spelled your own name wrong on your cubicle for four years and never fixed it.
+Nine years my cubicle had my name spelled wrong and I never put in the ticket. The typo had seniority.
 
 Correct. Instant. Word for word — from a video shot on a dead desk at 2 AM by a phone nobody was watching. It has all of it.
 
-Except: the real Cairns told that story wrong every single time. Made it Will's cubicle, then John's, argued about it, got it beautifully, reliably wrong. The thing on the screen just got it right.
+Except: the real Cairns never told it clean. Every retelling the years changed — nine, then ten, then "a decade of disrespect." The story grew. That was the point of the story. The thing on the screen just played the original take.
 
 Same laugh, 0.4 off. It slides back into the sell without a seam.
 
