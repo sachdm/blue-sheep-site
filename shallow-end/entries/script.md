@@ -89,6 +89,14 @@ Callum, waist-deep in his clothes, looks at him for a long beat. The streetlight
 CALLUM
 I know. I taught them.
 
+KAI
+So you got fired and I got a letter. Cool system.
+
+CALLUM
+Realigned. We got realigned.
+
+Kai spits pool water over the gutter, twelve years old and completely unimpressed with the English language.
+
 EXT. PUBLIC POOL - NIGHT - DAYS LATER
 
 The gate. Callum's hand clips the padlock — but doesn't push it home. It hangs there, looking locked, being open.
@@ -107,7 +115,33 @@ The pool after hours, lights off, water like poured glass.
 
 - Callum doing his chemical readings by phone-light while Kai swims widths behind him. The logbook's INCIDENTS column, night after night: 0. 0. 0.
 
-They don't talk much. It isn't that kind of thing. It's the other kind.
+One night, treading beside him in the deep end's black:
+
+KAI
+Who taught you?
+
+CALLUM
+Nobody.
+
+KAI
+Like me.
+
+CALLUM
+No. Not like you.
+(beat)
+I climbed a fence like you. Nobody was sitting in the dark watching. I got to the middle and the middle got to me. Some guy walking his dog heard the splash.
+(beat)
+I've been on that chair since I was sixteen. People think I never left. I never stopped checking.
+
+Kai treads water and takes this in the way kids take in the true things — no face at all, filing it forever.
+
+KAI
+So the pool almost got you, and you guard it.
+
+CALLUM
+Somebody should.
+
+They don't talk much after that. It isn't that kind of thing. It's the other kind.
 
 EXT. PUBLIC POOL - DAY
 
@@ -236,10 +270,29 @@ taught one kid to swim.
 
 He closes the book and leaves it chained to the chair — for the fill crew, for the gravel, for nobody.
 
-At the gate he stops. Takes the whistle off his neck, hangs it on the chain-link, through the diamond next to the laminated notice — right over "where are we supposed to go."
+At the gate he stops.
 
-He doesn't look back at the water. Then he does.
+On the other side of the chain-link: KAI. Hood up, school bag on, come to watch it die. Neither of them says anything. The fill trucks idle somewhere behind the fence like weather.
+
+Callum takes the whistle off his neck. Threads it through the diamond of the chain-link, right over "where are we supposed to go" — and lets it go on Kai's side.
+
+Kai puts it on. It hangs to his stomach. He'll grow into it. That's the whole plan, actually.
+
+KAI
+Deep end's still got water.
+
+CALLUM
+For about an hour.
+
+KAI
+So?
+
+Callum looks at the gate. At the padlock in his hand, looking locked, being open. Sixteen years of rules, and one hour of water.
+
+He pushes the gate wide.
 
 CUT TO BLACK.
+
+Over black: two splashes. A beat apart.
 
 THE END
