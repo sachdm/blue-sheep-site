@@ -1,87 +1,114 @@
-# NOMAD — Production Package (working)
+# NOMAD — Production Package / Budget Top Sheet
 
-**Working document, 1 Aug 2026. Priced against v3.4 working draft (33 pages, est. 26–30 min). All figures CAD, Toronto-based, pre-quote estimates. NOMAD is a long short — it prices like a small feature's first act, not like a weekend film.**
+**Prepared 1 Aug 2026 against v3.4 working master. Estimate only — no vendor quotes attached. All figures CAD.**
 
 ---
 
-## The shape of the shoot
+## Header
 
-Two worlds, and the budget splits the same way:
+- Format: long short · true length 21 pp ≈ 19–21 min (site/PDF shows 33 pp at scene-per-page — do not budget off that number)
+- Shoot: 10 days — Toronto 7 + Mexico City 3 (hybrid Option C) · single unit + MX mini-unit
+- Union status: non-union crew / ACTRA TIP performers (assumed); CDMX local crew via fixer
+- Prepared at: Tier 2 — tier deltas at bottom
 
-**World 1 — The office (Toronto).** The dead sales floor with the mini-putt course, conference room, elevator bank, Will's desk. One empty commercial floor gets you five sets. This is the cheapest big-looking thing in the script — vacant office space is Toronto's most available location, and the emptiness is the point.
+## Budget top sheet
 
-**World 2 — Mexico City.** Apartment viewing, market, rooftop mixer, the street/curb scene, Cairns' monolithic building, lobby, render farm, verification room. This is the budget question. Three ways to answer it:
+### ABOVE THE LINE
 
-- **Option A — MX mini-unit (recommended):** 4 days in CDMX with a local fixer/line producer, skeleton Canadian creative (director, DP, lead) + local crew and casting. Real streets, real market, real subtitled locals. The curb scene needs to be real.
-- **Option B — Toronto doubles everything:** Kensington/College doubling + plates + grading. Saves ~$20k, risks the film's central texture (a story about synthetic places should not feel like one — or maybe that's the joke; it's a creative call, not just a financial one).
-- **Option C — Hybrid:** MX plates + street unit only (2 days, tiny), all interiors (apartment, render farm, verification room) in Toronto. Priced below as the recommended baseline.
+- 1100 · Story & rights — deferred
+- 1200 · Producer — deferred
+- 1300 · Director — deferred
+- 1400 · Cast, incl. fringes (3 leads, support, CDMX locals, Robot Boss face ½d studio) — 14,500
 
-**Schedule: 11 shoot days total.**
+**ATL TOTAL — 14,500**
 
-- Toronto block, 7 days: office floor (3), Will's apartment + storefront + car (2), render farm / verification room / lobby interiors (2 — one industrial location can host all three).
-- CDMX block, 4 days: apartment, market, street/curb, rooftops, building exteriors.
+### PRODUCTION
 
-## Cast
+- 2000 · Production staff (PM, 1st AD, coord, PAs) — 9,500
+- 2100 · Extra talent (office bodies, mixer, market) — 2,800
+- 2200 · Art dept / set builds (mini-putt course, verification room, render farm dressing) — 8,500
+- 2400 · Props (welcome-folder brand package, putters + taped grip, photo, collar tags) — 1,800
+- 2500 · Wardrobe — 1,600
+- 2600 · Hair & makeup (incl. gaunt Cairns) — 1,800
+- 2700 · Grip & electric — 7,200
+- 2800 · Camera (package + labour, both blocks) — 9,000
+- 2900 · Sound (both blocks) — 4,200
+- 3000 · Transportation — 3,200
+- 3100 · Locations & permits (office floor 2 wks, apartment, industrial int., pool ½d) — 12,000
+- 3300 · Catering & craft (10d) — 6,200
+- 3400 · CDMX unit (fixer/LP, local crew ×3d, local permits, casting) — 18,000
+- 3500 · Travel & accommodation (3 Canadian travellers) — 6,500
 
-Will (lead, every day), Cairns, John — the triangle carries the film and all three need to be genuinely good. Then: Robot Boss face (one studio half-day), Boss (V.O.), Girls x2 (pool scene), Agent, Coordinator, locals (CDMX cast), operator, attendant, security, mixer partygoers. The poolside scenes are likeness scenes — they double as VFX plates (below).
+**PRODUCTION TOTAL — 92,300**
 
-## The VFX/screens reality (the other budget engine)
+### POST
 
-NOMAD is a screens film: the Robot Boss monitor, verification UI, waveform forensics, the welcome ad, likeness-on-likeness calls, render-farm monitors. Two rules keep this affordable:
+- 4000 · Editorial (5 wks) — 5,500
+- 4100 · Music / composer — 2,500
+- 4200 · Post sound & mix — 3,500
+- 4300 · Colour & finishing — 3,000
+- 4400 · Screens: UI design package + ~30 comp shots / retimes — 14,000
+- 4500 · Subtitling (Spanish dialogue, proper) — 800
 
-- **Playback on set wherever possible** (design the UI before the shoot; a motion designer for 3 weeks beats a comp artist for 3 months).
-- **The likeness imperfections are performance, not VFX** — the 0.4 lag, the wrong handshake move, the water that moves not-quite-right are actor timing plus subtle retime/comp, not deepfake builds. Budget assumes ~30 modest comp shots + full UI design package, not generative pipelines.
+**POST TOTAL — 29,300**
 
-## Production challenges (the honest list)
+### OTHER
 
-- The mini-putt office floor needs a landlord who'll let you build a golf course on it. Vacancy is leverage; ask for two weeks (prelight + shoot + strike).
-- Pool location for the Cairns poolside frames — one half-day, shot like an ad, because in the story it is one.
-- CDMX unit: fixer, permits, subtitled local casting — the two-locals scene and the curb scene are the moral core; cast them beautifully.
-- Spanish-language dialogue: translator + on-set language consultant, and real subtitling in post (not burned afterthoughts).
-- The verification room is a build-light set: lockers, a chair, a rig — one wall of design does it.
+- 5000 · Insurance (incl. foreign-unit rider) — 4,200
+- 5100 · Legal & clearances — 1,800
+- 5200 · Office / admin / payroll — 1,500
+- 5300 · Deliverables (DCP, versions, stills, trailer) — 1,800
+- 5400 · Festival round 1 — 1,500
 
-## Budget — three tiers
+**OTHER TOTAL — 10,800**
 
-### Tier 1 — Scrappy (Toronto-only, Option B, non-union): $68,000
+### TOTALS
 
-- Cast — $8,000
-- Crew (12 heads × 9 days) — $22,000
-- Art / props / set builds (mini-putt, verification room, signage) — $7,000
-- Locations (office floor deal, apartment, industrial interior) — $6,000
-- Camera / lighting / grip — $7,000
-- Sound — $3,000
-- Screens/UI design + comp (student/emerging motion designer) — $5,000
-- Catering / transport — $4,000
-- Insurance / permits — $3,000
-- Post (edit, colour, mix, composer) — $8,000
-- Deliverables + festivals — $2,000
-- Contingency — included in round-up → **~$75,000 realistic**
+- Direct costs — 146,900
+- Contingency (10%) — 14,690
+- **GRAND TOTAL — 161,590**
 
-### Tier 2 — Standard (Option C hybrid, TIP rates): $158,000  ← recommended
+## Tier deltas
 
-- Cast (three strong leads, TIP; CDMX local casting) — $16,000
-- Crew — Toronto block (16 heads × 7 days) — $38,000
-- CDMX unit (fixer/LP, local crew 4 days, 3 Canadian travellers) — $24,000
-- Travel / accommodation / carnets — $8,000
-- Art / props / builds (mini-putt course, verification room, render farm dressing, welcome folder/brand package) — $12,000
-- Locations (office floor 2 weeks, apartment, industrial, pool half-day) — $13,000
-- Camera / lighting / grip (both blocks) — $13,000
-- Sound (both blocks) — $5,000
-- Screens/UI design package + ~30 comp shots + retimes — $16,000
-- Catering / transport — $8,000
-- Insurance / permits / payroll / legal — $6,000
-- Post (editor 6 wks, colour, full mix, composer, subtitling) — $14,000
-- Deliverables (DCP, versions, stills, trailer) — $3,000
-- Contingency (10%) — $15,000 → **~$191,000 all-in ceiling; $158k is the disciplined version with deferred ATL**
+- Tier 1 (Toronto doubles everything, Kensington + plates, no MX unit) — approx. 70,000–78,000
+- Tier 3 (full ACTRA, full 4–5 day MX block, VFX vendor for likeness work, publicist) — approx. 280,000–340,000
 
-### Tier 3 — Full package (union, full MX unit Option A, VFX polish): $280,000–$340,000
+## Schedule (one-line strips)
 
-ACTRA leads with offers, full CDMX block, post-house colour/mix, a proper VFX vendor for the likeness work, festival publicist and premiere strategy. This is the version you make if a partner comes aboard off the v3.3/v3.4 package.
+TORONTO BLOCK
 
-## Financing shape
+- Day 1–3 — INT office floor: dead sales dept / mini-putt / conference / elevator / Will's desk — 6.5 pp (build course during prelight week)
+- Day 4 — INT Will's apartment (TO) — 2.5 pp
+- Day 5 — INT storefront + INT car + EXT pool ½ day (likeness plates, shot like an ad) — 1.8 pp
+- Day 6 — INT render farm + lobby (one industrial location hosts both) — 2.2 pp
+- Day 7 — INT verification room + dead-floor finale intercut — 2.4 pp
 
-At 26–30 minutes NOMAD is festival-awkward and market-interesting: too long for most shorts programs, exactly right as a proof-of-concept for a feature or limited series. Finance it like that: Telefilm/CMF talent programs and arts-council media grants for the base, a private slate investor for the CDMX block, and the investors-ip page as the pitch surface it already is. The Working IP framing is the asset — the short is R&D the buyer watches.
+CDMX BLOCK
 
-## Next steps
+- Day 8 — INT apartment MX + EXT rooftop mixer — 2.0 pp
+- Day 9 — EXT market + EXT street/curb (the moral core; cast the locals beautifully) — 2.0 pp
+- Day 10 — EXT Cairns' building + rooftop call frames + city plates — 1.6 pp
 
-Decide World 2 (A/B/C — this is the whole budget) → office floor scout while vacancy is high → UI/motion designer aboard before the shoot, not after → three leads → vendor quotes to lock Tier 2.
+## Cast day-out-of-days (workdays)
+
+- WILL — 10 (every day, both blocks — schedule risk lives here)
+- JOHN — 4 (D1–3, D7) · CAIRNS — 3 (D5 pool, D9 curb, D10 frames)
+- ROBOT BOSS face — ½ studio day · GIRLS ×2 — 1 (D5) · AGENT / COORDINATOR — 1 each
+- CDMX locals (two-locals scene, operator, attendant, security) — local casting, 1–2 each
+
+## Locations
+
+- Vacant office floor — the anchor; ask for 2 weeks (prelight + shoot + strike), vacancy is leverage
+- Will's TO apartment · Service storefront (strip-mall unit) · industrial interior (render farm + lobby + verification)
+- Pool (½ day) · CDMX: apartment, market, street, rooftop ×2, monolith exterior
+
+## Assumptions & exclusions
+
+- The screens are the second budget engine: UI designed BEFORE the shoot, playback on set; likeness "wrongness" is performance + retime, not generative VFX.
+- 0.4-lag / handshake beats rehearsed — no post fix budgeted for timing.
+- Excludes: reshoots, publicist, EPK, audit, weather days (MX block has no cover sets — flag).
+- No tax-credit assumption. Financing shape: 19–21 min is festival-awkward, market-interesting — package as proof-of-concept for the feature/series on the investors-ip page.
+
+## To convert estimate → budget
+
+World-2 decision first (it IS the budget) → office-floor scout → UI/motion designer attached pre-shoot → three leads → vendor quotes (camera, post+comp, insurance w/ foreign rider).
