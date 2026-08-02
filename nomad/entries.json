@@ -1,9 +1,15 @@
 [
   {
     "date": "2026-08-02",
-    "title": "NOMAD \u2014 MASTER SCRIPT (v3.5 \u2014 the logic pass)",
+    "title": "NOMAD \u2014 MASTER SCRIPT (v3.6 \u2014 plot build)",
     "file": "script.md",
     "category": "master"
+  },
+  {
+    "date": "2026-08-02",
+    "title": "NOMAD \u2014 Log 11 \u00b7 One Hundred Critiques (v3.5 \u2192 v3.6)",
+    "file": "log-11.md",
+    "category": "notes"
   },
   {
     "date": "2026-08-02",
