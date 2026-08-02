@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NOMAD — Production Package · Blue Sheep</title><style>
+:root{--bg:#0c0f0d;--bg2:#10140f;--fg:#c8e6c9;--green:#4ade80;--dim:#5b7360;--amber:#fbbf24;--cyan:#67e8f9;--red:#f87171;--line:#1e2a20;--hover:#1a221c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:"SF Mono",Menlo,Monaco,monospace;font-size:14px;line-height:1.55;padding:26px 20px 12vh}
+.wrap{max-width:980px;margin:0 auto}
+h1{color:var(--green);font-size:22px;letter-spacing:2px}
+.sub{color:var(--dim);font-size:12px;margin:4px 0 18px}
+.sub a{color:var(--cyan);text-decoration:none}
+h2{color:var(--amber);font-size:12px;letter-spacing:2px;text-transform:uppercase;margin:26px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+th{color:var(--dim);text-align:left;font-weight:normal;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-bottom:1px solid var(--line)}
+td{padding:7px 10px;border-bottom:1px dashed var(--line);vertical-align:top}
+tr:hover td{background:var(--hover)}
+.num{text-align:right;white-space:nowrap;color:var(--fg)}
+.tot td{border-top:1px solid var(--line);border-bottom:none;color:var(--green);font-weight:bold}
+.chip{display:inline-block;font-size:10px;letter-spacing:1.5px;padding:1px 8px;border-radius:3px;border:1px solid var(--cyan);color:var(--cyan)}
+.chip.go{border-color:var(--green);color:var(--green)}
+.chip.warn{border-color:var(--red);color:var(--red)}
+.chip.amber{border-color:var(--amber);color:var(--amber)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:6px;background:var(--bg2);padding:12px 14px}
+.card b{color:var(--fg);font-weight:normal}
+.card .k{color:var(--dim);font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.big{font-size:20px;color:var(--green)}
+.note{color:var(--dim);font-size:12px;margin:6px 0}
+.flag{border-left:3px solid var(--red);padding:8px 12px;background:var(--bg2);margin:8px 0;font-size:13px}
+.ok{color:var(--green)} .todo{color:var(--dim)}
+ul{list-style:none} li{padding:2px 0;font-size:13px}
+li.c::before{content:"[ ] ";color:var(--dim)} li.x::before{content:"[x] ";color:var(--green)}
+</style></head><body><div class="wrap">
+<h1>NOMAD — PRODUCTION PACKAGE</h1>
+<div class="sub">budget top sheet v2 · grant-tailored · CAD · Toronto · non-union / ACTRA TIP · <a href="index.html">← project</a> · <a href="../pipeline/">dev pipeline</a></div>
+
+<div class="grid">
+<div class="card"><div class="k">script</div><b>v3.6 working master</b><div class="note">26 pp ≈ 24 min · true flow pages</div></div>
+<div class="card"><div class="k">grant-scoped build</div><div class="big">$118,400</div><div class="note">Toronto ×10 days · doubles for CDMX · clears OAC's $125k cap</div></div>
+<div class="card"><div class="k">full build (private/partner route)</div><div class="big">$161,590</div><div class="note">TO 7d + CDMX 3d · <span class="chip warn">INELIGIBLE AT OAC</span> — over budget cap</div></div>
+<div class="card"><div class="k">strategy</div><b>OAC (Oct 8) + Canada Council</b><div class="note">original IP, director-held copyright · <span class="chip amber">NO TAX CREDITS on OAC route</span></div></div>
+</div>
+<h2>Top sheet — grant-scoped build</h2>
+<table><tr><th>Acct</th><th>Line</th><th class="num">CAD</th></tr>
+<tr><td>1100–1400</td><td>Above the line (story · producer · director)</td><td class="num">8,400</td></tr>
+<tr><td>2000</td><td>Cast</td><td class="num">14,000</td></tr>
+<tr><td>2500</td><td>Crew</td><td class="num">32,000</td></tr>
+<tr><td>3000</td><td>Locations (office floor · apartments · lot · rooftop)</td><td class="num">8,000</td></tr>
+<tr><td>3500</td><td>Camera / G&amp;E</td><td class="num">10,500</td></tr>
+<tr><td>3700</td><td>Sound</td><td class="num">5,000</td></tr>
+<tr><td>3900</td><td>Art / props / wardrobe</td><td class="num">5,500</td></tr>
+<tr><td>4100</td><td>Transport / meals</td><td class="num">6,600</td></tr>
+<tr><td>4400</td><td>Screens / UI design (pre-shoot — this IS the film)</td><td class="num">14,000</td></tr>
+<tr><td>4500–4900</td><td>Post (edit · colour/mix · music)</td><td class="num">9,500</td></tr>
+<tr><td>5100–5400</td><td>Insurance / legal / festival</td><td class="num">4,150</td></tr>
+<tr class="tot"><td></td><td>Subtotal $107,650 · +10% contingency</td><td class="num">$118,415</td></tr></table>
+<div class="note">Scope delta vs full build: CDMX travel/locations out (−$28k) · rooftop/pool as Toronto locations + plates (−$9k) · schedule compression (−$6k).</div>
+<h2>Timeline if it hits</h2>
+<table><tr><th>Date</th><th>Beat</th></tr>
+<tr><td>Oct 8, 2026</td><td>OAC application in (Emerging · Narrative panel · ask $10k)</td></tr>
+<tr><td>≈ Feb 2027</td><td>Results — activity CANNOT start before this (hard rule)</td></tr>
+<tr><td>Spring 2027</td><td>Pre-pro · casting (Will / Cairns / John) · office-floor scout</td></tr>
+<tr><td>Early summer 2027</td><td>Shoot — 10 days</td></tr></table>
+<div class="flag">Decision gate before signing anything: $10k OAC grant vs. projected tax credits on a $118k spend. If credits win, NOMAD goes Canada-Council-only and NAW inherits the Oct 8 OAC slot.</div>
+<h2>Grant window · Aug 2026 → Jan 2027 · Ontario</h2>
+<table><tr><th>Program</th><th>Deadline</th><th>Max</th><th>Results</th><th>This project</th></tr>
+<tr><td>OAC — Media Artists Creation Projects (Emerging)</td><td>Oct 8, 2026 · 1 p.m. ET</td><td class="num">$10,000</td><td>≈ late Feb 2027</td><td><span class="chip go">PRIMARY — ask $10k</span></td></tr>
+<tr><td>TAC — Media Artists Program: Creation</td><td>Oct 15, 2026</td><td class="num">$15,000</td><td>≈ 3 months</td><td>not this project (slot held by NAW)</td></tr>
+<tr><td>Canada Council — Explore &amp; Create</td><td>confirm on portal</td><td class="num">$25–60k</td><td>varies</td><td><span class="chip">SECOND APPLICATION — Concept to Realization</span></td></tr>
+<tr><td>NFB — Filmmakers Assistance Program</td><td>rolling</td><td class="num">small</td><td>—</td><td>queue for post</td></tr></table>
+<div class="note">Hard rules that shaped the split: one application per director per council deadline · OAC bars tax-credit projects and caps total budgets at $125k (Emerging) · TAC allows one Discipline grant per calendar year, no retroactive funding · grants stack across councils.</div>
+<h2>Do now — August</h2>
+<ul><li class="c">Nova profile (OAC) + TAC Grants Online + Canada Council portal validation (takes weeks)</li>
+<li class="c">Artist statement + filmography locked</li><li class="c">2–3 min support reel per project</li>
+<li class="c">Letters of agreement — key collaborators</li></ul>
+<div class="note" style="margin-top:26px">Deadlines verified Aug 2, 2026 against OAC + TAC program pages. Confirm in Nova / TAC Grants Online before submitting — councils reserve the right to change dates when programs open.</div>
+</div></body></html>
