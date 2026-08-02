@@ -1,108 +1,40 @@
-# NOT ANOTHER WORD — Production Package / Budget Top Sheet
+# NOT ANOTHER WORD (SHORT) — PRODUCTION PACKAGE
 
-**Prepared 1 Aug 2026 against short film v1.3. Estimate only — no vendor quotes attached. All figures CAD.**
+**STATUS · budget top sheet v2 · grant-tailored · CAD · Toronto · non-union / ACTRA TIP assumptions**
+
+Script: **v1.3 working · 12 pp ≈ 12 min** · Tier 2 total **$56,430** · 4½ days · one apartment + patio + street
 
 ---
 
-## Header
+## GRANT MAP — WHERE NAW APPLIES
 
-- Format: short film · 12 pp · est. runtime 11–12 min
-- Shoot: 4 days + ½ day splits · Toronto · single unit
-- Union status: non-union crew / ACTRA TIP performers (assumed)
-- Prepared at: Tier 2 (paid crew, TIP) — tier deltas at bottom
+- **TAC Media Artists Program: Creation — Oct 15** · ask **$15,000** (program max) · NAW is the TAC horse: Toronto story, Toronto shoot, $56,430 total sits comfortably under TAC's $350k ceiling, and the ask is a meaningful 27% of the budget. Results ~3 months (late Dec/Jan) — the fastest money on the board.
+- **NOT OAC this cycle** — one application per artist per OAC deadline, and NOMAD takes that slot (original IP reads cleaner to a jury than a life-rights project). If the NOMAD tax-credit math flips the plan, NAW inherits the Oct 8 OAC slot — it fits every cap.
+- **Canada Council Explore & Create — Research and Creation** · ask up to $25k · viable second application; different council, no conflict.
+- **NFB FAP** · post-completion assistance, rolling · queue for the mix.
 
-## Budget top sheet
+## THE FLAG, BEFORE ANY SUBMISSION
 
-### ABOVE THE LINE
+**[!] Life-rights review — "based on the life of Hunter S. Thompson."** Councils require the applicant to hold copyright and the right to make the work. Counsel letter (or a retitle/defictionalization pass) BEFORE Oct 15 — a jury can't fund what the applicant can't warrant. Budget line exists in 5100.
 
-- 1100 · Story & rights — deferred (SEE LEGAL FLAG, acct 5100)
-- 1200 · Producer — deferred
-- 1300 · Director — deferred
-- 1400 · Cast, incl. fringes (1 lead × 5d, 6 day players, VO session) — 6,800
+## TIMELINE IF IT HITS
 
-**ATL TOTAL — 6,800**
+Oct 15 apply → late Dec/Jan results → no retroactive funding, so the shoot waits for the letter → late-winter 2027 shoot (interiors-heavy: weather-proof). TAC $15k + scrappy discipline covers a real Tier-1.5 version; full Tier 2 waits on CCA.
 
-### PRODUCTION
+## TOP SHEET (unchanged from v1 — $56,430 Tier 2)
 
-- 2000 · Production staff (PM, 1st AD, 2 PA) — 4,200
-- 2100 · Extra talent (pub ×15, window family/couple) — 900
-- 2200 · Art dept / set dressing (period apartment, pub) — 2,400
-- 2400 · Props (Yunnan Dragon build, van magnet signs ×2, rotary, crystal) — 1,600
-- 2500 · Wardrobe (tan suits ×2, robe, period) — 800
-- 2600 · Hair & makeup — 900
-- 2700 · Grip & electric — 3,200
-- 2800 · Camera (package + labour) — 4,800
-- 2900 · Sound (mixer + kit, 4.5d) — 2,000
-- 3000 · Transportation — 1,200
-- 3100 · Locations & permits (apartment 3d, pub buyout 1 night, street) — 5,200
-- 3200 · Picture vehicles (vespa rental, cube van) — 1,400
-- 3300 · Catering & craft (4.5d) — 2,600
+Accounts and schedule per top sheet v1 (4½ days, apartment + patio + street; HST life-rights flag in 5100). Grant-facing note: the ask lines (TAC $15k) map to 2500 Crew and 3700 Sound — the lines juries fund happily.
 
-**PRODUCTION TOTAL — 31,200**
+## GRANT STRATEGY — AUG 2026 → JAN 2027 · ONTARIO
 
-### POST
+**The window (verified Aug 2026):**
 
-- 4000 · Editorial (3 wks) — 3,000
-- 4100 · Music / composer — 1,200
-- 4200 · Post sound & mix — 1,800
-- 4300 · Colour & finishing — 1,500
-- 4400 · Titles / graphics — 400
+- **OAC — Media Artists Creation Projects** · deadline **Oct 8, 2026, 1 p.m. ET** · Emerging category max **$10,000** · total project budget must not exceed **$125,000** · results ~4.5 months (≈ late Feb 2027) · activity CANNOT start before results · projects seeking tax credits are INELIGIBLE · production/post only (no development) · director-applicant must hold copyright and creative control · ONE application per artist per deadline; collaborators cannot overlap across applications.
+- **TAC — Media Artists Program: Creation** · deadline **Oct 15, 2026** · max **$15,000** · results ~3 months (first notifications late Dec) · no retroactive funding · Toronto resident 1+ year · director is the only eligible applicant · ONE Discipline grant per calendar year, one open application at a time · same project cannot go to another TAC program.
+- **Canada Council — Explore and Create: Research and Creation** (up to $25k) / **Concept to Realization** (up to $60k) · portal profile validation takes weeks — create/validate NOW · confirm the next deadline on the portal (historically fall + spring cycles).
+- **NFB Filmmakers Assistance Program (FAP)** · small completion assistance, rolling · flag for post.
+- **In-kind (not grants, applies immediately):** camera/G&E house emerging-filmmaker programs (Sim/William F. White-type), post-house shorts discounts. Reduces the cash budget every juror sees.
 
-**POST TOTAL — 7,900**
+**Rules that shape the slate (both projects):** grants stack across OAC + TAC + CCA and multiple sources are encouraged — but each council takes ONE application from the same director this cycle. So the projects split: one to OAC, one to TAC, no overlap, no conflict.
 
-### OTHER
-
-- 5000 · Insurance (incl. smoking-on-set disclosure) — 1,800
-- 5100 · Legal — incl. life-rights review re: "based on the life of Hunter S. Thompson" — 1,200
-- 5200 · Office / admin / payroll — 500
-- 5300 · Deliverables (DCP, captions, stills) — 900
-- 5400 · Festival round 1 — 1,000
-
-**OTHER TOTAL — 5,400**
-
-### TOTALS
-
-- Direct costs — 51,300
-- Contingency (10%) — 5,130
-- **GRAND TOTAL — 56,430**
-
-## Tier deltas
-
-- Tier 1 (favours, deferred everything, skeleton 8) — approx. 24,000
-- Tier 3 (full ACTRA, 6th day, process trailer night, post house, publicist) — approx. 95,000–110,000
-
-## Schedule (one-line strips)
-
-- Day 1 — INT apartment: kitchen / living / bedroom / patio routine — 3.1 pp
-- Day 2 — INT apartment: bedroom McGarr call, study voicemail — 2.4 pp
-- Day 3 — INT living room: the interview, takedown, reset room — 3.6 pp (company move: none)
-- Day 4 — INT Asters Pub (NIGHT): TV playback, child actor, Joansy — 2.2 pp
-- Day 5 (½) — EXT splits: vespa run (dusk), van/gurney (dawn) — 0.9 pp
-
-Turnaround note: Day 4 night into Day 5 dawn is legal with the ½-day structure but tight — 1st AD to confirm.
-
-## Cast day-out-of-days (workdays)
-
-- MILES — 5 (all days)
-- STACEY — 1 (D3)
-- MICHAEL ×2 — 2 each (D3, D5 dawn)
-- JOANSY — 1 (D4) · CHILD — 1 (D4, minor: tutor/guardian, hours capped) · SHARI — 1 (D1)
-- VO (McGarr / Host / Newsman / Radio) — 1 studio session, post
-
-## Locations
-
-- Period apartment w/ patio + street view — 3 days + prelight (THE find; scout first)
-- Pub — 1 night buyout
-- Street ×2 (vespa run, van dawn) — permits, acct 3100
-
-## Assumptions & exclusions
-
-- Assumes ATL fully deferred; no overhead or producer fee inside the number.
-- Herbal cigarettes throughout; location + insurer clearance required before Day 1.
-- Excludes: festival publicist, EPK/BTS, reshoots, foreign versioning, audit.
-- No tax-credit assumption (short-form ineligible for practical purposes).
-- Financing note: package as slate development / proof-of-concept for the NAW pilot; arts-council media grants fit the profile.
-
-## To convert estimate → budget
-
-Three quotes: camera package, post bundle, insurance. Lock lead casting before the apartment scout dates.
+**Do now (Aug):** Nova profile (OAC) + TAC Grants Online + CCA portal validation · lock artist statement + filmography · cut a 2-3 min support reel per project · letters of agreement from key collaborators.
