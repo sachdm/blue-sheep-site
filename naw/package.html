@@ -41,6 +41,22 @@ li.c::before{content:"[ ] ";color:var(--dim)} li.x::before{content:"[x] ";color:
 .actbar{display:flex;gap:2px;margin:10px 0 4px}
 .actbar div{height:22px;font-size:10px;letter-spacing:1px;color:var(--bg);display:flex;align-items:center;justify-content:center}
 svg{display:block;max-width:100%;height:auto;margin:6px 0 2px}
+
+.ck{margin:6px 0 2px}
+.ck .row{display:flex;gap:10px;align-items:baseline;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:13px}
+.ck .row:hover{background:var(--hover)}
+.ck .row .b{color:var(--dim);font-family:monospace;white-space:nowrap}
+.ck .row.on .b{color:var(--green)}
+.ck .row.on .t{color:var(--dim);text-decoration:line-through}
+.ck .row .t{flex:1}
+.ck .row .w{color:var(--cyan);font-size:11px;white-space:nowrap}
+.ck .row.hard .t{color:var(--amber)}
+.ck .row.hard.on .t{color:var(--dim)}
+.ckhead{display:flex;align-items:baseline;gap:12px;margin:18px 0 2px}
+.ckhead .lbl{color:var(--amber);font-size:11px;letter-spacing:2px}
+.ckhead .pct{color:var(--dim);font-size:11px;margin-left:auto}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;margin:6px 0 4px}
+.bar i{display:block;height:100%;background:var(--green);width:0;transition:width .2s}
 </style></head><body><div class="wrap">
 <h1>NOT ANOTHER WORD — PRODUCTION PACKAGE</h1>
 <div class="sub">short film · production bible v3 · CAD · Toronto · non-union / ACTRA TIP · <a href="index.html">← project</a> · <a href="../pipeline/">dev pipeline</a></div>
@@ -51,7 +67,7 @@ svg{display:block;max-width:100%;height:auto;margin:6px 0 2px}
 <div class="card"><div class="k">strategy</div><b>TAC Oct 15 + Canada Council</b><div class="note">ask $15,000 — 28% of budget · fastest money on the slate</div></div>
 <div class="card"><div class="k">rights</div><b><span class="chip go">CLEAN</span></b><div class="note">original IP, director-held copyright, no third-party clearances</div></div>
 </div>
-<h2>Grant timeline — 2026</h2>
+<h2>Make it happen — checklist</h2><div class="note">Click to tick. Progress saves in this browser. <span id="cktotal" style="color:var(--green)"></span></div><div class="ckgroup"><div class="ckhead"><span class="lbl">THIS WEEK · Aug 3–9</span><span class="pct">0/4</span></div><div class="bar"><i></i></div><div class="ck"><div class="row hard"><span class="b">[ ]</span><span class="t">Canada Council portal account created and submitted for validation — takes weeks, blocks $25k</span><span class="w">admin</span></div><div class="row"><span class="b">[ ]</span><span class="t">TAC Grants Online account registered (tac.smartsimple.ca)</span><span class="w">admin</span></div><div class="row"><span class="b">[ ]</span><span class="t">Email Peter Kingstone, TAC program manager — one paragraph, confirm this is the right program</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Choose the support-reel material — one completed independent work</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">WEEK 2 · Aug 10–16 · assets</span><span class="pct">0/3</span></div><div class="bar"><i></i></div><div class="ck"><div class="row"><span class="b">[ ]</span><span class="t">Support reel cut — 2–3 min, one sustained sequence proving performance direction</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Artist statement written (500 words, reusable)</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Filmography one-pager</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">WEEK 3 · Aug 17–23 · lock</span><span class="pct">0/3</span></div><div class="bar"><i></i></div><div class="ck"><div class="row hard"><span class="b">[ ]</span><span class="t">Budget locked at $53,790 — no changes after this date</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Apartment conversation started — patio + street view, 5 days incl. prep</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Ask three people you know before calling a location service</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">WEEK 4 · Aug 24–30 · casting</span><span class="pct">0/2</span></div><div class="bar"><i></i></div><div class="ck"><div class="row"><span class="b">[ ]</span><span class="t">Miles breakdown posted (lead carries 90% of screen time)</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Letters of agreement drafted — DP and key cast</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">WEEKS 5–6 · Aug 31–Sep 13 · draft</span><span class="pct">0/2</span></div><div class="bar"><i></i></div><div class="ck"><div class="row"><span class="b">[ ]</span><span class="t">TAC answers written in a document (not in the portal)</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Auditions — two days; the recognition beat is the audition scene</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">WEEKS 7–9 · Sep 14–Oct 4 · assemble</span><span class="pct">0/4</span></div><div class="bar"><i></i></div><div class="ck"><div class="row"><span class="b">[ ]</span><span class="t">Application assembled in TAC Grants Online, support material uploaded early</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Two outside cold reads — is the film obvious in three sentences?</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">In-kind letters chased — camera house, post house</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">CCA Research &amp; Creation deadline confirmed and slotted</span><span class="w">admin</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">THE DATE</span><span class="pct">0/1</span></div><div class="bar"><i></i></div><div class="ck"><div class="row hard"><span class="b">[ ]</span><span class="t"><b>Oct 15 — TAC submitted.</b> Aim for Oct 14.</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">OCT → DEC · while waiting</span><span class="pct">0/4</span></div><div class="bar"><i></i></div><div class="ck"><div class="row"><span class="b">[ ]</span><span class="t">Apartment locked (deal memo held, not signed)</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Cast locked — held offers</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Crew on soft holds for a late-winter window</span><span class="w">you</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Zero spend — TAC does not fund retroactively</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">ON THE LETTER</span><span class="pct">0/2</span></div><div class="bar"><i></i></div><div class="ck"><div class="row"><span class="b">[ ]</span><span class="t">TAC yes → close any gap, shoot late winter (interiors, weather-proof)</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">TAC no → the application is written; next round reuses 80% of it</span><span class="w">you</span></div></div></div><h2>Grant timeline — 2026</h2>
 <svg viewBox="0 0 760 276" xmlns="http://www.w3.org/2000/svg"><line x1="170" y1="18" x2="170" y2="264" stroke="#1e2a20"/><text x="211" y="12" text-anchor="middle" fill="#5b7360" font-size="9" font-family="monospace">AUG</text><line x1="251" y1="18" x2="251" y2="264" stroke="#1e2a20"/><text x="292" y="12" text-anchor="middle" fill="#5b7360" font-size="9" font-family="monospace">SEP</text><line x1="333" y1="18" x2="333" y2="264" stroke="#1e2a20"/><text x="374" y="12" text-anchor="middle" fill="#5b7360" font-size="9" font-family="monospace">OCT</text><line x1="414" y1="18" x2="414" y2="264" stroke="#1e2a20"/><text x="455" y="12" text-anchor="middle" fill="#5b7360" font-size="9" font-family="monospace">NOV</text><line x1="496" y1="18" x2="496" y2="264" stroke="#1e2a20"/><text x="536" y="12" text-anchor="middle" fill="#5b7360" font-size="9" font-family="monospace">DEC</text><line x1="577" y1="18" x2="577" y2="264" stroke="#1e2a20"/><text x="618" y="12" text-anchor="middle" fill="#5b7360" font-size="9" font-family="monospace">JAN</text><line x1="659" y1="18" x2="659" y2="264" stroke="#1e2a20"/><text x="699" y="12" text-anchor="middle" fill="#5b7360" font-size="9" font-family="monospace">FEB</text><text x="162" y="33" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">TAC Grants Online profile</text><rect x="170" y="24" width="98" height="13" rx="2" fill="var(--cyan)" opacity="0.8"/><text x="162" y="55" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">CCA portal validation</text><rect x="170" y="46" width="147" height="13" rx="2" fill="var(--cyan)" opacity="0.8"/><text x="162" y="77" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">Statement · reel · filmography</text><rect x="194" y="68" width="163" height="13" rx="2" fill="var(--cyan)" opacity="0.8"/><text x="162" y="99" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">Budget lock ($53,790)</text><rect x="251" y="90" width="122" height="13" rx="2" fill="var(--green)" opacity="0.8"/><text x="162" y="121" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">TAC application build</text><rect x="317" y="112" width="49" height="13" rx="2" fill="var(--green)" opacity="0.8"/><text x="162" y="143" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">★ TAC DEADLINE — Oct 15</text><rect x="374" y="134" width="12" height="13" rx="2" fill="var(--amber)" opacity="0.8"/><text x="162" y="165" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">CCA Research &amp; Creation window</text><rect x="382" y="156" width="114" height="13" rx="2" fill="var(--green)" opacity="0.8"/><text x="162" y="187" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">Apartment scout + lock</text><rect x="414" y="178" width="122" height="13" rx="2" fill="var(--cyan)" opacity="0.8"/><text x="162" y="209" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">★ TAC RESULTS</text><rect x="512" y="200" width="49" height="13" rx="2" fill="var(--amber)" opacity="0.8"/><text x="162" y="231" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">Casting — Miles</text><rect x="536" y="222" width="122" height="13" rx="2" fill="var(--cyan)" opacity="0.8"/><text x="162" y="253" text-anchor="end" fill="#5b7360" font-size="10" font-family="monospace">Shoot window (interiors, weather-proof)</text><rect x="626" y="244" width="98" height="13" rx="2" fill="var(--green)" opacity="0.8"/></svg>
 <div class="note">★ = hard date. No rights gate on this project — the application can be built the week the portal opens.</div>
 <h2>Detailed budget — Tier 2 (30 accounts)</h2>
@@ -94,4 +110,38 @@ svg{display:block;max-width:100%;height:auto;margin:6px 0 2px}
 <li class="x">Excludes: distribution/P&amp;A beyond yr-1 festivals, archival footage licensing, agency fees</li></ul>
 
 <div class="note" style="margin-top:26px">Deadlines verified Aug 2, 2026 against council program pages. Confirm in TAC Grants Online before submitting.</div>
+
+<script>
+(function(){
+  var KEY = 'bs-ck-' + location.pathname;
+  var st = {};
+  try { st = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){}
+  var rows = [].slice.call(document.querySelectorAll('.ck .row'));
+  rows.forEach(function(r,i){
+    r.dataset.i = i;
+    if (st[i]) r.classList.add('on');
+    r.querySelector('.b').textContent = st[i] ? '[x]' : '[ ]';
+    r.addEventListener('click', function(){
+      var on = r.classList.toggle('on');
+      r.querySelector('.b').textContent = on ? '[x]' : '[ ]';
+      st[i] = on ? 1 : 0;
+      try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e){}
+      paint();
+    });
+  });
+  function paint(){
+    document.querySelectorAll('.ckgroup').forEach(function(g){
+      var rs = g.querySelectorAll('.row'), done = g.querySelectorAll('.row.on').length;
+      var pct = rs.length ? Math.round(done/rs.length*100) : 0;
+      var p = g.querySelector('.pct'), b = g.querySelector('.bar i');
+      if (p) p.textContent = done + '/' + rs.length;
+      if (b) b.style.width = pct + '%';
+    });
+    var all = rows.length, d = document.querySelectorAll('.ck .row.on').length;
+    var t = document.getElementById('cktotal');
+    if (t) t.textContent = d + ' of ' + all + ' done';
+  }
+  paint();
+})();
+</script>
 </div></body></html>
