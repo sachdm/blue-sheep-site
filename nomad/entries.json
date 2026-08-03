@@ -1,9 +1,15 @@
 [
   {
     "date": "2026-08-02",
-    "title": "NOMAD \u2014 MASTER SCRIPT (v3.7 \u2014 dialogue pass)",
+    "title": "NOMAD \u2014 MASTER SCRIPT (v4.0 \u2014 structure pass)",
     "file": "script.md",
     "category": "master"
+  },
+  {
+    "date": "2026-08-02",
+    "title": "NOMAD \u2014 Log 13 \u00b7 The Structure Pass (v3.7 \u2192 v4.0)",
+    "file": "log-13.md",
+    "category": "notes"
   },
   {
     "date": "2026-08-02",
@@ -81,6 +87,12 @@
     "date": "2026-08-01",
     "title": "Log 09 \u2014 The Producer's Margins (v3.3 \u2192 v3.4)",
     "file": "log-09.md",
+    "category": "notes"
+  },
+  {
+    "date": "2026-08-02",
+    "title": "NOMAD \u2014 Revision Archive (v3.3 \u2192 v4.0)",
+    "file": "archive.md",
     "category": "notes"
   }
 ]
