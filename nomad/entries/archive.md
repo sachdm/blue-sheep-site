@@ -13,7 +13,8 @@ The current master is **v4.0**. Everything below is closed history, kept for pro
 | v3.5 | **Mr Logic** — handshake device replaced with the verification game; Ted's clock legalized; CDMX agent cut; blizzard spine established | v3.6 |
 | v3.6 | **plot build** — mezcal bar, the Michelle wall, RETAINED FOR REFERENCE planted; rated 9.1 | v3.7 |
 | v3.7 | **dialogue pass** — 23 pages of margins; Cairns' lament, the protocol made playful, Lucía as slow burn, parents alive | v4.0 |
-| v4.0 | **structure pass** — the 3 AM confession, the pool-call verification, the tell rewired to Wonderland, good days compressed, John as chorus | *current master* |
+| v4.0 | **structure pass** — the 3 AM confession, the pool-call verification, the tell rewired to Wonderland, good days compressed, John as chorus | v4.1 |
+| v4.1 | **critique pass** — the ask made oblique, Will's want planted, the verification-chair climax, market compressed, render farm trimmed, Lucía's brother, the title earned | *current master · 9.1* |
 
 ## Logs
 
@@ -24,6 +25,7 @@ The current master is **v4.0**. Everything below is closed history, kept for pro
 - **Log 11** — One Hundred Critiques (v3.5 → v3.6)
 - **Log 12** — The Margins, Second Pass (v3.6 → v3.7)
 - **Log 13** — The Structure Pass (v3.7 → v4.0)
+- **Log 14** — The Critique Pass (v4.0 → v4.1)
 
 ## Still open — flagged, not fixed
 

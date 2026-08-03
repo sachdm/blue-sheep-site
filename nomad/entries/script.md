@@ -1,6 +1,6 @@
 # NOMAD — MASTER SCRIPT
 
-**v4.0 — working master · the structure pass · Blue Sheep Films**
+**v4.1 — working master · the critique pass · Blue Sheep Films**
 
 ---
 
@@ -228,16 +228,22 @@ WILL
 Verified.
 
 CAIRNS
-(quieter, the actual ask, and it goes past)
-You'd tell me. If I was — if it got weird down there. You'd be the one who could tell.
+(quieter, and it sounds like nothing)
+Hey — do the thing sometimes. Down there. Even on a call.
 
 WILL
-Tell you what?
-
-Cairns opens his mouth. Closes it. Waves it off — the gesture of a man deciding not to make a bigger deal out of something at 3 AM.
+Do what thing.
 
 CAIRNS
-Nothing. Ignore me. It's three in the morning and I'm about to be unemployed on purpose.
+The thing. Ask me.
+(a shrug, already embarrassed)
+It's stupid. I just like it.
+
+WILL
+You're going to be on a pool deck, man. You're not going to need a protocol.
+
+CAIRNS
+Yeah. No. Obviously.
 
 He gets up. Stacks the chairs he isn't required to stack.
 
@@ -280,7 +286,9 @@ INT. OFFICE SPACE - ELEVATOR BANK - CONTINUOUS
 Will and John flank Cairns, carrying nothing. Happy for him. A little jealous.
 
 CAIRNS
-One fee. And everything is covered. The visa. The apartment. The whole enchilada. You know what my rent is down there? A phone bill.
+One fee, everything covered. Visa, apartment, the whole enchilada. You know what they call it? The nomad package. Like I'm a guy with a camel.
+(loving it)
+You know what my rent is down there? A phone bill.
 (gesturing at the floor with the box)
 I did the math on my life, and the math said leave.
 
@@ -390,7 +398,11 @@ Will clicks. A streak counter climbs.
 
 A face, machine-verified 98% REAL. Will stops. Replays three seconds — the man is asked about his childhood; his eyes go nowhere.
 
-Will overrides: SYNTHETIC. The system concedes. The case file stamps itself: RETAINED FOR REFERENCE. Where the flagged ones go. In nine years he has never once asked where that is. His streak resets to zero. No one looks up.
+Will overrides: SYNTHETIC. The system concedes.
+
+And there it is — small, private, the size of a coin: he smiles. Nobody in the world knows he was right except the machine that just admitted it, and that is enough. It has been enough for nine years.
+
+The case file stamps itself: RETAINED FOR REFERENCE. Where the flagged ones go. He has never once asked where that is. His streak resets to zero. No one looks up.
 
 On his monitor: SYSTEM 99.1 / WILL 96.8 — TOP HUMAN PERFORMER.
 
@@ -710,9 +722,9 @@ He stands there like a man on a balcony in an ad — lord-of-all-this — and fo
 
 EXT. MEXICO CITY - DAY
 
-A market. Will haggles a vendor down over a bag of limes — forty pesos, nothing — and wins, and is delighted. Two stalls on, he overtips a man for a coffee by triple, and is delighted by that too.
+A market. Will haggles a vendor down over a bag of limes — forty pesos, nothing — and wins. Walks off delighted, and two stalls later hands a man triple for a coffee, and is delighted by that too, and does not notice these are the same delight.
 
-He orders at a counter in English. She answers in English. He tries the Spanish for thank you; she says it back to him, correctly. He doesn't hear the correction.
+He tries the Spanish for thank you. She says it back to him, correctly. He hears a compliment.
 
 He texts Cairns. The reply is warm, specific, flaky — "in Oaxaca for a thing, next week for SURE, I already told everyone you're here."
 
@@ -833,7 +845,9 @@ WILL
 Why won't I?
 
 LUCÍA
-Because Sunday's a long time to be somewhere that isn't for sale.
+My brother's in Berlin. Six years. Comes home every Christmas and tells us about the bakeries.
+(beat)
+He's very happy. He's never once stayed till Sunday.
 
 Somebody calls her name from a balcony below — in Spanish, a joke, a whole history in it — and she's gone, laughing, into a night Will is renting.
 
@@ -1028,10 +1042,6 @@ On another screen, a girl who doesn't exist is thrown laughing into it. A slider
 
 Along one wall, a rack of LOCATION PLATES — scanned, catalogued, resold. A rooftop. A string of bulbs. A city he was standing in last week.
 
-On a third screen: familiar faces, likenesses at work, attending standups.
-
-On a fourth, an outbound queue — hundreds of warm, exclamation-pointed emails going out at once. Every one of them signed MICHELLE.
-
 Across the room, an operator clocks him in a doorway reflection. Doesn't stand, doesn't call out. Just glances at a screen that has been tracking Will since the lobby, taps something in, and goes back to work.
 
 Will has perhaps four minutes. They were never his.
@@ -1040,9 +1050,9 @@ On one screen, mid-generation: WILL'S OWN welcome ad, refining. Him, poolside, s
 
 In the corner of it, a readout he has looked at every working day of his life: WILL 96.8. Beside it, the model's number. Higher.
 
-From the next row — WILL'S OWN LAUGH. The real one. He follows his own voice.
+And then the worst screen in the building — because he hears it first, from the next row: his own laugh. The real one.
 
-The worst screen in the building: CAIRNS' LIKENESS on a call with WILL'S LIKENESS. Poolside together. Their in-jokes. Version numbers in the corner.
+CAIRNS' LIKENESS on a call with WILL'S LIKENESS. Poolside together. Their in-jokes. Version numbers in the corner.
 
 Will slips out. Nobody stops him. Nobody has to.
 
@@ -1076,9 +1086,29 @@ Behind him, a wall of numbered lockers. Most are tagged. Some have been cleared 
 
 One tag is readable. A first name and a version number: CAIRNS · v6.
 
-An attendant peels a numbered tag from a sheet of them, clips it to Will's collar. Someone hands him a paper cup of water, the way you do at a clinic. He holds it. He doesn't drink it.
+An attendant peels a numbered tag from a sheet of them and reaches for Will's collar.
 
-A hand guides him, unhurried, toward a door — a specimen the model keeps until it doesn't. He doesn't fight it. He is waiting for the error to clear, because for nine years the errors have always cleared. On paper, he isn't here.
+And Will — who has not fought any of this, who has been waiting for the error to clear because for nine years the errors have always cleared — finds the only thing he has.
+
+WILL
+Ask me something.
+
+The attendant pauses, mildly.
+
+WILL (CONT'D)
+Ask me something only I'd know. I can prove it. Wonderland, grade twelve — my mother drove, and he was sick before the ride, which is worse, and she said "I know, sweetheart," like he wasn't in the car.
+
+Silence. It is a good story. It is a true story. It is the only true thing in the building.
+
+ATTENDANT
+(not unkind, and this is the whole film)
+I don't know who that is.
+
+Of course she doesn't. The only man alive who could verify Will has a version number on a locker eleven feet behind him.
+
+She clips the tag to his collar. Someone hands him a paper cup of water, the way you do at a clinic. He holds it. He doesn't drink it.
+
+A hand guides him toward a door — a specimen the model keeps until it doesn't. On paper, he isn't here.
 
 The DEAD SALES DEPARTMENT: John's laptop CHIMES. An incoming call.
 
