@@ -1,9 +1,15 @@
 [
   {
     "date": "2026-08-02",
-    "title": "NOMAD \u2014 MASTER SCRIPT (v4.0 \u2014 structure pass)",
+    "title": "NOMAD \u2014 MASTER SCRIPT (v4.1 \u2014 critique pass \u00b7 9.1)",
     "file": "script.md",
     "category": "master"
+  },
+  {
+    "date": "2026-08-02",
+    "title": "NOMAD \u2014 Log 14 \u00b7 The Critique Pass (v4.0 \u2192 v4.1)",
+    "file": "log-14.md",
+    "category": "notes"
   },
   {
     "date": "2026-08-02",
