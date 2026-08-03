@@ -1,9 +1,15 @@
 [
   {
     "date": "2026-08-02",
-    "title": "NOMAD \u2014 MASTER SCRIPT (v3.6 \u2014 plot build)",
+    "title": "NOMAD \u2014 MASTER SCRIPT (v3.7 \u2014 dialogue pass)",
     "file": "script.md",
     "category": "master"
+  },
+  {
+    "date": "2026-08-02",
+    "title": "NOMAD \u2014 Log 12 \u00b7 The Margins, Second Pass (v3.6 \u2192 v3.7)",
+    "file": "log-12.md",
+    "category": "notes"
   },
   {
     "date": "2026-08-02",
