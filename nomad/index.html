@@ -175,12 +175,14 @@ body:has(#content.page-mode)::after { display: none; }
   font-size: 15px; line-height: 15px; color: #111;
 }
 .sp-blank { height: 15px; }
-.page.titlepage { display: flex; align-items: center; justify-content: center; }
-.titleblock { text-align: center; }
-.titleblock .tp-t { text-transform: uppercase; letter-spacing: 3px; }
-.titleblock .tp-by { margin-top: 45px; }
-.titleblock .tp-who { margin-top: 45px; }
-.titleblock .tp-note { margin-top: 45px; color: #333; }
+.page.titlepage { position: relative; }
+.titleblock { text-align: center; padding-top: 195px; }
+.titleblock .tp-t { text-transform: uppercase; }
+.titleblock .tp-by { margin-top: 60px; }
+.titleblock .tp-who { margin-top: 30px; }
+.tp-foot { position: absolute; left: 135px; right: 90px; bottom: 108px;
+  display: flex; justify-content: space-between; }
+.tp-foot .r { text-align: right; }
 
 .sp-slug { text-transform: uppercase; font-weight: bold; margin: 0; }
 .sp-action { margin: 0; }
@@ -424,7 +426,11 @@ async function open(idx) {
       }).join('');
       reader.innerHTML =
         '<div class="page-wrap">' +
-        '<div class="page titlepage"><div class="titleblock"><div class="tp-t">Nomad</div><div class="tp-by">by</div><div class="tp-who">Sacha Mitchell</div><div class="tp-note">working draft v4</div></div></div>' +
+        '<div class="page titlepage">' +
+          '<div class="titleblock"><div class="tp-t">Nomad</div><div class="tp-by">written by</div><div class="tp-who">Sacha Mitchell</div></div>' +
+          '<div class="tp-foot"><div>Working draft v4<br>2 August 2026</div>' +
+          '<div class="r">Blue Sheep Films<br>Toronto, ON<br>sacha@bluesheepfilms.com</div></div>' +
+        '</div>' +
         sheets + '</div>';
       contentEl.scrollTop = 0;
     fitPages();
