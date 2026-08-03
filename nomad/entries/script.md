@@ -1,6 +1,6 @@
 # NOMAD — MASTER SCRIPT
 
-**v3.7 — working master · the dialogue pass · Blue Sheep Films**
+**v4.0 — working master · the structure pass · Blue Sheep Films**
 
 ---
 
@@ -165,6 +165,83 @@ Better than your numbers.
 On the dead desk, the phone is still filming. Nobody has looked at it in an hour. It has all of it.
 
 On the far side of the floor the lights click off on a timer. Nobody moves.
+
+INT. OFFICE SPACE - DEAD SALES DEPARTMENT - 3 AM
+
+John's gone. The lit half is down to one bank of emergency strips and the glow off Ted's monitor, still attending.
+
+Cairns and Will on the carpet, backs to the cabinets. The horsing around has burned off and left the thing underneath.
+
+CAIRNS
+Can I say a real one.
+
+WILL
+You've been saying real ones all night.
+
+CAIRNS
+Not like that.
+(beat)
+I signed already. Two weeks ago.
+
+Will turns his head.
+
+CAIRNS (CONT'D)
+It's not the money, it's — okay, it's the money. I did the math on my life last month, properly, with a spreadsheet, like a psychopath.
+(beat)
+If I stay here I'm forty-one before anything changes. That's not a feeling. That's a cell.
+
+WILL
+So why'd you wait two weeks to say it?
+
+CAIRNS
+Because saying it out loud makes it a thing I did instead of a thing that happened.
+
+Nobody says anything for a second longer than they should. This is the part where Will asks the next question.
+
+CAIRNS (CONT'D)
+Ask me.
+
+WILL
+Ask you what.
+
+CAIRNS
+The thing. Ask me the thing.
+
+Will looks at him. Something's off tonight and both of them can feel it, and one of them has a job that is precisely this, and it is 3 AM, and he's tired, and this is his friend.
+
+WILL
+Prove it's you.
+
+CAIRNS
+(immediate, and messy)
+Grade twelve. Your mom drove us to Wonderland and I threw up on the — no, wait — I threw up BEFORE the ride, which is worse, and you told her it was me and she said "I know, sweetheart" like I wasn't in the car.
+
+WILL
+You weren't in the car. You were outside the car, being sick.
+
+CAIRNS
+I was ADJACENT to the car.
+
+He's laughing. He's also not, entirely.
+
+WILL
+Verified.
+
+CAIRNS
+(quieter, the actual ask, and it goes past)
+You'd tell me. If I was — if it got weird down there. You'd be the one who could tell.
+
+WILL
+Tell you what?
+
+Cairns opens his mouth. Closes it. Waves it off — the gesture of a man deciding not to make a bigger deal out of something at 3 AM.
+
+CAIRNS
+Nothing. Ignore me. It's three in the morning and I'm about to be unemployed on purpose.
+
+He gets up. Stacks the chairs he isn't required to stack.
+
+Will stays on the carpet, and lets it go, the way you let things go at 3 AM, and the lights on the far side click off on their timer.
 
 MAIN TITLE: NOMAD
 
@@ -347,6 +424,26 @@ Cairns doesn't understand a word. Delighted:
 CAIRNS (CONT'D)
 See? They love it here too. Anyway — you know I'm tight with Michelle. Say the word, you're set up by Friday.
 
+Will hears something. Not in the words. Underneath them. An old reflex, a professional one, arrives before he can stop it:
+
+WILL
+Prove it's you.
+
+CAIRNS
+(delighted, instant, already wrong about it)
+Wonderland. Grade eleven. I threw up ON the ride —
+
+WILL
+Twelve. And before.
+
+CAIRNS
+It gets worse every year, that's how you know it's true.
+
+Messy. Alive. Argued. It is the last time the story will ever be told wrong.
+
+WILL
+Verified.
+
 The girls pull him from frame.
 
 CAIRNS (O.S.) (CONT'D)
@@ -527,7 +624,9 @@ INT. WILL'S CAR - PARKING LOT - CONTINUOUS
 
 The email arrives before he's out of the lot. MICHELLE — template-warm, exclamation points, a scheduling link. And a GIF of Michelle herself, shaking an off-screen hand on a loop, delighted forever.
 
-INT. WILL'S APARTMENT - NIGHT
+He's still in the parking space. The wipers go once.
+
+INT. WILL'S APARTMENT - THAT NIGHT
 
 Michelle's welcome preview: an automated ad starring WILL. His face, his walk, composited into Cairns' paradise. "See yourself there."
 
@@ -611,17 +710,15 @@ He stands there like a man on a balcony in an ad — lord-of-all-this — and fo
 
 EXT. MEXICO CITY - DAY
 
-A market. Will haggles a vendor down over a bag of limes — forty pesos, nothing — and wins, and is delighted. Two stalls on, he overtips a man for a coffee by three times the price of the coffee, and is delighted by that too.
+A market. Will haggles a vendor down over a bag of limes — forty pesos, nothing — and wins, and is delighted. Two stalls on, he overtips a man for a coffee by triple, and is delighted by that too.
 
-At a counter he orders in English. The girl answers in English. He tries the Spanish for thank you and she says it back to him, correctly. He doesn't hear the correction.
+He orders at a counter in English. She answers in English. He tries the Spanish for thank you; she says it back to him, correctly. He doesn't hear the correction.
 
 He texts Cairns. The reply is warm, specific, flaky — "in Oaxaca for a thing, next week for SURE, I already told everyone you're here."
 
 INT. WILL'S APARTMENT, MEXICO CITY - NIGHT
 
-A call with John. Nothing happens in it. That is the whole point of it.
-
-Will carries the laptop through the apartment, giving the tour. The ceilings. The light. The patio, the inherited grill. John's mouth is full. Behind him, the putter leans against hole 7.
+A call with John. Nothing happens in it. That is the whole point of it. Will carries the laptop through the apartment — the ceilings, the light, the inherited grill. John's mouth is full. Behind him, the putter leans against hole 7.
 
 JOHN
 What've you got in there.
@@ -645,6 +742,18 @@ WILL
 It's a big building.
 
 It's the easiest either of them has sounded in a year.
+
+JOHN (CONT'D)
+(the last thing, thrown away)
+You seen him yet?
+
+WILL
+Next week. He's in Oaxaca.
+
+JOHN
+He's been in Oaxaca since March.
+
+A small silence, in two countries.
 
 EXT. MEXICO CITY - ROOFTOP - NIGHT
 
@@ -786,6 +895,8 @@ And Will sees him. For one full second, Will sees him. The beard doesn't hide th
 
 A second is a long time.
 
+Long enough for a carpet at 3 AM. You'd be the one who could tell. Tell you what? Nothing, ignore me.
+
 Then the reflex he has spent a year putting down puts this down too. Phone up. The camera passes across the man on the curb and offers nothing. Nothing worth stopping for.
 
 Will steps around, and is gone.
@@ -799,6 +910,8 @@ The reply lands before he finishes typing it. Warm. Instant. "hahaha wild. OAXAC
 He looks back down the block. The curb is out of sight from here. His feet keep it that way.
 
 INT. WILL'S APARTMENT, MEXICO CITY - DUSK
+
+A voice note from John, played once and not answered: forty seconds of him doing an impression of the Robot Boss, then, at the end, flatly — "call him from a different number. Just, like, an experiment."
 
 Will, at the counter, replies to Michelle's welcome thread. Subject: MY FRIEND. He types it plainly — his friend came down two years ago, something's wrong, how does the three-month thing work, the probationary thing. How does somebody come home.
 
@@ -821,11 +934,13 @@ WILL
 Prove it's you.
 
 CAIRNS
-Nine years my cubicle had my name spelled wrong and I never put in the ticket. The typo had seniority.
+Wonderland. Grade twelve. I threw up before the ride, which is worse, and your mother said "I know, sweetheart," like I wasn't in the car.
 
-Correct. Instant. Word for word — from a video shot on a dead desk at 2 AM by a phone nobody was watching. It has all of it.
+Correct. Complete. Every clause in the right order — from a video shot on a dead desk at 3 AM by a phone nobody was watching.
 
-Except: the real Cairns never told it clean. Every retelling the years changed — nine, then ten, then "a decade of disrespect." The story grew. That was the point of the story. The thing on the screen just played the original take.
+Except the real one never got it right. It was eleven, then twelve. It was on the ride, then before. He argued about the car. The story moved every time he told it, because that was the point of telling it.
+
+This one recited it.
 
 Same laugh, 0.4 off. It slides back into the sell without a seam.
 
