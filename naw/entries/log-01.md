@@ -25,7 +25,7 @@
 ## Flagged and deliberately left
 
 - **The two windows** (the family / the couple). Split panel — the conservative lenses wanted the couple gone, the rest called it the thesis: Miles watches other lives the way you watch weather. It stays.
-- **"Based on the life of Hunter S. Thompson."** Not a craft note — a rights note. Flagged for counsel before any festival submission; several programmers will ask. The attribution is untouched here because that's a producer decision, not an editorial one.
+- **The real-person attribution is gone.** The card that tied the film to a named figure has been removed at the producer's direction. Nothing in the script depended on it — Miles was always his own man, and the film reads cleaner without a claim it would have to defend. It also takes the rights review, and its cost, off the board entirely.
 - **Period ambiguity.** Rotary phone, radio, analog everything, no year. The panel read it as intentional timelessness. It is.
 - **The motive question** — the obituary is already printed before Miles quits anything. The panel that pushed on this eventually landed where the film does: it was always tonight. The voicemail changes nothing, which is the point.
 

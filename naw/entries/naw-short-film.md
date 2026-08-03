@@ -1,3 +1,9 @@
+# NOT ANOTHER WORD — SHORT FILM
+
+**v1.3 — working draft · Blue Sheep Films**
+
+---
+
 INT. MILES' APARTMENT - LIVING ROOM - DAY
 
 A woman's hand places a crystal glass on top of a liquor cabinet. Straightens a painting an inch it didn't need.
@@ -393,7 +399,7 @@ The last Michael grabs the sliding door — and before he closes it, peels the m
 
 Beneath it, painted and permanent, a blue logo:
 
-SIDMAN'S RETIREMENT FACILITY.
+SIDMAN'S RETIREMENT FACILITY
 
 The door SLAMS. The van pulls away down the empty street.
 
