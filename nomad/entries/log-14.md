@@ -1,10 +1,10 @@
-# NOMAD — Log 14 · The Critique Pass (v4.0 → v4.1)
+# NOMAD — Log 14 · The Critique Pass (the second half of v4)
 
-**an honest read of v4.0, and the seven fixes**
+**an honest read of v4, and the seven fixes**
 
 ---
 
-## The read: v4.0 was 8.6, not 9.1
+## The read: the structure pass alone was 8.6, not 9.1
 
 The structure pass fixed causality and introduced two new problems while leaving three old ones standing. Named honestly:
 

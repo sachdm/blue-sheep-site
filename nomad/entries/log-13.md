@@ -1,4 +1,4 @@
-# NOMAD — Log 13 · The Structure Pass (v3.7 → v4.0)
+# NOMAD — Log 13 · The Structure Pass (v3.7 → v4)
 
 **diagnosis from the 37-beat map, and the five moves that answer it**
 

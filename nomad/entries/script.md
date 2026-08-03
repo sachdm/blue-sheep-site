@@ -1,6 +1,6 @@
 # NOMAD — MASTER SCRIPT
 
-**v4.1 — working master · the critique pass · Blue Sheep Films**
+**v4 — working master · Blue Sheep Films**
 
 ---
 
