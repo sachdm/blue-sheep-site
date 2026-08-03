@@ -1,22 +1,22 @@
 # NOMAD — MASTER SCRIPT
 
-**v3.6 — working master · the plot build · Blue Sheep Films**
+**v3.7 — working master · the dialogue pass · Blue Sheep Films**
 
 ---
 
 EXT. ROOFTOP POOL, MEXICO CITY - GOLDEN HOUR
 
-Paradise, shot like it knows it. A rooftop pool holding the last of the sun. String lights. A city below in warm haze, going on forever.
+Paradise. A rooftop pool holding the last of the sun. String lights. A city below in warm haze, going on forever.
 
 A MAN glides through frame into the water without a splash. Laughter somewhere. A phone buzzes on a towel and nobody reaches for it.
 
-It looks like an ad. Hold on that thought.
+It looks like an ad.
 
 SMASH TO:
 
 EXT. OFFICE TOWER, TORONTO - MORNING - ONE SHOT
 
-A blizzard, horizontal. Grey on grey on grey. One figure — WILL (late 20s), hood up, head down — crosses a parking lot the wind is actively repossessing, hauls open a lobby door against the storm, and is swallowed by a building the exact colour of the sky.
+A blizzard, horizontal. Grey on grey on grey. One figure — WILL (late 20s), hood up, head down — crosses a parking lot in weather that has opinions, hauls open a lobby door against the storm, and is swallowed by a building the exact colour of the sky.
 
 Classic GTA January. Enough winter to kill the spirit of even the most Canadian kid.
 
@@ -24,7 +24,7 @@ INT. OFFICE SPACE - DEAD SALES DEPARTMENT - NIGHT
 
 Sales emptied out in the spring. Nobody came for the furniture.
 
-Half the floor is dark. In the lit half, a nine-hole golf course that used to be a sales department. A ramp made of binders. A water hazard that is a mop bucket with water in it. Hole 7 is the old CEO's office door, off its hinges, leaned against a dead desk. A Post-it on the wall says 7.
+Half the floor is dark. In the lit half, a nine-hole golf course that used to be a sales department. A ramp made from a whiteboard laid over two file boxes. A water hazard that is a mop bucket with water in it. Hole 7 is the old CEO's office door, off its hinges, leaned against a dead desk. A Post-it on the wall says 7.
 
 WILL, CAIRNS and JOHN (late 20s) — three men who should have gone home four hours ago — are playing it like the whole world is watching.
 
@@ -46,7 +46,7 @@ Will putts. The ball climbs the door, runs the length of the desk, and drops int
 
 A silence while all three of them work out that it went in.
 
-Will shrugs. Taps his putter against the front and back of his shoe. That's the whole celebration. They've done this a hundred times.
+Will shrugs. Taps the putter against the front and back of his shoe, the way a caddy does it on TV. That's the whole celebration. They've done this a hundred times.
 
 Later. Backs against the cabinets, on the carpet, shoes off.
 
@@ -61,9 +61,11 @@ Six.
 
 CAIRNS
 (to the ceiling)
-Nine years. You know what I've got out of it?
+Nine years. You know what nine years gets you? A cubicle with my name on it. Spelled wrong.
 (beat)
-A cubicle with my name on it. Spelled wrong.
+I put in a ticket in year two. Year four I stopped putting in the ticket. Year six I started telling people that's how it's spelled.
+(beat)
+That's the arc. Nine years of a guy slowly agreeing with a typo.
 
 Nobody says anything for a second longer than they should. Cairns catches Will's eye across the carpet — a look that asks for backup. Will studies the ceiling instead.
 
@@ -91,13 +93,22 @@ That's the most he's said in years.
 Later still. Ted's monitor glows across the dark floor, attending. Cairns can't stop looking at it.
 
 CAIRNS (CONT'D)
-If that thing can do Ted's meetings, how do I know you're you?
+Say that thing does Ted's meetings for a year and nobody notices. Then one day it does yours.
 
 WILL
-You don't. Nobody does. It's my whole job and I'm at ninety-six point eight percent.
+It'd do mine better.
 
 CAIRNS
-So we need a protocol.
+Ninety-six point eight. That's your number, right?
+
+WILL
+(not proud of it)
+Top human performer.
+
+CAIRNS
+So three point two percent of the time you'd let a fake sit in your chair.
+(up on one elbow — the idea arriving)
+We need a protocol.
 
 This is how the game is invented, well past midnight, by three men who know how dumb it is. That is not stopping anyone. The rules assemble themselves in one pass: you can demand it anywhere, any time, no warning —
 
@@ -105,32 +116,51 @@ CAIRNS (CONT'D)
 Prove it's you.
 
 WILL
-Nine years your cubicle's had your name spelled wrong, and you never once put in the ticket. You said the typo had seniority.
+You cried at a car commercial. A Hyundai. You said it was the song.
+
+CAIRNS
+It was a good song.
+
+WILL
+It was a Hyundai.
 
 CAIRNS
 Verified.
 (wheeling on John)
 Prove it's you.
 
-John draws himself up. Considers the question with enormous dignity. And answers deliberately, catastrophically wrong — a fact about a man none of them has ever met.
+John considers the question with enormous dignity, takes a full breath, and delivers — with total confidence — a fact about a man none of them has ever met.
 
 CAIRNS (CONT'D)
-Out. You're out. You're banned for life.
+Out. You're out. Banned for life.
 
 JOHN
 (delighted)
 I don't want it.
 
-He wants it. He proves it a second later, unprompted — the mug. Hole seven. The exact sound the ball made. Nobody else on earth was there. Cairns points at him like a man who has won an argument.
+CAIRNS
+You want it.
+
+JOHN
+I don't want it.
+(three seconds; he cracks)
+Your mug. Hole seven. It went in off the hinge and it sounded like a doorbell.
+
+Nobody else on earth was there. Cairns points at him like a man who has won an argument.
 
 CAIRNS (CONT'D)
-Verified. That's the whole system. Costs nothing. Can't be beat. Better than Will's numbers.
+Verified.
+
+JOHN
+I want it.
 
 WILL
-Everything only we know.
+The stuff nobody would bother to steal.
 
 CAIRNS
-Exactly. The stuff nobody would bother to steal.
+That's the whole system. Costs nothing. Can't be beat.
+(to Will, and he means it kindly)
+Better than your numbers.
 
 On the dead desk, the phone is still filming. Nobody has looked at it in an hour. It has all of it.
 
@@ -138,9 +168,9 @@ On the far side of the floor the lights click off on a timer. Nobody moves.
 
 MAIN TITLE: NOMAD
 
-INT. OFFICE SPACE - DAY
+INT. OFFICE SPACE - CONTINUOUS - 2 PM
 
-A floor at its midpoint. Bodies among empty desks. Nobody looks up.
+Daylight now. Same floor, same three men, still here — the night turned into a Friday and the Friday turned into a last day, and nobody has gone home in any sense that counts.
 
 CAIRNS' last day. His desk is packed into a printer-paper box. On the box: three beers, sweating. Will and John flank him, drinking at 2pm like men getting away with something, because they are.
 
@@ -148,19 +178,19 @@ CAIRNS
 (raising his can, to the empty desks)
 To four incredible years. Truly. Some of the best emails of my life.
 
-Nobody looks up. He toasts anyway.
+Nobody looks up. Will and John do, and clink his can, and that turns out to be the number of people it takes.
 
-A ROBOT BOSS — a monitor on a wheeled stand — rolls up. The boss's face fills it: warm, attentive, always available. It has detected the beers.
+A ROBOT BOSS — a monitor on a wheeled stand — comes around the corner at conversational speed, like a man who happened to be walking this way. The boss's face fills it: warm, attentive, always available. It has detected the beers.
 
 ROBOT BOSS
-Hi team! Just a reminder that consumption of alcohol in the workspace is —
+Hey. Hey, guys. I'm not going to be the guy about this. I'm going to say the word "policy," and then I'm going to keep walking. That's all that's happening here. Policy.
 
 CAIRNS
 (hand to his heart)
-Five stars. Best boss I never met.
+Best boss I never met.
 
 ROBOT BOSS
-Thanks for the feedback!
+Ha! See, this floor. This floor gets it.
 
 A half-beat late. The reprimand is gone, wherever dropped threads go. John and Will crack up.
 
@@ -217,6 +247,21 @@ EXT. OFFICE TOWER - CONTINUOUS
 
 The building doesn't notice.
 
+INT. OFFICE SPACE - THIRD-FLOOR WINDOW - CONTINUOUS
+
+Will and John, foreheads nearly on the glass, watching the cab get eaten by the white. Two grown men at a window.
+
+JOHN
+He's going to be so tanned.
+
+WILL
+He's going to be insufferable.
+
+JOHN
+He's going to be tanned AND insufferable.
+
+Neither of them moves for a second longer than the joke needs.
+
 INT. OFFICE SPACE - MOMENTS LATER
 
 Cairns' desk, cleared to the laminate — except for a branded welcome folder, left behind on purpose, squared to the edge to be found. And a photo, pinned to the cubicle wall: the three of them, mini-putt night, holding putters like a victorious army.
@@ -233,6 +278,12 @@ Will squares the welcome folder to the edge of the desk without deciding to. Nei
 The photo stays pinned. Nobody takes the photo.
 
 SUPER: ONE YEAR LATER
+
+INT. / EXT. OFFICE - SEQUENCE - THE YEAR
+
+The year, in the only way it registered: the same window, the snow leaving and coming back. Desks emptying one at a time — a chair, a monitor, a name plate into a bin. A screen of squares, cameras off, initials only. A parking lot filling less each month.
+
+And Will, in all of it, going in anyway.
 
 EXT. CITY - MORNING - MONTAGE
 
@@ -276,12 +327,14 @@ CAIRNS
 Willy Will Will. You're at the desk. I can hear the desk.
 
 WILL
-Somebody has to be the backstop.
+Yeah, yeah. Rub it in.
 
 CAIRNS
-For a floor that's closing? Buddy. I've been gone a year and the only thing up there that noticed is the coffee machine.
+I'm going to rub it in.
+(turning the phone to the water, then back)
+Get your head out of the weeds, man. Sun on your face. Somebody bringing you a beer you didn't order.
 (leaning in, the secret)
-You know what I did this morning? Nothing. On purpose. It took four hours and I'm not done.
+You know what I did this morning? Nothing. Took four hours. Not done.
 
 Two GIRLS at the pool's edge, calling to Cairns, waving him in — one already in the water, splashing at him. To each other, between waves, dry, not for Cairns:
 
@@ -341,7 +394,16 @@ WILL (CONT'D)
 We're lucky to even have the option. Feels like a waste not to. Over there I can live like a king.
 
 JOHN
-Yeah.
+(lining up his own putt, not looking at him)
+Find me a cute lil procesadora.
+
+WILL
+That's a food processor.
+
+JOHN
+Find me one of those too.
+
+He sinks it. Neither of them mentions that he sank it.
 
 Neither of them says anything else, and neither of them wants to badly enough to keep going.
 
@@ -355,7 +417,7 @@ On its screen: the boss in a crisp home office — good light, bookshelves, a co
 
 BOSS
 (V.O., warm, unbothered)
-Big news, team — the floor's closing! Full remote by the new year. Genuinely so excited for what's next.
+So — as you've probably already heard through the grapevine, and honestly, good, I love that this floor talks — we're closing! Full remote by the new year. Genuinely so excited for what's next.
 
 People start leaving after the first sentence. By the second, half the chairs are already pushing back — this meeting stopped being news to anyone but the boss a month ago.
 
@@ -377,8 +439,34 @@ INT. WILL'S APARTMENT - NIGHT
 
 A facetime with family. His PARENTS, wind-whipped and grinning, at the top of an actual mountain — matching windbreakers, a summit marker behind them. Retired people having the time of their lives. The connection is terrible because they are somewhere better.
 
+MOM
+You're breaking up — say it again, sweetheart. The job?
+
 WILL
-No, it's — the job's fine. The floor's closing but the job's fine. I think I just want to try something different. New.
+The job's fine. The floor's closing, but the job's fine.
+
+MOM
+The floor's closing?
+
+WILL
+It's fine. I think I just want to try something different. New.
+
+MOM
+New like a girlfriend, or new like you've joined something?
+
+WILL
+New like a country, Mom.
+
+MOM
+(not missing a beat)
+Which one? Your father will want to know about golf.
+
+DAD (O.S.)
+(behind her, to the entire mountain range)
+I AM ON TOP OF THE WORLD!
+
+MOM
+He's been doing that since the parking lot.
 
 The call ends first from their side. He finishes the sentence to a home screen.
 
@@ -414,7 +502,7 @@ WILL
 I do this for a living, you know.
 
 COORDINATOR
-(flat, sarcastic, entirely human)
+(chewing gum, flat, entirely human)
 Interesting.
 
 COORDINATOR (CONT'D)
@@ -455,7 +543,7 @@ He is one keystroke from the form he fills out for a living.
 
 He closes the window instead. Compression. Everybody's compression is bad.
 
-Later: asleep on the couch, TV on, the preview autoplaying variants of him to nobody. Some of them laugh.
+Later: forty minutes of a video about a man restoring a rusted wrench. It has nothing to do with anything. It is the best he has felt all week.
 
 EXT. WILL'S BUILDING - DAY
 
@@ -469,15 +557,22 @@ JOHN
 Prove it's you.
 
 WILL
-You cried at the vending machine when it took your loonie. March. You said it was the wind.
+Grade eleven. You told Marisa Kovač you had a motorcycle.
 
 JOHN
-There's no wind indoors.
+I had access to a motorcycle.
 
 WILL
-That's what I said.
+Your uncle had a motorcycle.
 
 JOHN
+That's access.
+
+WILL
+You have never been on a motorcycle.
+
+JOHN
+(a full beat, with enormous dignity)
 Verified.
 (beat)
 Bring it back.
@@ -486,7 +581,7 @@ He means the game. Or Will. He doesn't specify.
 
 And it's the SAME SHOT as a year ago — one take, out through the doors into the same blizzard, a yellow BECK TAXI at the curb, trunk open, one bag in. The cab pulls into the white.
 
-John stands in the snow with the putter under his arm until the tail lights are a rumour.
+John stands in the snow with the putter under his arm until the tail lights are a rumour. Then, because it is minus twenty and he is a person, he goes back inside.
 
 INT. APARTMENT, MEXICO CITY - DAY
 
@@ -537,7 +632,17 @@ WILL
 Limes. I won them.
 
 JOHN
-Living the dream, man.
+Living the dream, man. Any mamacitas?
+
+WILL
+(a beat too long)
+There's a girl in the building.
+
+JOHN
+A girl in the building.
+
+WILL
+It's a big building.
 
 It's the easiest either of them has sounded in a year.
 
@@ -552,41 +657,78 @@ A flicker of familiarity — the light, the pool, the shape of the night. Like a
 At the pool's edge, apart from the party, a woman his age — LUCÍA (26) — sits with her feet in the water, working through a paper plate of food from no caterer Will has seen tonight, unhurried, picking it apart piece by piece like the night is long and belongs to her.
 
 WILL
-Not mingling?
+That's not from tonight.
 
 LUCÍA
-I live here.
+(not looking up)
+No.
 
 WILL
-Right — the building.
+Where's it from?
 
 LUCÍA
-The city.
-(a piece of food, considered, eaten)
-What brought you here?
+Four blocks that way.
+(finally looking up, amused)
+You want some. That's what this is.
+
+WILL
+I want to know what it is.
+
+LUCÍA
+Same sentence. Better manners.
+
+She tears off a piece and hands it over without ceremony. He eats it. It is extraordinary. She watches him find that out and enjoys it more than the food.
+
+LUCÍA (CONT'D)
+Okay. What brought you here?
 
 WILL
 Work. Sort of. The — you know. The math.
 
 LUCÍA
-Mm. The math.
-(beat)
-My grandmother is four blocks that way. My whole life is inside twenty streets. Sundays we eat for five hours and nobody checks a phone.
+Mm.
+(nodding at the party behind the glass)
+Everyone here says the math. It's the only Spanish any of you learn.
 
 WILL
-That sounds —
+I'm learning.
 
 LUCÍA
-I know what it sounds like.
+Say something.
 
-She says it kindly, the way you'd tell a tourist the cathedral closes at six. She fishes the best piece off the plate and eats it last, playing with her food the way only people who have never once been in a hurry play with their food.
+WILL
+(carefully, badly)
+Gracias por... la comida.
 
-LUCÍA (CONT'D)
-Everyone at these parties came for the math.
-(nodding at the skyline)
-Nobody stays for it.
+LUCÍA
+(giving it back to him, gently, correctly)
+Gracias por la comida.
 
-She doesn't explain that. Somebody calls her name from a balcony below — in Spanish, a joke, a whole history in it — and she's gone, laughing, into a night Will is renting.
+WILL
+That's what I said.
+
+LUCÍA
+It really wasn't.
+
+She saves the best piece for last, unhurried, playing with her food the way only people who have never once been in a hurry play with their food.
+
+WILL
+What do you do on Sundays?
+
+LUCÍA
+Eat for five hours. Nobody checks a phone.
+(beat — and she isn't being cruel)
+You could come. You won't. But you could.
+
+WILL
+Why won't I?
+
+LUCÍA
+Because Sunday's a long time to be somewhere that isn't for sale.
+
+Somebody calls her name from a balcony below — in Spanish, a joke, a whole history in it — and she's gone, laughing, into a night Will is renting.
+
+He stands there holding a paper plate that isn't his.
 
 EXT. ROOFTOP, MEXICO CITY - NIGHT / INT. DEAD SALES DEPARTMENT - NIGHT - INTERCUT
 
@@ -698,7 +840,9 @@ INT. WILL'S APARTMENT, MEXICO CITY - NIGHT - LATER
 
 Desk lamp. Blue screen light. This is the room he works in, doing the thing he does.
 
-Two video windows side by side. On the left, tonight's call, paused mid-laugh. On the right, a shaky phone video — the dead floor, 2am, a golf ball dropping into a coffee mug, three men losing it. Cairns' own video. He shot it defending a course record and framed himself out of half of it. It is the only footage of Cairns that was never for a buyer.
+Two video windows side by side. On the left, tonight's call, paused mid-laugh. On the right — a file John sent at three in the morning weeks ago with no message attached: a shaky phone video. The dead floor, 2 AM, a golf ball dropping into a coffee mug, three men losing it.
+
+Cairns shot it himself, defending a course record, and framed himself out of half of it. It was never uploaded anywhere. It is the only footage of Cairns that was never for a buyer.
 
 He drags them frame by frame.
 
@@ -754,6 +898,8 @@ On a screen behind the empty desk, for nobody: a face box locks on. A readout he
 IDENTITY: WILL — MATCHED. REFERENCE ON FILE.
 
 He doesn't look. The service stairs.
+
+INTERCUT — THE DEAD FLOOR, TORONTO: John, 4 AM his time, awake, phone face-up on the carpet, watching a little blue dot that isn't moving. He has never been able to do anything from here. He stays anyway.
 
 Upstairs: nothing. No set, no pool. An empty floor — chairs, capture rigs like the storefront's, racks of humming servers.
 
