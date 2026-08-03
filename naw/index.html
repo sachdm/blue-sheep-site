@@ -423,8 +423,8 @@ async function open(idx) {
         return '<div class="page"><div class="sp-body">' + pg + '</div><div class="page-num">' + (n + 1) + '.</div></div>';
       }).join('');
       const tpNote = e.file === 'naw-short-film.md'
-        ? '<div class="tp-note">a short film — adapted from the pilot</div><div class="tp-note">based on the life of Hunter S. Thompson</div>'
-        : '<div class="tp-note">based on the life of Hunter S. Thompson</div>';
+        ? '<div class="tp-note">a short film — adapted from the pilot</div>'
+        : '<div class="tp-note">working draft</div>';
       reader.innerHTML =
         '<div class="page-wrap">' +
         '<div class="page titlepage"><div class="titleblock"><div class="tp-t">Not Another Word</div><div class="tp-by">written by</div><div class="tp-who">Sacha Mitchell and Cairns Nolan</div>' + tpNote + '</div></div>' +
