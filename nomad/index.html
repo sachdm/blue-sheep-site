@@ -243,9 +243,10 @@ kbd {
     <div id="nav"></div>
     <div id="sidebar-foot">
       <a href="../investors-ip.html">← back to Working IP</a><br>
-      <a href="NOMAD-Master-Script.pdf" download>Script PDF ↓</a><br>
-      <a href="NOMAD-Two-Pager.pdf" download>Two-pager PDF ↓</a><br>
-      <a href="NOMAD-Readers-Report.pdf" download>Reader's report PDF ↓</a>
+      <a href="../pipeline/">→ dev pipeline</a><br>
+      <a href="beats.html">→ beat sheet</a><br>
+      <a href="package.html">→ production package</a><br>
+      <a href="NOMAD-Master-Script.pdf" download>Script PDF ↓</a>
     </div>
   </div>
   <div id="content">
@@ -364,7 +365,6 @@ function renderScreenplay(src) {
     const a = atoms[n], nxt = atoms[n + 1];
     let need = a.blank + a.rows.length;
     if (a.kind === 'slug' && nxt) need += nxt.blank + Math.min(2, nxt.rows.length);
-    if (a.kind === 'slug' && used) flush();
     if (used && used + need > SP_LINES_PER_PAGE) flush();
     const pad = used ? a.blank : 0;
     for (let b = 0; b < pad; b++) cur.push('<div class="sp-blank"></div>');
@@ -424,7 +424,7 @@ async function open(idx) {
       }).join('');
       reader.innerHTML =
         '<div class="page-wrap">' +
-        '<div class="page titlepage"><div class="titleblock"><div class="tp-t">NOMAD</div><div class="tp-by">by</div><div class="tp-who">Sacha Mitchell</div></div></div>' +
+        '<div class="page titlepage"><div class="titleblock"><div class="tp-t">Nomad</div><div class="tp-by">by</div><div class="tp-who">Sacha Mitchell</div><div class="tp-note">working draft v4.1</div></div></div>' +
         sheets + '</div>';
       contentEl.scrollTop = 0;
     fitPages();
