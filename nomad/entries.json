@@ -1,19 +1,19 @@
 [
   {
     "date": "2026-08-02",
-    "title": "NOMAD \u2014 MASTER SCRIPT (v4.1 \u2014 critique pass \u00b7 9.1)",
+    "title": "NOMAD \u2014 MASTER SCRIPT (v4 \u00b7 9.1)",
     "file": "script.md",
     "category": "master"
   },
   {
     "date": "2026-08-02",
-    "title": "NOMAD \u2014 Log 14 \u00b7 The Critique Pass (v4.0 \u2192 v4.1)",
+    "title": "NOMAD \u2014 Log 14 \u00b7 The Critique Pass (\u2192 v4)",
     "file": "log-14.md",
     "category": "notes"
   },
   {
     "date": "2026-08-02",
-    "title": "NOMAD \u2014 Log 13 \u00b7 The Structure Pass (v3.7 \u2192 v4.0)",
+    "title": "NOMAD \u2014 Log 13 \u00b7 The Structure Pass (\u2192 v4)",
     "file": "log-13.md",
     "category": "notes"
   },
@@ -97,7 +97,7 @@
   },
   {
     "date": "2026-08-02",
-    "title": "NOMAD \u2014 Revision Archive (v3.3 \u2192 v4.0)",
+    "title": "NOMAD \u2014 Revision Archive (v3.3 \u2192 v4)",
     "file": "archive.md",
     "category": "notes"
   }
