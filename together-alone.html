@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TOGETHER, ALONE — Completion &amp; Distribution Package · Blue Sheep</title><style>
+:root{--bg:#0c0f0d;--bg2:#10140f;--fg:#c8e6c9;--green:#4ade80;--dim:#5b7360;--amber:#fbbf24;--cyan:#67e8f9;--red:#f87171;--line:#1e2a20;--hover:#1a221c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:"SF Mono",Menlo,Monaco,monospace;font-size:14px;line-height:1.55;padding:26px 20px 12vh}
+.wrap{max-width:980px;margin:0 auto}
+h1{color:var(--green);font-size:22px;letter-spacing:2px}
+.sub{color:var(--dim);font-size:12px;margin:4px 0 18px}
+.sub a{color:var(--cyan);text-decoration:none}
+h2{color:var(--amber);font-size:12px;letter-spacing:2px;text-transform:uppercase;margin:26px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+th{color:var(--dim);text-align:left;font-weight:normal;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-bottom:1px solid var(--line)}
+td{padding:7px 10px;border-bottom:1px dashed var(--line);vertical-align:top}
+tr:hover td{background:var(--hover)}
+.num{text-align:right;white-space:nowrap;color:var(--fg)}
+.tot td{border-top:1px solid var(--line);border-bottom:none;color:var(--green);font-weight:bold}
+.chip{display:inline-block;font-size:10px;letter-spacing:1.5px;padding:1px 8px;border-radius:3px;border:1px solid var(--cyan);color:var(--cyan)}
+.chip.go{border-color:var(--green);color:var(--green)}
+.chip.warn{border-color:var(--red);color:var(--red)}
+.chip.amber{border-color:var(--amber);color:var(--amber)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:6px;background:var(--bg2);padding:12px 14px}
+.card b{color:var(--fg);font-weight:normal}
+.card .k{color:var(--dim);font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.big{font-size:20px;color:var(--green)}
+.note{color:var(--dim);font-size:12px;margin:6px 0}
+.flag{border-left:3px solid var(--red);padding:8px 12px;background:var(--bg2);margin:8px 0;font-size:13px}
+.ok{color:var(--green)} .todo{color:var(--dim)}
+ul{list-style:none} li{padding:2px 0;font-size:13px}
+li.c::before{content:"[ ] ";color:var(--dim)} li.x::before{content:"[x] ";color:var(--green)}
+
+.beat{border-left:2px solid var(--line);padding:0 0 0 16px;margin-left:6px}
+.beat .b{position:relative;padding:8px 0 8px 0}
+.beat .b::before{content:"";position:absolute;left:-21px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--green)}
+.beat .b.turn::before{background:var(--amber);width:10px;height:10px;left:-22px}
+.beat .n{color:var(--dim);font-size:11px;letter-spacing:1px}
+.beat .t{color:var(--fg);font-size:13px}
+.beat .t b{color:var(--green);font-weight:normal}
+.beat .w{color:var(--dim);font-size:12px;font-style:italic}
+.actbar{display:flex;gap:2px;margin:10px 0 4px}
+.actbar div{height:22px;font-size:10px;letter-spacing:1px;color:var(--bg);display:flex;align-items:center;justify-content:center}
+svg{display:block;max-width:100%;height:auto;margin:6px 0 2px}
+
+.ck{margin:6px 0 2px}
+.ck .row{display:flex;gap:10px;align-items:baseline;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:13px}
+.ck .row:hover{background:var(--hover)}
+.ck .row .b{color:var(--dim);font-family:monospace;white-space:nowrap}
+.ck .row.on .b{color:var(--green)}
+.ck .row.on .t{color:var(--dim);text-decoration:line-through}
+.ck .row .t{flex:1}
+.ck .row .w{color:var(--cyan);font-size:11px;white-space:nowrap}
+.ck .row.hard .t{color:var(--amber)}
+.ck .row.hard.on .t{color:var(--dim)}
+.ckhead{display:flex;align-items:baseline;gap:12px;margin:18px 0 2px}
+.ckhead .lbl{color:var(--amber);font-size:11px;letter-spacing:2px}
+.ckhead .pct{color:var(--dim);font-size:11px;margin-left:auto}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;margin:6px 0 4px}
+.bar i{display:block;height:100%;background:var(--green);width:0;transition:width .2s}
+
+.ck{margin:6px 0 2px}.ck .row{display:flex;gap:10px;align-items:baseline;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:13px}
+.ck .row:hover{background:var(--hover)}.ck .row .b{color:var(--dim);font-family:monospace;white-space:nowrap}
+.ck .row.on .b{color:var(--green)}.ck .row.on .t{color:var(--dim);text-decoration:line-through}
+.ck .row .t{flex:1}.ck .row .w{color:var(--cyan);font-size:11px;white-space:nowrap}
+.ck .row.hard .t{color:var(--amber)}.ck .row.hard.on .t{color:var(--dim)}
+.ckhead{display:flex;align-items:baseline;gap:12px;margin:18px 0 2px}.ckhead .lbl{color:var(--amber);font-size:11px;letter-spacing:2px}
+.ckhead .pct{color:var(--dim);font-size:11px;margin-left:auto}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;margin:6px 0 4px}.bar i{display:block;height:100%;background:var(--green);width:0;transition:width .2s}
+.hero{border:1px solid var(--green);border-radius:6px;padding:14px 16px;background:var(--bg2);margin:12px 0}
+.hero h3{color:var(--green);font-size:12px;letter-spacing:2px;margin-bottom:8px}
+</style></head><body><div class="wrap">
+<h1>TOGETHER, ALONE — COMPLETION &amp; DISTRIBUTION</h1>
+<div class="sub">feature · in post · dir. John Cardillo Jr · prod. Sacha Mitchell · <a href="pipeline/">dev pipeline</a> · <a href="nomad/action.html">action plan</a></div>
+
+<div class="hero"><h3>THE FINDING THAT CHANGES THE SLATE</h3>
+TAC's rule: <b>"The only eligible applicant for a film or video project is the director. Producers may not apply as co-applicants."</b>
+You produce Together, Alone — you cannot be the applicant. <b>John Cardillo Jr must apply.</b>
+<div class="note" style="margin-top:8px">That is good news, not bad. John's council slots are separate from yours, so
+Together, Alone at TAC does <b>not</b> consume the slot NOT ANOTHER WORD needs. Both films can go to
+TAC in the same cycle under different applicants. Confirm this with Peter Kingstone before you rely on it.</div></div>
+
+<div class="flag"><b>And a conflict to avoid:</b> the completion sheet is tracking CAVCO. OAC bars projects
+seeking tax credits outright. So Together, Alone goes <b>TAC + Canada Council + tax credits</b>, and stays away
+from OAC entirely — which conveniently leaves NOMAD's Oct 8 OAC slot untouched.</div>
+
+<h2>Where it stands</h2>
+<table><tr><th>Item</th><th>Status</th></tr>
+<tr><td>Format</td><td>Feature — three acts, a week at a cottage. Before Midnight / Blue Jay / Frances Ha register.</td></tr>
+<tr><td>Director</td><td>John Cardillo Jr</td></tr>
+<tr><td>Producer</td><td>Sacha Mitchell</td></tr>
+<tr><td>DP · Editor</td><td>Will Sheppard · Adelaide Berardi</td></tr>
+<tr><td>Cast</td><td>Rachel Cucheron, Ben Rosenberg, Andrea Pavlovic, Ava Ferraro, Cole Janetaes, Ari Hicks</td></tr>
+<tr><td>Shot</td><td><span class="chip go">YES</span></td></tr>
+<tr><td>ADR</td><td><span class="chip go">COMPLETE</span></td></tr>
+<tr><td>Picture lock</td><td><span class="chip amber">NOT YET</span></td></tr>
+<tr><td>Post sound</td><td>Linx Studios contracted — $11,300 incl. HST, split 40/60 you/John</td></tr>
+<tr><td>Chain of title</td><td><span class="chip warn">NOT STARTED</span></td></tr></table>
+
+<h2>The five gates</h2>
+<table><tr><th>Gate</th><th>Status</th><th>Why it matters</th></tr><tr><td>Chain of title, certified by attorney</td><td><span class='chip warn'>BLOCKING</span></td><td>Telefilm's own standard. No council, distributor or tax-credit claim proceeds without it. Requires every deal memo below it to exist first.</td></tr><tr><td>Deal memos — cast and crew</td><td><span class='chip warn'>BLOCKING</span></td><td>Director, producer, writer, DP, editor, six main cast, three background. None papered. These <i>are</i> the chain of title.</td></tr><tr><td>Music licences ×3 — Bülow, Moondoggy, Chris LaRocca</td><td><span class='chip warn'>BLOCKING</span></td><td>Unlicensed music means no festival, no distributor, no E&O. Bülow is the exposure — a released artist with real representation.</td></tr><tr><td>Picture lock</td><td><span class='chip amber'>NEXT</span></td><td>ADR is done. Lock unblocks colour, score and final mix, and produces the work-in-progress excerpt TAC requires.</td></tr><tr><td>Post sound payment schedule</td><td><span class='chip amber'>CHECK</span></td><td>Linx plan ran Feb 14 / May 1 / Jul 1 2026 — all three dates have passed. Confirm what's paid and whether the schedule was renegotiated.</td></tr></table>
+
+<h2>Completion & distribution budget</h2>
+<table><tr><th>Acct</th><th>Line</th><th class="num">CAD</th><th>Basis</th></tr><tr><td>4700</td><td>Post sound — Linx Studios (dialogue, ambience/SFX, Foley/ADR, theatrical mix)</td><td class="num">10,000</td><td>contracted</td></tr><tr><td>4710</td><td>HST on post sound</td><td class="num">1,300</td><td>contracted</td></tr><tr><td>4720</td><td>Colour grade + conform</td><td class="num">4,500</td><td>estimate</td></tr><tr><td>4900</td><td>Score — composer</td><td class="num">3,500</td><td>estimate</td></tr><tr><td>4910</td><td>Music licence — Bülow</td><td class="num">3,000</td><td><b>estimate — verify</b></td></tr><tr><td>4920</td><td>Music licence — Moondoggy</td><td class="num">1,500</td><td>estimate</td></tr><tr><td>4930</td><td>Music licence — Chris LaRocca</td><td class="num">1,500</td><td>estimate</td></tr><tr><td>4950</td><td>Titles, opening, credits</td><td class="num">0</td><td>in house</td></tr><tr><td>4960</td><td>Poster + key art</td><td class="num">800</td><td>in house or contracted</td></tr><tr><td>5110</td><td>Chain-of-title legal opinion (Telefilm standard)</td><td class="num">3,500</td><td><b>estimate — quote needed</b></td></tr><tr><td>5120</td><td>Deal memos + agreements papered (cast, crew, HODs)</td><td class="num">1,500</td><td>estimate</td></tr><tr><td>5100</td><td>E&O insurance</td><td class="num">2,500</td><td>estimate — required by most distributors</td></tr><tr><td>5200</td><td>Deliverables — DCP, ProRes, captions, M&E, stills</td><td class="num">2,800</td><td>estimate</td></tr><tr><td>5400</td><td>Festival submissions — year one</td><td class="num">2,500</td><td>estimate</td></tr><tr><td>5410</td><td>Market / festival travel</td><td class="num">3,000</td><td>estimate</td></tr>
+<tr><td></td><td>Subtotal</td><td class="num">41,900</td><td></td></tr>
+<tr class="tot"><td>5900</td><td>Contingency 10% · TOTAL TO DELIVERY</td><td class="num">$46,090</td><td></td></tr></table>
+<div class="note">Only the Linx line is contracted; everything else is an estimate placed to make the shape visible.
+The three lines to nail down first are the music licences, the chain-of-title opinion and E&O — together they're
+roughly a third of the remaining spend and all three are gating rather than optional.</div>
+
+<h2>Finance routes</h2>
+<table><tr><th>Route</th><th>Sources</th><th>Note</th></tr>
+<tr><td>A — Council + credits</td><td>TAC $15k (John) + Canada Council Artistic Creation + CAVCO/OFTTC</td><td>Base case. Credits and TAC don't conflict; OAC would.</td></tr>
+<tr><td>B — Credits-led</td><td>CAVCO/OFTTC + Export Fund + private</td><td>If the TAC application slips a cycle.</td></tr>
+<tr><td>C — Minimum viable finish</td><td>Deferrals + NFB FAP in-kind + festival-only deliverables</td><td>Gets a DCP and a festival run; no theatrical, no marketing spend.</td></tr></table>
+
+<h2>Document list — everything the film needs to exist on paper</h2>
+<div class="note">Grouped by what it unlocks. Anything in amber is blocking — a council, a distributor or
+a tax credit stops at that line. Click to tick; progress saves in this browser.
+<span id="cktotal" style="color:var(--green)"></span></div>
+<div class="ckgroup"><div class="ckhead"><span class="lbl">CHAIN OF TITLE — the spine. Everything else hangs off this.</span><span class="pct">0/21</span></div><div class="bar"><i></i></div><div class="ck"><div class="row hard"><span class="b">[ ]</span><span class="t">Certificate of incorporation + articles — Blue Sheep Films</span><span class="w">corp</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Ownership breakdown: shareholders, share classes, percentages, fiscal year end</span><span class="w">corp</span></div><div class="row"><span class="b">[ ]</span><span class="t">Directors' register + corporate minute book</span><span class="w">corp</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Writer's option / assignment agreement — John Cardillo Jr</span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Director's agreement — John Cardillo Jr</span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Producer's agreement — Sacha Mitchell</span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Cinematographer agreement — Will Sheppard</span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Editor agreement — Adelaide Berardi</span><span class="w">legal</span></div><div class="row"><span class="b">[ ]</span><span class="t">Composer agreement</span><span class="w">legal</span></div><div class="row"><span class="b">[ ]</span><span class="t">VFX artist agreement</span><span class="w">legal</span></div><div class="row"><span class="b">[ ]</span><span class="t">Post-sound agreement — Linx Studios (contract + amended payment schedule)</span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Performer agreements — Rachel Cucheron, Ben Rosenberg, Andrea Pavlovic, Ava Ferraro, Cole Janetaes, Ari Hicks</span><span class="w">legal</span></div><div class="row"><span class="b">[ ]</span><span class="t">Background performer releases — Lily Murray, Kaiden Colver, Sadiq</span><span class="w">legal</span></div><div class="row"><span class="b">[ ]</span><span class="t">Crew deal memos — all remaining, template exists (TA: CDM)</span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Location agreements — cottage and every other location</span><span class="w">legal</span></div><div class="row"><span class="b">[ ]</span><span class="t">Property / artwork releases for anything recognisable on camera</span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Music licence — Bülow (sync + master)</span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Music licence — Moondoggy (sync + master)</span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Music licence — Chris LaRocca (sync + master)</span><span class="w">legal</span></div><div class="row"><span class="b">[ ]</span><span class="t">Title report / clearance search on the title <i>Together, Alone</i></span><span class="w">legal</span></div><div class="row hard"><span class="b">[ ]</span><span class="t"><b>Chain-of-title opinion certified by an entertainment lawyer, to Telefilm standard</b></span><span class="w">legal</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">FINANCE & TAX — what CAVCO and the councils audit</span><span class="pct">0/12</span></div><div class="bar"><i></i></div><div class="ck"><div class="row hard"><span class="b">[ ]</span><span class="t">Project cost report for Together, Alone, separated from company overhead</span><span class="w">finance</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">QuickBooks project/class set up and all costs back-coded from Dec 2025</span><span class="w">finance</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Signed statement of production costs (reviewed or audited, per credit thresholds)</span><span class="w">finance</span></div><div class="row"><span class="b">[ ]</span><span class="t">Bank statements covering the production period</span><span class="w">finance</span></div><div class="row"><span class="b">[ ]</span><span class="t">All invoices and receipts, filed against cost lines</span><span class="w">finance</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">HST registration number + input tax credit position</span><span class="w">finance</span></div><div class="row"><span class="b">[ ]</span><span class="t">T4A / contractor payment summaries</span><span class="w">finance</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">CAVCO application — Part A (Canadian Film or Video Production Certificate)</span><span class="w">tax</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Canadian content point breakdown — key creative positions and citizenship proof</span><span class="w">tax</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Citizenship declarations for every key creative (director, writer, DP, editor, composer, lead performers)</span><span class="w">tax</span></div><div class="row"><span class="b">[ ]</span><span class="t">OFTTC application via Ontario Creates</span><span class="w">tax</span></div><div class="row"><span class="b">[ ]</span><span class="t">Profit-share / participation agreement, signed by all participants</span><span class="w">finance</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">CREATIVE & DELIVERY MATERIALS</span><span class="pct">0/15</span></div><div class="bar"><i></i></div><div class="ck"><div class="row hard"><span class="b">[ ]</span><span class="t">Picture-locked cut</span><span class="w">creative</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">5-minute work-in-progress excerpt (TAC requires it for completion funding)</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Final shooting script, current to the cut</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Logline (25 words) and synopsis (one paragraph, one page)</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Character breakdowns</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Director's statement · producer's statement · DP's statement · editor's statement</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Cast and crew profiles + headshots</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Visual references, theme references, works of inspiration</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Case studies — Blue Heron, Therapy Dogs, My Old Ass, Dinner With Friends</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Target audience / demographics</span><span class="w">creative</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Distribution plan and goals</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Project timeline to delivery</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Titles, opening sequence, end credits (credit block approved by all agreements)</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Poster / key art</span><span class="w">creative</span></div><div class="row"><span class="b">[ ]</span><span class="t">Stills — production and BTS, cleared for press</span><span class="w">creative</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">DELIVERABLES — what a festival or distributor asks for</span><span class="pct">0/9</span></div><div class="bar"><i></i></div><div class="ck"><div class="row"><span class="b">[ ]</span><span class="t">DCP (and a tested backup)</span><span class="w">delivery</span></div><div class="row"><span class="b">[ ]</span><span class="t">ProRes 422 HQ master</span><span class="w">delivery</span></div><div class="row"><span class="b">[ ]</span><span class="t">Closed captions + SRT</span><span class="w">delivery</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">M&E (music and effects) split — required for any foreign sale</span><span class="w">delivery</span></div><div class="row"><span class="b">[ ]</span><span class="t">Final mix stems + audio deliverables spec sheet</span><span class="w">delivery</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Music cue sheet — every cue, timing, composer, publisher, share</span><span class="w">delivery</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">E&O insurance certificate</span><span class="w">delivery</span></div><div class="row"><span class="b">[ ]</span><span class="t">Full credit list, final and approved</span><span class="w">delivery</span></div><div class="row"><span class="b">[ ]</span><span class="t">EPK / press kit</span><span class="w">delivery</span></div></div></div>
+<h2>Completion checklist</h2>
+<div class="note">Click to tick. Progress saves in this browser. <span id="cktotal" style="color:var(--green)"></span></div>
+<div class="ckgroup"><div class="ckhead"><span class="lbl">BLOCKING — nothing else moves until these do</span><span class="pct">0/4</span></div><div class="bar"><i></i></div><div class="ck"><div class="row hard"><span class="b">[ ]</span><span class="t">Paper every deal memo — director, producer, writer, DP, editor, 6 main cast, 3 background. Templates exist in Drive (TA: CDM).</span><span class="w">John + you</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Commission the chain-of-title legal opinion to Telefilm standard. Get two quotes.</span><span class="w">you</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Clear the three music licences. Start with Bülow — longest lead, highest risk.</span><span class="w">you</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Confirm the Linx payment status; all three scheduled dates have passed.</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">PICTURE — unlocks everything downstream</span><span class="pct">0/4</span></div><div class="bar"><i></i></div><div class="ck"><div class="row"><span class="b">[ ]</span><span class="t">Picture lock.</span><span class="w">John</span></div><div class="row"><span class="b">[ ]</span><span class="t">Cut the 5-minute work-in-progress excerpt — TAC requires it for completion funding.</span><span class="w">John</span></div><div class="row"><span class="b">[ ]</span><span class="t">Colour grade + conform.</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Score, then final theatrical mix.</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">TAC — Oct 15 · JOHN APPLIES, NOT YOU</span><span class="pct">0/8</span></div><div class="bar"><i></i></div><div class="ck"><div class="row hard"><span class="b">[ ]</span><span class="t">Confirm with Peter Kingstone that John is the eligible applicant as director.</span><span class="w">John</span></div><div class="row"><span class="b">[ ]</span><span class="t">1000-word: how the work relates to John's overall practice.</span><span class="w">John</span></div><div class="row"><span class="b">[ ]</span><span class="t">500-word: description of the work, treatment of production, visuals, sound.</span><span class="w">John</span></div><div class="row"><span class="b">[ ]</span><span class="t">Budget — total revenues must equal total expenses. Use the table above.</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Support material: two examples, max 5 min each, John holds directing credit on both.</span><span class="w">John</span></div><div class="row"><span class="b">[ ]</span><span class="t">Support material B: the Together, Alone work-in-progress excerpt.</span><span class="w">John</span></div><div class="row"><span class="b">[ ]</span><span class="t">Script sample — max 20 pages.</span><span class="w">John</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">Letters of agreement for the three music licences.</span><span class="w">you</span></div></div></div><div class="ckgroup"><div class="ckhead"><span class="lbl">MONEY BEYOND TAC</span><span class="pct">0/4</span></div><div class="bar"><i></i></div><div class="ck"><div class="row"><span class="b">[ ]</span><span class="t">Canada Council <b>Artistic Creation</b> — no deadline, covers creation through dissemination. Apply as soon as chain of title is clean.</span><span class="w">you</span></div><div class="row hard"><span class="b">[ ]</span><span class="t">CAVCO / CPTC + OFTTC — the tax-credit route already tracked in the completion sheet. Confirm Canadian-content points and the CAVCO timeline.</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">Ontario Creates Export Fund — market and festival travel, deliverables.</span><span class="w">you</span></div><div class="row"><span class="b">[ ]</span><span class="t">NFB Filmmakers Assistance Program — in-kind technical services, rolling.</span><span class="w">you</span></div></div></div>
+
+<h2>Open questions</h2>
+<ul><li class="c">Runtime and current cut length?</li>
+<li class="c">Total production budget spent to date — decides OAC-equivalent eligibility bands and the CAVCO calculation</li>
+<li class="c">Is Blue Sheep incorporated, and is the ownership breakdown documented? CAVCO requires it.</li>
+<li class="c">Linx payment status against the Feb/May/Jul schedule</li></ul>
+
+<div class="note" style="margin-top:26px">Built from the Drive completion sheet, the Linx post proposal and the treatment. Estimates are marked; verify before they reach an application.</div>
+<script>
+(function(){
+  var KEY = 'bs-ck-' + location.pathname;
+  var st = {};
+  try { st = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){}
+  var rows = [].slice.call(document.querySelectorAll('.ck .row'));
+  rows.forEach(function(r,i){
+    r.dataset.i = i;
+    if (st[i]) r.classList.add('on');
+    r.querySelector('.b').textContent = st[i] ? '[x]' : '[ ]';
+    r.addEventListener('click', function(){
+      var on = r.classList.toggle('on');
+      r.querySelector('.b').textContent = on ? '[x]' : '[ ]';
+      st[i] = on ? 1 : 0;
+      try { localStorage.setItem(KEY, JSON.stringify(st)); } catch(e){}
+      paint();
+    });
+  });
+  function paint(){
+    document.querySelectorAll('.ckgroup').forEach(function(g){
+      var rs = g.querySelectorAll('.row'), done = g.querySelectorAll('.row.on').length;
+      var pct = rs.length ? Math.round(done/rs.length*100) : 0;
+      var p = g.querySelector('.pct'), b = g.querySelector('.bar i');
+      if (p) p.textContent = done + '/' + rs.length;
+      if (b) b.style.width = pct + '%';
+    });
+    var all = rows.length, d = document.querySelectorAll('.ck .row.on').length;
+    var t = document.getElementById('cktotal');
+    if (t) t.textContent = d + ' of ' + all + ' done';
+  }
+  paint();
+})();
+</script>
+</div></body></html>
