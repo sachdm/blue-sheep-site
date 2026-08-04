@@ -54,7 +54,8 @@ SHORTY #1
 (observing him)
 So, this is Corey.
 
-COREY Home grown, one and only.
+COREY
+Home grown, one and only.
 
 SHORTY #1
 Your profile says 6'1 ...
@@ -97,7 +98,9 @@ Oh you bet.
 SHORTY #1
 Okay but you hit first, or you'll be covered in my lip gloss.
 
-COREY (sarcastic) How horrible.
+COREY
+(sarcastic)
+How horrible.
 
 The two step from the direction of the crowd and into a park.
 
@@ -166,7 +169,8 @@ Hey - yeah I saw Eric's texts in the chat. It's speculators though, I don't know
 
 Vincent paces in front of his desk listening to the phone. He opens a new tab on google and brings up an article.
 
-VINCENT (CONT'D) ... the Star has reported nothing since Wednesday's update. Plus, any of SayFlair's client list wouldn't be released until Monday, even if the takeover happened today.
+VINCENT (CONT'D)
+... the Star has reported nothing since Wednesday's update. Plus, any of SayFlair's client list wouldn't be released until Monday, even if the takeover happened today.
 
 Vincent takes the phone off his ear and lends it to speaker, while he begins to type up a message to Corey.
 
@@ -201,8 +205,9 @@ Either way, this won't be actionable till Monday.
 
 Vincent goes quiet, and begins to ponder. He traces his jaw with his fingers while unfocusing his eyes.
 
-... Vin? MAN ON PHONE (CONT'D)
+... Vin?
 
+MAN ON PHONE (CONT'D)
 VINCENT
 Yeah, here.
 
@@ -245,7 +250,8 @@ Yeah sure you did pal, not like these 100 messages wouldn't tip me off.
 MAN ON PHONE
 Don't be a cunt. We don't even have competing clients dude.
 
-VINCENT Hm. Fine, but for the record - this is what a favour looks like.
+VINCENT
+Hm. Fine, but for the record - this is what a favour looks like.
 
 MAN ON PHONE
 Yeah, yeah.
@@ -266,8 +272,8 @@ After the obligatory chain of Sorry's, Corey makes his way to his seat, where Sh
 
 COREY
 (handing her a beer)
-They didn't have ... the thing you
 (MORE)
+They didn't have ... the thing you
 
 COREY (CONT'D)
 wanted.
@@ -387,8 +393,8 @@ GERALD
 You want to be an AM that bad, huh?
 
 VINCENT
-What I want is to represent you. Our partnership with Sayflair saw this company stewarded in the same stream as 20 other companies just like it. Desmond managed the best he could but we both know that you got side skirted - no new innovative additions, no marketing XM. Sayflair relegated this
 (MORE)
+What I want is to represent you. Our partnership with Sayflair saw this company stewarded in the same stream as 20 other companies just like it. Desmond managed the best he could but we both know that you got side skirted - no new innovative additions, no marketing XM. Sayflair relegated this
 
 VINCENT (CONT'D)
 company into nothing more than a data centre.
@@ -426,7 +432,6 @@ You do know what's going to happen though. You'll be picked up again, by my agen
 The men in the room are visibily agitated with Vincent's speech.
 
 VINCENT (CONT'D)
-
 ... or you could grow some balls like me, buddy. You give me a chance to represent you and I'll have people my age and younger flocking back to this brand as though you had never been relegated. I'll give you another opportunity to actually make something. You won't be a stepping stone to another flagship, your company will no longer host traffic for your competitors.
 
 Moving towards the door, Vincent makes his final remark.
@@ -437,8 +442,8 @@ But what do I care. I know I'm going back up there with a client - whether it's 
 Gerald is smiling now. He's leaning back, bouncing against the chair. He turns to the other men in the room and shakes his head.
 
 GERALD
-You ... you have got to work on your next pitch. Because on Monday when I
 (MORE)
+You ... you have got to work on your next pitch. Because on Monday when I
 
 GERALD (CONT'D)
 speak with my boss on leads for who's going to represent us - he's going to want to hear it from you directly.
@@ -457,7 +462,8 @@ Tell you what, Monday evening let me take you out to TinTin - it's a new steakho
 GERALD
 Hope you know what you're doing kid.
 
-VINCENT I'm exactly where I want to be, doing what I want to do. Let's say 7pm, I'll be there to receive you.
+VINCENT
+I'm exactly where I want to be, doing what I want to do. Let's say 7pm, I'll be there to receive you.
 
 GERALD
 (nodding)
@@ -467,5 +473,3 @@ VINCENT
 Cheers.
 
 Vincent exits the office.
-
-9
