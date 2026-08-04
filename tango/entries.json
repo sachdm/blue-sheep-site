@@ -1,14 +1,26 @@
 [
   {
     "date": "2026-08-04",
-    "title": "TWIST THE TANGO \u2014 EPISODE 1 (pilot draft v1)",
+    "title": "TWIST THE TANGO — EPISODE 1 (pilot draft v1)",
     "file": "script.md",
     "category": "master"
   },
   {
+    "date": "2026-08-01",
+    "title": "TWIST THE TANGO — Series Summary",
+    "file": "summary.md",
+    "category": "master"
+  },
+  {
     "date": "2026-08-04",
-    "title": "TWIST THE TANGO \u2014 Log 01 \u00b7 First Read",
+    "title": "TWIST THE TANGO — Log 01 · First Read",
     "file": "log-01.md",
+    "category": "notes"
+  },
+  {
+    "date": "2026-08-01",
+    "title": "TWIST THE TANGO — Beat Sheet (superseded by beats.html)",
+    "file": "beat-sheet.md",
     "category": "notes"
   }
 ]
