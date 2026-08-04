@@ -1,6 +1,7 @@
 # TWIST THE TANGO — EPISODE 1
+## "4th House on Grand St"
 
-**pilot draft v1 · 13 pp ≈ 13 min · Blue Sheep Films**
+**created and written by Cairns Nolan · pilot draft v1 · 13 pp ≈ 13 min · Blue Sheep Films**
 
 ---
 
