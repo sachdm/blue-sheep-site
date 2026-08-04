@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Twist the Tango — Blue Sheep</title>
-<meta name="description" content="Twist the Tango — an episodic series by Blue Sheep.">
-<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/naw/">
+<meta name="description" content="Twist the Tango — a series pilot by Blue Sheep.">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/tango/">
 <style>
 :root {
   --bg: #0c0f0d;
@@ -234,7 +234,7 @@ kbd {
 <div id="app">
   <div id="sidebar">
     <div id="brand">
-      <div><span class="prompt">lambo</span><span class="at">@</span><span class="path">naw</span><span class="at">:~$</span> <span id="cursor"></span></div>
+      <div><span class="prompt">lambo</span><span class="at">@</span><span class="path">tango</span><span class="at">:~$</span> <span id="cursor"></span></div>
       <div class="sub">Blue Sheep — working IP</div>
     </div>
     <div id="searchwrap">
@@ -243,9 +243,10 @@ kbd {
     <div id="nav"></div>
     <div id="sidebar-foot">
       <a href="../investors-ip.html">← back to Working IP</a><br>
-      <a href="NAW-Master-Script.pdf" download>Script PDF ↓</a><br>
-      <a href="NAW-Two-Pager.pdf" download>Two-pager PDF ↓</a><br>
-      <a href="NAW-Readers-Report.pdf" download>Reader's report PDF ↓</a>
+      <a href="../pipeline/">→ dev pipeline</a><br>
+      <a href="beats.html">→ beat sheet</a><br>
+      <a href="package.html">→ production package</a><br>
+      <a href="TANGO-EP1-Script.pdf" download>Script PDF ↓</a>
     </div>
   </div>
   <div id="content">
@@ -259,7 +260,7 @@ kbd {
 </div>
 
 <script>
-const SCRIPT_FILE = 'script.md';
+const SCRIPT_FILES = ['script.md'];
 const GROUP_ORDER = ['master', 'notes'];
 const GROUP_NAMES = { master: 'master script', notes: 'notes & revisions' };
 
@@ -415,7 +416,7 @@ async function open(idx) {
     if (!res.ok) throw new Error(res.status);
     const text = await res.text();
 
-    if (e.file === SCRIPT_FILE) {
+    if (SCRIPT_FILES.includes(e.file)) {
       contentEl.classList.add('page-mode');
       const pages = renderScreenplay(text);
       const sheets = pages.map(function (pg, n) {
@@ -423,7 +424,7 @@ async function open(idx) {
       }).join('');
       reader.innerHTML =
         '<div class="page-wrap">' +
-        '<div class="page titlepage"><div class="titleblock"><div class="tp-t">Twist the Tango</div><div class="tp-by">written by</div><div class="tp-who">Cairns Nolan</div><div class="tp-note">Episode 1 — &ldquo;4th House on Grand St&rdquo;</div></div></div>' +
+        '<div class="page titlepage"><div class="titleblock"><div class="tp-t">Twist the Tango</div><div class="tp-by">written by</div><div class="tp-who">Sacha Mitchell</div><div class="tp-note">Episode 1 · pilot draft v1</div></div></div>' +
         sheets + '</div>';
       contentEl.scrollTop = 0;
     fitPages();
