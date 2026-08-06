@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://i.vimeocdn.com">
 <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=7">
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
@@ -97,13 +97,12 @@ window.addEventListener('touchstart', dismiss, { passive: true });
 <noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="progress-bar"></div>
-<div class="cursor-label" aria-hidden="true">Reveal</div>
 <div class="grain" aria-hidden="true"></div>
 <div class="vignette" aria-hidden="true"></div>
 
 <header>
 <nav class="wrap-wide">
-<a class="brand" href="index.html" aria-label="Blue Sheep — Home"><img class="brand-logo" src="small-sheep.png" alt="Blue Sheep" width="309" height="240"></a>
+<a class="brand" href="index.html" aria-label="Blue Sheep — Home"><img class="brand-logo" src="small-sheep.png" alt="Blue Sheep" width="309" height="240"><span class="brand-word">Blue<em>·</em>Sheep</span></a>
 <div class="nav-right">
 <div class="nav-links" id="navLinks">
 <a href="work.html">Work</a>
@@ -115,17 +114,35 @@ window.addEventListener('touchstart', dismiss, { passive: true });
 </nav>
 </header>
 
-<main class="hero" id="main">
+<main id="main">
+<section class="hero" aria-label="Blue Sheep">
 <div class="hero-bg" aria-hidden="true">
 <iframe src="https://player.vimeo.com/video/1059939723?h=587f3bcc03&background=1&autoplay=1&loop=1&muted=1&dnt=1" allow="autoplay; fullscreen" title=""></iframe>
 </div>
 <div class="hero-content wrap-wide">
-<h1 class="sr-only">Blue Sheep — Independent Film Production</h1>
-<div class="hero-footer-row">
-<p class="hero-sub reveal" aria-label="Blue Sheep is an independent studio making documentary, narrative, and commercial work for people who notice the details."><b class="hero-sub-trigger" id="heroSubTrigger" tabindex="0">Blue Sheep</b> <span class="scramble-words" aria-hidden="true"><span class="w">is</span> <span class="w">an</span> <span class="w">independent</span> <span class="w">studio</span> <span class="w">making</span> <span class="w">documentary,</span> <span class="w">narrative,</span> <span class="w">and</span> <span class="w">commercial</span> <span class="w">work</span> <span class="w">for</span> <span class="w">people</span> <span class="w">who</span> <span class="w">notice</span> <span class="w">the</span> <span class="w">details.</span></span></p>
+<p class="hero-kicker reveal"><span class="tick">●</span> INDEPENDENT FILM PRODUCTION — TORONTO, CANADA</p>
+<h1 class="hero-title reveal">Blue <em>Sheep</em></h1>
+<div class="hero-row">
+<p class="hero-sub reveal">An independent studio making <b>documentary</b>, <b>narrative</b>, and <b>commercial</b> work for people who notice the details.</p>
 <a href="work.html" class="cta-btn reveal"><span class="cta-label">View Selected Work</span><span class="cta-arrow">→</span></a>
 </div>
 </div>
+</section>
+
+<section class="film-index" aria-label="Filmography">
+<div class="index-head"><span>Selected Work</span><span class="rule">2023 — 2026</span></div>
+<ol class="index-list">
+<li><a href="jafsf.html"><span class="no">01</span><span class="name">Just Another F*cking Short Film</span><span class="tag">Narrative Short · 2024</span><span class="arr">→</span></a></li>
+<li><a href="statuette.html"><span class="no">02</span><span class="name">Statuette</span><span class="tag">Narrative Short · 2025</span><span class="arr">→</span></a></li>
+<li><a href="runaway-sheep.html"><span class="no">03</span><span class="name">Runaway Sheep</span><span class="tag">Narrative Short · 2025</span><span class="arr">→</span></a></li>
+<li><a href="dbc.html"><span class="no">04</span><span class="name">DBC</span><span class="tag">Commercial · 2024</span><span class="arr">→</span></a></li>
+<li><a href="red-hand.html"><span class="no">05</span><span class="name">Red Hand</span><span class="tag">Narrative Short · 2025</span><span class="arr">→</span></a></li>
+<li><a href="until-i-come-alive.html"><span class="no">06</span><span class="name">Until I Come Alive</span><span class="tag">Narrative Short · 2025</span><span class="arr">→</span></a></li>
+<li><a href="lost-puppets.html"><span class="no">07</span><span class="name">Lost Puppets</span><span class="tag">Narrative Short · 2026</span><span class="arr">→</span></a></li>
+<li><a href="family-ties.html"><span class="no">08</span><span class="name">Family Ties x Evo Da Saint</span><span class="tag">Film · 2025</span><span class="arr">→</span></a></li>
+</ol>
+<div class="index-cta"><a href="work.html">Full reel with video →</a></div>
+</section>
 </main>
 
 <footer>
