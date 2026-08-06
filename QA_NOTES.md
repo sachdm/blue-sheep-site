@@ -95,3 +95,34 @@ No git/CLI is used — files are uploaded directly through GitHub's web UI into 
 | Lost Puppets | 1059923747 | c8d428abf1 | 426×240 |
 | Family Ties x Evo Da Saint | 1179946432 | 88a80178b2 | 426×224 |
 | Hero background loop | 1059939723 | 587f3bcc03 | — |
+
+---
+
+## Round 4 — August 2026 deep pass (performance, accessibility, SEO, polish)
+
+Done in Claude Cowork, verified with rendered screenshots, axe-core scans, and scripted interaction tests on every change.
+
+**Performance**
+- Fonts are now self-hosted in `fonts/` (Manrope + Fraunces as variable fonts, IBM Plex Mono 400/500/600, latin subsets, ~220KB total, `font-display: swap`). No more Google Fonts origins — faster first paint and no third-party font requests. Family names unchanged, so styles.css was untouched.
+- Deleted dead weight: `thumb (1) (1) copy.png` (5.2MB, unreferenced), `Blue Sheep.png`, `SMALL SHEEP.png`, `logo.png`, `intro.js`, `intro.css` (all unreferenced).
+- Every Vimeo still is now the sized 1280px WebP variant; project-page heroes load eager with `fetchpriority=high`, everything decodes async.
+- Homepage preloader: 3.2s (was 5s) and any click/key/scroll/touch skips it instantly.
+
+**Accessibility — axe-core reports zero violations on all scanned pages**
+- Proper `<main>` landmarks sitewide (incl. all reader/terminal pages, which also got screen-reader h1s — they had no headings at all).
+- Heading order fixed (work slides, pipeline sections, reader callouts h3→h2).
+- Reader theme `--dim` lifted to #7c9884 — passes WCAG AA at small sizes, still reads "dim".
+- In-text cyan links in terminal pages are underlined; scrollable script regions are keyboard-focusable.
+
+**Bugs fixed**
+- All 6 `archive/` pages referenced styles/logo/nav with paths that don't exist from that directory — they rendered completely unstyled. Fixed with `../` prefixes (and one JS-generated link in team-hub).
+- 404 page now uses absolute `/blue-sheep-site/` asset paths so it renders styled at *deep* not-found URLs (e.g. `/pipeline/nope`) — note it will look unstyled if previewed from a local file, that's expected.
+- 404 headline switched to the Fraunces serif voice to match About/Contact.
+
+**SEO**
+- sitemap.xml: `lastmod` on every entry.
+- Internal working docs (together-alone, site-ta, pipeline, concepts, working-IP, archive) are `noindex` — public URLs, out of search. The three sitemap-listed readers (nomad, naw, tango) stay indexable. investors.html keeps its pre-existing noindex (left out of the sitemap deliberately).
+
+**Still yours to do**
+- Red Hand / Until I Come Alive / Lost Puppets loglines are still the placeholder ones from the earlier pass — swap in the real ones when ready (one edit each covers meta/OG/JSON-LD too).
+- If the site ever moves to a custom domain (bluesheepfilms.com), the 404's `/blue-sheep-site/` absolute paths and all canonical URLs need updating.
