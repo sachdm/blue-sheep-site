@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://i.vimeocdn.com">
 <link rel="preload" href="fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts/fonts.css">
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
@@ -74,11 +74,24 @@ pre.setAttribute('aria-hidden', 'true');
 pre.innerHTML = '<img class="preloader-mark" src="small-sheep.png" alt="" width="309" height="240">';
 document.documentElement.style.overflow = 'hidden';
 document.body.appendChild(pre);
-setTimeout(function() {
+var done = false;
+function dismiss() {
+if (done) return;
+done = true;
 pre.classList.add('hide');
 document.documentElement.style.overflow = '';
 setTimeout(function() { pre.remove(); }, 950);
-}, 5000);
+window.removeEventListener('click', dismiss);
+window.removeEventListener('keydown', dismiss);
+window.removeEventListener('wheel', dismiss);
+window.removeEventListener('touchstart', dismiss);
+}
+// A beat of brand, then in — any input skips it early.
+setTimeout(dismiss, 3200);
+window.addEventListener('click', dismiss);
+window.addEventListener('keydown', dismiss);
+window.addEventListener('wheel', dismiss, { passive: true });
+window.addEventListener('touchstart', dismiss, { passive: true });
 })();
 </script>
 <noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
