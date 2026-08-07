@@ -38,6 +38,7 @@ header{
   text-transform:uppercase;letter-spacing:.05em;
 }
 .brand{font-weight:500}
+.brand:hover i{opacity:.5}
 .brand i{font-style:normal;color:var(--blue)}
 nav{display:flex;gap:26px}
 nav a{position:relative}
@@ -87,11 +88,11 @@ footer .muted{opacity:.4}
 <body>
 
 <header>
-  <div class="brand">Blue<i>·</i>Sheep</div>
+  <a class="brand" href="../index.html">Blue<i>·</i>Sheep</a>
   <nav>
-    <a href="#" data-tc="01">Work</a>
-    <a href="#" data-tc="02">Studio</a>
-    <a href="#" data-tc="03">Contact</a>
+    <a href="../work.html" data-tc="01">Work</a>
+    <a href="../about.html" data-tc="02">Studio</a>
+    <a href="../contact.html" data-tc="03">Contact</a>
   </nav>
 </header>
 
@@ -103,6 +104,7 @@ footer .muted{opacity:.4}
 </footer>
 
 <script>
+const BASE = '../';
 const FILMS = [
  {
   "slug": "jafsf",
@@ -211,10 +213,10 @@ const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const nodes = PLACE.map(p=>{
   const el = document.createElement(p.k==='f' ? 'a' : 'div');
   el.className = 'item ' + (p.k==='f' ? 'film' : 'blk');
-  if(p.k==='f') el.href='#';
   const tc = `<div class="tc">${p.tc}</div>`;
   if(p.k==='f'){
     const f = FILMS[p.i];
+    el.href = BASE + f.slug + '.html';
     el.innerHTML = tc + `
       <figure>
         <span class="idx">${String(p.i+1).padStart(2,'0')}</span>
