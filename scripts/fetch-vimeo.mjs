@@ -19,13 +19,15 @@
  */
 import { readFile, writeFile } from 'node:fs/promises';
 
-const TOKEN = process.env.VIMEO_TOKEN;
+// Accept either name — the repository secret is VIMEO_KEY; VIMEO_TOKEN is
+// kept as an alias so the build works whichever one is configured.
+const TOKEN = process.env.VIMEO_KEY || process.env.VIMEO_TOKEN;
 const OUT = new URL('../src/data/vimeo.generated.json', import.meta.url);
 
 const films = JSON.parse(await readFile(new URL('../src/data/films.json', import.meta.url), 'utf8'));
 
 if (!TOKEN) {
-  console.log('[vimeo] VIMEO_TOKEN not set — falling back to the still URLs in films.json.');
+  console.log('[vimeo] No VIMEO_KEY / VIMEO_TOKEN set — falling back to the still URLs in films.json.');
   await writeFile(OUT, JSON.stringify({ generated: false, films: {} }, null, 2));
   process.exit(0);
 }

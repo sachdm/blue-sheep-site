@@ -44,6 +44,7 @@ jobs:
         env:
           # Injected from repository secrets. Referenced by name only — the
           # value never appears in this file, in the logs, or in the output.
+          VIMEO_KEY: ${{ secrets.VIMEO_KEY }}
           VIMEO_TOKEN: ${{ secrets.VIMEO_TOKEN }}
         run: npm run build
 
