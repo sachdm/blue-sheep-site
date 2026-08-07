@@ -100,7 +100,8 @@ def work():
     tiles = ''.join(f"""
     <a class="tile" href="{f['slug']}.html">
       <figure><span class="idx">{i+1:02d}</span>
-        <img src="{E(f['still'])}" alt="{E(f['title'])}" loading="lazy"></figure>
+        <img src="{E(f['still'])}" alt="{E(f['title'])}"
+             loading="{'eager' if i < 4 else 'lazy'}" decoding="async"></figure>
       <figcaption><span class="t">{E(f['title'])}</span>
         <span class="c">{E(f['cat'])}&nbsp;&nbsp;{f['year']}</span></figcaption>
     </a>""" for i, f in enumerate(FILMS))
