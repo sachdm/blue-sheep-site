@@ -1,66 +1,41 @@
-# Build and deploy the site to GitHub Pages.
+# Publish the site to GitHub Pages.
 #
-# The reason this workflow exists rather than committing built HTML: the Vimeo
-# API token has to be available at BUILD time to resolve current film stills,
-# and a secret can only be injected by a runner. The token is stored as a
-# repository secret (Settings -> Secrets and variables -> Actions) and is never
-# written to a file, never committed, and never printed.
+# This repository holds plain static HTML — no build step, nothing to compile.
+# The workflow exists only because the Pages source is set to "GitHub Actions";
+# it uploads the repository as-is and publishes it.
 #
-# If the secret is absent the build still succeeds — scripts/fetch-vimeo.mjs
-# falls back to the still URLs committed in src/data/films.json.
+# .nojekyll at the root stops Pages running Jekyll over the tree.
 name: Deploy site
 
 on:
   push:
     branches: [main]
-  workflow_dispatch:      # lets you re-run a deploy by hand without an empty commit
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Never let two deploys race. Queue instead of cancelling, so a deploy that is
-# already publishing is allowed to finish.
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        env:
-          # Injected from repository secrets. Referenced by name only — the
-          # value never appears in this file, in the logs, or in the output.
-          VIMEO_KEY: ${{ secrets.VIMEO_KEY }}
-          VIMEO_TOKEN: ${{ secrets.VIMEO_TOKEN }}
-        run: npm run build
-
-      - name: Fail if the build produced nothing
-        run: test -s dist/index.html || (echo "dist/index.html missing or empty" && exit 1)
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+
+      - name: Sanity check — the homepage must exist and be non-empty
+        run: test -s index.html || (echo "index.html missing or empty" && exit 1)
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
       - id: deployment
         uses: actions/deploy-pages@v4
