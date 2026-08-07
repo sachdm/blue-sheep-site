@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import films from '../data/films.json';
+import { films } from '../lib/films.js';
 export function getStaticPaths() {
   return films.map((f, i) => ({
     params: { slug: f.slug },

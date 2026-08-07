@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import films from '../data/films.json';
+import { films } from '../lib/films.js';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <Base title="Work — Blue Sheep" description="Eight finished titles from Blue Sheep: narrative shorts, commissioned work and a music film. Each one annotated.">
@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <div class="wk-grid">
     {films.map((f, i) => (
       <a class="wk-card" href={`${base}/${f.slug}.html`}>
-        <div class="plate">{f.still && <img src={f.still} alt={`Still from ${f.title}`} loading={i < 2 ? 'eager' : 'lazy'} decoding="async">}</div>
+        <div class="plate">{f.still && <img src={f.still} width={f.stillWidth} height={f.stillHeight} alt={`Still from ${f.title}`} loading={i < 2 ? 'eager' : 'lazy'} decoding="async">}</div>
         <div class="plate-cap"><span class="lbl">{String(i + 1).padStart(2, '0')} — {f.cat}</span><span class="lbl">{f.year}</span></div>
         <h2 class="wk-t">{f.title}</h2>
         <p class="wk-s">{f.standfirst}</p>

@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import films from '../data/films.json';
+import { films } from '../lib/films.js';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const latest = films.find(f => f.year === Math.max(...films.map(x => x.year)));
 ---
@@ -72,7 +72,7 @@ const latest = films.find(f => f.year === Math.max(...films.map(x => x.year)));
         <p class="entry-keys lbl">{f.keys.join(' · ')}</p>
       </div>
       <div class="entry-plate">
-        <div class="plate">{f.still && <img src={f.still} alt={`Still from ${f.title}`} loading="lazy" decoding="async">}</div>
+        <div class="plate">{f.still && <img src={f.still} width={f.stillWidth} height={f.stillHeight} alt={`Still from ${f.title}`} loading="lazy" decoding="async">}</div>
         <div class="plate-cap">
           <span class="lbl">Fig. {i + 1} — {f.cat}</span>
           <span class="lbl">{f.year}</span>

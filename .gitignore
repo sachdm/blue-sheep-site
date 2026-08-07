@@ -2,3 +2,6 @@ node_modules/
 dist/
 _panel/
 .astro/
+
+# Build-time Vimeo data — regenerated on every build, never committed.
+src/data/vimeo.generated.json
