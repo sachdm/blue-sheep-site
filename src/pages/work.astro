@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import films from '../data/films.json';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title="Work — Blue Sheep" description="Eight finished titles from Blue Sheep: narrative shorts, commissioned work and a music film. Each one annotated.">
+<section class="wrap wk">
+  <div class="wk-rail"><span class="lbl"><span class="lbl-blue">§ 01</span> &nbsp;— &nbsp;Work</span><span class="lbl">Eight titles · 2024 — 2026</span></div>
+  <h1 class="wk-h">The complete index.</h1>
+  <p class="wk-sub">Everything the studio has finished, in the order it was made.</p>
+  <div class="wk-grid">
+    {films.map((f, i) => (
+      <a class="wk-card" href={`${base}/${f.slug}.html`}>
+        <div class="plate">{f.still && <img src={f.still} alt={`Still from ${f.title}`} loading={i < 2 ? 'eager' : 'lazy'} decoding="async">}</div>
+        <div class="plate-cap"><span class="lbl">{String(i + 1).padStart(2, '0')} — {f.cat}</span><span class="lbl">{f.year}</span></div>
+        <h2 class="wk-t">{f.title}</h2>
+        <p class="wk-s">{f.standfirst}</p>
+      </a>
+    ))}
+  </div>
+</section>
+</Base>
+<style>
+  .wk { padding-top: clamp(24px,4vh,46px); }
+  .wk-rail { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+  .wk-h { font-family: var(--serif); font-variation-settings: var(--axes-display);
+          font-size: clamp(40px, 7.4vw, 112px); line-height: .94; letter-spacing: -.038em; margin: clamp(20px,3vh,34px) 0 10px; }
+  .wk-sub { font-style: italic; color: var(--ink-soft); max-width: 40ch; margin-bottom: clamp(28px,4vh,52px); }
+  .wk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: clamp(24px,3vw,48px) clamp(18px,2.4vw,38px); }
+  .wk-card { text-decoration: none; color: var(--ink); display: block; }
+  .wk-t { font-family: var(--serif); font-variation-settings: var(--axes-head); font-size: clamp(21px,2.1vw,27px);
+          line-height: 1.06; letter-spacing: -.02em; margin: 9px 0 5px; }
+  .wk-card:hover .wk-t { color: var(--blue); }
+  .wk-s { font-size: var(--t-small); color: var(--ink-soft); }
+</style>

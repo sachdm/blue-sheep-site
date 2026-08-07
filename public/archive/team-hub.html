@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Team Hub — Investors — Blue Sheep</title>
+<meta name="description" content="Private, encrypted team workspace for Blue Sheep — independent film production based in Toronto, Ontario.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="author" content="Blue Sheep">
+<link rel="canonical" href="https://sachdm.github.io/blue-sheep-site/team-hub.html">
+<meta name="view-transition" content="same-origin">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230a0a0a'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23f3f2ee' stroke-width='7'/%3E%3Ccircle cx='50' cy='50' r='9' fill='%23f3f2ee'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="preload" href="../fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../styles.css?v=8">
+</head>
+<body>
+
+<noscript><div style="position:fixed;inset:0;z-index:9999;background:#0a0a0a;color:#f3f2ee;display:flex;align-items:center;justify-content:center;text-align:center;padding:32px;font-family:sans-serif;font-size:15px;">This site uses JavaScript for navigation and video playback. Please enable JavaScript to view it properly.</div></noscript>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress-bar"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<header>
+  <nav class="wrap-wide">
+    <a class="brand" href="../index.html" aria-label="Blue Sheep — Home"><img class="brand-logo" src="../small-sheep.png" alt="Blue Sheep" width="309" height="240"><span class="brand-word">Blue<em>·</em>Sheep</span></a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="../work.html">Work</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../investors.html">Slate</a>
+      </div>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    </div>
+  </nav>
+</header>
+
+<main id="main" class="wrap page-main">
+
+  <a class="inv-back reveal" href="../investors.html">&larr; Slate</a>
+  <h1 class="label reveal inv-h1">Team Hub</h1>
+
+  <div class="gate reveal" id="investorsGate">
+    <div>
+      <p class="blurb">This page is encrypted. Enter the passphrase to continue.</p>
+      <form class="gate-form" id="gateForm" autocomplete="off">
+        <input type="text" class="gate-input" id="gateInput" placeholder="Passphrase" aria-label="Passphrase" autocomplete="off" spellcheck="false">
+        <button type="submit" class="gate-submit" id="gateSubmit">Enter</button>
+      </form>
+      <p class="gate-error" id="gateError" role="alert" aria-live="polite">Incorrect passphrase. Try again.</p>
+      <p class="gate-reach-out">Don't have a passphrase? <a href="mailto:info@bluesheepfilms.com">Reach out</a> for access.</p>
+    </div>
+  </div>
+
+  <div class="inv-public" id="teamContent" hidden>
+
+    <p class="pipeline-intro reveal" id="teamNote"></p>
+
+    <div class="team-editor-bar reveal">
+      <label class="team-editor-label" for="editorNameInput">Editing as</label>
+      <input type="text" class="team-editor-input" id="editorNameInput" placeholder="Your name…" autocomplete="off">
+      <span class="team-editor-hint">Tags what you add below. Saved to this browser only.</span>
+    </div>
+
+    <div class="hub-snapshot reveal">
+      <span class="mini-label">At a Glance — This Device</span>
+      <div class="pipeline-summary hub-snapshot-grid" id="teamSnapshotGrid"></div>
+      <p class="hub-snapshot-attention" id="teamSnapshotAttention" hidden></p>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Roadmap</span>
+      <div class="team-timeline" id="teamTimeline"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Key Dates</span>
+      <p class="team-section-sub">Deadlines that actually matter — add one below and it sorts itself, oldest first.</p>
+      <form class="keydate-add-form" id="keydateAddForm">
+        <input type="date" class="keydate-add-date" id="keydateDate" aria-label="Date" required>
+        <input type="text" class="keydate-add-label" id="keydateLabel" placeholder="What's due…" aria-label="What's due" required>
+        <button type="submit" class="keydate-add-btn">Add</button>
+      </form>
+      <div class="keydate-list" id="keydateList"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Company Schedule</span>
+      <p class="team-section-sub">Everything with a date on it, in one place — JAFSF festival runs and decisions, CTD (Countdown to Zero) client deliverables and AI batches for Cream, grant deadlines, and payables. Filter by category or search.</p>
+      <div class="schedule-tiles" id="scheduleTiles"></div>
+      <p class="schedule-standing" id="scheduleStanding"></p>
+      <div class="schedule-controls">
+        <div class="idea-filter-row" id="scheduleFilterRow"></div>
+        <input type="search" class="schedule-search" id="scheduleSearch" placeholder="Search the schedule…" aria-label="Search schedule">
+      </div>
+      <div id="scheduleList"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Strategic Priorities</span>
+      <p class="team-section-sub">A first pass at where we should be pointed over the next year, given where Blue Sheep actually stands — service work funding the studio, a slate in development, grants in motion, IP that needs protecting. Edit, argue with it, add notes. Click a status pill to move a priority along.</p>
+      <div class="priority-board" id="priorityBoard"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Objectives</span>
+      <div id="okrGroups"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Task Board</span>
+      <div class="kanban-board" id="kanbanBoard"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">IP Moodboard</span>
+      <p class="moodboard-hint">Visual references for whatever we're developing — tone, look, casting, locations. Paste an image URL, tag it to a project, add a line on why it's relevant.</p>
+      <form class="moodboard-add-form" id="moodboardAddForm">
+        <input type="text" class="moodboard-add-tag" id="moodboardTag" placeholder="Project / reference tag…" aria-label="Project tag">
+        <input type="url" class="moodboard-add-url" id="moodboardUrl" placeholder="Image URL…" aria-label="Image URL" required>
+        <textarea class="moodboard-add-note" id="moodboardNote" placeholder="Why this — tone, look, casting, location…" rows="2"></textarea>
+        <button type="submit" class="moodboard-add-btn">Add to Board</button>
+      </form>
+      <div class="idea-filter-row" id="moodboardFilterRow"></div>
+      <div class="moodboard-grid" id="moodboardGrid"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Logistics</span>
+      <p class="team-section-sub">Crew, gear, locations, admin — one list instead of five scattered notes apps. Click a status pill to move it along.</p>
+      <form class="logistics-add-form" id="logisticsAddForm">
+        <select class="logistics-type-select" id="logisticsType" aria-label="Type">
+          <option value="crew">Crew</option>
+          <option value="gear">Gear</option>
+          <option value="location">Location</option>
+          <option value="admin">Admin</option>
+        </select>
+        <input type="text" class="logistics-label-input" id="logisticsLabel" placeholder="What is it…" aria-label="Item" required>
+        <input type="text" class="logistics-detail-input" id="logisticsDetail" placeholder="Detail — who, where, cost…" aria-label="Detail">
+        <button type="submit" class="logistics-add-btn">Add</button>
+      </form>
+      <div class="logistics-filter-row" id="logisticsFilterRow">
+        <button type="button" class="idea-filter-btn active" data-type="all">All</button>
+        <button type="button" class="idea-filter-btn" data-type="crew">Crew</button>
+        <button type="button" class="idea-filter-btn" data-type="gear">Gear</button>
+        <button type="button" class="idea-filter-btn" data-type="location">Location</button>
+        <button type="button" class="idea-filter-btn" data-type="admin">Admin</button>
+      </div>
+      <div class="logistics-list" id="logisticsList"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Meeting Notes</span>
+      <p class="team-section-sub">What was discussed, what got decided. Newest first.</p>
+      <form class="meeting-add-form" id="meetingAddForm">
+        <input type="date" class="meeting-add-date" id="meetingDate" aria-label="Meeting date" required>
+        <input type="text" class="meeting-add-title" id="meetingTitle" placeholder="What was this about…" aria-label="Title" required>
+        <textarea class="meeting-add-body" id="meetingBody" placeholder="Notes, decisions, action items…" rows="3"></textarea>
+        <button type="submit" class="meeting-add-btn">Log Entry</button>
+      </form>
+      <div class="meeting-log" id="meetingLog"></div>
+    </div>
+
+    <div class="team-section reveal">
+      <span class="mini-label">Idea Board</span>
+      <p class="team-section-sub">Loose ideas, references, things worth remembering. Add a note below.</p>
+      <form class="idea-add-form" id="ideaAddForm">
+        <textarea class="idea-add-input" id="ideaAddInput" placeholder="Type an idea and pick a tag…" rows="2"></textarea>
+        <div class="idea-add-row">
+          <select class="idea-tag-select" id="ideaTagSelect">
+            <option value="story">Story</option>
+            <option value="visual">Visual</option>
+            <option value="business">Business</option>
+            <option value="logistics">Logistics</option>
+          </select>
+          <button type="submit" class="idea-add-btn">Add Note</button>
+        </div>
+      </form>
+      <div class="idea-filter-row" id="ideaFilterRow">
+        <button type="button" class="idea-filter-btn active" data-tag="all">All</button>
+        <button type="button" class="idea-filter-btn" data-tag="story">Story</button>
+        <button type="button" class="idea-filter-btn" data-tag="visual">Visual</button>
+        <button type="button" class="idea-filter-btn" data-tag="business">Business</button>
+        <button type="button" class="idea-filter-btn" data-tag="logistics">Logistics</button>
+      </div>
+      <div class="idea-board" id="ideaBoard"></div>
+    </div>
+
+    <div class="team-section reveal team-sync-block">
+      <span class="mini-label">Sharing Between Devices</span>
+      <p class="team-section-sub">This is a static site with no backend — everything above saves to this browser only, not synced across devices or team members. To share your board with someone else: export your data, send them the text, and they import it into their browser. To make something permanent site-wide, send it to whoever maintains the site so it can be baked into the encrypted page itself.</p>
+      <div class="team-sync-actions">
+        <button type="button" class="team-sync-btn" id="exportBtn">Export My Data</button>
+        <button type="button" class="team-sync-btn" id="importBtn">Import Data</button>
+      </div>
+      <textarea class="team-sync-area" id="syncArea" hidden placeholder="Paste exported data here, then click Apply Import." rows="6"></textarea>
+      <div class="team-sync-actions" id="syncApplyRow" hidden>
+        <button type="button" class="team-sync-btn" id="applyImportBtn">Apply Import</button>
+        <button type="button" class="team-sync-btn team-sync-btn-ghost" id="cancelImportBtn">Cancel</button>
+      </div>
+      <p class="team-sync-status" id="syncStatus" role="status" aria-live="polite"></p>
+    </div>
+
+    <p class="inv-security-note reveal">This page is protected with client-side passphrase encryption — nothing here is stored or sent as plain text. Want more detail on any item? <a href="mailto:info@bluesheepfilms.com">Reach out</a>.</p>
+
+  </div>
+
+</main>
+
+<footer>
+  <span>© 2026 Blue Sheep</span>
+  <span class="clock" id="clock">Toronto</span>
+  <div class="socials">
+    <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Vimeo">Vimeo</a>
+    <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer" aria-label="Blue Sheep on Instagram">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var path = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      var raw = a.getAttribute('href') || '';
+      if (raw.charAt(0) === '#') return;
+      var href = raw.split('#')[0] || 'index.html';
+      if (href === path) a.setAttribute('aria-current', 'page');
+    });
+  })();
+
+  // Clicking the logo/home link should return to a calm homepage, not
+  // replay the intro animation — flag it so index.html knows to skip it.
+  document.querySelectorAll('a.brand').forEach(function(a) {
+    a.addEventListener('click', function() {
+      try { sessionStorage.setItem('bs_skip_intro', '1'); } catch (e) {}
+    });
+  });
+
+  const toggle = document.querySelector('.nav-toggle');
+  const linkGroup = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    const isOpen = linkGroup.classList.toggle('open');
+    toggle.textContent = isOpen ? 'Close' : 'Menu';
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      const firstLink = linkGroup.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      toggle.focus();
+    }
+  });
+  linkGroup.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && linkGroup.classList.contains('open')) {
+      linkGroup.classList.remove('open');
+      toggle.textContent = 'Menu';
+      toggle.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';
+      toggle.focus();
+    }
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  const progressBar = document.querySelector('.progress-bar');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrollable = h.scrollHeight - h.clientHeight;
+    const pct = scrollable > 0 ? (h.scrollTop / scrollable) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  const clockEl = document.getElementById('clock');
+  if (clockEl) {
+    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Toronto', hour: 'numeric', minute: '2-digit', hour12: true });
+    function updateClock() {
+      clockEl.textContent = 'Toronto — ' + fmt.format(new Date());
+    }
+    updateClock();
+    setInterval(updateClock, 30000);
+  }
+
+  (function() {
+    // AES-256-GCM ciphertext, key derived via PBKDF2-SHA256. The payload below
+    // is opaque without the passphrase — nothing legible ships in this file.
+    const ENC = {
+      salt: "WJ8g4UxDau2hyR3IPV2qmQ==",
+      iv: "0eMkjqaJb/FY9UN0",
+      ciphertext: "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",
+      iterations: 600000
+    };
+
+    const gate = document.getElementById('investorsGate');
+    const content = document.getElementById('teamContent');
+    const form = document.getElementById('gateForm');
+    const input = document.getElementById('gateInput');
+    const submitBtn = document.getElementById('gateSubmit');
+    const error = document.getElementById('gateError');
+
+    function b64ToBuf(b64) {
+      const bin = atob(b64);
+      const buf = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+      return buf;
+    }
+
+    async function decrypt(passphrase) {
+      const enc = new TextEncoder();
+      const baseKey = await crypto.subtle.importKey('raw', enc.encode(passphrase), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: b64ToBuf(ENC.salt), iterations: ENC.iterations, hash: 'SHA-256' },
+        baseKey,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+      const plainBuf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64ToBuf(ENC.iv) }, key, b64ToBuf(ENC.ciphertext));
+      return JSON.parse(new TextDecoder().decode(plainBuf));
+    }
+
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // ---------- at-a-glance snapshot ----------
+    // Pulls straight from whatever's already in localStorage for the
+    // sections below, so it's always in sync — every mutating render
+    // function calls this again at the end.
+    function renderSnapshot() {
+      const grid = document.getElementById('teamSnapshotGrid');
+      if (!grid) return;
+      const kanban = getKanban(window.__teamData ? window.__teamData.kanbanSeed : null);
+      const openTasks = (kanban.todo || []).length + (kanban.progress || []).length;
+      const pmap = getPriorityMap();
+      const activePriorities = PRIORITIES.filter(function(p) { return (pmap[p.id] || {}).status === 'active'; }).length;
+      const dates = getKeydates();
+      const overdueDates = dates.filter(function(d) { return keydateStatus(d.date) === 'overdue'; });
+      const soonCount = dates.filter(function(d) { return keydateStatus(d.date) === 'soon'; }).length;
+      const moodboardCount = getMoodboard().length;
+      const logisticsNeeded = getLogistics().filter(function(i) { return i.status === 'needed'; }).length;
+      const stats = [
+        { label: 'Open Tasks', value: openTasks },
+        { label: 'Priorities Active', value: activePriorities },
+        { label: 'Deadlines Overdue', value: overdueDates.length },
+        { label: 'Deadlines This Month', value: soonCount },
+        { label: 'Moodboard References', value: moodboardCount },
+        { label: 'Logistics Needed', value: logisticsNeeded }
+      ];
+      grid.innerHTML = stats.map(function(s) {
+        return '<div class="pipeline-stat"><span class="pipeline-stat-value">' + s.value + '</span><span class="pipeline-stat-label">' + esc(s.label) + '</span></div>';
+      }).join('');
+      const attentionEl = document.getElementById('teamSnapshotAttention');
+      if (attentionEl) {
+        if (overdueDates.length) {
+          attentionEl.innerHTML = '<strong>Overdue:</strong> ' + overdueDates.map(function(d) { return esc(d.label); }).join(', ');
+          attentionEl.hidden = false;
+        } else {
+          attentionEl.innerHTML = '';
+          attentionEl.hidden = true;
+        }
+      }
+    }
+
+    // ---------- editor name ----------
+    const EDITOR_KEY = 'bs_team_editor';
+    function getEditor() { return localStorage.getItem(EDITOR_KEY) || ''; }
+    function setEditor(name) { localStorage.setItem(EDITOR_KEY, name); }
+
+    // ---------- OKR progress ----------
+    const OKR_KEY = 'bs_team_okr';
+    function getOkrMap() {
+      try { return JSON.parse(localStorage.getItem(OKR_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function setOkrProgress(id, val) {
+      const map = getOkrMap();
+      map[id] = val;
+      localStorage.setItem(OKR_KEY, JSON.stringify(map));
+    }
+
+    function renderOKR(groups) {
+      const map = getOkrMap();
+      let html = '';
+      groups.forEach(function(g) {
+        html += '<div class="okr-group">';
+        html += '<div class="okr-group-head"><span class="okr-group-title">' + esc(g.title) + '</span>';
+        if (g.sourceLink) html += '<a class="okr-group-source" href="' + esc(g.sourceLink) + '">' + esc(g.source) + ' &rarr;</a>';
+        html += '</div>';
+        g.items.forEach(function(item) {
+          const val = map[item.id] !== undefined ? map[item.id] : 0;
+          html += '<div class="okr-item" data-id="' + esc(item.id) + '">';
+          html += '<p class="okr-item-text">' + esc(item.text) + '</p>';
+          html += '<div class="okr-progress-row">';
+          html += '<input type="range" class="okr-progress-input" min="0" max="100" step="5" value="' + val + '" data-id="' + esc(item.id) + '" aria-label="Progress for ' + esc(item.text) + '">';
+          html += '<span class="okr-progress-value" data-id="' + esc(item.id) + '">' + val + '%</span>';
+          html += '</div></div>';
+        });
+        html += '</div>';
+      });
+      document.getElementById('okrGroups').innerHTML = html;
+      document.querySelectorAll('.okr-progress-input').forEach(function(el) {
+        el.addEventListener('input', function() {
+          const v = el.value;
+          document.querySelector('.okr-progress-value[data-id="' + el.dataset.id + '"]').textContent = v + '%';
+        });
+        el.addEventListener('change', function() {
+          setOkrProgress(el.dataset.id, Number(el.value));
+        });
+      });
+    }
+
+    // ---------- timeline / milestone status ----------
+    const MILESTONE_KEY = 'bs_team_milestones';
+    const STATUS_CYCLE = ['upcoming', 'active', 'done'];
+    const STATUS_LABEL = { upcoming: 'Upcoming', active: 'In Progress', done: 'Done' };
+    function getMilestoneMap() {
+      try { return JSON.parse(localStorage.getItem(MILESTONE_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function setMilestoneStatus(idx, status) {
+      const map = getMilestoneMap();
+      map[idx] = status;
+      localStorage.setItem(MILESTONE_KEY, JSON.stringify(map));
+    }
+
+    function renderTimeline(timeline) {
+      const map = getMilestoneMap();
+      let html = '<div class="timeline">';
+      timeline.forEach(function(m, idx) {
+        const status = map[idx] || m.defaultStatus || 'upcoming';
+        const isLast = idx === timeline.length - 1;
+        html += '<div class="timeline-item' + (isLast ? ' timeline-item-last' : '') + '" data-idx="' + idx + '">';
+        html += '<div class="timeline-marker"><span class="timeline-dot"></span></div>';
+        html += '<div class="timeline-content">';
+        html += '<span class="timeline-month">' + esc(m.month) + '</span>';
+        html += '<div class="timeline-title-row"><span class="timeline-title">' + esc(m.title) + '</span>';
+        html += '<button type="button" class="team-milestone-status status-' + status + '" data-idx="' + idx + '">' + STATUS_LABEL[status] + '</button></div>';
+        html += '<p class="timeline-desc">' + esc(m.desc) + '</p>';
+        html += '</div></div>';
+      });
+      html += '</div>';
+      document.getElementById('teamTimeline').innerHTML = html;
+      document.querySelectorAll('.team-milestone-status').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const idx = btn.dataset.idx;
+          const map2 = getMilestoneMap();
+          const current = map2[idx] || (window.__teamData.timeline[idx].defaultStatus || 'upcoming');
+          const next = STATUS_CYCLE[(STATUS_CYCLE.indexOf(current) + 1) % STATUS_CYCLE.length];
+          setMilestoneStatus(idx, next);
+          btn.className = 'team-milestone-status status-' + next;
+          btn.textContent = STATUS_LABEL[next];
+        });
+      });
+    }
+
+    // ---------- kanban ----------
+    const KANBAN_KEY = 'bs_team_kanban';
+    const COLS = ['todo', 'progress', 'done'];
+    const COL_LABEL = { todo: 'To Do', progress: 'In Progress', done: 'Done' };
+    function getKanban(seed) {
+      try {
+        const stored = localStorage.getItem(KANBAN_KEY);
+        if (stored) return JSON.parse(stored);
+      } catch (e) {}
+      const board = { todo: [], progress: [], done: [] };
+      (seed && seed.todo || []).forEach(function(t) {
+        board.todo.push({ id: 'k_' + Math.random().toString(36).slice(2, 9), text: t, author: '', createdAt: Date.now() });
+      });
+      localStorage.setItem(KANBAN_KEY, JSON.stringify(board));
+      return board;
+    }
+    function setKanban(board) { localStorage.setItem(KANBAN_KEY, JSON.stringify(board)); }
+    function cardAgeLabel(createdAt) {
+      if (!createdAt) return '';
+      const days = Math.floor((Date.now() - createdAt) / 86400000);
+      if (days <= 0) return 'Today';
+      if (days === 1) return '1 day';
+      return days + ' days';
+    }
+    function addCard(col, text, author) {
+      const board = getKanban();
+      board[col].push({ id: 'k_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), text: text, author: author || '', createdAt: Date.now() });
+      setKanban(board);
+      renderKanban();
+    }
+    function moveCard(col, id, dir) {
+      const board = getKanban();
+      const idx = board[col].findIndex(function(c) { return c.id === id; });
+      if (idx === -1) return;
+      const card = board[col][idx];
+      const colIdx = COLS.indexOf(col);
+      const newColIdx = colIdx + dir;
+      if (newColIdx < 0 || newColIdx >= COLS.length) return;
+      board[col].splice(idx, 1);
+      board[COLS[newColIdx]].push(card);
+      setKanban(board);
+      renderKanban();
+    }
+    function deleteCard(col, id) {
+      const board = getKanban();
+      board[col] = board[col].filter(function(c) { return c.id !== id; });
+      setKanban(board);
+      renderKanban();
+    }
+
+    function renderKanban() {
+      const board = getKanban(window.__teamData.kanbanSeed);
+      let html = '';
+      COLS.forEach(function(col, colIdx) {
+        html += '<div class="kanban-col">';
+        html += '<div class="kanban-col-head"><span class="kanban-col-title">' + COL_LABEL[col] + '</span><span class="kanban-col-count">' + board[col].length + '</span></div>';
+        html += '<div class="kanban-cards">';
+        board[col].forEach(function(card) {
+          const age = cardAgeLabel(card.createdAt);
+          const days = card.createdAt ? Math.floor((Date.now() - card.createdAt) / 86400000) : 0;
+          const stale = col !== 'done' && days >= 14;
+          html += '<div class="kanban-card">';
+          html += '<p class="kanban-card-text">' + esc(card.text) + '</p>';
+          html += '<div class="kanban-card-meta">';
+          if (card.author) html += '<span class="kanban-card-author">' + esc(card.author) + '</span>';
+          if (age) html += '<span class="kanban-card-age' + (stale ? ' stale' : '') + '">' + age + '</span>';
+          html += '</div>';
+          html += '<div class="kanban-card-actions">';
+          if (colIdx > 0) html += '<button type="button" class="kanban-move" data-col="' + col + '" data-id="' + card.id + '" data-dir="-1" aria-label="Move left">&larr;</button>';
+          if (colIdx < COLS.length - 1) html += '<button type="button" class="kanban-move" data-col="' + col + '" data-id="' + card.id + '" data-dir="1" aria-label="Move right">&rarr;</button>';
+          html += '<button type="button" class="kanban-delete" data-col="' + col + '" data-id="' + card.id + '" aria-label="Delete card">&times;</button>';
+          html += '</div></div>';
+        });
+        html += '</div>';
+        html += '<form class="kanban-add-form" data-col="' + col + '"><input type="text" class="kanban-add-input" placeholder="Add a task…" aria-label="Add a task to ' + COL_LABEL[col] + '"><button type="submit" class="kanban-add-btn" aria-label="Add">+</button></form>';
+        html += '</div>';
+      });
+      document.getElementById('kanbanBoard').innerHTML = html;
+      document.querySelectorAll('.kanban-move').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          moveCard(btn.dataset.col, btn.dataset.id, Number(btn.dataset.dir));
+        });
+      });
+      document.querySelectorAll('.kanban-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          deleteCard(btn.dataset.col, btn.dataset.id);
+        });
+      });
+      document.querySelectorAll('.kanban-add-form').forEach(function(f) {
+        f.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const inputEl = f.querySelector('.kanban-add-input');
+          const text = inputEl.value.trim();
+          if (!text) return;
+          addCard(f.dataset.col, text, getEditor());
+          inputEl.value = '';
+        });
+      });
+      renderSnapshot();
+    }
+
+    // ---------- company schedule ----------
+    // Pulled from the standalone schedule build (FilmFreeway export + CTD
+    // working schedule + internal grants sheet) and baked in as static
+    // reference data — this is a read-only view, not a localStorage-backed
+    // editor, so there's nothing here for TEAM_KEYS to export/import.
+    const SCHEDULE_TODAY = '2026-07-27';
+    const SCHEDULE_DATA = [{"start": "2026-09-21", "end": "2026-09-27", "title": "Tirana International Film Festival", "cat": "festival", "note": "JAFSF festival run · Fiction/Live action · status: Undecided"}, {"start": "2026-08-21", "end": "2026-08-21", "title": "Tirana International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-29", "end": "2026-11-05", "title": "Austin Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-09-29", "end": "2026-09-29", "title": "Austin Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-05", "end": "2026-09-06", "title": "Toronto Shorts International Film Festival", "cat": "festival", "note": "JAFSF festival run · Canadian Shorts · status: Selected"}, {"start": "2026-07-20", "end": "2026-07-20", "title": "Toronto Shorts International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Selected as of Jul 27"}, {"start": "2026-10-14", "end": "2026-10-18", "title": "Woodstock Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Narrative · status: Undecided"}, {"start": "2026-09-05", "end": "2026-09-05", "title": "Woodstock Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-14", "end": "2026-10-18", "title": "ANCHOR Fest", "cat": "festival", "note": "JAFSF festival run · Short Films · status: Undecided"}, {"start": "2026-09-04", "end": "2026-09-04", "title": "ANCHOR Fest — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-09", "end": "2026-10-15", "title": "New York Shorts International Film Festival", "cat": "festival", "note": "JAFSF festival run · Shorts · status: Undecided"}, {"start": "2026-09-12", "end": "2026-09-12", "title": "New York Shorts International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-04", "end": "2026-11-15", "title": "The Boston Jewish Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Film · status: Undecided"}, {"start": "2026-09-07", "end": "2026-09-07", "title": "The Boston Jewish Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-08", "end": "2026-10-18", "title": "London Independent Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Film · status: Undecided"}, {"start": "2026-08-21", "end": "2026-08-21", "title": "London Independent Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-13", "end": "2026-11-15", "title": "25th Edition of the MIAMI Short Film Festival ~ November 13–15, 2026!", "cat": "festival", "note": "JAFSF festival run · NARRATIVE - USA & Canada · status: Undecided"}, {"start": "2026-09-07", "end": "2026-09-07", "title": "25th Edition of the MIAMI Short Film Festival ~ November 13–15, 2026! — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-01", "end": "2026-10-11", "title": "Mill Valley Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-09-01", "end": "2026-09-01", "title": "Mill Valley Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-06", "end": "2026-10-10", "title": "ValdarnoCinema Film Festival", "cat": "festival", "note": "JAFSF festival run · ValdarnoCinema Film Festival - Short Film · status: Undecided"}, {"start": "2026-08-31", "end": "2026-08-31", "title": "ValdarnoCinema Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-24", "end": "2026-10-03", "title": "40th Edmonton International Film Festival", "cat": "festival", "note": "JAFSF festival run · SHORT FILM : LIVE ACTION (40-mins. or less) · status: Undecided"}, {"start": "2026-08-01", "end": "2026-08-01", "title": "40th Edmonton International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-10", "end": "2026-11-15", "title": "International Film Festival Glasgow", "cat": "festival", "note": "JAFSF festival run · Shorts Competition · status: Undecided"}, {"start": "2026-09-22", "end": "2026-09-22", "title": "International Film Festival Glasgow — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-14", "end": "2026-11-14", "title": "Oslo Film Festival", "cat": "festival", "note": "JAFSF festival run · Best Short Film · status: Undecided"}, {"start": "2026-10-16", "end": "2026-10-16", "title": "Oslo Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-12", "end": "2026-11-22", "title": "Cork International Film Festival", "cat": "festival", "note": "JAFSF festival run · International Shorts · status: Undecided"}, {"start": "2026-09-18", "end": "2026-09-18", "title": "Cork International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-03", "end": "2026-11-08", "title": "36th FilmFestival Cottbus", "cat": "festival", "note": "JAFSF festival run · Short Film Competition · status: Undecided"}, {"start": "2026-09-30", "end": "2026-09-30", "title": "36th FilmFestival Cottbus — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-04", "end": "2026-11-08", "title": "Yellowknife International Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Fiction · status: Undecided"}, {"start": "2026-09-18", "end": "2026-09-18", "title": "Yellowknife International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-06-26", "end": "2027-07-03", "title": "IN THE PALACE International Film Festival", "cat": "festival", "note": "JAFSF festival run · BEST SHORT FICTION · status: Undecided"}, {"start": "2027-03-01", "end": "2027-03-01", "title": "IN THE PALACE International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-17", "end": "2026-09-21", "title": "42nd Boston Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Films · status: Undecided"}, {"start": "2026-08-17", "end": "2026-08-17", "title": "42nd Boston Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-18", "end": "2026-11-29", "title": "Foyle Film Festival", "cat": "festival", "note": "JAFSF festival run · International Short Film · status: Undecided"}, {"start": "2026-10-05", "end": "2026-10-05", "title": "Foyle Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-06", "end": "2026-11-15", "title": "Norwich Film Festival", "cat": "festival", "note": "JAFSF festival run · International Short Film · status: Undecided"}, {"start": "2026-08-21", "end": "2026-08-21", "title": "Norwich Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-14", "end": "2026-10-19", "title": "Santa Fe International Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-09-09", "end": "2026-09-09", "title": "Santa Fe International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-23", "end": "2026-09-27", "title": "Chicago Underground Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-07-29", "end": "2026-07-29", "title": "Chicago Underground Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-07", "end": "2026-10-13", "title": "SOHO International Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Film (World) · status: Undecided"}, {"start": "2026-08-01", "end": "2026-08-01", "title": "SOHO International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-22", "end": "2026-10-25", "title": "Naples International Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Films · status: Undecided"}, {"start": "2026-10-05", "end": "2026-10-05", "title": "Naples International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-23", "end": "2026-10-25", "title": "Sapporo International Short Film Festival & Market", "cat": "festival", "note": "JAFSF festival run · International Competition - INTERNATIONAL FILM · status: Undecided"}, {"start": "2026-08-01", "end": "2026-08-01", "title": "Sapporo International Short Film Festival & Market — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-14", "end": "2026-10-25", "title": "Chicago International Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Films · status: Undecided"}, {"start": "2026-09-14", "end": "2026-09-14", "title": "Chicago International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-19", "end": "2026-10-25", "title": "Uppsala Short Film Festival", "cat": "festival", "note": "JAFSF festival run · International Competition · status: Undecided"}, {"start": "2026-09-21", "end": "2026-09-21", "title": "Uppsala Short Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-23", "end": "2026-09-27", "title": "Encounters Film Festival", "cat": "festival", "note": "JAFSF festival run · Live Action Short Film · status: Undecided"}, {"start": "2026-08-06", "end": "2026-08-06", "title": "Encounters Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-25", "end": "2026-09-27", "title": "Catalina Film Festival", "cat": "festival", "note": "JAFSF festival run · 🎬 International Narrative Short · status: Undecided"}, {"start": "2026-08-03", "end": "2026-08-03", "title": "Catalina Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-14", "end": "2026-10-18", "title": "San Diego International Film Festival", "cat": "festival", "note": "JAFSF festival run · Shorts · status: Undecided"}, {"start": "2026-09-08", "end": "2026-09-08", "title": "San Diego International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-16", "end": "2026-09-20", "title": "Oldenburg International Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Film · status: Undecided"}, {"start": "2026-08-22", "end": "2026-08-22", "title": "Oldenburg International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-24", "end": "2026-09-30", "title": "Nashville Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Shorts Competition · status: Undecided"}, {"start": "2026-08-10", "end": "2026-08-10", "title": "Nashville Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-08", "end": "2026-10-15", "title": "Buffalo International Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Narrative Film · status: Undecided"}, {"start": "2026-08-07", "end": "2026-08-07", "title": "Buffalo International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-18", "end": "2026-11-22", "title": "Key West Film Festival - Florida", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-10-12", "end": "2026-10-12", "title": "Key West Film Festival - Florida — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-21", "end": "2026-10-25", "title": "AFI FEST", "cat": "festival", "note": "JAFSF festival run · Fiction Short Films · status: Undecided"}, {"start": "2026-09-25", "end": "2026-09-25", "title": "AFI FEST — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-11", "end": "2026-11-20", "title": "Cairo International Film Festival - Short Film Competition", "cat": "festival", "note": "JAFSF festival run · CIFF - Short Film Competition · status: Undecided"}, {"start": "2026-10-22", "end": "2026-10-22", "title": "Cairo International Film Festival - Short Film Competition — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-13", "end": "2026-10-17", "title": "Family Film Project", "cat": "festival", "note": "JAFSF festival run · Fiction · status: Undecided"}, {"start": "2026-09-30", "end": "2026-09-30", "title": "Family Film Project — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-01-15", "end": "2027-01-19", "title": "Ffilmic", "cat": "festival", "note": "JAFSF festival run · Best Live Action Short Film · status: Undecided"}, {"start": "2027-01-05", "end": "2027-01-05", "title": "Ffilmic — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-22", "end": "2026-10-27", "title": "New Orleans Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-08-14", "end": "2026-08-14", "title": "New Orleans Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-22", "end": "2026-10-25", "title": "San Jose International Short Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Live Action · status: Undecided"}, {"start": "2026-08-02", "end": "2026-08-02", "title": "San Jose International Short Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-01-22", "end": "2027-01-31", "title": "London Short Film Festival", "cat": "festival", "note": "JAFSF festival run · London Short Film Festival: International · status: Undecided"}, {"start": "2026-10-22", "end": "2026-10-22", "title": "London Short Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-04-08", "end": "2027-04-15", "title": "Courts d'un soir - Montreal international short film festival", "cat": "festival", "note": "JAFSF festival run · COURTS-MÉTRAGES / SHORT FILMS · status: Undecided"}, {"start": "2027-03-19", "end": "2027-03-19", "title": "Courts d'un soir - Montreal international short film festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-30", "end": "2026-09-30", "title": "Santa Barbara International ShortFest", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-09-16", "end": "2026-09-16", "title": "Santa Barbara International ShortFest — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-10", "end": "2026-11-18", "title": "PÖFF Shorts (Black Nights Film Festival)", "cat": "festival", "note": "JAFSF festival run · Live-action shorts · status: Undecided"}, {"start": "2026-10-08", "end": "2026-10-08", "title": "PÖFF Shorts (Black Nights Film Festival) — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-04", "end": "2026-11-08", "title": "Aesthetica Film Festival", "cat": "festival", "note": "JAFSF festival run · Drama · status: Undecided"}, {"start": "2026-08-31", "end": "2026-08-31", "title": "Aesthetica Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-15", "end": "2026-10-18", "title": "New Hampshire Film Festival", "cat": "festival", "note": "JAFSF festival run · Live Action Short · status: Undecided"}, {"start": "2026-09-01", "end": "2026-09-01", "title": "New Hampshire Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-11", "end": "2026-09-11", "title": "SPLIT FILM FESTIVAL / INTERNATIONAL FESTIVAL OF NEW FILM", "cat": "festival", "note": "JAFSF festival run · Short Film · status: Undecided"}, {"start": "2026-07-15", "end": "2026-07-15", "title": "SPLIT FILM FESTIVAL / INTERNATIONAL FESTIVAL OF NEW FILM — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-03-11", "end": "2027-03-14", "title": "CANNES INDIE SHORTS AWARDS", "cat": "festival", "note": "JAFSF festival run · NARRATIVE SHORTS · status: Semi-Finalist"}, {"start": "2026-07-30", "end": "2026-07-30", "title": "CANNES INDIE SHORTS AWARDS — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Semi-Finalist as of Jul 27"}, {"start": "2026-09-09", "end": "2026-09-13", "title": "Toronto Independent Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Film · status: Undecided"}, {"start": "2026-07-30", "end": "2026-07-30", "title": "Toronto Independent Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-25", "end": "2027-08-14", "title": "Short Com International Comedy Film and Animation Festival", "cat": "festival", "note": "JAFSF festival run · Regular Deadline Short Film Entry · status: Undecided"}, {"start": "2026-07-31", "end": "2026-07-31", "title": "Short Com International Comedy Film and Animation Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-01-27", "end": "2027-01-31", "title": "SNOWDANCE Independent Film Festival", "cat": "festival", "note": "JAFSF festival run · Independent Short Films (up to 25 Minutes) · status: Undecided"}, {"start": "2026-12-21", "end": "2026-12-21", "title": "SNOWDANCE Independent Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-03-11", "end": "2027-03-21", "title": "Manchester Film Festival", "cat": "festival", "note": "JAFSF festival run · International Narrative Shorts · status: Undecided"}, {"start": "2027-01-20", "end": "2027-01-20", "title": "Manchester Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-22", "end": "2026-10-25", "title": "Tacoma Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-09-01", "end": "2026-09-01", "title": "Tacoma Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-15", "end": "2026-10-17", "title": "Eastern Oregon Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Narrative · status: Undecided"}, {"start": "2026-07-19", "end": "2026-07-19", "title": "Eastern Oregon Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-22", "end": "2026-11-01", "title": "Cambridge Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Film · status: Undecided"}, {"start": "2026-09-22", "end": "2026-09-22", "title": "Cambridge Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-08", "end": "2026-10-18", "title": "SITGES - International Fantastic Film Festival of Catalonia", "cat": "festival", "note": "JAFSF festival run · Short Film (Fiction) · status: Undecided"}, {"start": "2026-09-01", "end": "2026-09-01", "title": "SITGES - International Fantastic Film Festival of Catalonia — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-09", "end": "2026-11-15", "title": "Braunschweig International Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Film Submission · status: Undecided"}, {"start": "2026-10-09", "end": "2026-10-09", "title": "Braunschweig International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-24", "end": "2026-10-04", "title": "Calgary International Film Festival", "cat": "festival", "note": "JAFSF festival run · Live Action Short Films · status: Undecided"}, {"start": "2026-08-20", "end": "2026-08-20", "title": "Calgary International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-01-01", "end": "2027-03-31", "title": "NewFilmmakers NY", "cat": "festival", "note": "JAFSF festival run · Short Film · status: Selected"}, {"start": "2026-07-01", "end": "2026-07-01", "title": "NewFilmmakers NY — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Selected as of Jul 27"}, {"start": "2026-10-01", "end": "2026-10-11", "title": "Vancouver International Film Festival", "cat": "festival", "note": "JAFSF festival run · Canadian Shorts · status: Undecided"}, {"start": "2026-08-26", "end": "2026-08-26", "title": "Vancouver International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-14", "end": "2026-11-21", "title": "Caminhos Film Festival", "cat": "festival", "note": "JAFSF festival run · World Selection (Filmes do Mundo) - Short Films · status: Undecided"}, {"start": "2026-10-06", "end": "2026-10-06", "title": "Caminhos Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-22", "end": "2026-11-01", "title": "Hawai'i International Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Shorts · status: Undecided"}, {"start": "2026-08-14", "end": "2026-08-14", "title": "Hawai'i International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-25", "end": "2026-10-12", "title": "New York Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Film · status: Undecided"}, {"start": "2026-08-17", "end": "2026-08-17", "title": "New York Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-04-22", "end": "2027-05-02", "title": "Atlanta Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2027-02-12", "end": "2027-02-12", "title": "Atlanta Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-25", "end": "2026-09-26", "title": "Paris Independent Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Film · status: Undecided"}, {"start": "2026-08-24", "end": "2026-08-24", "title": "Paris Independent Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-08-04", "end": "2026-08-09", "title": "Flickers' Rhode Island International Film Festival", "cat": "festival", "note": "JAFSF festival run · Short Narrative Film · status: Semi-Finalist"}, {"start": "2026-07-17", "end": "2026-07-17", "title": "Flickers' Rhode Island International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Semi-Finalist as of Jul 27"}, {"start": "2026-09-19", "end": "2026-09-27", "title": "Cinéfest Sudbury International Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-09-01", "end": "2026-09-01", "title": "Cinéfest Sudbury International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-09", "end": "2026-10-18", "title": "42nd Warsaw International Film Festival", "cat": "festival", "note": "JAFSF festival run · SHORT FILMS COMPETITION · status: Undecided"}, {"start": "2026-09-18", "end": "2026-09-18", "title": "42nd Warsaw International Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2027-02-18", "end": "2027-02-24", "title": "Slamdance Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Shorts · status: Undecided"}, {"start": "2026-12-17", "end": "2026-12-17", "title": "Slamdance Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-11-03", "end": "2026-11-08", "title": "Internationale Kurzfilmtage Winterthur", "cat": "festival", "note": "JAFSF festival run · International Competition · status: Undecided"}, {"start": "2026-09-30", "end": "2026-09-30", "title": "Internationale Kurzfilmtage Winterthur — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-10-15", "end": "2026-10-25", "title": "Forest City Film Festival", "cat": "festival", "note": "JAFSF festival run · Narrative Short · status: Undecided"}, {"start": "2026-08-21", "end": "2026-08-21", "title": "Forest City Film Festival — decision", "cat": "festivaldec", "note": "JAFSF decision date · was Undecided as of Jul 27"}, {"start": "2026-09-04", "end": "2026-09-04", "title": "CTD 101 MELTDOWN — master delivery", "cat": "ctd", "note": "Countdown to Zero episode delivered to network (Cream Productions)"}, {"start": "2026-09-25", "end": "2026-09-25", "title": "CTD 102 UNDER PRESSURE — master delivery", "cat": "ctd", "note": "Countdown to Zero episode delivered to network (Cream Productions)"}, {"start": "2026-10-09", "end": "2026-10-09", "title": "CTD 103 RISKY BUSINESS — master delivery", "cat": "ctd", "note": "Countdown to Zero episode delivered to network (Cream Productions)"}, {"start": "2026-10-23", "end": "2026-10-23", "title": "CTD 104 NO WAY OUT — master delivery", "cat": "ctd", "note": "Countdown to Zero episode delivered to network (Cream Productions)"}, {"start": "2026-10-30", "end": "2026-10-30", "title": "CTD 105 NATURE UNLEASHED — master delivery", "cat": "ctd", "note": "Countdown to Zero episode delivered to network (Cream Productions)"}, {"start": "2026-11-27", "end": "2026-11-27", "title": "CTD 106 BREAKING POINT — master delivery", "cat": "ctd", "note": "Countdown to Zero episode delivered to network (Cream Productions)"}, {"start": "2026-12-11", "end": "2026-12-11", "title": "CTD 107 ONE WRONG MOVE — master delivery", "cat": "ctd", "note": "Countdown to Zero episode delivered to network (Cream Productions)"}, {"start": "2026-12-18", "end": "2026-12-18", "title": "CTD 108 HIDDEN JEOPARDY — master delivery", "cat": "ctd", "note": "Countdown to Zero episode delivered to network (Cream Productions)"}, {"start": "2026-08-14", "end": "2026-08-14", "title": "CTD 105 — 2nd AI delivery due", "cat": "ctdai", "note": "Blue Sheep AI asset batch due to Cream"}, {"start": "2026-09-03", "end": "2026-09-03", "title": "CTD 106 — 2nd AI delivery due", "cat": "ctdai", "note": "Blue Sheep AI asset batch due to Cream"}, {"start": "2026-09-17", "end": "2026-09-17", "title": "CTD 107 — 2nd AI delivery due", "cat": "ctdai", "note": "Blue Sheep AI asset batch due to Cream"}, {"start": "2026-09-24", "end": "2026-09-24", "title": "CTD 108 — 2nd AI delivery due", "cat": "ctdai", "note": "Blue Sheep AI asset batch due to Cream"}, {"start": "2026-07-30", "end": "2026-08-07", "title": "CTD 106 — 1st AI requests window", "cat": "ctdai", "note": "Blue Sheep receives 1st asset requests; batching begins"}, {"start": "2026-08-10", "end": "2026-08-13", "title": "CTD 107 — 1st AI requests window", "cat": "ctdai", "note": "Blue Sheep receives 1st asset requests; batching begins"}, {"start": "2026-08-17", "end": "2026-08-21", "title": "CTD 108 — 1st AI requests window", "cat": "ctdai", "note": "Blue Sheep receives 1st asset requests; batching begins"}, {"start": "2026-08-04", "end": "2026-08-04", "title": "Toronto Arts Council — Creative/Literary/Media Arts Projects", "cat": "grant", "note": "From internal GRANTS sheet · was tagged to a Together, Alone photobook — reconfirm relevance"}, {"start": "2026-08-19", "end": "2026-08-19", "title": "Indigenous Screen Office — Development", "cat": "grant", "note": "If a principal qualifies · closes"}, {"start": "2026-08-27", "end": "2026-08-27", "title": "Ontario Creates — Enterprise Fund", "cat": "grant", "note": "From internal GRANTS sheet · confirm on site"}, {"start": "2026-09-14", "end": "2026-09-14", "title": "Ontario Creates IP Fund — Interactive stream", "cat": "grant", "note": "5:00pm ET · games/XR"}, {"start": "2026-09-15", "end": "2026-09-15", "title": "Canada Media Fund — Innovation & Experimentation R2", "cat": "grant", "note": "Verified on cmf-fmc.ca"}, {"start": "2026-09-22", "end": "2026-09-22", "title": "Ontario Creates IP Fund — Linear stream", "cat": "grant", "note": "5:00pm ET · dev + production, doc up to $200K · STRONGEST near-term target"}, {"start": "2026-10-06", "end": "2026-10-06", "title": "Ontario Arts Council — Indigenous Arts Projects", "cat": "grant", "note": "1:00pm ET"}, {"start": "2026-10-08", "end": "2026-10-08", "title": "Ontario Arts Council — Media Artists Creation Projects", "cat": "grant", "note": "1:00pm ET · individual applicant (director applies personally)"}, {"start": "2026-10-10", "end": "2026-10-10", "title": "NFB — Filmmaker Assistance Program, Term 3", "cat": "grant", "note": "5:00pm · $7.5K short / $15K feature"}, {"start": "2026-10-15", "end": "2026-10-15", "title": "Toronto Arts Council — Media Artists: Creation", "cat": "grant", "note": "Was tagged to Together, Alone (now complete) — a Creation grant needs a live project, so re-point to a current title or drop"}, {"start": "2026-10-21", "end": "2026-10-21", "title": "Canada Council — International Residencies", "cat": "grant", "note": "11:59pm EST · from internal GRANTS sheet"}, {"start": "2026-11-04", "end": "2026-11-04", "title": "Canada Council — International Co-productions", "cat": "grant", "note": "11:59pm EST · from internal GRANTS sheet"}, {"start": "2026-11-10", "end": "2026-11-10", "title": "Canada Media Fund — Prototyping R2", "cat": "grant", "note": "Verified on cmf-fmc.ca"}, {"start": "2026-12-02", "end": "2026-12-02", "title": "Bell Fund — Production (MPF)", "cat": "grant", "note": "Rolling, closes · from internal GRANTS sheet"}, {"start": "2026-12-08", "end": "2026-12-08", "title": "Canada Media Fund — Development (+ B&R Communities, Northern)", "cat": "grant", "note": "First-come-first-served — apply early"}, {"start": "2026-12-16", "end": "2026-12-16", "title": "Ontario Creates — Screen Marketing & Discoverability", "cat": "grant", "note": "5:00pm ET · continuous, closes"}, {"start": "2027-01-15", "end": "2027-01-15", "title": "Ontario Arts Council — Market Development Travel", "cat": "grant", "note": "Or until budget exhausted"}, {"start": "2026-08-05", "end": "2026-08-05", "title": "Hayden Koh invoice — $225", "cat": "admin", "note": "Payable"}, {"start": "2026-08-07", "end": "2026-08-07", "title": "Hayden Koh invoice — $225", "cat": "admin", "note": "Payable"}, {"start": "2026-08-17", "end": "2026-08-17", "title": "Hayden Koh invoice — $225", "cat": "admin", "note": "Payable"}];
+    const SCHEDULE_CATS = {
+      meeting: 'Meetings',
+      ctd: 'CTD Delivery',
+      ctdai: 'CTD AI Batches',
+      grant: 'Grants',
+      festival: 'Festival Runs',
+      festivaldec: 'Festival Decisions',
+      admin: 'Admin / Payables'
+    };
+    let scheduleActive = new Set(Object.keys(SCHEDULE_CATS));
+    let scheduleQuery = '';
+    function scheduleDaysUntil(iso) {
+      return Math.round((new Date(iso + 'T12:00:00') - new Date(SCHEDULE_TODAY + 'T12:00:00')) / 86400000);
+    }
+    const SCHEDULE_MONTH_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const SCHEDULE_MONTH_LONG = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    function scheduleFmt(iso) {
+      const parts = iso.split('-').map(Number);
+      return SCHEDULE_MONTH_SHORT[parts[1] - 1] + ' ' + parts[2];
+    }
+    function scheduleFmtEnd(start, end) {
+      return start.slice(0, 4) === end.slice(0, 4) ? scheduleFmt(end) : scheduleFmt(end) + ', ' + end.slice(0, 4);
+    }
+    function scheduleMonthKey(iso) { return iso.slice(0, 7); }
+    function scheduleMonthLabel(key) {
+      const parts = key.split('-').map(Number);
+      return SCHEDULE_MONTH_LONG[parts[1] - 1] + ' ' + parts[0];
+    }
+    function renderScheduleTiles() {
+      const el = document.getElementById('scheduleTiles');
+      if (!el) return;
+      const upcoming = SCHEDULE_DATA.filter(function(e) { return e.start >= SCHEDULE_TODAY || (e.end && e.end >= SCHEDULE_TODAY); });
+      const ctdCount = upcoming.filter(function(e) { return e.cat === 'ctd' || e.cat === 'ctdai'; }).length;
+      const grant45 = SCHEDULE_DATA.filter(function(e) { return e.cat === 'grant' && scheduleDaysUntil(e.start) >= 0 && scheduleDaysUntil(e.start) <= 45; }).length;
+      const festDec30 = SCHEDULE_DATA.filter(function(e) { return e.cat === 'festivaldec' && scheduleDaysUntil(e.start) >= 0 && scheduleDaysUntil(e.start) <= 30; }).length;
+      const festCount = SCHEDULE_DATA.filter(function(e) { return e.cat === 'festival'; }).length;
+      const tiles = [
+        { v: ctdCount, l: 'CTD deadlines ahead' },
+        { v: grant45, l: 'Grant deadlines in 45 days' },
+        { v: festDec30, l: 'Festival decisions in 30 days' },
+        { v: festCount, l: 'JAFSF festivals in play' }
+      ];
+      el.innerHTML = tiles.map(function(t) {
+        return '<div class="schedule-tile"><span class="schedule-tile-value">' + t.v + '</span><span class="schedule-tile-label">' + esc(t.l) + '</span></div>';
+      }).join('');
+    }
+    function renderScheduleStanding() {
+      const el = document.getElementById('scheduleStanding');
+      if (!el) return;
+      el.innerHTML = '<strong>Standing weekly:</strong> team sync — <strong>Mon 10:00am</strong> (set the week’s priorities) &amp; <strong>Fri 4:00pm</strong> (wrap + handoff). Cream posts the CTD AI priority list every <strong>Friday PM</strong>. CTD invoicing runs <strong>bi-weekly</strong> to Cream.';
+    }
+    function wireScheduleFilter() {
+      const row = document.getElementById('scheduleFilterRow');
+      if (!row) return;
+      row.innerHTML = Object.keys(SCHEDULE_CATS).map(function(k) {
+        return '<button type="button" class="idea-filter-btn active" data-cat="' + k + '">' + esc(SCHEDULE_CATS[k]) + '</button>';
+      }).join('');
+      row.addEventListener('click', function(e) {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        const k = btn.dataset.cat;
+        if (scheduleActive.has(k)) { scheduleActive.delete(k); btn.classList.remove('active'); }
+        else { scheduleActive.add(k); btn.classList.add('active'); }
+        renderSchedule();
+      });
+      const search = document.getElementById('scheduleSearch');
+      if (search) {
+        search.addEventListener('input', function() {
+          scheduleQuery = search.value.trim().toLowerCase();
+          renderSchedule();
+        });
+      }
+    }
+    function scheduleCard(e) {
+      const label = SCHEDULE_CATS[e.cat] || e.cat;
+      const isSpan = e.end && e.end !== e.start;
+      const refEnd = e.end || e.start;
+      const past = scheduleDaysUntil(refEnd) < 0;
+      const d = scheduleDaysUntil(e.start);
+      let soon = '';
+      if (!past && d >= 0 && d <= 14) {
+        soon = '<span class="soon">' + (d === 0 ? 'Today' : d === 1 ? 'Tomorrow' : 'In ' + d + ' days') + '</span>';
+      }
+      return '<div class="schedule-card' + (past ? ' past' : '') + '">' +
+        '<div class="schedule-date">' + scheduleFmt(e.start) + (isSpan ? '<br>– ' + scheduleFmtEnd(e.start, e.end) : '') + soon + '</div>' +
+        '<div class="schedule-body"><div class="t">' + esc(e.title) + '</div><div class="m">' + esc(e.note) + '</div></div>' +
+        '<span class="schedule-tag">' + esc(label) + '</span>' +
+        '</div>';
+    }
+    function renderSchedule() {
+      const listEl = document.getElementById('scheduleList');
+      if (!listEl) return;
+      let rows = SCHEDULE_DATA.filter(function(e) { return scheduleActive.has(e.cat); });
+      if (scheduleQuery) {
+        rows = rows.filter(function(e) { return (e.title + ' ' + e.note).toLowerCase().indexOf(scheduleQuery) !== -1; });
+      }
+      rows = rows.slice().sort(function(a, b) { return a.start < b.start ? -1 : a.start > b.start ? 1 : 0; });
+      const order = [];
+      const groupMap = {};
+      rows.forEach(function(e) {
+        const key = scheduleMonthKey(e.start);
+        if (!groupMap[key]) { groupMap[key] = []; order.push(key); }
+        groupMap[key].push(e);
+      });
+      let html = '';
+      let todayPlaced = false;
+      order.forEach(function(key) {
+        let cards = '';
+        groupMap[key].forEach(function(e) {
+          if (!todayPlaced && e.start >= SCHEDULE_TODAY) {
+            cards += '<div class="schedule-today-rule">Today</div>';
+            todayPlaced = true;
+          }
+          cards += scheduleCard(e);
+        });
+        const items = groupMap[key];
+        html += '<div class="schedule-month"><div class="schedule-month-head"><span>' + esc(scheduleMonthLabel(key)) + '</span><span>' + items.length + ' item' + (items.length === 1 ? '' : 's') + '</span></div>' + cards + '</div>';
+      });
+      listEl.innerHTML = html || '<p class="schedule-empty">Nothing matches these filters.</p>';
+      renderScheduleTiles();
+    }
+
+    // ---------- key dates ----------
+    const KEYDATES_KEY = 'bs_team_keydates';
+    function getKeydates() {
+      try { return JSON.parse(localStorage.getItem(KEYDATES_KEY)) || []; } catch (e) { return []; }
+    }
+    function setKeydates(arr) { localStorage.setItem(KEYDATES_KEY, JSON.stringify(arr)); }
+    function addKeydate(date, label, author) {
+      const items = getKeydates();
+      items.push({ id: 'd_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), date: date, label: label, author: author || '' });
+      setKeydates(items);
+      renderKeydates();
+    }
+    function deleteKeydate(id) {
+      setKeydates(getKeydates().filter(function(i) { return i.id !== id; }));
+      renderKeydates();
+    }
+    function keydateStatus(dateStr) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const target = new Date(dateStr + 'T00:00:00');
+      const diffDays = Math.round((target - today) / 86400000);
+      if (diffDays < 0) return 'overdue';
+      if (diffDays <= 14) return 'soon';
+      return 'upcoming';
+    }
+    const KEYDATE_STATUS_LABEL = { overdue: 'Overdue', soon: 'Soon', upcoming: 'Upcoming' };
+    function renderKeydates() {
+      const items = getKeydates().slice().sort(function(a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+      if (!items.length) {
+        document.getElementById('keydateList').innerHTML = '<p class="keydate-empty">No dates yet — add a deadline above.</p>';
+        renderSnapshot();
+        return;
+      }
+      const fmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      let html = '';
+      items.forEach(function(item) {
+        const status = keydateStatus(item.date);
+        html += '<div class="keydate-item">';
+        html += '<span class="keydate-date">' + fmt.format(new Date(item.date + 'T00:00:00')) + '</span>';
+        html += '<span class="keydate-label">' + esc(item.label) + '</span>';
+        html += '<span class="keydate-status status-' + status + '">' + KEYDATE_STATUS_LABEL[status] + '</span>';
+        html += '<button type="button" class="keydate-delete" data-id="' + item.id + '" aria-label="Remove">&times;</button>';
+        html += '</div>';
+      });
+      document.getElementById('keydateList').innerHTML = html;
+      document.querySelectorAll('.keydate-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteKeydate(btn.dataset.id); });
+      });
+      renderSnapshot();
+    }
+
+    // ---------- strategic priorities ----------
+    // Not part of the encrypted payload — a first draft grounded in what's
+    // actually going on across the other pages (service work funding the
+    // studio, a slate in development, a grant in motion, IP worth
+    // protecting). Meant to be argued with, not treated as final.
+    const PRIORITY_KEY = 'bs_team_priorities';
+    const PRIORITY_STATUS_CYCLE = ['proposed', 'active', 'achieved'];
+    const PRIORITY_STATUS_LABEL = { proposed: 'Proposed', active: 'Active', achieved: 'Achieved' };
+    const PRIORITIES = [
+      {
+        id: 'diversify-revenue',
+        title: 'Diversify Revenue Beyond Service Work',
+        desc: 'Client and commercial production work is what keeps the lights on right now, but leaning on any single client is a real risk. Grow the pipeline wide enough that no one relationship can sink a quarter, and use the margin from that work to fund original development instead of just covering overhead.',
+        link: { href: 'client-pipeline.html', label: 'See the pipeline' }
+      },
+      {
+        id: 'financeable-slate',
+        title: 'Move the Slate From Ideas to Financeable Packages',
+        desc: 'A slate only matters once it’s packaged well enough to raise against — attached talent, a real budget, a stacked financing plan. Pick the strongest one or two properties and push them from "idea" to "package" rather than spreading effort thin across everything at once.',
+        link: { href: 'investors-slate.html', label: 'See the slate strategy' }
+      },
+      {
+        id: 'win-production-lab',
+        title: 'Land the Production Lab Grant',
+        desc: 'The Production Lab isn’t just funding — it’s a structured way to bring in a cohort of emerging filmmakers, generate new IP on a schedule, and build the kind of track record that makes the next grant and the next investor conversation easier.',
+        link: { href: 'investors-grants.html', label: 'See the grant plan' }
+      },
+      {
+        id: 'protect-ip',
+        title: 'Treat the IP Library Like an Asset, Not a Pitch Deck',
+        desc: 'Every script, format, and original concept sitting in a drawer is worth less than one that’s tracked, dated, and actively moved forward. Keep ownership, rights, and development status current for everything Blue Sheep originates.',
+        link: { href: '../investors-ip.html', label: 'See the IP tracker' }
+      },
+      {
+        id: 'formalize-team',
+        title: 'Formalize the Team as the Company Scales',
+        desc: 'The founding team is small and wears a lot of hats. As the slate and client roster grow, get clear on who owns what — even informally — before it becomes a bottleneck.',
+        link: { href: 'investors-founders.html', label: 'See founder statements' }
+      }
+    ];
+    function getPriorityMap() {
+      try { return JSON.parse(localStorage.getItem(PRIORITY_KEY)) || {}; } catch (e) { return {}; }
+    }
+    function setPriorityState(id, patch) {
+      const map = getPriorityMap();
+      map[id] = Object.assign({ status: 'proposed', notes: '' }, map[id] || {}, patch);
+      localStorage.setItem(PRIORITY_KEY, JSON.stringify(map));
+      return map[id];
+    }
+    function renderPriorities() {
+      const map = getPriorityMap();
+      let html = '';
+      PRIORITIES.forEach(function(p) {
+        const state = Object.assign({ status: 'proposed', notes: '' }, map[p.id] || {});
+        html += '<div class="priority-card" data-id="' + p.id + '">';
+        html += '<div class="priority-card-head"><span class="priority-title">' + esc(p.title) + '</span>';
+        html += '<button type="button" class="priority-status status-' + state.status + '" data-id="' + p.id + '">' + PRIORITY_STATUS_LABEL[state.status] + '</button></div>';
+        html += '<p class="priority-desc">' + esc(p.desc) + '</p>';
+        if (p.link) html += '<a class="priority-link" href="' + esc(p.link.href) + '">' + esc(p.link.label) + ' &rarr;</a>';
+        html += '<label class="priority-notes-label" for="priorityNotes-' + p.id + '">Team Notes</label>';
+        html += '<textarea class="priority-notes" id="priorityNotes-' + p.id + '" data-id="' + p.id + '" placeholder="Agree, disagree, add detail…" rows="2">' + esc(state.notes) + '</textarea>';
+        html += '<p class="priority-notes-saved" data-id="' + p.id + '"></p>';
+        html += '</div>';
+      });
+      document.getElementById('priorityBoard').innerHTML = html;
+      document.querySelectorAll('.priority-status').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const map2 = getPriorityMap();
+          const current = (map2[btn.dataset.id] || {}).status || 'proposed';
+          const next = PRIORITY_STATUS_CYCLE[(PRIORITY_STATUS_CYCLE.indexOf(current) + 1) % PRIORITY_STATUS_CYCLE.length];
+          setPriorityState(btn.dataset.id, { status: next });
+          btn.className = 'priority-status status-' + next;
+          btn.textContent = PRIORITY_STATUS_LABEL[next];
+          renderSnapshot();
+        });
+      });
+      let priorityNotesTimer = null;
+      document.querySelectorAll('.priority-notes').forEach(function(ta) {
+        ta.addEventListener('input', function() {
+          setPriorityState(ta.dataset.id, { notes: ta.value });
+          const savedEl = document.querySelector('.priority-notes-saved[data-id="' + ta.dataset.id + '"]');
+          if (savedEl) {
+            savedEl.textContent = 'Saved.';
+            if (priorityNotesTimer) clearTimeout(priorityNotesTimer);
+            priorityNotesTimer = setTimeout(function() { savedEl.textContent = ''; }, 1200);
+          }
+        });
+      });
+      renderSnapshot();
+    }
+
+    // ---------- IP moodboard ----------
+    const MOODBOARD_KEY = 'bs_team_moodboard';
+    function getMoodboard() {
+      try { return JSON.parse(localStorage.getItem(MOODBOARD_KEY)) || []; } catch (e) { return []; }
+    }
+    function setMoodboard(arr) { localStorage.setItem(MOODBOARD_KEY, JSON.stringify(arr)); }
+    function addMoodboardItem(tag, url, note, author) {
+      const items = getMoodboard();
+      items.unshift({ id: 'm_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), tag: tag, url: url, note: note, author: author || '' });
+      setMoodboard(items);
+      renderMoodboard();
+    }
+    function deleteMoodboardItem(id) {
+      setMoodboard(getMoodboard().filter(function(i) { return i.id !== id; }));
+      renderMoodboard();
+    }
+    let moodboardFilter = 'all';
+    function renderMoodboardFilters(items) {
+      const tags = [];
+      items.forEach(function(item) {
+        const t = (item.tag || '').trim();
+        if (t && tags.indexOf(t) === -1) tags.push(t);
+      });
+      const row = document.getElementById('moodboardFilterRow');
+      if (!row) return;
+      if (!tags.length) { row.innerHTML = ''; return; }
+      if (tags.indexOf(moodboardFilter) === -1 && moodboardFilter !== 'all') moodboardFilter = 'all';
+      let html = '<button type="button" class="idea-filter-btn' + (moodboardFilter === 'all' ? ' active' : '') + '" data-tag="all">All</button>';
+      tags.forEach(function(t) {
+        html += '<button type="button" class="idea-filter-btn' + (moodboardFilter === t ? ' active' : '') + '" data-tag="' + esc(t) + '">' + esc(t) + '</button>';
+      });
+      row.innerHTML = html;
+      row.querySelectorAll('.idea-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          moodboardFilter = btn.dataset.tag;
+          renderMoodboard();
+        });
+      });
+    }
+    function renderMoodboard() {
+      const all = getMoodboard();
+      renderMoodboardFilters(all);
+      const items = moodboardFilter === 'all' ? all : all.filter(function(i) { return (i.tag || '').trim() === moodboardFilter; });
+      if (!items.length) {
+        document.getElementById('moodboardGrid').innerHTML = '<p class="moodboard-empty">' + (all.length ? 'No references with this tag yet.' : 'No references yet — paste an image URL above to start the board.') + '</p>';
+        renderSnapshot();
+        return;
+      }
+      let html = '';
+      items.forEach(function(item) {
+        html += '<div class="moodboard-card">';
+        html += '<div class="moodboard-img-wrap">';
+        html += '<img class="moodboard-img" src="' + esc(item.url) + '" alt="" loading="lazy" onerror="this.parentElement.style.background=\'var(--line)\';this.style.display=\'none\';">';
+        if (item.tag) html += '<span class="moodboard-tag">' + esc(item.tag) + '</span>';
+        html += '</div>';
+        html += '<div class="moodboard-body">';
+        if (item.note) html += '<p class="moodboard-note">' + esc(item.note) + '</p>';
+        html += '<div class="moodboard-foot"><span class="moodboard-author">' + (item.author ? esc(item.author) : 'Anonymous') + '</span>';
+        html += '<button type="button" class="moodboard-delete" data-id="' + item.id + '" aria-label="Remove">&times;</button></div>';
+        html += '</div></div>';
+      });
+      document.getElementById('moodboardGrid').innerHTML = html;
+      document.querySelectorAll('.moodboard-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteMoodboardItem(btn.dataset.id); });
+      });
+      renderSnapshot();
+    }
+
+    // ---------- logistics ----------
+    const LOGISTICS_KEY = 'bs_team_logistics';
+    const LOGISTICS_STATUS_CYCLE = ['needed', 'progress', 'confirmed'];
+    const LOGISTICS_STATUS_LABEL = { needed: 'Needed', progress: 'In Progress', confirmed: 'Confirmed' };
+    const LOGISTICS_TYPE_LABEL = { crew: 'Crew', gear: 'Gear', location: 'Location', admin: 'Admin' };
+    let logisticsFilter = 'all';
+    function getLogistics() {
+      try { return JSON.parse(localStorage.getItem(LOGISTICS_KEY)) || []; } catch (e) { return []; }
+    }
+    function setLogistics(arr) { localStorage.setItem(LOGISTICS_KEY, JSON.stringify(arr)); }
+    function addLogisticsItem(type, label, detail, author) {
+      const items = getLogistics();
+      items.push({ id: 'l_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), type: type, label: label, detail: detail, status: 'needed', author: author || '' });
+      setLogistics(items);
+      renderLogistics();
+    }
+    function setLogisticsStatus(id, status) {
+      const items = getLogistics();
+      const item = items.find(function(i) { return i.id === id; });
+      if (item) item.status = status;
+      setLogistics(items);
+    }
+    function deleteLogisticsItem(id) {
+      setLogistics(getLogistics().filter(function(i) { return i.id !== id; }));
+      renderLogistics();
+    }
+    function renderLogistics() {
+      const items = getLogistics().filter(function(i) { return logisticsFilter === 'all' || i.type === logisticsFilter; });
+      if (!items.length) {
+        document.getElementById('logisticsList').innerHTML = '<p class="logistics-empty">Nothing here yet — add crew, gear, locations, or admin items above.</p>';
+        renderSnapshot();
+        return;
+      }
+      let html = '';
+      items.forEach(function(item) {
+        html += '<div class="logistics-item" data-id="' + item.id + '">';
+        html += '<span class="logistics-type">' + (LOGISTICS_TYPE_LABEL[item.type] || item.type) + '</span>';
+        html += '<span class="logistics-label">' + esc(item.label) + '</span>';
+        if (item.detail) html += '<span class="logistics-detail">' + esc(item.detail) + '</span>';
+        html += '<button type="button" class="logistics-status status-' + item.status + '" data-id="' + item.id + '">' + LOGISTICS_STATUS_LABEL[item.status] + '</button>';
+        html += '<button type="button" class="logistics-delete" data-id="' + item.id + '" aria-label="Remove">&times;</button>';
+        html += '</div>';
+      });
+      document.getElementById('logisticsList').innerHTML = html;
+      document.querySelectorAll('.logistics-status').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const items2 = getLogistics();
+          const item = items2.find(function(i) { return i.id === btn.dataset.id; });
+          const current = item ? item.status : 'needed';
+          const next = LOGISTICS_STATUS_CYCLE[(LOGISTICS_STATUS_CYCLE.indexOf(current) + 1) % LOGISTICS_STATUS_CYCLE.length];
+          setLogisticsStatus(btn.dataset.id, next);
+          btn.className = 'logistics-status status-' + next;
+          btn.textContent = LOGISTICS_STATUS_LABEL[next];
+          renderSnapshot();
+        });
+      });
+      document.querySelectorAll('.logistics-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteLogisticsItem(btn.dataset.id); });
+      });
+      renderSnapshot();
+    }
+    function wireLogisticsFilter() {
+      document.querySelectorAll('#logisticsFilterRow .idea-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#logisticsFilterRow .idea-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          logisticsFilter = btn.dataset.type;
+          renderLogistics();
+        });
+      });
+    }
+
+    // ---------- meeting notes ----------
+    const MEETINGS_KEY = 'bs_team_meetings';
+    function getMeetings() {
+      try { return JSON.parse(localStorage.getItem(MEETINGS_KEY)) || []; } catch (e) { return []; }
+    }
+    function setMeetings(arr) { localStorage.setItem(MEETINGS_KEY, JSON.stringify(arr)); }
+    function addMeeting(date, title, body, author) {
+      const items = getMeetings();
+      items.unshift({ id: 'n_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), date: date, title: title, body: body, author: author || '' });
+      setMeetings(items);
+      renderMeetings();
+    }
+    function deleteMeeting(id) {
+      setMeetings(getMeetings().filter(function(i) { return i.id !== id; }));
+      renderMeetings();
+    }
+    function renderMeetings() {
+      const items = getMeetings();
+      if (!items.length) {
+        document.getElementById('meetingLog').innerHTML = '<p class="meeting-empty">No entries yet — log the next meeting above.</p>';
+        return;
+      }
+      const fmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      let html = '';
+      items.forEach(function(item) {
+        html += '<div class="meeting-entry">';
+        html += '<div class="meeting-entry-head"><span class="meeting-entry-date">' + fmt.format(new Date(item.date + 'T00:00:00')) + '</span><span class="meeting-entry-title">' + esc(item.title) + '</span></div>';
+        if (item.body) html += '<p class="meeting-entry-body">' + esc(item.body) + '</p>';
+        html += '<div class="meeting-entry-foot"><span class="meeting-entry-author">' + (item.author ? esc(item.author) : 'Anonymous') + '</span>';
+        html += '<button type="button" class="meeting-entry-delete" data-id="' + item.id + '" aria-label="Remove">&times;</button></div>';
+        html += '</div>';
+      });
+      document.getElementById('meetingLog').innerHTML = html;
+      document.querySelectorAll('.meeting-entry-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteMeeting(btn.dataset.id); });
+      });
+    }
+
+    // ---------- idea board ----------
+    const IDEAS_KEY = 'bs_team_ideas';
+    let ideaFilter = 'all';
+    function getIdeas() {
+      try { return JSON.parse(localStorage.getItem(IDEAS_KEY)) || []; } catch (e) { return []; }
+    }
+    function setIdeas(arr) { localStorage.setItem(IDEAS_KEY, JSON.stringify(arr)); }
+    function addIdea(text, tag, author) {
+      const ideas = getIdeas();
+      ideas.unshift({ id: 'i_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), text: text, tag: tag, author: author || '' });
+      setIdeas(ideas);
+      renderIdeas();
+    }
+    function deleteIdea(id) {
+      setIdeas(getIdeas().filter(function(i) { return i.id !== id; }));
+      renderIdeas();
+    }
+    function wireIdeaFilter() {
+      document.querySelectorAll('#ideaFilterRow .idea-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('#ideaFilterRow .idea-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          ideaFilter = btn.dataset.tag;
+          renderIdeas();
+        });
+      });
+    }
+    const TAG_LABEL = { story: 'Story', visual: 'Visual', business: 'Business', logistics: 'Logistics' };
+    function renderIdeas() {
+      const all = getIdeas();
+      const ideas = ideaFilter === 'all' ? all : all.filter(function(i) { return i.tag === ideaFilter; });
+      if (!ideas.length) {
+        document.getElementById('ideaBoard').innerHTML = '<p class="idea-empty">' + (all.length ? 'No notes with this tag yet.' : 'No notes yet — add the first one above.') + '</p>';
+        return;
+      }
+      let html = '';
+      ideas.forEach(function(idea) {
+        html += '<div class="idea-note" data-tag="' + esc(idea.tag) + '">';
+        html += '<span class="idea-note-tag">' + esc(TAG_LABEL[idea.tag] || idea.tag) + '</span>';
+        html += '<p class="idea-note-text">' + esc(idea.text) + '</p>';
+        html += '<div class="idea-note-foot">';
+        html += '<span class="idea-note-author">' + (idea.author ? esc(idea.author) : 'Anonymous') + '</span>';
+        html += '<span class="idea-note-actions">';
+        html += '<button type="button" class="idea-to-task" data-id="' + idea.id + '">&rarr; Task</button>';
+        html += '<button type="button" class="idea-note-delete" data-id="' + idea.id + '" aria-label="Delete note">&times;</button>';
+        html += '</span>';
+        html += '</div></div>';
+      });
+      document.getElementById('ideaBoard').innerHTML = html;
+      document.querySelectorAll('.idea-to-task').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const idea = getIdeas().find(function(i) { return i.id === btn.dataset.id; });
+          if (!idea) return;
+          addCard('todo', idea.text, idea.author || getEditor());
+          const original = btn.textContent;
+          btn.textContent = 'Added';
+          btn.disabled = true;
+          setTimeout(function() {
+            btn.textContent = original;
+            btn.disabled = false;
+          }, 1500);
+        });
+      });
+      document.querySelectorAll('.idea-note-delete').forEach(function(btn) {
+        btn.addEventListener('click', function() { deleteIdea(btn.dataset.id); });
+      });
+    }
+
+    // ---------- export / import ----------
+    const TEAM_KEYS = [OKR_KEY, MILESTONE_KEY, KANBAN_KEY, IDEAS_KEY, EDITOR_KEY, 'bs_ip_fields', PRIORITY_KEY, MOODBOARD_KEY, LOGISTICS_KEY, KEYDATES_KEY, MEETINGS_KEY];
+    function exportData() {
+      const blob = {};
+      TEAM_KEYS.forEach(function(k) {
+        const v = localStorage.getItem(k);
+        if (v !== null) blob[k] = v;
+      });
+      blob._exportedAt = new Date().toISOString();
+      blob._exportedBy = getEditor() || 'Unknown';
+      return JSON.stringify(blob);
+    }
+    function importData(str) {
+      const blob = JSON.parse(str);
+      Object.keys(blob).forEach(function(k) {
+        if (TEAM_KEYS.indexOf(k) !== -1) localStorage.setItem(k, blob[k]);
+      });
+      return blob;
+    }
+
+    function wireSync() {
+      const syncArea = document.getElementById('syncArea');
+      const status = document.getElementById('syncStatus');
+      const applyRow = document.getElementById('syncApplyRow');
+      document.getElementById('exportBtn').addEventListener('click', function() {
+        const data = exportData();
+        syncArea.hidden = false;
+        syncArea.value = data;
+        applyRow.hidden = true;
+        syncArea.focus();
+        syncArea.select();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(data).then(function() {
+            status.textContent = 'Copied to clipboard — also shown below. Send this text to a teammate.';
+          }).catch(function() {
+            status.textContent = 'Select the text below and copy it manually — send it to a teammate.';
+          });
+        } else {
+          status.textContent = 'Select the text below and copy it manually — send it to a teammate.';
+        }
+      });
+      document.getElementById('importBtn').addEventListener('click', function() {
+        syncArea.hidden = false;
+        syncArea.value = '';
+        syncArea.placeholder = 'Paste exported data here, then click Apply Import.';
+        applyRow.hidden = false;
+        status.textContent = '';
+        syncArea.focus();
+      });
+      document.getElementById('cancelImportBtn').addEventListener('click', function() {
+        syncArea.hidden = true;
+        applyRow.hidden = true;
+        status.textContent = '';
+      });
+      document.getElementById('applyImportBtn').addEventListener('click', function() {
+        try {
+          importData(syncArea.value.trim());
+          status.textContent = 'Imported. Refreshing the board…';
+          renderOKR(window.__teamData.okrGroups);
+          renderTimeline(window.__teamData.timeline);
+          renderKanban();
+          renderIdeas();
+          renderPriorities();
+          renderMoodboard();
+          renderLogistics();
+          renderKeydates();
+          renderMeetings();
+          const name = getEditor();
+          if (name) document.getElementById('editorNameInput').value = name;
+          syncArea.hidden = true;
+          applyRow.hidden = true;
+        } catch (e) {
+          status.textContent = 'Could not read that — make sure you pasted the full exported text.';
+        }
+      });
+    }
+
+    function unlock(data) {
+      gate.hidden = true;
+      content.hidden = false;
+      window.__teamData = data;
+      document.getElementById('teamNote').textContent = data.note;
+      const editorInput = document.getElementById('editorNameInput');
+      const editorHint = document.querySelector('.team-editor-hint');
+      const editorHintDefault = editorHint ? editorHint.textContent : '';
+      editorInput.value = getEditor();
+      let editorSaveTimer = null;
+      editorInput.addEventListener('input', function() {
+        setEditor(editorInput.value.trim());
+        if (editorHint) {
+          editorHint.textContent = 'Saved.';
+          editorHint.classList.add('saved');
+          if (editorSaveTimer) clearTimeout(editorSaveTimer);
+          editorSaveTimer = setTimeout(function() {
+            editorHint.textContent = editorHintDefault;
+            editorHint.classList.remove('saved');
+          }, 1200);
+        }
+      });
+      renderTimeline(data.timeline);
+      renderOKR(data.okrGroups);
+      renderKanban();
+      renderScheduleStanding();
+      wireScheduleFilter();
+      renderSchedule();
+      renderKeydates();
+      renderPriorities();
+      renderMoodboard();
+      renderLogistics();
+      wireLogisticsFilter();
+      renderMeetings();
+      renderIdeas();
+      wireIdeaFilter();
+      wireSync();
+      const todayStr = new Date().toISOString().slice(0, 10);
+      const meetingDateInput = document.getElementById('meetingDate');
+      if (meetingDateInput) meetingDateInput.value = todayStr;
+      const keydateForm = document.getElementById('keydateAddForm');
+      keydateForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const dateInput = document.getElementById('keydateDate');
+        const labelInput = document.getElementById('keydateLabel');
+        const date = dateInput.value;
+        const label = labelInput.value.trim();
+        if (!date || !label) return;
+        addKeydate(date, label, getEditor());
+        dateInput.value = '';
+        labelInput.value = '';
+      });
+      const meetingForm = document.getElementById('meetingAddForm');
+      meetingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const dateInput = document.getElementById('meetingDate');
+        const titleInput = document.getElementById('meetingTitle');
+        const bodyInput = document.getElementById('meetingBody');
+        const date = dateInput.value || todayStr;
+        const title = titleInput.value.trim();
+        if (!title) return;
+        addMeeting(date, title, bodyInput.value.trim(), getEditor());
+        titleInput.value = '';
+        bodyInput.value = '';
+        dateInput.value = todayStr;
+      });
+      const ideaForm = document.getElementById('ideaAddForm');
+      ideaForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const ta = document.getElementById('ideaAddInput');
+        const text = ta.value.trim();
+        if (!text) return;
+        const tag = document.getElementById('ideaTagSelect').value;
+        addIdea(text, tag, getEditor());
+        ta.value = '';
+      });
+      const moodboardForm = document.getElementById('moodboardAddForm');
+      moodboardForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const urlInput = document.getElementById('moodboardUrl');
+        const url = urlInput.value.trim();
+        if (!url) return;
+        const tag = document.getElementById('moodboardTag').value.trim();
+        const note = document.getElementById('moodboardNote').value.trim();
+        addMoodboardItem(tag, url, note, getEditor());
+        urlInput.value = '';
+        document.getElementById('moodboardTag').value = '';
+        document.getElementById('moodboardNote').value = '';
+      });
+      const logisticsForm = document.getElementById('logisticsAddForm');
+      logisticsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const labelInput = document.getElementById('logisticsLabel');
+        const label = labelInput.value.trim();
+        if (!label) return;
+        const type = document.getElementById('logisticsType').value;
+        const detailInput = document.getElementById('logisticsDetail');
+        const detail = detailInput.value.trim();
+        addLogisticsItem(type, label, detail, getEditor());
+        labelInput.value = '';
+        detailInput.value = '';
+      });
+      content.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('in-view');
+      });
+    }
+
+    // Unlock state persists for this browser tab/session only (not stored
+    // permanently), so the passphrase is needed again each new visit —
+    // matches the hub's own gate.
+    const LOCK_KEY = 'bs_team_data';
+    const cached = sessionStorage.getItem(LOCK_KEY);
+    if (cached) {
+      try { unlock(JSON.parse(cached)); } catch (e) { sessionStorage.removeItem(LOCK_KEY); }
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const passphrase = input.value.trim();
+      if (!passphrase) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Decrypting…';
+      decrypt(passphrase).then(function(data) {
+        error.classList.remove('show');
+        sessionStorage.setItem(LOCK_KEY, JSON.stringify(data));
+        unlock(data);
+      }).catch(function() {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+      }).finally(function() {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enter';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

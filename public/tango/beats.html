@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TWIST THE TANGO — Beat Sheet · Blue Sheep</title><style>
+:root{--bg:#0c0f0d;--bg2:#10140f;--fg:#c8e6c9;--green:#4ade80;--dim:#7c9884;--amber:#fbbf24;--cyan:#67e8f9;--red:#f87171;--line:#1e2a20;--hover:#1a221c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:"SF Mono",Menlo,Monaco,monospace;font-size:14px;line-height:1.55;padding:26px 20px 12vh}
+.wrap{max-width:980px;margin:0 auto}
+h1{color:var(--green);font-size:22px;letter-spacing:2px}
+.sub{color:var(--dim);font-size:12px;margin:4px 0 18px}
+.sub a{color:var(--cyan);text-decoration:none}
+h2{color:var(--amber);font-size:12px;letter-spacing:2px;text-transform:uppercase;margin:26px 0 10px;border-bottom:1px solid var(--line);padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
+th{color:var(--dim);text-align:left;font-weight:normal;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border-bottom:1px solid var(--line)}
+td{padding:7px 10px;border-bottom:1px dashed var(--line);vertical-align:top}
+tr:hover td{background:var(--hover)}
+.num{text-align:right;white-space:nowrap;color:var(--fg)}
+.tot td{border-top:1px solid var(--line);border-bottom:none;color:var(--green);font-weight:bold}
+.chip{display:inline-block;font-size:10px;letter-spacing:1.5px;padding:1px 8px;border-radius:3px;border:1px solid var(--cyan);color:var(--cyan)}
+.chip.go{border-color:var(--green);color:var(--green)}
+.chip.warn{border-color:var(--red);color:var(--red)}
+.chip.amber{border-color:var(--amber);color:var(--amber)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:6px;background:var(--bg2);padding:12px 14px}
+.card b{color:var(--fg);font-weight:normal}
+.card .k{color:var(--dim);font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.big{font-size:20px;color:var(--green)}
+.note{color:var(--dim);font-size:12px;margin:6px 0}
+.flag{border-left:3px solid var(--red);padding:8px 12px;background:var(--bg2);margin:8px 0;font-size:13px}
+.ok{color:var(--green)} .todo{color:var(--dim)}
+ul{list-style:none} li{padding:2px 0;font-size:13px}
+li.c::before{content:"[ ] ";color:var(--dim)} li.x::before{content:"[x] ";color:var(--green)}
+
+.beat{border-left:2px solid var(--line);padding:0 0 0 16px;margin-left:6px}
+.beat .b{position:relative;padding:8px 0 8px 0}
+.beat .b::before{content:"";position:absolute;left:-21px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--green)}
+.beat .b.turn::before{background:var(--amber);width:10px;height:10px;left:-22px}
+.beat .n{color:var(--dim);font-size:11px;letter-spacing:1px}
+.beat .t{color:var(--fg);font-size:13px}
+.beat .t b{color:var(--green);font-weight:normal}
+.beat .w{color:var(--dim);font-size:12px;font-style:italic}
+.actbar{display:flex;gap:2px;margin:10px 0 4px}
+.actbar div{height:22px;font-size:10px;letter-spacing:1px;color:var(--bg);display:flex;align-items:center;justify-content:center}
+svg{display:block;max-width:100%;height:auto;margin:6px 0 2px}
+
+.ck{margin:6px 0 2px}
+.ck .row{display:flex;gap:10px;align-items:baseline;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:13px}
+.ck .row:hover{background:var(--hover)}
+.ck .row .b{color:var(--dim);font-family:monospace;white-space:nowrap}
+.ck .row.on .b{color:var(--green)}
+.ck .row.on .t{color:var(--dim);text-decoration:line-through}
+.ck .row .t{flex:1}
+.ck .row .w{color:var(--cyan);font-size:11px;white-space:nowrap}
+.ck .row.hard .t{color:var(--amber)}
+.ck .row.hard.on .t{color:var(--dim)}
+.ckhead{display:flex;align-items:baseline;gap:12px;margin:18px 0 2px}
+.ckhead .lbl{color:var(--amber);font-size:11px;letter-spacing:2px}
+.ckhead .pct{color:var(--dim);font-size:11px;margin-left:auto}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;margin:6px 0 4px}
+.bar i{display:block;height:100%;background:var(--green);width:0;transition:width .2s}
+.ck{margin:6px 0 2px}.ck .row{display:flex;gap:10px;align-items:baseline;padding:6px 8px;border-radius:4px;cursor:pointer;font-size:13px}
+.ck .row:hover{background:var(--hover)}.ck .row .b{color:var(--dim);font-family:monospace;white-space:nowrap}
+.ck .row.on .b{color:var(--green)}.ck .row.on .t{color:var(--dim);text-decoration:line-through}
+.ck .row .t{flex:1}.ck .row .w{color:var(--cyan);font-size:11px;white-space:nowrap}
+.ck .row.hard .t{color:var(--amber)}.ck .row.hard.on .t{color:var(--dim)}
+.ckhead{display:flex;align-items:baseline;gap:12px;margin:18px 0 2px}.ckhead .lbl{color:var(--amber);font-size:11px;letter-spacing:2px}
+.ckhead .pct{color:var(--dim);font-size:11px;margin-left:auto}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;margin:6px 0 4px}.bar i{display:block;height:100%;background:var(--green);width:0;transition:width .2s}
+.hero{border:1px solid var(--green);border-radius:6px;padding:14px 16px;background:var(--bg2);margin:12px 0}
+.hero h3{color:var(--green);font-size:12px;letter-spacing:2px;margin-bottom:8px}
+.beat{border-left:2px solid var(--line);padding:0 0 0 16px;margin-left:6px}
+.beat .b2{position:relative;padding:8px 0}
+.beat .b2::before{content:"";position:absolute;left:-21px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--green)}
+.beat .b2.turn::before{background:var(--amber);width:10px;height:10px;left:-22px}
+.beat .n{color:var(--dim);font-size:11px;letter-spacing:1px}
+.beat .t{color:var(--fg);font-size:13px}.beat .t b{color:var(--green);font-weight:normal}
+.beat .w{color:var(--dim);font-size:12px;font-style:italic}
+</style></head><body><div class="wrap">
+<h1>TWIST THE TANGO — BEAT SHEET</h1>
+<div class="sub">Episode 1 “4th House on Grand St” · Cairns Nolan · pilot draft v1 · 15 beats · 13 pp ≈ 13 min · <a href="index.html">← project</a> · <a href="package.html">production package</a> · <a href="../pipeline/">dev pipeline</a></div>
+<h2>The episode, beat by beat</h2>
+<div class="beat"><div class="b2"><div class="n">01</div><div class="t"><b>Golden hour, Toronto</b> — 5:00PM. Office towers emptying into the Friday street. Patios going up. "It's Friday, and all is renewed."</div><div class="w">the world, and the promise it makes</div></div><div class="b2"><div class="n">02</div><div class="t"><b>Vincent, still at the desk</b> — 5:30PM. Everyone's packing up. Vincent (25) stares at a dark phone, hair holding the shape of the morning, eyes as red as his tie. Then: UNKNOWN.</div><div class="w">a man waiting for permission</div></div><div class="b2"><div class="n">03</div><div class="t"><b>Corey, outside the stadium</b> — 5:45PM. Blue jersey, half his face painted, checking a phone nobody's texting. Shorty #1 arrives and immediately calls him on his height.</div><div class="w">the same waiting, different costume</div></div><div class="b2"><div class="n">04</div><div class="t"><b>Alone on the floor</b> — 6PM. "Reba!" Nothing. The office is dead, chairs tucked, screens off. He puts headphones in and works anyway.</div><div class="w">nobody is watching — which is the point</div></div><div class="b2"><div class="n">05</div><div class="t"><b>The joint in the park</b> — Shorty pulls a joint out of a tiny bag. "You hit first, or you'll be covered in my lip gloss."</div><div class="w">Corey's evening costs him nothing</div></div><div class="b2"><div class="n">06</div><div class="t"><b>The texts start</b> — 7PM. Eric's messages stack up. Sayflair may be liquidating. Vincent's face sours, and he stands.</div><div class="w">THE INCITING INFORMATION</div></div><div class="b2"><div class="n">07</div><div class="t"><b>The phone call</b> — A friend on speaker: the Star won't report it, the client list won't drop till Monday, none of it's actionable. "Nothing, nothing till Monday..." — and then, quietly, "I'm gonna call Paul."</div><div class="w">he decides to move while everyone else waits</div></div><div class="b2"><div class="n">08</div><div class="t"><b>Beer instead of a vodka tonic</b> — 7:30PM. Corey hands Shorty the wrong drink and lies about it. She drinks it anyway. "This is actually okay."</div><div class="w">two people agreeing not to mind</div></div><div class="b2"><div class="n">09</div><div class="t"><b>The eleventh floor</b> — 7:45PM. Vincent rides down, waits with his phone as an alibi, slips through a door behind a leaving assistant, and walks past dark desks to the one lit boardroom.</div><div class="w">THE BREAK-IN — sixty seconds of pure nerve</div></div><div class="b2"><div class="n">10</div><div class="t"><b>"Gentlemen — I have heard some disturbing news on the 15th floor"</b> — Four men, laptops, dossiers. Gerald (35) checks his watch: fifteen minutes. "How did you even get in here?" / "Because I wanted to get in here."</div><div class="w">the pitch begins as trespass</div></div><div class="b2 turn"><div class="n">11</div><div class="t"><b>The ask</b> — "I want to represent you. You would be my first and only account." Gerald's answer is a no dressed as kindness — your mother, corporate laws, this isn't a Scorsese film.</div><div class="w">REFUSAL</div></div><div class="b2"><div class="n">12</div><div class="t"><b>The speech</b> — Vincent turns from Gerald to the room. You'll be picked up by someone with a handful of clients like you, buttered up, promised funding on an old project, and back to being a data centre in two months.</div><div class="w">THE TURN — he stops selling himself and starts telling the truth</div></div><div class="b2"><div class="n">13</div><div class="t"><b>"...or you could grow some balls like me, buddy"</b> — And the exit line: "I'm going up, guaranteed. You? Not so much."</div><div class="w">the closer</div></div><div class="b2 turn"><div class="n">14</div><div class="t"><b>Monday, 7PM, TinTin</b> — Gerald laughs, leans back, and tells him the boss will want to hear it directly. Vincent books a steakhouse and keeps the frown glued on.</div><div class="w">VICTORY — held completely still</div></div><div class="b2"><div class="n">15</div><div class="t"><b>"I'm exactly where I want to be, doing what I want to do"</b> — Vincent exits the office.</div><div class="w">the thesis, said by a man who just risked everything to make it true</div></div></div>
+<h2>Shape</h2>
+<table><tr><th>Movement</th><th>Pages</th><th>Engine</th><th>Ends on</th></tr>
+<tr><td>The two evenings</td><td>1–5</td><td>Two men the same age, one working and one not, both waiting on a phone</td><td>the texts arriving</td></tr>
+<tr><td>The decision</td><td>5–7</td><td>Everyone says Monday. Vincent says now.</td><td>"I'm gonna call Paul."</td></tr>
+<tr><td>The break-in</td><td>8–10</td><td>Trespass as ambition</td><td>a no, delivered kindly</td></tr>
+<tr><td>The speech</td><td>10–13</td><td>He stops pitching and starts telling the truth</td><td>a meeting on Monday, and a frown he can barely hold</td></tr></table>
+<div class="note"><b>The structural note:</b> Corey's thread is beautifully observed and currently does no work.
+Three options — converge the threads (Corey is at Sayflair, or knows someone who is), sharpen the contrast
+(cut Corey's material by half so it reads as counterpoint rather than subplot), or hold him for the series
+and cut him almost entirely from the pilot. Right now the pilot is Vincent's, and the script hasn't decided that yet.</div>
+<div class="note">Recurrences worth protecting: the dark phone (4×, both men), the time stamps (every scene,
+5:00 → 7:45), the necktie Vincent keeps touching, and "going up" — literal floors and the whole ambition.</div>
+</div></body></html>

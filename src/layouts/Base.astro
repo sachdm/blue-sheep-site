@@ -1,0 +1,40 @@
+---
+import '../styles/tokens.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+const { title, description, image } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const site = 'https://sachdm.github.io' + base;
+const canonical = site + Astro.url.pathname.replace(base, '') ;
+const og = image || site + '/small-sheep.png';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={description}>
+<meta name="theme-color" content="#eeece4">
+<link rel="canonical" href={canonical}>
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:type" content="website">
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content={og}>
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href={base + '/icon-192.png'}>
+<link rel="apple-touch-icon" href={base + '/apple-touch-icon.png'}>
+<link rel="manifest" href={base + '/site.webmanifest'}>
+<link rel="preload" href={base + '/fonts/manrope-latin-wght-normal.woff2'} as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href={base + '/fonts/fonts.css'}>
+<link rel="dns-prefetch" href="//player.vimeo.com">
+<link rel="dns-prefetch" href="//i.vimeocdn.com">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<Nav />
+<main id="main"><slot /></main>
+<Footer />
+</body>
+</html>

@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Base title="Not found — Blue Sheep" description="This page didn't make the final cut.">
+<section class="nf">
+  <div class="wrap">
+    <p class="lbl nf-lbl">404 — Lost reel</p>
+    <h1 class="nf-h">This page didn&rsquo;t make <em>the final cut.</em></h1>
+    <p class="nf-b">Moved, renamed, or it never existed. Let&rsquo;s get you back to the index.</p>
+    <p class="nf-go"><a class="lbl" href={base + '/'}>Back to the front page &rarr;</a> &nbsp;&nbsp; <a class="lbl" href={base + '/work.html'}>The index &rarr;</a></p>
+  </div>
+</section>
+</Base>
+<style>
+  .nf { background: var(--blue); color: #fff; min-height: 76vh; display: flex; align-items: center; padding: clamp(60px,12vh,150px) 0; }
+  .nf-lbl { color: rgba(255,255,255,.75) !important; margin-bottom: clamp(16px,3vh,30px); }
+  .nf-h { font-family: var(--serif); font-variation-settings: var(--axes-display);
+          font-size: clamp(40px, 7.6vw, 118px); line-height: .95; letter-spacing: -.038em; max-width: 16ch; }
+  .nf-h em { font-style: italic; }
+  .nf-b { margin: clamp(18px,3vh,32px) 0; max-width: 42ch; color: rgba(255,255,255,.88); }
+  .nf-go a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.5); padding-bottom: 3px; }
+  .nf-go a:hover { border-color: #fff; }
+</style>

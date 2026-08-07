@@ -1,0 +1,201 @@
+---
+import Base from '../layouts/Base.astro';
+import films from '../data/films.json';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const latest = films.find(f => f.year === Math.max(...films.map(x => x.year)));
+---
+<Base title="Blue Sheep — Independent Film Production, Toronto"
+      description="An independent studio making documentary, narrative, and commercial work for people who notice the details. Eight titles, annotated.">
+
+<!-- MASTHEAD -->
+<section class="mast wrap">
+  <h1 class="mast-word">
+    <span>Blue</span>
+    <img src={base + '/small-sheep.png'} alt="Blue Sheep" width="309" height="240">
+    <span>Sheep</span>
+  </h1>
+  <div class="mast-rail">
+    <span class="lbl">Documentary &nbsp;·&nbsp; Narrative &nbsp;·&nbsp; Commercial</span>
+    <span class="lbl">Eight titles &nbsp;·&nbsp; 2024 — 2026</span>
+  </div>
+</section>
+
+<!-- FRONT PAGE -->
+<section class="front wrap">
+  <div class="front-lede">
+    <p class="lbl"><span class="lbl-blue">§ 01</span> &nbsp;— &nbsp;Front page</p>
+    <h2 class="lede">An independent studio making documentary, narrative, and commercial work</h2>
+    <p class="lede-note">The rest of that sentence is further down the page.</p>
+  </div>
+
+  <div class="front-body">
+    <p class="drop">Blue Sheep is a production company in Toronto. We handle development, production and post for independent shorts, commissioned work and music films &mdash; a small crew, a long look, and a refusal to hand over anything we would not sit through twice.</p>
+    <p>What follows is not a reel. It is an index: eight finished titles, each with a year, a category and a note on what it was and why it looks the way it does.</p>
+  </div>
+
+  <aside class="front-index" aria-label="Contents">
+    <p class="lbl">In this index</p>
+    <ol>
+      {films.map((f, i) => (
+        <li>
+          <a href={`${base}/${f.slug}.html`}>
+            <span class="fi-no">{String(i + 1).padStart(2, '0')}</span>
+            <span class="fi-title">{f.title}</span>
+            <span class="fi-dot" aria-hidden="true"></span>
+            <span class="fi-yr">&rsquo;{String(f.year).slice(2)}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+    <div class="fi-latest">
+      <p class="lbl lbl-blue">Latest entry</p>
+      <p class="fi-latest-t">{latest.title}</p>
+      <p class="lbl">{latest.cat} · {latest.year}</p>
+    </div>
+  </aside>
+</section>
+
+<!-- THE INDEX -->
+<section class="wrap idx">
+  <div class="idx-head">
+    <h2 class="lbl"><span class="lbl-blue">§ 02</span> &nbsp;— &nbsp;The index, annotated</h2>
+    <span class="lbl">Ordered by making, not by preference</span>
+  </div>
+
+  {films.map((f, i) => (
+    <article class="entry">
+      <div class="entry-no"><span class="lbl lbl-blue">{String(i + 1).padStart(2, '0')}</span></div>
+      <div class="entry-main">
+        <h3 class="entry-t"><a href={`${base}/${f.slug}.html`}>{f.title}</a></h3>
+        <p class="entry-stand">{f.standfirst}</p>
+        <p class="entry-note">{f.note}</p>
+        <p class="entry-keys lbl">{f.keys.join(' · ')}</p>
+      </div>
+      <div class="entry-plate">
+        <div class="plate">{f.still && <img src={f.still} alt={`Still from ${f.title}`} loading="lazy" decoding="async">}</div>
+        <div class="plate-cap">
+          <span class="lbl">Fig. {i + 1} — {f.cat}</span>
+          <span class="lbl">{f.year}</span>
+        </div>
+      </div>
+      <div class="entry-pull"><p>{f.pull}</p></div>
+      <div class="entry-go"><a class="lbl" href={`${base}/${f.slug}.html`}>Read entry &rarr;</a></div>
+    </article>
+  ))}
+</section>
+
+<!-- THE BLUE PAYOFF — the sentence from the front page, finished, once. -->
+<section class="payoff" aria-label="Studio positioning">
+  <div class="payoff-in wrap">
+    <p class="lbl payoff-lbl">…documentary, narrative, and commercial work</p>
+    <p class="payoff-line">for people who <em>notice the details.</em></p>
+  </div>
+</section>
+
+<!-- STUDIO -->
+<section class="wrap studio">
+  <div class="studio-l">
+    <p class="lbl"><span class="lbl-blue">§ 03</span> &nbsp;— &nbsp;The studio</p>
+  </div>
+  <div class="studio-r">
+    <p class="studio-lead">We are interested in the second look — the detail that only pays off once you have already decided how you feel.</p>
+    <p>Founded in Toronto in 2023. Eight titles finished since: six narrative shorts, one commercial, one made with a musician. All of them were cut in the same room by the people who shot them.</p>
+    <div class="studio-figs">
+      <div><b>8</b><span class="lbl">Films finished</span></div>
+      <div><b>2023</b><span class="lbl">Founded</span></div>
+      <div><b>3</b><span class="lbl">In development</span></div>
+      <div><b>TOR</b><span class="lbl">Home base</span></div>
+    </div>
+    <p class="studio-cta"><a class="lbl" href={base + '/about.html'}>More about the studio &rarr;</a> &nbsp;&nbsp; <a class="lbl" href={base + '/contact.html'}>Start a conversation &rarr;</a></p>
+  </div>
+</section>
+
+</Base>
+
+<style>
+  /* masthead */
+  .mast { padding-top: clamp(26px, 4.5vh, 56px); }
+  .mast-word { display: flex; align-items: center; justify-content: space-between; gap: clamp(8px, 2vw, 28px);
+               font-family: var(--serif); font-variation-settings: var(--axes-display);
+               font-size: var(--t-masthead); line-height: .84; letter-spacing: -.045em; font-weight: 420; }
+  .mast-word img { width: clamp(46px, 8.5vw, 128px); height: auto; flex: none; }
+  .mast-rail { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+               margin-top: clamp(12px, 2vh, 22px); padding-top: 10px; border-top: 1px solid var(--rule);
+               border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+
+  /* front page: three uneven columns */
+  .front { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr) minmax(190px, .82fr);
+           gap: clamp(20px, 3vw, 46px); padding-top: clamp(26px, 4vh, 46px); padding-bottom: var(--stack);
+           border-bottom: 1px solid var(--rule); }
+  .front-lede .lbl { margin-bottom: 14px; }
+  .lede { font-family: var(--serif); font-variation-settings: var(--axes-display);
+          font-size: var(--t-lede); line-height: 1.03; letter-spacing: -.028em; }
+  .lede-note { margin-top: 14px; font-size: var(--t-small); color: var(--ink-faint); font-style: italic; }
+  .front-body { border-left: 1px solid var(--rule-hair); padding-left: clamp(14px, 2vw, 26px); }
+  .front-body p { margin-bottom: 13px; }
+  .drop::first-letter { float: left; font-size: 3.5em; line-height: .8; padding: 4px 8px 0 0; font-variation-settings: var(--axes-display); }
+  .front-index { border-left: 1px solid var(--rule-hair); padding-left: clamp(14px, 2vw, 26px); }
+  .front-index .lbl { margin-bottom: 11px; }
+  .front-index ol { list-style: none; }
+  .front-index li { border-bottom: 1px solid var(--rule-hair); }
+  .front-index a { display: flex; align-items: baseline; gap: 8px; padding: 6px 0; text-decoration: none; color: var(--ink); font-size: var(--t-small); }
+  .front-index a:hover .fi-title { color: var(--blue); }
+  .fi-no { font-family: var(--mono); font-size: 10px; color: var(--blue); }
+  .fi-dot { flex: 1; border-bottom: 1px dotted var(--rule); transform: translateY(-3px); }
+  .fi-yr { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); }
+  .fi-latest { margin-top: 18px; border: 1px solid var(--blue); padding: 12px 14px; }
+  .fi-latest-t { font-family: var(--serif); font-variation-settings: var(--axes-head); font-size: 21px; color: var(--blue); margin: 5px 0 4px; }
+
+  /* the annotated index */
+  .idx { padding-top: var(--stack); }
+  .idx-head { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
+  .entry { display: grid; grid-template-columns: 3.2ch minmax(0, 1.5fr) minmax(0, 1.1fr);
+           grid-template-areas: "no main plate" "no pull go";
+           gap: 6px clamp(16px, 2.4vw, 38px); padding: clamp(24px,3.4vh,40px) 0; border-bottom: 1px solid var(--rule-hair); }
+  .entry-no { grid-area: no; }
+  .entry-main { grid-area: main; }
+  .entry-plate { grid-area: plate; }
+  .entry-pull { grid-area: pull; align-self: end; }
+  .entry-go { grid-area: go; align-self: end; text-align: right; }
+  .entry-t { font-family: var(--serif); font-variation-settings: var(--axes-display);
+             font-size: var(--t-entry); line-height: 1; letter-spacing: -.028em; margin-bottom: 9px; }
+  .entry-t a { color: var(--ink); text-decoration: none; }
+  .entry-t a:hover { color: var(--blue); }
+  .entry-stand { font-style: italic; color: var(--ink-soft); margin-bottom: 10px; }
+  .entry-note { font-size: var(--t-small); line-height: 1.6; color: var(--ink-soft); margin-bottom: 10px; }
+  .entry-keys { color: var(--ink-faint); }
+  .entry-pull p { font-family: var(--serif); font-variation-settings: var(--axes-head); font-style: italic;
+                  font-size: clamp(17px, 1.6vw, 22px); line-height: 1.2; color: var(--blue); padding-top: 12px; }
+  .entry-go a { text-decoration: none; }
+  .entry-go a:hover { color: var(--blue); }
+
+  /* the one blue field */
+  .payoff { background: var(--blue); color: #fff; margin-top: var(--stack);
+            padding: clamp(70px, 15vh, 190px) 0; }
+  .payoff-lbl { color: rgba(255,255,255,.72) !important; margin-bottom: clamp(16px,3vh,32px); }
+  .payoff-line { font-family: var(--serif); font-variation-settings: var(--axes-display);
+                 font-size: clamp(38px, 7.4vw, 118px); line-height: .95; letter-spacing: -.035em; max-width: 16ch; }
+  .payoff-line em { font-style: italic; }
+
+  /* studio */
+  .studio { display: grid; grid-template-columns: minmax(120px, 1fr) minmax(0, 4.2fr);
+            gap: clamp(18px, 3vw, 52px); padding-top: var(--stack); }
+  .studio-lead { font-family: var(--serif); font-variation-settings: var(--axes-head);
+                 font-size: clamp(20px, 2.3vw, 30px); line-height: 1.24; font-style: italic; margin-bottom: 16px; max-width: 34ch; }
+  .studio-r > p { max-width: 62ch; color: var(--ink-soft); }
+  .studio-figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                 gap: 20px; margin: clamp(24px,4vh,42px) 0; padding-top: 18px; border-top: 1px solid var(--rule); }
+  .studio-figs b { display: block; font-family: var(--serif); font-variation-settings: var(--axes-display);
+                   font-size: clamp(36px, 4.4vw, 64px); line-height: .9; letter-spacing: -.03em; font-weight: 420; }
+  .studio-figs span { display: block; margin-top: 6px; }
+  .studio-cta a { text-decoration: none; }
+  .studio-cta a:hover { color: var(--blue); }
+
+  @media (max-width: 1000px) {
+    .front { grid-template-columns: 1fr; }
+    .front-body, .front-index { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule-hair); padding-top: 18px; }
+    .entry { grid-template-columns: 3ch 1fr; grid-template-areas: "no main" ". plate" ". pull" ". go"; }
+    .entry-go { text-align: left; }
+    .studio { grid-template-columns: 1fr; }
+  }
+</style>
