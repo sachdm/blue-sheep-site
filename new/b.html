@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Sheep</title>
+<meta name="description" content="Blue Sheep — an independent film production company in Toronto.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23ffffff'/%3E%3Ccircle cx='50' cy='50' r='26' fill='%234050a0'/%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{
+  --paper:#ffffff;
+  --ink:#14141a;
+  --mute:#83839a;
+  --rule:#e6e6ec;
+  --indigo:#4050a0;
+  --chalk:#f0f0e0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+
+.page{
+  min-height:100vh;
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+}
+
+/* ---------- left: the words ---------- */
+.left{
+  padding:46px 48px 40px;
+  display:flex;
+  flex-direction:column;
+}
+.mast{
+  font-family:'Manrope',sans-serif;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--mute);
+}
+.core{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:9vh 0;
+}
+.line{
+  font-family:'Fraunces','Iowan Old Style',Georgia,serif;
+  font-weight:340;
+  font-size:clamp(2.5rem,5.6vw,4.6rem);
+  line-height:1.02;
+  letter-spacing:-.024em;
+  max-width:17ch;
+}
+.line em{
+  font-style:italic;
+  font-weight:340;
+  color:var(--indigo);
+}
+.rule{
+  width:52px;
+  height:2px;
+  background:var(--indigo);
+  margin:32px 0 22px;
+}
+.kicker{
+  font-size:11px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--mute);
+}
+.foot{
+  border-top:1px solid var(--rule);
+  padding-top:19px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:6px 26px;
+}
+.mail{
+  font-size:1.06rem;
+  font-weight:500;
+  letter-spacing:-.015em;
+  text-decoration:none;
+  border-bottom:1.5px solid var(--indigo);
+  padding-bottom:1px;
+  transition:color .18s ease;
+}
+.mail:hover{color:var(--indigo)}
+.elsewhere{margin-left:auto;display:flex;gap:18px}
+.elsewhere a{
+  font-size:11px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--mute);
+  text-decoration:none;
+  transition:color .18s ease;
+}
+.elsewhere a:hover{color:var(--ink)}
+
+/* ---------- right: the indigo field ---------- */
+.right{
+  background:var(--indigo);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+/* chalk-drift echoes, in the spirit of the card */
+.right .echo{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:62%;
+  transform:translate(-50%,-50%);
+  opacity:.13;
+  filter:blur(1px);
+}
+.right .echo.e2{transform:translate(-58%,-50%) scale(.97);opacity:.09}
+.right .echo.e3{transform:translate(-66%,-50%) scale(.94);opacity:.06}
+.right .lamb{
+  position:relative;
+  width:62%;
+  max-width:420px;
+  filter:brightness(0) invert(1);
+  opacity:.94;
+}
+.right .stamp{
+  position:absolute;
+  left:34px;
+  bottom:30px;
+  color:var(--chalk);
+  opacity:.72;
+  font-size:10px;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+}
+
+@media(max-width:860px){
+  .page{grid-template-columns:1fr;min-height:0}
+  .right{order:-1;min-height:44svh;padding:34px 0}
+  .right .lamb,.right .echo{width:52%}
+  .left{padding:30px 24px 26px;min-height:56svh}
+  .core{padding:6vh 0}
+  .line{max-width:none}
+  .elsewhere{margin-left:0;width:100%;padding-top:4px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <section class="right" aria-hidden="true">
+    <img class="echo e3" src="../small-sheep.png" alt="" width="309" height="240">
+    <img class="echo e2" src="../small-sheep.png" alt="" width="309" height="240">
+    <img class="lamb" src="../small-sheep.png" alt="" width="309" height="240">
+    <span class="stamp">Blue Sheep</span>
+  </section>
+
+  <section class="left">
+    <header class="mast">Blue Sheep</header>
+    <main class="core">
+      <h1 class="line">We make films the <em>slow</em> way.</h1>
+      <div class="rule"></div>
+      <p class="kicker">Est. 2023 — Toronto, Canada</p>
+    </main>
+    <footer class="foot">
+      <a class="mail" href="mailto:info@bluesheepfilms.com">info@bluesheepfilms.com</a>
+      <nav class="elsewhere">
+        <a href="https://vimeo.com/bluesheepfilms" target="_blank" rel="noopener noreferrer">Vimeo</a>
+        <a href="https://www.instagram.com/bluesheep.films/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </nav>
+    </footer>
+  </section>
+
+</div>
+
+</body>
+</html>
