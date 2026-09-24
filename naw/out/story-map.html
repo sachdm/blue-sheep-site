@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Not Another Word Story Wall</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@500;600&family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --night:#17100b; --wall:#221710; --wall2:#2c1d12; --line:#3b2a1c;
+  --card:#eadcc0; --card-edge:#cdbb97; --ink:#231a12;
+  --cream:#efe3cc; --muted:#b09a80; --faint:#7d6a57;
+  --sodium:#f0a347; --cord:#d63a2f; --blue:#5b9be0;
+  --b-ritual:#e0a040; --b-signs:#5b9be0; --b-people:#cdb68c; --b-myth:#b58ad6; --b-turn:#f2ede4; --b-prod:#7fbf8a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--cream);font:16px/1.5 "IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif}
+.wrap{max-width:1500px;margin:0 auto;padding-block:28px 64px;padding-inline:16px}
+header{display:grid;gap:6px;max-width:860px}
+.kicker{font:14px/1.2 "Special Elite","Courier New",monospace;color:var(--sodium);letter-spacing:.04em}
+h1{font:600 clamp(30px,5vw,54px)/1 Oswald,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.02em;margin:0;text-wrap:balance}
+h2{font:600 22px/1.1 Oswald,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.04em;margin:0}
+.lede{color:var(--muted);max-width:68ch;margin:4px 0 0}
+.lede b{color:var(--cream);font-weight:600}
+
+.threads{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 14px;align-items:center}
+.threads .lbl{font:13px "Special Elite",monospace;color:var(--muted);margin-right:4px}
+.chip{appearance:none;border:1px solid var(--line);background:var(--wall);color:var(--cream);font:14px/1 "IBM Plex Sans Condensed",sans-serif;padding:7px 11px 7px 9px;border-radius:999px;cursor:pointer;display:inline-flex;gap:7px;align-items:center}
+.chip i{width:14px;height:6px;border-radius:3px;background:repeating-linear-gradient(90deg,var(--cord) 0 2px,transparent 2px 3.5px);display:inline-block}
+.chip:hover{border-color:var(--faint)}
+.chip[aria-pressed="true"]{background:var(--cord);border-color:var(--cord);color:#fff}
+.chip[aria-pressed="true"] i{background:repeating-linear-gradient(90deg,#fff 0 2px,transparent 2px 3.5px)}
+.chip:focus-visible,.card:focus-visible{outline:2px solid var(--sodium);outline-offset:2px}
+
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;align-items:start}
+@media (max-width:1100px){.stage{grid-template-columns:1fr}}
+.wallbox{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:radial-gradient(ellipse 60% 55% at 50% 48%,#3a2412 0%,var(--wall) 55%,var(--night) 100%)}
+.wallbox svg{display:block;width:100%;min-width:1060px;height:auto}
+svg text{font-family:"Special Elite","Courier New",monospace}
+.card{cursor:pointer}
+.card rect.stock{fill:var(--card);stroke:var(--card-edge);stroke-width:1}
+.card text{fill:var(--ink);font-size:13.5px}
+.card .tab{stroke:none}
+.card .pin{fill:var(--cord)}
+.card.dim{opacity:.5}
+.card.on rect.stock{stroke:var(--sodium);stroke-width:2.5}
+.cord{fill:none;stroke:var(--cord);stroke-width:1.5;stroke-linecap:round;opacity:.28;transition:opacity .15s}
+.cord.on{opacity:1;stroke-width:1.8}
+.cord.off{opacity:.06}
+.spoke{stroke:var(--faint);stroke-width:1;stroke-dasharray:2 5;opacity:.7}
+.hub text{fill:var(--sodium);font:600 15px Oswald,"Arial Narrow",sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.hub .count{fill:var(--muted);font:12px "Special Elite",monospace;letter-spacing:0;text-transform:none}
+.center rect{fill:#0f0a07;stroke:var(--line)}
+.center .t{fill:var(--cream);font:600 30px Oswald,"Arial Narrow",sans-serif;letter-spacing:.06em}
+.center .s{fill:var(--muted);font-size:13px}
+.center .n{fill:var(--sodium);font-size:12.5px}
+@media (prefers-reduced-motion:reduce){.cord{transition:none}}
+
+aside.panel{background:var(--wall);border:1px solid var(--line);border-radius:4px;padding:18px 18px 20px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);display:grid;gap:12px}
+@media (max-width:1100px){aside.panel{position:static}}
+.panel .branch{display:inline-flex;gap:8px;align-items:center;font:13px "Special Elite",monospace;color:var(--muted)}
+.panel .branch i{width:18px;height:6px;border-radius:2px;display:inline-block}
+.panel h3{font:600 24px/1.1 Oswald,"Arial Narrow",sans-serif;margin:0;text-wrap:balance}
+.panel blockquote{margin:0;padding:10px 12px;background:var(--card);color:var(--ink);font:14.5px/1.45 "Special Elite","Courier New",monospace;border-radius:2px}
+.panel p{margin:0;color:var(--cream)}
+.panel .where{font:13px "Special Elite",monospace;color:var(--sodium)}
+.panel .tl{display:flex;flex-wrap:wrap;gap:6px}
+.panel .tl button{font-size:13px;padding:5px 9px}
+.panel .hint{font-size:13px;color:var(--faint)}
+.panel ol{margin:0;padding-left:20px;display:grid;gap:6px}
+.panel ol li{color:var(--cream)}
+.panel ol li span{color:var(--muted);font:12.5px "Special Elite",monospace}
+
+section.beats{margin-top:34px}
+.beats .head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;align-items:end;margin-bottom:12px}
+.beats .head p{margin:0;color:var(--muted);max-width:70ch}
+.gridbox{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--wall)}
+.gridbox svg{display:block;width:100%;min-width:1000px;height:auto}
+.gridbox text{fill:var(--muted);font-size:12px}
+.gridbox .rowlbl{fill:var(--cream);font-family:"IBM Plex Sans Condensed",sans-serif;font-size:14px;cursor:pointer}
+.gridbox .rowlbl.on{fill:var(--cord);font-weight:600}
+.gridbox .beatlbl{fill:var(--cream);font-size:12px}
+.gridbox .pg{fill:var(--faint);font-size:11px}
+.gridbox .act{fill:var(--sodium);font:600 12px Oswald,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.gridbox .cell{fill:var(--wall2)}
+.gridbox .colhi{fill:var(--sodium);opacity:.12}
+.gridbox .rowhi{fill:var(--cord);opacity:.12}
+.gridbox .dot{fill:var(--cream)}
+.gridbox .dot.on{fill:var(--cord)}
+.gridbox .run{stroke:var(--cord);stroke-width:2;opacity:0}
+.gridbox .run.on{opacity:.8}
+.gridbox .sep{stroke:var(--line)}
+.notes{margin-top:34px;display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:700px){.notes{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.notes{grid-template-columns:repeat(3,1fr)}}
+.note{background:var(--wall);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:grid;gap:6px}
+.note h4{margin:0;font:600 15px Oswald,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--b-prod)}
+.note p{margin:0;color:var(--cream);font-size:15px}
+.note p span{font-family:"Special Elite",monospace;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <div class="kicker">Blue Sheep Films · short film v1.3 · 12 pp · one afternoon to one dawn</div>
+  <h1>Not Another Word</h1>
+  <p class="lede">A celebrated writer, finished with his own myth, sits down for one last interview. The crew has already printed tomorrow's paper. <b>Every card on the wall is something the film plants. The red cord joins each plant to where it pays off.</b> Pick a thread or a card to follow it.</p>
+</header>
+
+<div class="threads" id="threads"><span class="lbl">threads →</span></div>
+
+<div class="stage">
+  <div class="wallbox"><svg id="wall" viewBox="0 0 1440 900" role="img" aria-label="Story wall: forty index cards in six groups around the title, joined by red cords that link each setup in the script to its payoff"></svg></div>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+</div>
+
+<section class="beats">
+  <div class="head"><h2>Where each thread lands, page by page</h2><p>Eighteen beats across twelve pages. Each row is one cord from the wall. Most threads are planted in the first two pages and six of the nine close on the last page, which is why the reset room lands.</p></div>
+  <div class="gridbox"><svg id="grid" role="img" aria-label="Grid of story threads against the eighteen beats of the script, showing which beats each thread appears in"></svg></div>
+</section>
+
+<section class="notes" id="notes"></section>
+</div>
+
+<script>
+/* ---------------- data ---------------- */
+const BRANCHES = {
+  ritual:{name:'The ritual', color:'var(--b-ritual)'},
+  signs:{name:'The signs he files away', color:'var(--b-signs)'},
+  people:{name:'The people', color:'var(--b-people)'},
+  myth:{name:'The myth and the man', color:'var(--b-myth)'},
+  turn:{name:'The turn', color:'var(--b-turn)'},
+  prod:{name:'On the day', color:'var(--b-prod)'},
+};
+const BEATS = [
+ ['Cold open',1],['3:00 PM',1],['Kitchen radio',1],['The Dragon',2],['Patio',2],['Call to McGarr',3],
+ ['Vespa',4],['Asters TV',4],['Joansy',5],['Voicemail',6],['The wait',6],['The set',7],
+ ['Interview',8],["Tomorrow's paper",9],['Door beat',9],['Recognition',10],['Magnet peel',11],['Reset room',12]
+];
+const ACTS = [['The ritual',1,6],['Out and back',7,10],['The interview',11,16],['After',17,18]];
+
+const CARDS = [
+ // ritual
+ {id:'glass',b:'ritual',t:'The crystal glass',q:'Orange caught by the light floods into the crystal glass — the one that was waiting for him.',beats:[1,3,11,18],n:'Shari sets it out before he wakes. In the last image it sits washed and waiting, for nobody.'},
+ {id:'chivas',b:'ritual',t:'Chivas before coffee',q:'Through an automatic stupor, the first thing he grabs is a bottle of Chivas Regal.',beats:[3,5,11],n:'The drink turns into Chartreuse during the interview. See the continuity note below.'},
+ {id:'dragon',b:'ritual',t:'The Yunnan Dragon',q:'A hand opens the latch on its belly — a hollowed body filled with cocaine and a silver spoon.',beats:[4,11,13],n:'Full at the start, empty by the interview. The ritual runs down on screen as the day does.'},
+ {id:'radio',b:'ritual',t:'The kitchen radio',q:'A twist and a popular song snaps to the news.',beats:[3,18],n:'It opens on a stranger\'s death and closes on his. At the end it snaps on by timer, with no one there to twist it.'},
+ {id:'alarm',b:'ritual',t:'3:00 PM alarm',q:'BEEP. BEEP. BEEP. The clock strikes 3:00 PM.',beats:[2],n:'His morning is everyone else\'s afternoon. The first clock in a film full of them.'},
+ {id:'vespa',b:'ritual',t:'Red Vespa, silver flask',q:'Miles rides a bright red vespa to breakfast. At a red light, he sips from a silver flask.',beats:[7],n:'Breakfast at night. The only moment he is out in the city, and the reason for the night unit.'},
+ {id:'typer',b:'ritual',t:'Typewriter, blank pages',q:'An old typewriter with a stack of blank pages.',beats:[10],n:'We never see him write. The column he promised McGarr stays blank.'},
+ // signs
+ {id:'van',b:'signs',t:'DRAIN DISPOSAL van',q:'She looks at it a moment longer than a van deserves.',beats:[1,5,10,16,17],n:'Seen five times. Shari clocks it, Miles registers it like a cloud, it has not moved by the voicemail, and he finally reads it at the syringe.'},
+ {id:'reyes',b:'signs',t:'Vivian Reyes, 900%',q:'... collected editions selling nine hundred percent above —',beats:[3],n:'The whole business model, in minute two, disguised as background. He twists past it.'},
+ {id:'booth',b:'signs',t:'His booth is taken',q:'His usual booth in the corner is occupied by a young couple. He clocks it. Lets it go.',beats:[8],n:'The first time the world is rearranged around him and he lets it slide.'},
+ {id:'empty',b:'signs',t:'Empty booths',q:'Miles glances around. Multiple booths sit empty.',beats:[9],n:'Joansy\'s cover story, disproved in one look.'},
+ {id:'expect',b:'signs',t:'"Not supposed to be expecting you"',q:'We\'re not supposed to be expecting you.',beats:[9],n:'The best line of dread in the piece, according to every programmer lens in log 01.'},
+ {id:'time',b:'signs',t:'"For those who have the time"',q:'He glances at the wooden clock above the bar. Double-checks it against his wrist watch. They agree. That\'s not what\'s wrong.',beats:[9,11],n:'He checks the clocks when the problem is the calendar.'},
+ {id:'hook',b:'signs',t:'Phone off the hook',q:'The telephone has been pulled off the receiver. He doesn\'t remember doing that.',beats:[13,18],n:'Somebody cut the line during the interview. In the reset room, somebody put it back.'},
+ {id:'paper',b:'signs',t:"Tomorrow's paper",q:'It\'s tomorrow\'s paper.',beats:[14],n:'The obituary was printed before he quit anything. The voicemail never changed the outcome.'},
+ // people
+ {id:'shari',b:'people',t:'Shari',q:'Straightens a painting an inch it didn\'t need.',beats:[1],n:'The first hand in the film. In the short she only looks at the van. What she knows stays open.'},
+ {id:'mcgarr',b:'people',t:'McGarr',q:'Can\'t hear you there, Miles... Miles?',beats:[6,10],n:'Hangs up on him, then becomes a voicemail. The one person he talks to never hears him.'},
+ {id:'child',b:'people',t:'The child',q:'Tell me, son. You know my name?',beats:[8],n:'He doesn\'t. Famous enough for an autograph, not for a name.'},
+ {id:'joansy',b:'people',t:'Joansy',q:'(a tender hand on his shoulder) We\'re not supposed to be expecting you.',beats:[9],n:'The only person who warns him. She is kind about it and not allowed to say why.'},
+ {id:'stacey',b:'people',t:'Stacey Bradshaw',q:'Her demeanor has changed. Upright. Rigid.',beats:[11,12,13,14,15,16,17],n:'Arrives as a journalist, leaves as an operator. Never raises her voice.'},
+ {id:'michaels',b:'people',t:'Michael and Michael',q:'Not blocking it, exactly. Just there, the way furniture is there.',beats:[11,12,15,16,17],n:'Neither answers the brothers joke. Miles called them androids on the voicemail before he met them.'},
+ {id:'tvmiles',b:'people',t:'TV-Miles',q:'On the TV, Miles laughs along, delighted. At the bar, Miles watches himself do it with no expression at all.',beats:[8],n:'The myth performs and the man observes. One shot.'},
+ {id:'sidmans',b:'people',t:"Sidman's",q:'Beneath it, painted and permanent, a blue logo: SIDMAN\'S RETIREMENT FACILITY',beats:[17],n:'Never explained in the short. The logo is the whole reveal.'},
+ // myth
+ {id:'weather',b:'myth',t:'Watching lives like weather',q:'Miles watches both the way you\'d watch weather.',beats:[5],n:'The family and the couple across the street. The panel called this the thesis and it stayed.'},
+ {id:'career',b:'myth',t:'"Best career move she ever made"',q:'You see what dying did for Vivian Reyes\' numbers? Nine hundred percent. Christ. Best career move she ever made.',beats:[10],n:'The victim pitches the premise as a joke, to an answering machine, minutes before it knocks.'},
+ {id:'warps',b:'myth',t:'"The technology warps reality"',q:'You bring all this machinery, you create a situation that\'s unnatural anyway. The technology warps reality. It\'s a betrayal.',beats:[12],n:'Said while the camera that will end him is being set up.'},
+ {id:'inway',b:'myth',t:'"I\'m in the way"',q:'The myth has taken over. I find myself an appendage. I\'m no longer necessary. I\'m in the way.',beats:[13],n:'The confession Sidman\'s came to hear.'},
+ {id:'better',b:'myth',t:'"Better if I died"',q:'It would be much better if I died, so people could take the myth.',beats:[13],n:'He talks himself into the trap without help. They only have to agree.'},
+ {id:'set',b:'myth',t:'The room rebuilt as a set',q:'They build the room into a television set — quietly erasing him from his own living room.',beats:[12,18],n:'The erasure starts with his magazines. By morning the room is reset without him.'},
+ // turn
+ {id:'happier',b:'turn',t:'"Would you be happier dead?"',q:'Would you be happier dead?',beats:[13],n:'The turn. Untouched in every draft.'},
+ {id:'door',b:'turn',t:'The door beat',q:'He could run. Somewhere under the Chartreuse he knows what that would make true.',beats:[15],n:'He sits back down on his own. The capture is chosen, not administered.'},
+ {id:'admirers',b:'turn',t:'"You\'re not press." "We\'re admirers."',q:'The rig. The obituary. The van he\'s been registering like a cloud all day. Somewhere behind his eyes, the journalist gets there first.',beats:[16],n:'He solves the story he is inside of. Too late, but he solves it.'},
+ {id:'nine',b:'turn',t:'"Nine hundred percent."',q:'MILES: Nine hundred percent. Into the neck of Miles Goodman.',beats:[16],n:'His last coherent words close the loop the radio opened.'},
+ {id:'peel',b:'turn',t:'The magnet peel',q:'Peels the magnetic DRAIN DISPOSAL sign off the panel in one practiced motion.',beats:[17],n:'Read as the ending on every card in log 01.'},
+ {id:'reset',b:'turn',t:'The room, reset',q:'The painting, straight. The telephone sits square on its receiver. Somebody put it back.',beats:[18],n:'Every opening object comes back in its place. The radio finishes the sentence it started.'},
+ // production
+ {id:'windows',b:'prod',t:'Two windows across the street',q:'In one, a family sets a dinner table. In the other, a young couple having rigorous sex.',beats:[5],n:'Needs a second small unit with two extras and a permission, or cut to the van alone. Decide before the board.'},
+ {id:'insert',b:'prod',t:'Talk-show insert',q:'HOST (ON TV): I\'d heard writers weren\'t attractive folk, but c\'mon, Miles.',beats:[8],n:'Shoot on the prep day so it plays live on the pub TV on D5.'},
+ {id:'obit',b:'prod',t:'The obituary prop',q:'A photograph of a younger, sun-kissed Miles on a boat off Lombok, flanked by two grinning men and a massive fish.',beats:[14,16],n:'Real newsprint. Photograph the actor and composite the boat behind him. The pre-lap is the voice of this photograph.'},
+ {id:'signs',b:'prod',t:'Two vinyl signs',q:'The magnetic DRAIN DISPOSAL panel over the painted SIDMAN\'S logo.',beats:[1,5,17],n:'Two orders from one shop. The magnet has to peel cleanly on one take.'},
+ {id:'period',b:'prod',t:'No year',q:'Rotary phone, radio, analog everything.',beats:[6,10,13],n:'Intentional timelessness. No phones or screens that date it, including the pub TV and the camera rig.'},
+ {id:'drink',b:'prod',t:'Chivas or Chartreuse?',q:'He looks down: the Chartreuse is a mouthful in the crystal cup.',beats:[3,13],n:'Every other scene says Chivas. Pick one before the props shop.'},
+];
+const THREADS = [
+ {id:'nine', name:'Nine hundred percent', cards:['reyes','career','nine','radio'], beats:[3,10,16,18], why:'The business model is planted on the radio in minute two, told as a joke on the voicemail, spoken as his last words, and confirmed by the final newscast.'},
+ {id:'van', name:'The van', cards:['shari','van','weather','admirers','peel','sidmans'], beats:[1,5,10,16,17], why:'Shari sees it first. Miles sees it from the patio and the study and files it away every time. At the syringe he finally reads it, and at dawn the sign comes off.'},
+ {id:'time', name:'Clocks and time', cards:['alarm','time','paper'], beats:[2,9,11,14,18], why:'He wakes at three, checks the pub clock against his watch, checks both again while he waits. The clocks are right. It is the date that is wrong: the paper is tomorrow\'s.'},
+ {id:'glass', name:'The glass', cards:['glass','chivas','reset'], beats:[1,3,11,18], why:'Set out for him before he wakes, filled three times, washed and waiting for nobody in the last shot.'},
+ {id:'phone', name:'The phone', cards:['mcgarr','typer','hook','reset'], beats:[6,10,13,18], why:'McGarr hangs up, then becomes a voicemail. During the interview the line is cut. By morning somebody has put it back.'},
+ {id:'camera', name:'Cameras and the myth', cards:['tvmiles','warps','better','radio'], beats:[8,12,13,18], why:'TV-Miles laughs on the pub screen. Miles says cameras warp reality while one is pointed at him. His death is then reported as the myth wants it.'},
+ {id:'erase', name:'Erased from his room', cards:['shari','set','reset'], beats:[1,12,18], why:'Shari straightens a painting. The crew strips the room into a set. The morning room is perfect and he is not in it.'},
+ {id:'name', name:'Who knows him', cards:['child','paper','admirers'], beats:[8,14,16], why:'A child who does not know his name. An obituary that knows his whole life. Admirers who know him better than he does.'},
+ {id:'warn', name:'Warnings he files away', cards:['booth','empty','expect','hook','door'], beats:[8,9,13,15], why:'The booth, the empty tables, Joansy\'s line, the phone off the hook. He notices every one and acts on none until the door, and then he sits back down.'},
+];
+
+/* ---------------- layout ---------------- */
+const W=1440,H=900, CW=180, CH=54, GX=14, GY=14;
+const clusterX=[40,533,1026], topY=64, botY=652;
+const order=[['ritual',0,topY],['signs',1,topY],['people',2,topY],['myth',0,botY],['turn',1,botY],['prod',2,botY]];
+const pos={}; const hubs={};
+order.forEach(([b,ci,y0])=>{
+  const list=CARDS.filter(c=>c.b===b);
+  const x0=clusterX[ci];
+  hubs[b]={x:x0+ (2*CW+GX)/2, y:y0-22, n:list.length};
+  list.forEach((c,i)=>{
+    const col=i%2,row=Math.floor(i/2);
+    // odd card out sits centred
+    const lone = (i===list.length-1 && list.length%2===1);
+    const x = lone ? x0+(CW+GX)/2 : x0+col*(CW+GX);
+    pos[c.id]={x, y:y0+row*(CH+GY), rot: ((c.id.charCodeAt(0)*7+c.id.length*13)%9-4)*0.28};
+  });
+});
+const byId=Object.fromEntries(CARDS.map(c=>[c.id,c]));
+const threadsOf=id=>THREADS.filter(t=>t.cards.includes(id));
+
+/* ---------------- helpers ---------------- */
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function wrap(txt,max){const w=txt.split(' ');const out=[];let cur='';w.forEach(x=>{if((cur+' '+x).trim().length>max){out.push(cur);cur=x;}else cur=(cur+' '+x).trim();});if(cur)out.push(cur);return out;}
+function pin(id){const p=pos[id];return [p.x+CW/2, p.y+9];}
+function coil(a,b,seed){
+  // sagging quadratic with a coiled phone-cord ripple
+  const [x1,y1]=a,[x2,y2]=b; const d=Math.hypot(x2-x1,y2-y1);
+  const cx=(x1+x2)/2 + (seed%2?1:-1)*d*0.06, cy=(y1+y2)/2 + 30 + d*0.10;
+  const N=Math.max(24,Math.round(d/2.6)); let s='';
+  for(let i=0;i<=N;i++){
+    const t=i/N, mt=1-t;
+    const x=mt*mt*x1+2*mt*t*cx+t*t*x2, y=mt*mt*y1+2*mt*t*cy+t*t*y2;
+    const dx=2*mt*(cx-x1)+2*t*(x2-cx), dy=2*mt*(cy-y1)+2*t*(y2-cy); const L=Math.hypot(dx,dy)||1;
+    const env=Math.min(1,t*8,(1-t)*8); const off=Math.sin(i*1.9)*2.6*env;
+    s+=(i?'L':'M')+(x-dy/L*off).toFixed(1)+','+(y+dx/L*off).toFixed(1);
+  }
+  return s;
+}
+
+/* ---------------- wall ---------------- */
+const wall=document.getElementById('wall');
+function drawWall(){
+  const cx=W/2, cy=(topY+4*(CH+GY)+botY-22)/2;
+  let s='';
+  // spokes
+  Object.entries(hubs).forEach(([b,h])=>{ s+=`<line class="spoke" x1="${cx}" y1="${cy}" x2="${h.x}" y2="${h.y+(h.y<cy?8:-14)}"/>`; });
+  // centre
+  s+=`<g class="center"><rect x="${cx-200}" y="${cy-78}" width="400" height="156" rx="2"/>
+      <text class="n" x="${cx}" y="${cy-48}" text-anchor="middle">OBITUARIES · PAGE THREE</text>
+      <text class="t" x="${cx}" y="${cy-8}" text-anchor="middle">NOT ANOTHER WORD</text>
+      <text class="s" x="${cx}" y="${cy+20}" text-anchor="middle">Miles Goodman, late 30s, writer.</text>
+      <text class="s" x="${cx}" y="${cy+38}" text-anchor="middle">One apartment, one pub, one van.</text>
+      <text class="n" x="${cx}" y="${cy+62}" text-anchor="middle">12 pp · 18 beats · 9 threads</text></g>`;
+  // hubs
+  Object.entries(hubs).forEach(([b,h])=>{ s+=`<g class="hub"><text x="${h.x}" y="${h.y}" text-anchor="middle">${BRANCHES[b].name} <tspan class="count">· ${h.n}</tspan></text></g>`; });
+  // cords (behind cards)
+  s+='<g id="cords">';
+  THREADS.forEach((t,ti)=>{ for(let i=0;i<t.cards.length-1;i++){ s+=`<path class="cord" data-t="${t.id}" d="${coil(pin(t.cards[i]),pin(t.cards[i+1]),ti+i)}"/>`; } });
+  s+='</g>';
+  // cards
+  CARDS.forEach(c=>{
+    const p=pos[c.id]; const lines=wrap(c.t,21).slice(0,2);
+    const ty = lines.length===1 ? p.y+CH/2+10 : p.y+CH/2+3;
+    s+=`<g class="card" id="c-${c.id}" data-id="${c.id}" tabindex="0" role="button" aria-label="${esc(c.t)}" transform="rotate(${p.rot} ${p.x+CW/2} ${p.y+CH/2})">
+      <rect class="stock" x="${p.x}" y="${p.y}" width="${CW}" height="${CH}" rx="1.5"/>
+      <rect class="tab" x="${p.x}" y="${p.y}" width="${CW}" height="4" fill="${BRANCHES[c.b].color}"/>
+      ${lines.map((l,i)=>`<text x="${p.x+CW/2}" y="${ty+i*16}" text-anchor="middle">${esc(l)}</text>`).join('')}
+      ${threadsOf(c.id).length?`<circle class="pin" cx="${p.x+CW/2}" cy="${p.y+9}" r="3.6"/><circle cx="${p.x+CW/2-1.1}" cy="${p.y+7.9}" r="1.1" fill="#fff" opacity=".7"/>`:''}
+    </g>`;
+  });
+  // re-draw cords over cards faintly? keep behind; pins sit on top
+  wall.innerHTML=s;
+}
+
+/* ---------------- grid ---------------- */
+const grid=document.getElementById('grid');
+function drawGrid(){
+  const L=210, T=146, cw=44, rh=30, R=96;
+  const GW=L+BEATS.length*cw+R, GH=T+THREADS.length*rh+16;
+  grid.setAttribute('viewBox',`0 0 ${GW} ${GH}`);
+  const bx=i=>L+i*cw+cw/2;
+  let s='';
+  ACTS.forEach(([n,a,b])=>{ const x1=L+(a-1)*cw, x2=L+b*cw; s+=`<text class="act" x="${(x1+x2)/2}" y="18" text-anchor="middle">${n}</text><line class="sep" x1="${x1+4}" x2="${x2-4}" y1="26" y2="26"/>`; if(a>1) s+=`<line class="sep" x1="${x1}" x2="${x1}" y1="30" y2="${GH-8}"/>`; });
+  BEATS.forEach(([n,pg],i)=>{ s+=`<rect class="colhi" id="col-${i+1}" x="${L+i*cw+1}" y="${T-8}" width="${cw-2}" height="${THREADS.length*rh+8}" opacity="0"/>`;
+    s+=`<text class="beatlbl" transform="translate(${bx(i)+4},${T-26}) rotate(-38)">${esc(n)}</text><text class="pg" x="${bx(i)}" y="${T-10}" text-anchor="middle">p${pg}</text>`; });
+  THREADS.forEach((t,r)=>{
+    const y=T+r*rh+rh/2;
+    s+=`<rect class="rowhi" id="row-${t.id}" x="4" y="${y-rh/2+2}" width="${GW-8}" height="${rh-4}" rx="3" opacity="0"/>`;
+    s+=`<text class="rowlbl" id="rl-${t.id}" data-t="${t.id}" x="${L-14}" y="${y+5}" text-anchor="end">${esc(t.name)}</text>`;
+    BEATS.forEach((b,i)=>{ s+=`<circle class="cell" cx="${bx(i)}" cy="${y}" r="3"/>`; });
+    const bs=t.beats; s+=`<line class="run" id="run-${t.id}" x1="${bx(bs[0]-1)}" x2="${bx(bs[bs.length-1]-1)}" y1="${y}" y2="${y}"/>`;
+    bs.forEach(b=>{ s+=`<circle class="dot" data-t="${t.id}" cx="${bx(b-1)}" cy="${y}" r="7"/>`; });
+  });
+  grid.innerHTML=s;
+  grid.querySelectorAll('.rowlbl').forEach(el=>el.addEventListener('click',()=>selectThread(el.dataset.t)));
+}
+
+/* ---------------- panel ---------------- */
+const panel=document.getElementById('panel');
+function beatList(bs){return bs.map(b=>`${BEATS[b-1][0]} (p${BEATS[b-1][1]})`).join(' · ');}
+function showCard(c){
+  const ts=threadsOf(c.id);
+  panel.innerHTML=`<span class="branch"><i style="background:${BRANCHES[c.b].color}"></i>${BRANCHES[c.b].name}</span>
+    <h3>${esc(c.t)}</h3><blockquote>${esc(c.q)}</blockquote><p>${esc(c.n)}</p>
+    <div class="where">${beatList(c.beats)}</div>
+    ${ts.length?`<div class="tl">${ts.map(t=>`<button class="chip" data-t="${t.id}"><i></i>${esc(t.name)}</button>`).join('')}</div>`:`<div class="hint">Not on a cord. It works on its own in the scene.</div>`}`;
+  panel.querySelectorAll('button.chip').forEach(b=>b.addEventListener('click',()=>selectThread(b.dataset.t)));
+}
+function showThread(t){
+  panel.innerHTML=`<span class="branch"><i style="background:var(--cord)"></i>Thread · ${t.cards.length} cards</span>
+    <h3>${esc(t.name)}</h3><p>${esc(t.why)}</p>
+    <ol>${t.cards.map(id=>`<li>${esc(byId[id].t)} <span>${BEATS[byId[id].beats[0]-1][0]}</span></li>`).join('')}</ol>
+    <div class="where">${beatList(t.beats)}</div><div class="hint">Select a card on the wall to read its line from the script.</div>`;
+}
+
+/* ---------------- state ---------------- */
+let state={type:'thread',id:'nine'};
+function apply(){
+  const cards=wall.querySelectorAll('.card'), cords=wall.querySelectorAll('.cord');
+  let litCards=new Set(), litThreads=new Set(), beats=new Set();
+  if(state.type==='thread'){ const t=THREADS.find(x=>x.id===state.id); t.cards.forEach(c=>litCards.add(c)); litThreads.add(t.id); t.beats.forEach(b=>beats.add(b)); showThread(t); }
+  else { const c=byId[state.id]; litCards.add(c.id); threadsOf(c.id).forEach(t=>{litThreads.add(t.id); t.cards.forEach(x=>litCards.add(x));}); c.beats.forEach(b=>beats.add(b)); showCard(c); }
+  cards.forEach(g=>{ const id=g.dataset.id; g.classList.toggle('dim',!litCards.has(id)); g.classList.toggle('on', state.type==='card' && id===state.id); });
+  cords.forEach(p=>{ const on=litThreads.has(p.dataset.t); p.classList.toggle('on',on); p.classList.toggle('off',!on); });
+  document.querySelectorAll('#threads .chip').forEach(b=>b.setAttribute('aria-pressed', String(state.type==='thread' && b.dataset.t===state.id)));
+  BEATS.forEach((_,i)=>{ document.getElementById('col-'+(i+1)).setAttribute('opacity', beats.has(i+1)?'1':'0'); });
+  THREADS.forEach(t=>{ const on=litThreads.has(t.id); document.getElementById('row-'+t.id).setAttribute('opacity',on?'1':'0'); document.getElementById('run-'+t.id).classList.toggle('on',on); document.getElementById('rl-'+t.id).classList.toggle('on',on); });
+  grid.querySelectorAll('.dot').forEach(d=>d.classList.toggle('on',litThreads.has(d.dataset.t)));
+}
+function selectThread(id){state={type:'thread',id};apply();}
+function selectCard(id){state={type:'card',id};apply();}
+
+/* ---------------- boot ---------------- */
+const chips=document.getElementById('threads');
+THREADS.forEach(t=>{ const b=document.createElement('button'); b.className='chip'; b.id='chip-'+t.id; b.dataset.t=t.id; b.innerHTML=`<i></i>${esc(t.name)}`; b.addEventListener('click',()=>selectThread(t.id)); chips.appendChild(b); });
+drawWall(); drawGrid();
+wall.querySelectorAll('.card').forEach(g=>{
+  g.addEventListener('click',e=>{e.stopPropagation();selectCard(g.dataset.id);});
+  g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();selectCard(g.dataset.id);} });
+});
+document.getElementById('notes').innerHTML = CARDS.filter(c=>c.b==='prod').map(c=>`<div class="note"><h4>${esc(c.t)}</h4><p>${esc(c.n)}</p><p><span>${beatList(c.beats)}</span></p></div>`).join('');
+apply();
+</script>
+</body>
+</html>
