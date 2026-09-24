@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Not Another Word Continuity</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@500;600&family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --night:#17100b; --wall:#221710; --wall2:#2c1d12; --line:#3b2a1c;
+  --card:#eadcc0; --card2:#e2d2b1; --card-edge:#cdbb97; --ink:#231a12; --ink2:#5a4a38;
+  --cream:#efe3cc; --muted:#b09a80; --faint:#7d6a57;
+  --sodium:#f0a347; --cord:#d63a2f; --blue:#5b9be0;
+  --t-aft:#e6b35a; --t-eve:#c0703f; --t-night:#4b5d8c; --t-sodium:#f08a2b; --t-dawn:#d98b8b; --t-morn:#bfd0dc;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--cream);font:16px/1.5 "IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif}
+.wrap{max-width:1440px;margin:0 auto;padding-block:28px 72px;padding-inline:16px}
+header{display:grid;gap:6px;max-width:900px}
+.kicker{font:14px/1.2 "Special Elite","Courier New",monospace;color:var(--sodium);letter-spacing:.04em}
+h1{font:600 clamp(30px,5vw,54px)/1 Oswald,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.02em;margin:0;text-wrap:balance}
+h2{font:600 24px/1.1 Oswald,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.04em;margin:0}
+h3{font:600 18px/1.15 Oswald,"Arial Narrow",sans-serif;letter-spacing:.04em;margin:0}
+.lede{color:var(--muted);max-width:70ch;margin:4px 0 0}
+section{margin-top:44px}
+.sh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:8px 24px;margin-bottom:14px}
+.sh p{margin:0;color:var(--muted);max-width:72ch}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted);align-items:center}
+.legend span{display:inline-flex;gap:6px;align-items:center}
+.sw{width:14px;height:10px;border-radius:2px;display:inline-block}
+
+/* form */
+.form{display:grid;grid-template-columns:minmax(0,640px) minmax(0,1fr);gap:28px;align-items:center}
+@media (max-width:980px){.form{grid-template-columns:1fr}}
+.dialbox{background:radial-gradient(circle at 50% 50%,#3a2412 0%,var(--wall) 50%,var(--night) 100%);border:1px solid var(--line);border-radius:4px;padding:8px}
+.dialbox svg{display:block;width:100%;height:auto}
+svg text{font-family:"Special Elite","Courier New",monospace}
+.formtext{display:grid;gap:16px}
+.formtext .pt{display:grid;gap:4px;padding-left:14px;border-left:2px solid var(--line)}
+.formtext .pt b{font:600 17px Oswald,sans-serif;letter-spacing:.04em;color:var(--cream)}
+.formtext .pt p{margin:0;color:var(--muted)}
+.formtext .pt.cord{border-left-color:var(--cord)}
+
+/* timeline */
+.tlbox{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--wall)}
+.tlbox svg{display:block;width:100%;min-width:1100px;height:auto}
+.tlbox .blk{cursor:pointer}
+.tlbox .blk rect.b{fill:var(--wall2);stroke:var(--line)}
+.tlbox .blk:hover rect.b{fill:#3a2717}
+.tlbox .blk.on rect.b{fill:#4a2f18;stroke:var(--sodium);stroke-width:2}
+.tlbox .blk text{fill:var(--cream);font-size:12px}
+.tlbox .blk text.num{fill:var(--sodium);font:600 13px Oswald,sans-serif}
+.tlbox .axis{fill:var(--faint);font-size:11px}
+.tlbox .grid{stroke:var(--line)}
+.tlbox .area{fill:var(--cord);opacity:.16}
+.tlbox .curve{fill:none;stroke:var(--cord);stroke-width:2}
+.tlbox .ev{fill:var(--cream);stroke:var(--wall);stroke-width:2}
+.tlbox .ev.hi{fill:var(--cord)}
+.tlbox .lbl{fill:var(--muted);font-size:11.5px}
+.tlbox .peak{fill:var(--cream);font-size:12px}
+
+/* tracker */
+.trbox{overflow-x:auto;border:1px solid var(--card-edge);border-radius:3px;background:var(--card)}
+table.tr{border-collapse:separate;border-spacing:0;font-size:13px;color:var(--ink);min-width:1500px;width:100%}
+table.tr th,table.tr td{padding:7px 8px;border-bottom:1px solid var(--card-edge);border-right:1px solid rgba(35,26,18,.09);vertical-align:top;text-align:left}
+table.tr thead th{background:var(--card2);font:600 13px Oswald,sans-serif;letter-spacing:.04em;position:sticky;top:0;cursor:pointer;white-space:nowrap}
+table.tr thead th small{display:block;font:11px "Special Elite",monospace;color:var(--ink2);letter-spacing:0}
+table.tr th.row{position:sticky;left:0;background:var(--card2);z-index:1;font:600 13px "IBM Plex Sans Condensed",sans-serif;white-space:nowrap;min-width:150px}
+table.tr thead th.row{z-index:2}
+table.tr td{font-family:"Special Elite","Courier New",monospace;font-size:12px;line-height:1.35;min-width:84px}
+table.tr td.same{color:#a8977c}
+table.tr td.flag{background:rgba(214,58,47,.12);color:#7a1d15}
+table.tr td.flag::before{content:"! ";font-weight:700;color:var(--cord)}
+table.tr .on{box-shadow:inset 0 0 0 999px rgba(240,163,71,.22)}
+table.tr thead th.on{background:#ecc58a}
+
+/* event log */
+.log{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.scene{background:var(--wall);border:1px solid var(--line);border-radius:4px;padding:14px 16px 16px;display:grid;gap:10px;scroll-margin-top:20px}
+.scene.on{border-color:var(--sodium);box-shadow:0 0 0 1px var(--sodium)}
+.scene .top{display:flex;gap:10px;align-items:baseline;justify-content:space-between;flex-wrap:wrap}
+.scene .slug{font:14px "Special Elite",monospace;color:var(--cream)}
+.scene .no{font:600 22px Oswald,sans-serif;color:var(--sodium);line-height:1}
+.scene .meta{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px;color:var(--muted)}
+.scene .meta b{color:var(--cream);font-weight:600}
+.scene .tod{display:inline-flex;align-items:center;gap:6px}
+.scene ol{margin:0;padding:0;list-style:none;display:grid;gap:5px}
+.scene li{display:grid;grid-template-columns:34px 1fr;gap:6px;font-size:15px;line-height:1.4}
+.scene li span.n{font:12px "Special Elite",monospace;color:var(--faint);padding-top:2px;text-align:right}
+.scene .fl{font-size:13px;color:#f3a097;display:grid;gap:3px}
+.scene .fl div::before{content:"! ";color:var(--cord);font-weight:700}
+
+/* flags */
+.flags{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.flagc{background:var(--card);color:var(--ink);border-radius:3px;padding:14px 16px;display:grid;gap:6px;border-top:4px solid var(--cord)}
+.flagc h3{color:var(--ink)}
+.flagc p{margin:0;font-size:15px}
+.flagc .where{font:12px "Special Elite",monospace;color:var(--ink2)}
+.flagc .fix{font-size:14px;color:var(--ink2)}
+.flagc .fix b{color:var(--ink)}
+table.mk{border-collapse:collapse;width:100%;font-size:14px;color:var(--ink);background:var(--card);border-radius:3px;overflow:hidden}
+table.mk th,table.mk td{padding:7px 12px;border-bottom:1px solid var(--card-edge);text-align:left}
+table.mk th{font:600 13px Oswald,sans-serif;letter-spacing:.05em;background:var(--card2)}
+.mkbox{overflow-x:auto;max-width:760px}
+button:focus-visible,.blk:focus-visible,th:focus-visible{outline:2px solid var(--sodium);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <div class="kicker">Blue Sheep Films · short film v1.3 · 12 pp · continuity bible</div>
+  <h1>Not Another Word · Form and Continuity</h1>
+  <p class="lede">One afternoon to the next morning, in one apartment, one pub and one street. The form is a closed loop: the last scene puts every opening object back where it was, without the man. Below the form, every event in order, what each prop and costume is doing in each scene, and the continuity problems to fix before the board locks.</p>
+</header>
+
+<section>
+  <div class="sh"><h2>The form</h2><p>The story clock starts at the 3:00 PM alarm, at the top of the dial, and runs clockwise. Times after the alarm are estimates from the script. The red chords join each opening image to the closing image that answers it.</p></div>
+  <div class="form">
+    <div class="dialbox"><svg id="dial" viewBox="-70 -6 780 652" role="img" aria-label="The story as a clock face: twelve scenes from the 3 PM alarm to the next morning, with red chords joining six opening images to the closing images that mirror them, and a dashed gap where the next afternoon's alarm would be."></svg></div>
+    <div class="formtext">
+      <div class="pt"><b>A ritual, played once, running down</b><p>The first movement is the routine: alarm, Chivas, radio, cigarette, the Dragon, the patio. Every later scene takes one piece of it away. By the interview the Dragon is empty and the drink is almost gone.</p></div>
+      <div class="pt"><b>Out and back</b><p>The only trip outside the apartment. The pub is where the world stops pretending, and the study is where he quits everything, too late to change a paper already printed.</p></div>
+      <div class="pt"><b>The interview is a second ritual</b><p>The crew rebuilds his living room into a set and runs their own routine on him: questions, the paper, the pulse, the syringe. It fills almost half the film's pages.</p></div>
+      <div class="pt cord"><b>The loop closes</b><p>Six opening images come back in the last scene: the glass, the painting, the radio news, the alarm now a timer, the van, the phone. The dial stops at morning. The dashed arc is the next afternoon he does not wake up for.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sh"><h2>Scene by scene</h2>
+    <div class="legend"><span><i class="sw" style="background:var(--t-aft)"></i>afternoon</span><span><i class="sw" style="background:var(--t-eve)"></i>evening</span><span><i class="sw" style="background:var(--t-night)"></i>night</span><span><i class="sw" style="background:var(--t-sodium)"></i>night, sodium light</span><span><i class="sw" style="background:var(--t-dawn)"></i>dawn</span><span><i class="sw" style="background:var(--t-morn)"></i>morning</span><span><i class="sw" style="background:var(--cord);height:3px"></i>dread</span></div>
+  </div>
+  <p class="lede" style="margin:0 0 12px">Blocks are scaled to page count. The red line is a read of dread per event, from 0 to 10. Select a scene to highlight it in the tracker and the event log.</p>
+  <div class="tlbox"><svg id="tl" role="img" aria-label="Timeline of the scenes across twelve pages, coloured by time of day, with a dread line rising through the pub and peaking at the syringe on page ten."></svg></div>
+</section>
+
+<section>
+  <div class="sh"><h2>Continuity tracker</h2><p>What each prop, costume and piece of set is doing in every scene. Grey means unchanged from the last time it was seen. Red cells are continuity problems, listed in full at the bottom.</p></div>
+  <div class="trbox"><table class="tr" id="tr"></table></div>
+</section>
+
+<section>
+  <div class="sh"><h2>Every event, in order</h2><p id="evcount"></p></div>
+  <div class="log" id="log"></div>
+</section>
+
+<section>
+  <div class="sh"><h2>Continuity problems to fix</h2><p>Ordered by how much they cost if found on the day.</p></div>
+  <div class="flags" id="flags"></div>
+</section>
+
+<section>
+  <div class="sh"><h2>Which Michael does what</h2><p>The script never tells them apart. A suggested split, so the AD, wardrobe and both actors track the same man through every beat. The toque is the tell.</p></div>
+  <div class="mkbox"><table class="mk" id="mk"></table></div>
+</section>
+</div>
+
+<script>
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const TOD={aft:['afternoon','var(--t-aft)'],eve:['evening','var(--t-eve)'],night:['night','var(--t-night)'],sodium:['night, sodium light','var(--t-sodium)'],dawn:['dawn','var(--t-dawn)'],morn:['morning','var(--t-morn)']};
+
+/* scenes: id, slug, short, p0, p1, tod, clock label, hours after 3PM, cast, events [text, dread] */
+const S=[
+ {id:'1',slug:'INT. LIVING ROOM – DAY',short:'Shari and the van',p0:0,p1:.35,tod:'aft',clock:'~2:55 PM',h:-.1,cast:'Shari',mv:0,ev:[
+  ['Shari\'s hand places the crystal glass on top of the liquor cabinet.',2],
+  ['She straightens a painting an inch it didn\'t need.',2],
+  ['Through the window: the white DRAIN DISPOSAL van on the street.',3],
+  ['She looks at it a moment too long, then leaves, coat already on.',3],
+  ['The alarm starts beeping, pre-lap into the bedroom.',1]]},
+ {id:'2',slug:'INT. BEDROOM – CONTINUOUS',short:'3:00 PM',p0:.35,p1:.56,tod:'aft',clock:'3:00 PM',h:0,cast:'Miles',mv:0,ev:[
+  ['Miles stirs in the unwashed bed, misses the alarm, then silences it.',1]]},
+ {id:'3',slug:'INT. KITCHEN – AFTERNOON',short:'Chivas, radio, first cigarette',p0:.56,p1:1.41,tod:'aft',clock:'~3:10 PM',h:.2,cast:'Miles',mv:0,ev:[
+  ['Chivas from the cabinet nearest the fridge, into the waiting crystal glass.',1],
+  ['Radio twisted from a pop song to the news: Vivian Reyes dead at sixty-one, sales up nine hundred percent.',2],
+  ['He twists back to music. He wasn\'t listening.',1],
+  ['Unmarked cigarettes and the sailor\'s lighter from the wooden box on the windowsill.',1],
+  ['The first cigarette of the day, in his chair.',1],
+  ['Beans into the grinder. Kettle on the burner.',1]]},
+ {id:'4',slug:'INT. LIVING ROOM – CONTINUOUS',short:'The Dragon',p0:1.41,p1:1.71,tod:'aft',clock:'~3:25 PM',h:.4,cast:'Miles',mv:0,ev:[
+  ['The Yunnan Dragon on the silver tray. Lines cut and taken.',1],
+  ['From the kitchen, the kettle begins to whistle.',2]]},
+ {id:'5',slug:'EXT. PATIO – AFTERNOON',short:'Patio, windows, van',p0:1.71,p1:2.37,tod:'aft',clock:'~3:30 PM',h:.6,cast:'Miles',mv:0,ev:[
+  ['The kettle screams behind him. In his bathrobe, he doesn\'t move.',2],
+  ['Iron table: coffee, the Chivas, the tray, the cigarettes. Whiskey into the coffee.',1],
+  ['Across the street: a family at dinner in one window, a couple having sex in the other.',2],
+  ['Below, between parked cars: the van. He registers it like a cloud.',3],
+  ['A line from the tray, without breaking focus.',2]]},
+ {id:'6',slug:'INT. BEDROOM – EVENING',short:'Call to McGarr',p0:2.37,p1:3.19,tod:'eve',clock:'~7 PM',h:4,cast:'Miles, McGarr (V.O.)',mv:1,ev:[
+  ['Wet from the shower, pacing with the red cord phone: the shotgun-and-9-iron story.',2],
+  ['A line from the tray on the dresser.',2],
+  ['McGarr: "What time is it over there?" Miles: "Never too early."',2],
+  ['McGarr hangs up. Dial tone. Miles keeps talking.',3],
+  ['He dresses in the tan suit.',2]]},
+ {id:'7',slug:'EXT. CITY STREETS – NIGHT',short:'Vespa',p0:3.19,p1:3.33,tod:'night',clock:'~9 PM',h:6,cast:'Miles',mv:1,ev:[
+  ['The red Vespa to breakfast. A sip from the silver flask at a red light.',2]]},
+ {id:'8',slug:'INT. ASTERS PUB – NIGHT',short:'Asters Pub',p0:3.33,p1:4.75,tod:'night',clock:'~9:15 PM',h:6.25,cast:'Miles, Joansy, the child, TV host, background',mv:1,ev:[
+  ['His corner booth is taken by a young couple. He takes a stool at the bar.',3],
+  ['On the TV: TV-Miles on a talk show, laughing at himself. Bar-Miles watches, blank.',3],
+  ['A child asks for an autograph and doesn\'t know his name. "At least you\'re honest."',2],
+  ['Joansy: "Maybe not tonight, hun." Heavier business, needs the larger tables.',4],
+  ['Multiple booths sit empty.',5],
+  ['"We\'re not supposed to be expecting you." "This about my tab?"',6],
+  ['"Allan\'s has a good Galway chowder. For those who have the time."',6],
+  ['He checks the bar clock against his watch. They agree. He leaves.',5]]},
+ {id:'9',slug:'INT. STUDY – NIGHT',short:'Voicemail',p0:4.75,p1:5.57,tod:'sodium',clock:'~11 PM',h:8,cast:'Miles, McGarr (voicemail)',mv:1,ev:[
+  ['Sodium streetlight. The typewriter, a stack of blank pages.',3],
+  ['The rotary phone to McGarr. Voicemail.',3],
+  ['He quits the book, the Paramount deal, all of it. Back to Aspen.',4],
+  ['A fresh cigarette. "Best career move she ever made."',4],
+  ['"Before those androids come in tonight for that interview." He hangs up.',4],
+  ['Through the window: the van hasn\'t moved.',5]]},
+ {id:'10A',slug:'INT. LIVING ROOM – NIGHT',short:'The wait',p0:5.57,p1:5.98,tod:'night',clock:'~midnight',h:9,cast:'Miles',mv:2,ev:[
+  ['Chivas swirls in the crystal glass. The lamp bulb is stained black from smoke.',4],
+  ['A fresh pile from the Dragon on the tray. Leg bouncing. The clock, then his watch.',5],
+  ['"Christ. Not even Nixon drew anxiety from the press."',5],
+  ['The elevator. Footsteps. Three knocks. He palms the tray clean.',6]]},
+ {id:'10B',slug:'continuous',short:'The crew builds the set',p0:5.98,p1:6.95,tod:'night',clock:'',h:9.4,cast:'Miles, Stacey, two Michaels',mv:2,ev:[
+  ['Stacey Bradshaw, grey sports coat and pencil skirt. Two Michaels in black with cases, one in a toque.',5],
+  ['"Michael and Michael. What are they, brothers?" Neither responds.',5],
+  ['The Michaels build the room into a set: tables moved, his magazines collected.',5],
+  ['"The technology warps reality. It\'s a betrayal."',5],
+  ['A light nearly topples and is caught. Stacey takes a cigarette, one drag, puts it out.',5]]},
+ {id:'10C',slug:'continuous',short:'The interview',p0:6.95,p1:8.65,tod:'night',clock:'',h:10,cast:'Miles, Stacey, two Michaels',mv:2,ev:[
+  ['One Michael on camera, one on boom. Travel, the lifestyle, "a lapse in me."',5],
+  ['The Dragon is empty. The Chartreuse is a mouthful in the crystal cup.',5],
+  ['The phone is off its receiver. He doesn\'t remember doing that.',6],
+  ['"I\'m no longer necessary. I\'m in the way." The Michaels nod to Stacey.',6],
+  ['"It would be much better if I died, so people could take the myth."',7],
+  ['"Would you be happier dead?" Both Michaels are watching him. "I think we ought to take a break."',8]]},
+ {id:'10D',slug:'continuous',short:'The paper and the door',p0:8.65,p1:10.33,tod:'night',clock:'',h:11.3,cast:'Miles, Stacey, two Michaels',mv:2,ev:[
+  ['A newspaper from her handbag, rolled with a rubber band. Page three.',8],
+  ['His obituary, beside the Lombok photograph. "It\'s tomorrow\'s paper."',9],
+  ['He crosses for the door. A Michael is already leaning there. The other coils a cable.',9],
+  ['"Please sit, Miles." He sits and straightens his jacket.',8],
+  ['A Michael kneels and takes his pulse with a stethoscope. The other presses him back into the chair.',9],
+  ['"You\'re not press." "We\'re admirers."',9]]},
+ {id:'10E',slug:'continuous',short:'The syringe',p0:10.33,p1:10.69,tod:'night',clock:'~3:30 AM',h:12.5,cast:'Miles, Stacey, two Michaels',mv:2,ev:[
+  ['The syringe, into his neck. "Nine hundred percent."',10],
+  ['He fades. The paper slides to the carpet, open at page three.',9],
+  ['Pre-lap, the voice of the photograph: "Waste of film and a waste of fish."',7]]},
+ {id:'11',slug:'EXT. STREET – DAWN',short:'Gurney and the magnet peel',p0:10.69,p1:11.51,tod:'dawn',clock:'~6 AM',h:15,cast:'Stacey, two Michaels',mv:3,ev:[
+  ['The Michaels push a gurney with a black body bag to the van. Stacey smokes.',7],
+  ['"We\'re certain we\'ve collected everything?" "Study and bedroom, accounted for."',6],
+  ['"You know it wasn\'t us on the Millar job, right?" "We\'re all under the gun here."',6],
+  ['Loaded. Stacey takes the passenger seat, one Michael the wheel.',6],
+  ['The other Michael peels the magnetic sign: SIDMAN\'S RETIREMENT FACILITY.',8],
+  ['The door slams. The van pulls away down the empty street.',7]]},
+ {id:'12',slug:'INT. LIVING ROOM – MORNING',short:'The room, reset',p0:11.51,p1:12,tod:'morn',clock:'~8 AM',h:17,cast:'nobody',mv:3,ev:[
+  ['The room reset: magazines in stacks, the ashtray clean, the painting straight.',6],
+  ['The telephone sits square on its receiver.',6],
+  ['The crystal glass, washed, on top of the liquor cabinet.',6],
+  ['The radio snaps on by timer: Miles Goodman found dead; the collected works out this fall.',7],
+  ['Cut to black.',7]]},
+];
+const MV=[['The ritual',0],['Out and back',1],['The interview',2],['After',3]];
+// number every event
+let N=0; S.forEach(s=>s.ev.forEach(e=>{e.n=++N;}));
+
+/* ---------- dial ---------- */
+(function(){
+  const cx=320,cy=320,R=200;
+  const ang=h=>(-90+h/24*360)*Math.PI/180;
+  const pt=(h,r)=>[cx+r*Math.cos(ang(h)),cy+r*Math.sin(ang(h))];
+  const arc=(h0,h1,r)=>{const [x0,y0]=pt(h0,r),[x1,y1]=pt(h1,r);const large=(h1-h0)>12?1:0;return `M${x0.toFixed(1)},${y0.toFixed(1)} A${r},${r} 0 ${large} 1 ${x1.toFixed(1)},${y1.toFixed(1)}`;};
+  let s='';
+  // daylight ring (story hours 0=3PM): afternoon 0-3.5, evening 3.5-5, night 5-15, dawn 15-16, morning 16-17
+  [[-.3,3.5,'var(--t-aft)'],[3.5,5.5,'var(--t-eve)'],[5.5,14.6,'var(--t-night)'],[14.6,16,'var(--t-dawn)'],[16,17.4,'var(--t-morn)']].forEach(([a,b,c])=>{ s+=`<path d="${arc(a,b,R+14)}" stroke="${c}" stroke-width="10" fill="none"/>`; });
+  s+=`<path d="${arc(17.4,23.7,R+14)}" stroke="var(--faint)" stroke-width="2" stroke-dasharray="3 6" fill="none"/>`;
+  const [gx,gy]=pt(20.6,R+40); s+=`<text x="${gx}" y="${gy}" text-anchor="middle" fill="var(--faint)" font-size="12">3:00 PM</text><text x="${gx}" y="${gy+15}" text-anchor="middle" fill="var(--faint)" font-size="12">no alarm</text>`;
+  // face
+  s+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="#120c08" stroke="var(--line)"/>`;
+  // hour ticks
+  const hl=['3 PM','','','6 PM','','','9 PM','','','midnight','','','3 AM','','','6 AM','','','9 AM','','','noon','',''];
+  for(let h=0;h<24;h++){ const [x0,y0]=pt(h,R-(h%3?6:12)),[x1,y1]=pt(h,R); s+=`<line x1="${x0}" y1="${y0}" x2="${x1}" y2="${y1}" stroke="var(--faint)" stroke-width="${h%3?1:1.5}"/>`;
+    if(hl[h]){ const [tx,ty]=pt(h,R-28); s+=`<text x="${tx}" y="${ty+4}" text-anchor="middle" fill="var(--muted)" font-size="11.5">${hl[h]}</text>`; } }
+  // movement arcs outside
+  const mvr={0:[-.3,.9],1:[3.8,8.4],2:[8.8,12.8],3:[14.8,17.3]};
+  Object.entries(mvr).forEach(([m,[a,b]])=>{ s+=`<path d="${arc(a,b,R+32)}" stroke="var(--sodium)" stroke-width="1.5" fill="none"/>`;
+    const mid=(a+b)/2; const [tx,ty]=pt(mid,R+50); const anchor= (mid>1&&mid<11)?'start':(mid>13&&mid<23)?'end':'middle';
+    s+=`<text x="${tx}" y="${ty+4}" text-anchor="${anchor}" fill="var(--sodium)" font-family="Oswald,sans-serif" font-weight="600" font-size="13" letter-spacing="1.5">${MV[m][0].toUpperCase()}</text>`; });
+  // bookend chords
+  const pairs=[[-.1,17,'glass'],[-.05,16.9,'painting'],[.2,16.8,'radio news'],[0,17.1,'alarm → timer'],[-.15,15.2,'van'],[10,17.05,'phone']];
+  pairs.forEach(([a,b,l],i)=>{ const [x0,y0]=pt(a,R-44),[x1,y1]=pt(b,R-44); const qx=cx-95+i*9, qy=cy-10+i*8;
+    s+=`<path d="M${x0},${y0} Q${qx},${qy} ${x1},${y1}" stroke="var(--cord)" stroke-width="1.6" fill="none" opacity=".85"/>`; });
+  // chord labels near centre
+  s+=`<text x="${cx+30}" y="${cy-22}" text-anchor="middle" fill="var(--cream)" font-family="Oswald,sans-serif" font-weight="600" font-size="20" letter-spacing="2">NOT ANOTHER WORD</text>`;
+  s+=`<text x="${cx+30}" y="${cy+2}" text-anchor="middle" fill="var(--muted)" font-size="12">glass · painting · radio</text><text x="${cx+30}" y="${cy+18}" text-anchor="middle" fill="var(--muted)" font-size="12">alarm · van · phone</text>`;
+  s+=`<text x="${cx+30}" y="${cy+42}" text-anchor="middle" fill="var(--cord)" font-size="12">six images, opened and closed</text>`;
+  // scene markers
+  const labelled={};
+  S.forEach(sc=>{ if(sc.id.startsWith('10')&&sc.id!=='10A'&&sc.id!=='10E') return;
+    const [x,y]=pt(sc.h,R); s+=`<circle cx="${x}" cy="${y}" r="7" fill="${TOD[sc.tod][1]}" stroke="#120c08" stroke-width="2"/>`;
+    const [lx,ly]=pt(sc.h,R-58); const nm = sc.id==='10A'?'10':sc.id==='10E'?'10 end':sc.id;
+    if(sc.h>=1) s+=`<text x="${lx}" y="${ly+4}" text-anchor="middle" fill="var(--cream)" font-size="12">${nm}</text>`; });
+  // cluster label for 1-5
+  const [kx,ky]=pt(.35,R-60); s+=`<text x="${kx+26}" y="${ky+8}" text-anchor="middle" fill="var(--cream)" font-size="12">1–5</text>`;
+  document.getElementById('dial').innerHTML=s;
+})();
+
+/* ---------- timeline ---------- */
+const tl=document.getElementById('tl');
+(function(){
+  const W=1200,L=30,Rp=20,top=30,curveH=150,skyY=top+curveH+22,blkY=skyY+16,blkH=74,H=blkY+blkH+34;
+  const x=p=>L+p/12*(W-L-Rp), y=d=>top+(1-d/10)*curveH;
+  tl.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  let s='';
+  [0,5,10].forEach(d=>{ s+=`<line class="grid" x1="${L}" x2="${W-Rp}" y1="${y(d)}" y2="${y(d)}"/><text class="axis" x="${L-6}" y="${y(d)+4}" text-anchor="end">${d}</text>`; });
+  // event positions
+  const pts=[]; S.forEach(sc=>{ const k=sc.ev.length; sc.ev.forEach((e,i)=>{ e.p=sc.p0+(i+.5)/k*(sc.p1-sc.p0); pts.push([x(e.p),y(e[1]),e,sc]); }); });
+  const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+  s+=`<path class="area" d="${d} L${pts[pts.length-1][0]},${y(0)} L${pts[0][0]},${y(0)} Z"/><path class="curve" d="${d}"/>`;
+  pts.forEach(([px,py,e,sc])=>{ s+=`<circle class="ev" data-s="${sc.id}" cx="${px}" cy="${py}" r="${e[1]>=9?5:3.5}"><title>${e.n}. ${esc(e[0])}</title></circle>`; });
+  // peak labels
+  const peak=pts.find(p=>p[2][1]===10); s+=`<text class="peak" x="${peak[0]}" y="${peak[1]-12}" text-anchor="middle">the syringe</text>`;
+  const joansy=pts.find(p=>p[2].n===32); s+=`<text class="lbl" x="${joansy[0]}" y="${joansy[1]-12}" text-anchor="middle">Joansy</text>`;
+  const happier=pts.find(p=>p[2].n===54); s+=`<text class="lbl" x="${happier[0]-6}" y="${happier[1]-12}" text-anchor="end">"happier dead?"</text>`;
+  // sky band
+  S.forEach(sc=>{ s+=`<rect x="${x(sc.p0)}" y="${skyY}" width="${x(sc.p1)-x(sc.p0)}" height="10" fill="${TOD[sc.tod][1]}"/>`; });
+  // blocks
+  S.forEach(sc=>{ const x0=x(sc.p0)+1, w=x(sc.p1)-x(sc.p0)-2; const nm=sc.id;
+    const words=sc.short.split(' '); const lines=[]; let cur=''; const maxc=Math.max(3,Math.floor(w/7.2));
+    words.forEach(wd=>{ if((cur+' '+wd).trim().length>maxc){ if(cur) lines.push(cur); cur=wd; } else cur=(cur+' '+wd).trim(); }); if(cur) lines.push(cur);
+    s+=`<g class="blk" data-s="${sc.id}" tabindex="0" role="button" aria-label="Scene ${nm}: ${esc(sc.short)}"><rect class="b" x="${x0}" y="${blkY}" width="${w}" height="${blkH}" rx="2"/>
+      <text class="num" x="${x0+w/2}" y="${blkY+18}" text-anchor="middle">${nm}</text>
+      ${w>34?lines.slice(0,3).map((l,i)=>`<text x="${x0+w/2}" y="${blkY+36+i*14}" text-anchor="middle">${esc(l)}</text>`).join(''):''}</g>`; });
+  for(let p=0;p<=12;p++) s+=`<text class="axis" x="${x(p)}" y="${blkY+blkH+18}" text-anchor="middle">p${p}</text>`;
+  tl.innerHTML=s;
+})();
+
+/* ---------- tracker ---------- */
+const ROWS=[
+ ['Time of day',['~2:55 PM','3:00 PM','afternoon','afternoon','!afternoon, "early autumn sun"','evening','night','night','night, sodium light','~midnight','night','night','night','~3:30 AM','!dawn, trees, dew','morning']],
+ ['Who is in it',['Shari','Miles','Miles','Miles','Miles','Miles, McGarr V.O.','Miles','Miles, Joansy, child, TV host, background','Miles, McGarr voicemail','Miles','+ Stacey, 2 Michaels','all four','all four','all four','Stacey, 2 Michaels','nobody']],
+ ['Miles, wardrobe',['','in bed','robe','robe','bathrobe','wet, dresses in tan suit','tan suit, flask in breast pocket','tan suit','tan suit','tan suit','tan suit','tan suit','jacket straightened','tan suit','in body bag','']],
+ ['Crystal glass',['placed on liquor cabinet','','Chivas poured','','Chivas bottle on iron table','','flask instead','','','Chivas in glass','','!Chartreuse, a mouthful left','','','','washed, on liquor cabinet']],
+ ['Tray and Dragon',['','','','lines cut on silver tray','tray on iron table','tray on dresser, cleaned','','','','fresh pile, palmed clean at knock','','Dragon empty','','','','!not specified']],
+ ['Phones',['','','','','','red cord phone, bedroom','','','!rotary phone, study','','','!living-room phone off receiver','','','','square on receiver']],
+ ['The van',['parked, DRAIN DISPOSAL','','','','parked below','','','','hasn\'t moved','','','','','"registering like a cloud"','loaded, sign peeled, drives off','street empty']],
+ ['Painting',['straightened by Shari','','','','','','','','','','','','','','','straight']],
+ ['Magazines',['','','','','','','','','','loose','collected by Michaels','','','','','neat stacks']],
+ ['Cigarettes, ashtray',['','','box on windowsill, first one','','pack on iron table','','','','fresh cigarette','','Stacey: one drag, out','Miles smoking','','','Stacey smoking','ashtray clean']],
+ ['Kettle',['','','on the burner','whistling','!screaming, unattended','!must be off','','','','','','','','','','']],
+ ['Radio',['','','pop song, news, music','','','','','','','','','','','','','on by timer, news']],
+ ['Newspaper',['','','','','','','','','','','','','rolled, rubber band, page three','on carpet, page three','','!not specified']],
+ ['Crew kit',['','','','','','','','','','','cases, camera, tripod, lights, boom','rig lit','cable coiled, medical bag','syringe','gurney, body bag','gone']],
+ ['The Michaels',['','','','','','','','','','','!black tees and pants, one toque','same','same','same','same','']],
+];
+const tr=document.getElementById('tr');
+(function(){
+  let h=`<thead><tr><th class="row">Scene</th>${S.map((sc,i)=>`<th data-c="${i}" tabindex="0">${sc.id}<small>${esc(sc.short)}</small></th>`).join('')}</tr></thead><tbody>`;
+  ROWS.forEach(([name,cells])=>{ let last=''; h+=`<tr><th class="row">${esc(name)}</th>`;
+    cells.forEach((c,i)=>{ let cls=[], txt=c; if(c.startsWith('!')){cls.push('flag'); txt=c.slice(1);}
+      if(!c){ txt= last? '·':''; cls.push('same'); } else if(txt==='same'){cls.push('same');}
+      if(c) last=txt; h+=`<td data-c="${i}" class="${cls.join(' ')}">${esc(txt)}</td>`; });
+    h+='</tr>'; });
+  tr.innerHTML=h+'</tbody>';
+  tr.querySelectorAll('thead th[data-c]').forEach(th=>{ th.addEventListener('click',()=>select(S[+th.dataset.c].id,true)); th.addEventListener('keydown',e=>{if(e.key==='Enter')select(S[+th.dataset.c].id,true);}); });
+})();
+
+/* ---------- event log ---------- */
+const FLAGS=[
+ {t:'The season',sc:['5','7','11'],p:'The script says "early autumn sun", trees and a dewed ground. The production plan is a late-winter shoot. Bare trees, snow on the patio and visible breath will contradict the page, and the Vespa ride at night in winter needs a plan.',fix:'<b>Fix:</b> rewrite the three exteriors for winter, or schedule them for a warmer window and keep the interiors in winter.'},
+ {t:'Chivas or Chartreuse',sc:['3','5','10A','10C'],p:'Every scene pours Chivas. In the interview the crystal cup holds Chartreuse, which is green, not amber. It reads as a mistake on screen.',fix:'<b>Fix:</b> make it Chivas throughout, or motivate the switch with a second bottle on the table before the knock.'},
+ {t:'Three phones',sc:['6','9','10C','12'],p:'A red cord phone in the bedroom, a rotary phone in the study, and a phone on the living-room side table that comes off its receiver. That is three period phones for art to source, and the living-room one has to match exactly in the reset shot.',fix:'<b>Fix:</b> decide whether they are one, two or three props, and list the living-room phone as a hero prop.'},
+ {t:'What Sidman\'s took',sc:['11','12'],p:'Michael says the study and bedroom are "accounted for". The reset room shows nothing missing, so the line has no payoff on screen.',fix:'<b>Fix:</b> pick one visible absence in the reset room: the typewriter pages, the Dragon, or the tray.'},
+ {t:'The kettle',sc:['3','4','5','6'],p:'The kettle is left screaming on the patio and never turned off. The sound has to stop somewhere, and the prop has to be off the burner by the evening.',fix:'<b>Fix:</b> let the scream carry over the cut to the bedroom and die, or give Miles one beat turning it off.'},
+ {t:'The newspaper',sc:['10D','10E','12'],p:'The paper slides to the carpet open at page three. The reset room does not mention it.',fix:'<b>Fix:</b> gone, like everything else, unless you want it as the one thing left behind.'},
+ {t:'Pub background',sc:['8'],p:'"Lively. Families, couples." Then "multiple booths sit empty". Both are true only if the bar is busy and the booth section is empty. There is also a child in a bar at night.',fix:'<b>Fix:</b> AD blocks the extras at the bar and leaves the booths bare. The child needs a guardian and an early wrap, so shoot the autograph first.'},
+ {t:'TV-Miles\' suit',sc:['8'],p:'The talk show has Miles "in his best suit". Is that the tan suit he is wearing at the bar?',fix:'<b>Fix:</b> use the tan suit for a mirror image, or a darker suit so the insert reads as years ago. Decide before the prep-day insert.'},
+ {t:'Which Michael',sc:['10B','10C','10D','10E','11'],p:'The Michaels swap jobs through the scene: camera, boom, door, cable, stethoscope, restraint, driver, sign. Unassigned, the actors will cross.',fix:'<b>Fix:</b> use the split in the table at the bottom of the page. The toque marks one of them.'},
+ {t:'Typos in v1.3',sc:['5','7','10C'],p:'"Hours empty now" in the interview reads as "Its empty now". "Peddling their bikes" should be "pedaling". "Bright red vespa" should be capitalised.',fix:'<b>Fix:</b> a copy pass before the shooting draft is numbered.'},
+];
+const log=document.getElementById('log');
+(function(){
+  log.innerHTML=S.map(sc=>{ const fl=FLAGS.filter(f=>f.sc.includes(sc.id));
+    const pp=(sc.p1-sc.p0); const ppTxt = pp<.3 ? `${Math.round(pp*8)}/8 pg` : `${(Math.round(pp*8)/8).toString().replace(/\.0$/,'')} pp`;
+    return `<article class="scene" id="sc-${sc.id}" data-s="${sc.id}">
+      <div class="top"><span class="no">${sc.id}</span><span class="slug">${esc(sc.slug==='continuous'?'INT. LIVING ROOM – NIGHT (continuous)':sc.slug)}</span></div>
+      <h3>${esc(sc.short)}</h3>
+      <div class="meta"><span class="tod"><i class="sw" style="background:${TOD[sc.tod][1]}"></i>${TOD[sc.tod][0]}${sc.clock?' · '+sc.clock:''}</span><span>p${sc.p0.toFixed(1)}–${sc.p1.toFixed(1)} · <b>${ppTxt}</b></span><span>${esc(sc.cast)}</span></div>
+      <ol>${sc.ev.map(e=>`<li><span class="n">${e.n}</span><span>${esc(e[0])}</span></li>`).join('')}</ol>
+      ${fl.length?`<div class="fl">${fl.map(f=>`<div>${esc(f.t)}</div>`).join('')}</div>`:''}
+    </article>`; }).join('');
+  document.getElementById('evcount').textContent=`${N} events across ${S.length} scenes and sub-scenes. Scene 10 is one continuous scene in the script, split here into five parts because it runs almost half the film.`;
+})();
+document.getElementById('flags').innerHTML=FLAGS.map((f,i)=>`<div class="flagc"><h3>${i+1}. ${esc(f.t)}</h3><p>${esc(f.p)}</p><p class="fix">${f.fix}</p><div class="where">scenes ${f.sc.join(', ')}</div></div>`).join('');
+document.getElementById('mk').innerHTML=`<thead><tr><th>Beat</th><th>Michael with the toque</th><th>Michael without</th></tr></thead><tbody>`+[
+ ['Arrival','carries the camera case','carries the light and boom cases'],
+ ['Building the set','moves the tables','collects the magazines'],
+ ['The interview','camera','boom'],
+ ['The door','already leaning in the doorway','coils the cable'],
+ ['The restraint','presses Miles back into the chair, on his left','stethoscope and syringe, on his right'],
+ ['Dawn','both lines: "Everything listed" and the Millar job','pushes the gurney foot, peels the sign'],
+ ['The van','takes the wheel','slams the sliding door'],
+].map(r=>`<tr>${r.map((c,i)=>i?`<td>${esc(c)}</td>`:`<th>${esc(c)}</th>`).join('')}</tr>`).join('')+'</tbody>';
+
+/* ---------- selection ---------- */
+function select(id,scroll){
+  const i=S.findIndex(s=>s.id===id);
+  tl.querySelectorAll('.blk').forEach(b=>b.classList.toggle('on',b.dataset.s===id));
+  tl.querySelectorAll('.ev').forEach(e=>e.classList.toggle('hi',e.dataset.s===id));
+  tr.querySelectorAll('[data-c]').forEach(c=>c.classList.toggle('on',+c.dataset.c===i));
+  log.querySelectorAll('.scene').forEach(c=>c.classList.toggle('on',c.dataset.s===id));
+  if(scroll){ const el=document.getElementById('sc-'+id); if(el) el.scrollIntoView({block:'nearest'}); }
+}
+tl.querySelectorAll('.blk').forEach(b=>{ b.addEventListener('click',()=>select(b.dataset.s,false)); b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(b.dataset.s,false);}}); });
+select('10D',false);
+</script>
+</body>
+</html>
