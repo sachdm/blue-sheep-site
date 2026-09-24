@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Not Another Word OAC Kit</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Oswald:wght@500;600&family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --page:#EFE4CC; --sheet:#F7EFDD; --sheet2:#E3D4B4; --edge:#CDBB97;
+  --ink:#231A12; --ink2:#5A4A38; --muted:#7A6A55;
+  --accent:#8E4410; --red:#A3261D; --redbg:#F3D9D2; --good:#2F5E2A; --goodbg:#DCE7D2; --warn:#7A5300; --warnbg:#F2E2B8;
+  --night:#1A120C; --cream:#EFE3CC; --sodium:#F0A347;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#17100B; --sheet:#221710; --sheet2:#2C1D12; --edge:#3B2A1C;
+    --ink:#EFE3CC; --ink2:#C8B59A; --muted:#A08C74;
+    --accent:#F0A347; --red:#F08A7E; --redbg:#3A1A15; --good:#9FCB8F; --goodbg:#1E2A18; --warn:#E8C36A; --warnbg:#33280F;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#17100B; --sheet:#221710; --sheet2:#2C1D12; --edge:#3B2A1C;
+  --ink:#EFE3CC; --ink2:#C8B59A; --muted:#A08C74;
+  --accent:#F0A347; --red:#F08A7E; --redbg:#3A1A15; --good:#9FCB8F; --goodbg:#1E2A18; --warn:#E8C36A; --warnbg:#33280F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:17px/1.55 "IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding-block:28px 80px;padding-inline:16px}
+.hero{background:var(--night);color:var(--cream);border-radius:4px;padding:28px 28px 26px;display:grid;gap:10px}
+.kicker{font:14px/1.3 "Special Elite","Courier New",monospace;color:var(--sodium);letter-spacing:.03em}
+h1{font:600 clamp(30px,5vw,50px)/1.02 Oswald,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.02em;margin:0;text-wrap:balance}
+.hero p{margin:0;color:#CDBBA0;max-width:70ch}
+.facts{display:flex;flex-wrap:wrap;gap:6px 20px;font:14px "Special Elite",monospace;color:#CDBBA0;margin-top:4px}
+.facts b{color:var(--cream);font-weight:400}
+h2{font:600 26px/1.1 Oswald,"Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.03em;margin:0;text-wrap:balance}
+h3{font:600 19px/1.2 Oswald,"Arial Narrow",sans-serif;letter-spacing:.03em;margin:0}
+section{margin-top:42px;display:grid;gap:14px}
+.lede{margin:0;color:var(--ink2);max-width:72ch}
+.verdicts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+@media (max-width:760px){.verdicts{grid-template-columns:1fr}}
+.verdict{background:var(--sheet);border:1px solid var(--edge);border-radius:4px;padding:18px 20px;display:grid;gap:8px;align-content:start}
+.pill{display:inline-block;font:600 12px/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:999px;justify-self:start}
+.pill.no{background:var(--redbg);color:var(--red)}
+.pill.yes{background:var(--goodbg);color:var(--good)}
+.pill.decide{background:var(--warnbg);color:var(--warn)}
+.verdict p{margin:0}
+.verdict .big{font:600 22px/1.2 Oswald,sans-serif}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--edge);border-radius:4px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--edge)}
+th{background:var(--sheet2);font:600 13px/1.2 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:600;border-top:2px solid var(--edge)}
+.st{font:600 12px/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:3px;white-space:nowrap;display:inline-block}
+.st.no{background:var(--redbg);color:var(--red)} .st.yes{background:var(--goodbg);color:var(--good)} .st.maybe{background:var(--warnbg);color:var(--warn)}
+
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.routes{grid-template-columns:1fr}}
+.route{background:var(--sheet);border:1px solid var(--edge);border-radius:4px;padding:18px 20px;display:grid;gap:10px;align-content:start}
+.route.pick{border-color:var(--accent);box-shadow:inset 0 3px 0 var(--accent)}
+.route ol{margin:0;padding-left:20px;display:grid;gap:4px}
+.route .when{font:14px "Special Elite",monospace;color:var(--accent)}
+.route p{margin:0}
+.tl{margin-top:4px}
+.tl svg{display:block;width:100%;height:auto}
+
+.answer{background:var(--sheet);border:1px solid var(--edge);border-radius:4px;display:grid}
+.answer header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;padding:14px 18px;border-bottom:1px solid var(--edge)}
+.answer header .meta{display:flex;gap:12px;align-items:center;font:13px "Special Elite",monospace;color:var(--muted)}
+.answer .body{padding:16px 18px 18px;display:grid;gap:10px;font-size:17px;max-width:74ch}
+.answer .body p{margin:0}
+.answer .why{padding:0 18px 16px;font-size:14px;color:var(--ink2)}
+.answer .why b{color:var(--ink)}
+button.copy{appearance:none;border:1px solid var(--edge);background:var(--page);color:var(--ink);font:600 13px "IBM Plex Sans Condensed",sans-serif;padding:6px 12px;border-radius:3px;cursor:pointer}
+button.copy:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ph{background:var(--warnbg);color:var(--warn);padding:0 3px;border-radius:2px;font-family:"Special Elite",monospace;font-size:.92em}
+
+.fin{display:grid;gap:10px;counter-reset:f}
+.fin .f{background:var(--sheet);border:1px solid var(--edge);border-radius:4px;padding:14px 18px 14px 58px;position:relative;display:grid;gap:4px}
+.fin .f::before{counter-increment:f;content:counter(f);position:absolute;left:18px;top:12px;font:600 24px Oswald,sans-serif;color:var(--accent)}
+.fin .f p{margin:0;color:var(--ink2)}
+.fin .f b.t{font:600 17px "IBM Plex Sans Condensed",sans-serif;color:var(--ink)}
+
+.check{background:var(--sheet);border:1px solid var(--edge);border-radius:4px;padding:6px 0}
+.check label{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:start;padding:8px 18px;cursor:pointer}
+.check label:hover{background:var(--sheet2)}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent)}
+.check .who{font:13px "Special Elite",monospace;color:var(--muted);white-space:nowrap}
+.check .grp{font:600 13px "IBM Plex Sans Condensed",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding:12px 18px 4px}
+.check input:checked + span{color:var(--muted);text-decoration:line-through}
+.progress{font:14px "Special Elite",monospace;color:var(--muted)}
+.src{font-size:14px;color:var(--ink2)}
+.src ul{margin:6px 0 0;padding-left:20px}
+.src a{color:var(--accent)}
+.note{font-size:14px;color:var(--ink2);margin:0}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="hero">
+  <div class="kicker">Blue Sheep Films · submission kit · Ontario Arts Council</div>
+  <h1>Not Another Word · OAC Media Artists Creation Projects</h1>
+  <p>Everything the Nova application for the short needs: which deadline to use, draft answers to paste, the budget in council shape, the support material, and what to tighten first. It also answers the tax-credit question, because the two are linked.</p>
+  <div class="facts"><span>category <b>Emerging</b></span><span>ask <b>$10,000</b></span><span>budget <b>$66,030</b></span><span>ask share <b>15%</b></span><span>budget cap <b>$125,000</b></span><span>panel <b>narrative</b></span></div>
+</div>
+
+<div class="verdicts">
+  <div class="verdict"><span class="pill no">Tax credits: not on this film</span><p class="big">Take the $10,000 from OAC. Skip the credits on this short.</p><p>OAC makes projects that seek tax credits ineligible, so it is one or the other. On this budget the credits would likely come to less than the grant, and they need a distribution deal the film does not have. The full reasoning is further down.</p></div>
+  <div class="verdict"><span class="pill decide">Deadline: your call this week</span><p class="big">October 8 only if NOMAD gives up the slot. Otherwise March 2027, and shoot in September.</p><p>OAC takes one application per artist per deadline, and the slate plan gives October 8 to NOMAD. The March route moves the shoot to real early autumn, which also fixes the script's season problem.</p></div>
+</div>
+
+<section id="routes">
+  <h2>Which deadline</h2>
+  <p class="lede">OAC results arrive about four and a half months after the deadline, and nothing can start before them. That one rule sets the whole calendar.</p>
+  <div class="routes">
+    <div class="route">
+      <span class="pill decide">Route A · only if NOMAD steps aside</span>
+      <div class="when">Deadline Oct 8, 2026, 1 p.m. ET · 14 days from today</div>
+      <ol>
+        <li>Submit Oct 7. The portal slows on the day.</li>
+        <li>TAC results in late December.</li>
+        <li>OAC results around late February 2027.</li>
+        <li>Pre-production in March, shoot in April.</li>
+      </ol>
+      <p><b>Cost:</b> two weeks to write it, and NOMAD moves to Canada Council only. An April shoot still contradicts the script's autumn, so the exteriors need a rewrite.</p>
+    </div>
+    <div class="route pick">
+      <span class="pill yes">Route B · recommended if NOMAD keeps Oct 8</span>
+      <div class="when">Deadline around mid-March 2027 · 2026's was March 17</div>
+      <ol>
+        <li>TAC results in late December. Hold everything.</li>
+        <li>Submit to OAC in March with a finished shooting draft.</li>
+        <li>OAC results around early August 2027.</li>
+        <li>Shoot in mid-September, in real early-autumn light.</li>
+      </ol>
+      <p><b>Cost:</b> the festival year moves from 2027 to 2028. Confirm with TAC that a September 2027 shoot sits inside their grant period.</p>
+    </div>
+  </div>
+  <div class="tablewrap tl"><svg id="tlsvg" viewBox="0 0 1000 150" role="img" aria-label="Two timelines from October 2026 to December 2027. Route A: OAC deadline in October, results in February, shoot in April. Route B: OAC deadline in March, results in August, shoot in September."></svg></div>
+</section>
+
+<section id="answers">
+  <h2>Draft answers</h2>
+  <p class="lede">Written to OAC's three assessment areas: artistic merit, impact and viability. Paste each into the matching question in Nova and trim to its character counter. Highlighted brackets are facts only you can fill in.</p>
+  <div id="answerlist" style="display:grid;gap:14px"></div>
+</section>
+
+<section id="budget">
+  <h2>The budget, in council shape</h2>
+  <p class="lede">Full value on both sides. In-kind appears as an expense and as revenue, so the cash need is visible. No tax-credit line anywhere, because that alone would make the application ineligible.</p>
+  <div class="tablewrap"><table id="exp"></table></div>
+  <div class="tablewrap"><table id="rev"></table></div>
+  <p class="note">With OAC in the mix, deferred fees drop from $8,000 to about $2,000. Say so in the application, and say deferrals are the first thing paid if more money lands. Juries read unpaid artists as a viability risk.</p>
+</section>
+
+<section id="support">
+  <h2>Support material</h2>
+  <p class="lede">Juries decide on the support material more than on the prose. Send four pieces and no more. Check the upload limits in Nova when the form opens.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Piece</th><th>What to send</th><th>Why it works</th><th>Status</th></tr>
+    <tr><td><b>Past work</b></td><td>One sustained 2 to 3 minute scene from <span class="ph">[your strongest completed film]</span>. Performance, not a trailer.</td><td>Emerging requires one completed independent work. A two-hander lives on direction of actors, so show that.</td><td><span class="st maybe">choose now</span></td></tr>
+    <tr><td><b>Script</b></td><td>The v1.4 shooting draft, 12 pages, after the copy pass.</td><td>A clean script is the viability argument. Typos read as a producer who misses things.</td><td><span class="st maybe">copy pass</span></td></tr>
+    <tr><td><b>Form page</b></td><td>One page: the clock-face dial and the six bookend images from the continuity deck.</td><td>Shows the film is designed as a closed loop. Few applications show structure this clearly.</td><td><span class="st yes">made</span></td></tr>
+    <tr><td><b>Look</b></td><td>Six to eight reference frames: sodium-lit study, amber Chivas, the red phone, the blue van logo.</td><td>Makes the restraint visible. Label any generated images as reference, not as your photography.</td><td><span class="st maybe">to build</span></td></tr>
+  </table></div>
+</section>
+
+<section id="finesse">
+  <h2>What to tighten before you submit</h2>
+  <p class="lede">Ordered by how much each one moves a jury.</p>
+  <div class="fin" id="finlist"></div>
+</section>
+
+<section id="credits">
+  <h2>Can Not Another Word qualify for tax credits?</h2>
+  <p class="lede">In principle a short can qualify for both the federal credit (CPTC, certified by CAVCO) and the Ontario credit (OFTTC, certified by Ontario Creates). In practice this one fails four tests as it stands, and the grants it depends on would shrink the credit anyway.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Test</th><th>What the rule asks</th><th>This film</th></tr>
+    <tr><td><b>OAC conflict</b></td><td>OAC Media Artists makes projects that seek tax credits ineligible.</td><td><span class="st no">conflicts</span> Claiming credits gives up the $10,000.</td></tr>
+    <tr><td><b>Shown in Canada</b></td><td>CPTC needs a written, fair-market-value deal with a Canadian distributor or CRTC-licensed broadcaster to show it within two years. OFTTC needs broadcast, licensed VOD, theatrical or DVD release in Ontario.</td><td><span class="st no">no deal</span> A festival run does not count.</td></tr>
+    <tr><td><b>Online route</b></td><td>OFTTC's online path needs a budget of at least $250,000 with a third-party deal, and at least $2,000 per finished minute.</td><td><span class="st no">too small</span> $66,030 clears the per-minute rule but not the floor.</td></tr>
+    <tr><td><b>The claimant</b></td><td>A Canadian-controlled, taxable corporation primarily in film or video production, which owns the copyright.</td><td><span class="st maybe">check</span> Your Together, Alone checklist still lists incorporation papers as blocking.</td></tr>
+    <tr><td><b>Canadian content</b></td><td>CPTC needs 6 of 10 key creative points and 75% of costs paid to Canadians.</td><td><span class="st yes">passes</span> An all-Toronto team clears this easily.</td></tr>
+  </table></div>
+  <div class="tablewrap"><table>
+    <tr><th>Rough math</th><th class="n">CAD</th></tr>
+    <tr><td>Paid Ontario labour in the cash budget. DP and AD are in-kind and earn nothing.</td><td class="n">~30,900</td></tr>
+    <tr><td>OFTTC at the 40% first-time-producer rate, before grants</td><td class="n">~12,400</td></tr>
+    <tr><td>CPTC at 25%, capped at 15% of production cost, before grants</td><td class="n">~7,700</td></tr>
+    <tr><td>Grants in the plan: TAC, Canada Council, OAC. Grants are generally treated as assistance and cut the labour base.</td><td class="n">40,000–50,000</td></tr>
+    <tr class="total"><td>Likely credit after grants, before accountant and filing costs</td><td class="n">close to 0</td></tr>
+  </table></div>
+  <p class="note"><b>Where credits do make sense:</b> Together, Alone once it has a distributor, and Late August at $750,000. Both are features, neither needs OAC, and both have far more paid labour. Book one call with a tax-credit accountant for those two, not for this short.</p>
+</section>
+
+<section id="checklist">
+  <h2>Before you press submit</h2>
+  <div class="progress" id="progress"></div>
+  <div class="check" id="checkbox"></div>
+  <p class="note">Ticks save in this browser only.</p>
+</section>
+
+<section class="src">
+  <h2>Sources and what still needs confirming</h2>
+  <p class="note">The official council and tax-credit pages could not be opened from this workspace. The rules above come from search results and from the slate's own notes, verified against council pages on August 2, 2026. Open Nova and confirm the question wording, character limits, upload limits and the March 2027 date before you write the final version.</p>
+  <ul>
+    <li><a href="https://www.arts.on.ca/grants/media-artists-creation-projects">OAC · Media Artists Creation Projects</a></li>
+    <li><a href="https://www.arts.on.ca/grants/general-granting-information/guide-to-project-programs/questions-%E2%80%93-creation-projects/evaluation-rubric-%E2%80%93-creation-projects-artistic-merit-and-impact">OAC · Evaluation rubric, creation projects</a></li>
+    <li><a href="https://torontoartscouncil.org/grants/media-artists-program-creation/">Toronto Arts Council · Media Artists Program: Creation</a></li>
+    <li><a href="https://www.ontariocreates.ca/tax-incentives/ofttc/ofttc-guidelines">Ontario Creates · OFTTC guidelines</a></li>
+    <li><a href="https://www.canada.ca/en/canadian-heritage/services/funding/cavco-tax-credits/canadian-film-video-production/application-guidelines.html">CAVCO · CPTC application guidelines</a></li>
+    <li><a href="https://www.goodmans.ca/insights/article/CAVCO_Expands_Eligible_Platforms_that_Satisfy__Shown_in_Canada__Requirement__Online_Platforms_may_now_be_CPTC_Eligible_">Goodmans · CAVCO "shown in Canada" platforms</a></li>
+  </ul>
+</section>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const ph=s=>esc(s).replace(/\[([^\]]+)\]/g,'<span class="ph">[$1]</span>');
+
+/* ---------- timeline ---------- */
+(function(){
+  const months=['Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const L=110,R=20,W=1000,x=m=>L+m/14*(W-L-R);
+  let s='';
+  months.forEach((m,i)=>{ s+=`<text x="${x(i)}" y="18" text-anchor="middle" font-size="12" fill="currentColor" opacity=".6" font-family="Special Elite, monospace">${m}</text><line x1="${x(i)}" x2="${x(i)}" y1="26" y2="140" stroke="currentColor" opacity=".12"/>`; });
+  s+=`<text x="${x(3)}" y="140" text-anchor="middle" font-size="11" fill="currentColor" opacity=".5" font-family="Special Elite, monospace">2027</text>`;
+  const row=(y,label,marks,bars)=>{ let r=`<text x="0" y="${y+5}" font-size="14" font-weight="600" fill="currentColor" font-family="IBM Plex Sans Condensed, sans-serif">${label}</text><line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="currentColor" opacity=".25"/>`;
+    bars.forEach(([a,b,c,t])=>{ r+=`<rect x="${x(a)}" y="${y-9}" width="${x(b)-x(a)}" height="18" rx="3" fill="${c}"/><text x="${(x(a)+x(b))/2}" y="${y+4}" text-anchor="middle" font-size="11.5" fill="#fff" font-family="IBM Plex Sans Condensed, sans-serif">${t}</text>`; });
+    marks.forEach(([m,t,up])=>{ r+=`<circle cx="${x(m)}" cy="${y}" r="5" fill="var(--accent)" stroke="var(--sheet)" stroke-width="2"/><text x="${x(m)}" y="${up?y-14:y+24}" text-anchor="middle" font-size="12" fill="currentColor" font-family="IBM Plex Sans Condensed, sans-serif">${t}</text>`; });
+    return r; };
+  s+=row(62,'Route A',[[0.25,'OAC due',1],[2.8,'TAC results',0],[4.8,'OAC results',1]],[[6,6.9,'#2F5E2A','shoot'],[6.9,8.6,'#6B5A44','post']]);
+  s+=row(112,'Route B',[[2.8,'TAC results',1],[5.5,'OAC due',1],[10.2,'OAC results',0]],[[11.4,12.2,'#2F5E2A','shoot'],[12.2,14,'#6B5A44','post']]);
+  const svg=$('#tlsvg'); svg.innerHTML=s; svg.style.color='var(--ink)';
+})();
+
+/* ---------- answers ---------- */
+const ANSWERS=[
+ {t:'Project summary', lim:'one or two sentences', why:'<b>Why this way:</b> it states the premise in the logline\'s own terms, then the production facts a panel needs to picture it.', p:[
+  'Not Another Word is a 12-minute narrative short about a celebrated writer who tells an interviewer the world would be better off without him, and the people across from him agree, because they have come to arrange exactly that. It will be shot in Toronto in one apartment, one pub and one street, over five and a half days.']},
+ {t:'Project description', lim:'what you will make', why:'<b>Why this way:</b> it leads with the form, which is the film\'s distinctive idea, and lets the plot follow from it.', p:[
+  'Miles Goodman is a famous writer who has become his own myth. The film follows one day of his life, from a 3:00 PM alarm to the next morning, and that day is a ritual: the first drink, the radio, the first cigarette, the view from the patio, dinner alone at the same pub. The first half of the film plays the ritual intact. The second half takes it apart one piece at a time.',
+  'Small signs gather that Miles notices and files away. A white van that never moves. His booth taken at the pub. A waitress who is kind to him and not allowed to say why. That night a three-person crew arrives to interview him. Asked what comes next, he says the myth would be better served by his death. They agree, and they have already printed tomorrow\'s paper.',
+  'The last scene returns every opening image to its place: the glass washed, the painting straight, the radio reading the news. The only thing missing is the man. The film is a closed loop, and the horror is in how orderly it is.']},
+ {t:'Artistic merit', lim:'vision, approach, why now', why:'<b>Why this way:</b> panels reward a specific artistic question and a method that answers it. This names both and ties them to one room and one performance.', p:[
+  'The question behind the film is what happens when a system takes a person entirely at their word. Miles says, half joking, that dying would be good for his legacy. An institution has been listening and agrees. It is a film about the market for a finished life, where an obituary can sell more books than the work did.',
+  'My approach is restraint. The film stays in one apartment for most of its running time, and almost every effect comes from performance, blocking and sound. The radio news that opens the film returns in its last seconds with his name in it. Props and the room itself carry the plot. The glass Shari sets out in the first shot is washed and waiting for nobody in the last. The organisation is never explained. The audience assembles it from what Miles misses.',
+  'The piece extends my work as a director into sustained two-hander performance and into formal structure: a story built as a ritual that repeats and degrades. It is wholly original, and the copyright is mine [confirm: director-held, with the co-writer\'s agreement on file].']},
+ {t:'Impact', lim:'on your practice, collaborators and audiences', why:'<b>Why this way:</b> impact is judged on your development and on who the work reaches. It names both and makes the fair-pay point, which OAC values.', p:[
+  'For my practice, this is the first film where the whole design rests on one lead performance across twelve pages. Two audition days and a dedicated performance day are built into the plan so I can work with the actor in depth rather than for coverage. What I learn here feeds directly into my first feature, Late August, planned for 2027–2028.',
+  'For collaborators, the budget pays a Toronto cast and crew under ACTRA\'s Independent Production Agreement and at fair crew rates, and it names every in-kind contribution at market value. A grant from OAC lets the film pay deferred artist fees in full.',
+  'For audiences, the film is aimed at Canadian and international short-film festivals, starting with TIFF Short Cuts, then the Canadian circuit. Every screening copy will be captioned. The subject, the way a public figure\'s death can be worth more than their life, speaks to anyone who has watched a legacy being sold.']},
+ {t:'Viability', lim:'team, plan, budget, timeline', why:'<b>Why this way:</b> it leads with what is already secured, which is the strongest viability evidence you have, then shows nothing starts before results.', p:[
+  'Key elements are already secured: the story rights, the director of photography [name], the first assistant director [name], and the camera and lens package [owner or house]. Letters of commitment are attached. Together they are $8,690 of in-kind support.',
+  'The total budget is $66,030 at full value. This request of $10,000 is 15% of it. Other sources are the Toronto Arts Council Media Artists Program [pending, results December 2026 / awarded], the Canada Council Explore and Create program [pending], producer and director fee deferrals, and further in-kind from the location and a post-production house [letters pending]. The film does not seek tax credits.',
+  'The shoot is five and a half days plus a prep day: three days in the apartment, a split day on the street at dawn and on the patio, one night at the pub and on the street, and a half day of inserts. Pre-production begins only after OAC results, with casting, the location lock and the shooting draft already complete. Post-production takes six weeks. Delivery is a captioned master, a DCP and festival materials by [month year].']},
+ {t:'Artist statement', lim:'reusable across councils', why:'<b>Why this way:</b> short, specific and in your voice. Replace the brackets with real credits only. Do not let anyone pad this.', p:[
+  'I am a Toronto writer, director and producer, and the founder of Blue Sheep Films. Since 2023 I have made [number] short films, including [title], [title] and [title]. [One sentence on a screening, award or broadcast, if any.]',
+  '[One sentence on what your films keep returning to.] [One sentence on how you work: the choices you make on set that other directors would not.] Not Another Word is the clearest expression of that approach so far.']},
+];
+const list=$('#answerlist');
+ANSWERS.forEach((a,i)=>{
+  const text=a.p.join('\n\n'); const words=text.split(/\s+/).filter(Boolean).length; const chars=text.length;
+  const el=document.createElement('article'); el.className='answer';
+  el.innerHTML=`<header><h3>${esc(a.t)}</h3><div class="meta"><span>${esc(a.lim)}</span><span>${words} words · ${chars.toLocaleString()} chars</span><button class="copy" type="button" id="copy-${i}">Copy text</button></div></header>
+    <div class="body">${a.p.map(p=>`<p>${ph(p)}</p>`).join('')}</div><div class="why">${a.why}</div>`;
+  list.appendChild(el);
+  const btn=el.querySelector('button');
+  btn.addEventListener('click',()=>{
+    const done=()=>{btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy text',1600);};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(el.querySelector('.body'));const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected, press copy';};
+    try{ navigator.clipboard.writeText(text).then(done,fallback);}catch(e){fallback();}
+  });
+});
+
+/* ---------- budget ---------- */
+const fmt=n=>n.toLocaleString('en-CA');
+const EXP=[
+ ['Artist fees: writers, producer, director','Story and rights (in-kind), producer and director fees',4400,800],
+ ['Cast','Miles, Joansy, the child, the host, day players, background, casting',8780,0],
+ ['Crew','DP and AD in-kind, plus AC, gaffer and grip, sound, PM, HMU, PAs, prep-day unit',17000,4640],
+ ['Equipment','Camera package in-kind, plus G&E, media, playback',6550,3250],
+ ['Locations','Apartment, patio and street, Asters Pub, night unit',5600,0],
+ ['Art and wardrobe','Production design, props including the obituary and van signs, wardrobe',3200,0],
+ ['Sound','Location sound package',1700,0],
+ ['Transport and meals','Vehicles, the Vespa, catering',3500,0],
+ ['Post-production','Editor, colour and mix, composer',6200,0],
+ ['Other','Insurance, legal and releases, festival year one',3100,0],
+ ['Contingency','10% of the subtotal',6000,0],
+];
+(function(){
+  let h='<tr><th>Expenses</th><th>Includes</th><th class="n">Total</th><th class="n">of which in-kind</th></tr>';
+  let t=0,ik=0; EXP.forEach(([a,b,c,d])=>{t+=c;ik+=d;h+=`<tr><td><b>${a}</b></td><td>${b}</td><td class="n">${fmt(c)}</td><td class="n">${d?fmt(d):'–'}</td></tr>`;});
+  h+=`<tr class="total"><td>Total expenses</td><td></td><td class="n">${fmt(t)}</td><td class="n">${fmt(ik)}</td></tr>`;
+  $('#exp').innerHTML=h;
+  const REV=[['Ontario Arts Council','this request',10000,'requested'],['Toronto Arts Council, Media Artists Creation','results late December 2026',15000,'pending'],['Canada Council, Explore and Create','',25000,'pending'],['In-kind, secured','rights, DP, AD, camera and lenses, with letters',8690,'secured'],['In-kind, pending','pub night, background, Vespa, post-house letter',5300,'pending'],['Deferred fees','producer and director, paid out first if all grants land',2040,'secured']];
+  let r='<tr><th>Revenue</th><th>Note</th><th class="n">CAD</th><th>Status</th></tr>',rt=0;
+  REV.forEach(([a,b,c,d])=>{rt+=c;const cls=d==='secured'?'yes':d==='requested'?'maybe':'maybe';r+=`<tr><td><b>${a}</b></td><td>${b}</td><td class="n">${fmt(c)}</td><td><span class="st ${cls}">${d}</span></td></tr>`;});
+  r+=`<tr class="total"><td>Total revenue</td><td>balances the expenses</td><td class="n">${fmt(rt)}</td><td></td></tr>`;
+  $('#rev').innerHTML=r;
+})();
+
+/* ---------- finesse ---------- */
+const FIN=[
+ ['Do the copy pass and number a v1.4 shooting draft.','Fix "Hours empty now", "peddling" and "vespa", and pick Chivas or Chartreuse. A panel reads the script first, and small errors cost more than they should.'],
+ ['Settle the season in the script.','If you take Route B, the script is already right. If you shoot in winter or spring, rewrite the patio, the ride and the dawn for the actual season before you submit.'],
+ ['Get the four secured items on paper.','A one-paragraph letter each from the DP, the AD and whoever owns the camera package, plus the co-writer\'s rights agreement. Secured with letters is worth far more than secured in an email.'],
+ ['Pay artists in full on the page.','Keep deferrals small and say they are paid first. Councils fund fair pay, and a budget that leans on unpaid artists reads as a viability risk.'],
+ ['Choose the past-work clip today.','This decision has been deferred since August. Pick one sustained scene that shows direction of actors, not a montage.'],
+ ['Name the DP and AD with one line each.','Two short bios with their best credits. A panel trusts a first-time budget more when the heads of department have shot before.'],
+ ['Make the form page.','One page with the clock-face dial and the six bookends from the continuity deck. It shows design thinking no other application in the pile will have.'],
+ ['Keep the Hunter S. Thompson question closed.','The real-person attribution is already gone from the short. Do not mention the inspiration anywhere in the application, so no juror raises a rights question.'],
+ ['Check the collaborator rule.','Anyone named on NOMAD\'s application cannot be named on this one at the same deadline. That matters only on Route A, and Cairns Nolan co-wrote both slates.'],
+ ['Write every answer outside the portal.','Draft in a document, get two cold reads, then paste into Nova in one sitting a few days early.'],
+];
+$('#finlist').innerHTML=FIN.map(([t,p])=>`<div class="f"><b class="t">${esc(t)}</b><p>${esc(p)}</p></div>`).join('');
+
+/* ---------- checklist ---------- */
+const CHECK=[
+ ['Decide',[['Decide Route A or B with the NOMAD application in mind','you'],['Email OAC to confirm the March 2027 date and the Emerging category','you'],['Ask TAC whether a September 2027 shoot fits their grant period','you']]],
+ ['Paper',[['Letter of commitment from the DP','DP'],['Letter of commitment from the AD','AD'],['Letter for the camera and lens package','owner'],['Co-writer rights agreement signed','you + Cairns']]],
+ ['Material',[['v1.4 shooting draft, copy pass done','you'],['Past-work clip cut, 2 to 3 minutes','you'],['Form page exported as a PDF','you'],['Six to eight reference frames','you']]],
+ ['Nova',[['Nova profile up to date, artist CV uploaded','you'],['Answers pasted and trimmed to the counters','you'],['Budget entered, balanced, no tax-credit line','you'],['Submitted at least a day early','you']]],
+];
+const KEY='naw-oac-checks';
+let saved={}; try{saved=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+let html='',k=0,total=0;
+CHECK.forEach(([g,items])=>{ html+=`<div class="grp">${esc(g)}</div>`; items.forEach(([t,w])=>{ const id='c'+(k++); total++; html+=`<label for="${id}"><input type="checkbox" id="${id}" ${saved[id]?'checked':''}><span>${esc(t)}</span><span class="who">${esc(w)}</span></label>`; }); });
+$('#checkbox').innerHTML=html;
+function prog(){ const n=document.querySelectorAll('#checkbox input:checked').length; $('#progress').textContent=`${n} of ${total} done`; }
+document.querySelectorAll('#checkbox input').forEach(cb=>cb.addEventListener('change',()=>{ saved[cb.id]=cb.checked; try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){} prog(); }));
+prog();
+</script>
+</body>
+</html>
