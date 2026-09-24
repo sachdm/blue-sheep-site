@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Not Another Word Budget</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10);
+  --base:#2a78d6; --add:#eb6834; --dim:#c3c2b7; --gap:#d03b3b; --good:#006300;
+  --night:#4a3aa7;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --page:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+    --base:#3987e5; --add:#d95926; --dim:#383835; --gap:#d03b3b; --good:#0ca30c;
+    --night:#9085e9;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
+  --base:#3987e5; --add:#d95926; --dim:#383835; --gap:#d03b3b; --good:#0ca30c;
+  --night:#9085e9;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.5 "Source Sans 3",system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding-block:32px 72px;padding-inline:16px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,4.5vw,40px);line-height:1.1;letter-spacing:-.01em}
+h2{font-size:22px;margin-bottom:4px}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--ink2);max-width:62ch;margin:10px 0 0}
+header{display:grid;gap:8px;padding-bottom:22px;border-bottom:1px solid var(--grid)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;color:var(--ink2);font-size:14px}
+.meta b{color:var(--ink);font-weight:600}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:22px}
+.kpi{background:var(--surface);border:1px solid var(--ring);border-radius:6px;padding:14px 16px;display:grid;gap:2px}
+.kpi .l{font-size:13px;color:var(--ink2)}
+.kpi .v{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:34px;line-height:1.05;font-variant-numeric:proportional-nums}
+.kpi .d{font:14px "IBM Plex Mono",monospace;color:var(--ink2)}
+.kpi .d.add{color:var(--add)} .kpi .d.gap{color:var(--gap)}
+.kpi .d .dot{display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:6px}
+
+section{margin-top:40px}
+.sect-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;margin-bottom:12px}
+.sect-head p{margin:0;color:var(--ink2);max-width:62ch}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--ink2);align-items:center}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+.sw.line{width:18px;height:0;border-top:2px dashed var(--gap);border-radius:0}
+.sw.hatch{background:repeating-linear-gradient(135deg,var(--gap) 0 2px,transparent 2px 6px)}
+.chart{background:var(--surface);border:1px solid var(--ring);border-radius:6px;padding:16px 18px 10px;overflow:hidden}
+.chart svg{display:block;width:100%;height:auto;font-family:"Source Sans 3",system-ui,sans-serif}
+.chart text{fill:var(--ink2);font-size:13px}
+.chart text.val{font-family:"IBM Plex Mono",monospace;fill:var(--ink);font-size:12.5px}
+.chart text.cat{fill:var(--ink);font-size:13.5px}
+.chart text.axis{fill:var(--muted);font-size:11.5px;font-family:"IBM Plex Mono",monospace}
+.chart text.note{fill:var(--muted);font-size:12px;font-style:italic}
+.chart .grid{stroke:var(--grid);stroke-width:1}
+.chart .base{stroke:var(--axis);stroke-width:1}
+.chart .hit{fill:transparent}
+.chart .b{fill:var(--base)} .chart .a{fill:var(--add)} .chart .dimm{fill:var(--dim)} .chart .n{fill:var(--night)}
+.chart .gapfill{fill:url(#hatch)}
+.chart .hover .b,.chart .hover .a,.chart .hover .n{filter:brightness(1.12)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.foot{margin-top:10px;font-size:13px;color:var(--ink2);max-width:70ch}
+.foot b{color:var(--ink);font-weight:600}
+
+.tip{position:fixed;pointer-events:none;z-index:9;background:var(--ink);color:var(--page);padding:8px 10px;border-radius:4px;font-size:13px;line-height:1.35;max-width:260px;opacity:0;transition:opacity .08s}
+.tip b{display:block;font-weight:600}
+.tip .n{font-family:"IBM Plex Mono",monospace}
+@media (prefers-reduced-motion:reduce){.tip{transition:none}}
+
+table{width:100%;border-collapse:collapse;font-size:14px;background:var(--surface)}
+.tablewrap{overflow-x:auto;border:1px solid var(--ring);border-radius:6px}
+th,td{padding:7px 12px;text-align:left;border-bottom:1px solid var(--grid);white-space:nowrap}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--surface);position:sticky;top:0}
+td.n,th.n{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+td.acct{color:var(--muted);font-family:"IBM Plex Mono",monospace}
+tr.new td{background:color-mix(in srgb,var(--add) 8%,var(--surface))}
+td.n.add{color:var(--add)} td.n.add:empty::after{content:"–";color:var(--muted)}
+tr.total td{font-weight:600;border-top:2px solid var(--axis)}
+.pill.sec{border-color:var(--muted);color:var(--ink2)} td.n.zero{color:var(--muted)}
+.pill{display:inline-block;font:500 11px/1 "IBM Plex Mono",monospace;letter-spacing:.06em;padding:3px 7px;border-radius:999px;border:1px solid var(--add);color:var(--add);vertical-align:middle;margin-left:6px}
+details summary{cursor:pointer;color:var(--ink2);font-size:14px;margin-bottom:10px}
+details summary:focus-visible,.kpi:focus-visible{outline:2px solid var(--base);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Blue Sheep Films · short film · production bible v4 · CAD · Toronto</div>
+  <h1>Not Another Word, the budget with the pub and the ride in it</h1>
+  <p class="lede">Version 3 boarded the apartment, the patio and the street in four and a half days. Version 4 adds Asters Pub, a night unit and the Vespa. Story rights, the DP, the AD and the camera package are secured, so they sit in grey as in-kind and come off the cash you have to raise.</p>
+  <div class="meta"><span>Script <b>v1.3 · 12 pp</b></span><span>Board <b>5½ days + prep day</b></span><span>Locations <b>4</b></span><span>Crew <b>non-union · ACTRA TIP</b></span><span>Primary ask <b>TAC Oct 15</b></span><span>Secured <b>rights · DP · AD · camera</b></span></div>
+</header>
+
+<div class="kpis" id="kpis"></div>
+
+<section>
+  <div class="sect-head"><div><h2>Where the money goes</h2><p>Department totals at full value, sorted by size. The DP and AD deals take about a quarter of Crew off the cash side, and the camera package takes half of Camera and G&amp;E. Cast grows the most in cash because the pub brings Joansy, the child, a host and a room full of background.</p></div>
+  <div class="legend"><span><i class="sw" style="background:var(--base)"></i>v3 cash</span><span><i class="sw" style="background:var(--add)"></i>cash added in v4</span><span><i class="sw" style="background:var(--dim);border:1px solid var(--ring)"></i>secured in-kind</span></div></div>
+  <div class="chart" id="dept"></div>
+</section>
+
+<section class="two">
+  <div>
+    <div class="sect-head"><div><h2>What the extra money buys</h2><p>The additions grouped by cause. With the DP, AD and camera covering their sixth day, the pub is now the larger cash item.</p></div></div>
+    <div class="chart" id="cause"></div>
+    <p class="foot">Contingency is held at ten percent of the subtotal, so every dollar added carries ten cents more on top.</p>
+  </div>
+  <div>
+    <div class="sect-head"><div><h2>The board</h2><p>Pages per day. D3 is the performance day and D5 is the only night.</p></div>
+    <div class="legend"><span><i class="sw" style="background:var(--base)"></i>day</span><span><i class="sw" style="background:var(--night)"></i>night</span></div></div>
+    <div class="chart" id="board"></div>
+    <p class="foot">The prep day shoots the talk-show insert so it can play live on the pub TV on D5. D4 is a split day: dawn exterior, break, patio afternoon.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sect-head"><div><h2>Money in against money out</h2><p>Each bar stacks the cash sources of one route, with in-kind that replaces cash counted as a source. The dashed line is the cash you have to raise. Route A alone is short. Two in-kind letters get it close, and the OAC fallback closes it with room.</p></div>
+  <div class="legend"><span><i class="sw" style="background:var(--base)"></i>secured or applied</span><span><i class="sw" style="background:var(--add)"></i>new source</span><span><i class="sw hatch"></i>gap</span><span><i class="sw line"></i>cash need</span></div></div>
+  <div class="chart" id="finance"></div>
+  <p class="foot"><b>New in-kind</b> means a pub dark on a Monday for a bar tab and a credit, background from friends fed but not paid, and a borrowed Vespa. <b>Post house</b> is the in-kind letter for colour and the mix that the package already has on the chase list. <b>OAC</b> is the ten thousand fallback that only opens if Nomad gives up the October 8 slot. Rights, DP, AD and camera are already netted out of the cash need, so they do not appear as sources here.</p>
+</section>
+
+<section>
+  <div class="sect-head"><div><h2>Cash flow by phase</h2><p>Cumulative cash spend, estimated from the line items with the secured lines removed. Nothing spends before the TAC letter. Route A cash now carries you through the mix. The shortfall lands on delivery, which is producer and director fees and year-one festivals, the lines already marked deferral-topped.</p></div>
+  <div class="legend"><span><i class="sw" style="background:var(--base)"></i>cumulative spend</span><span><i class="sw line" style="border-color:var(--good)"></i>Route A cash</span><span><i class="sw line"></i>cash need incl. contingency</span></div></div>
+  <div class="chart" id="cash"></div>
+</section>
+
+<section>
+  <div class="sect-head"><div><h2>Every line</h2><p>Thirty accounts from v3 plus the new ones. Highlighted rows are new in v4. Secured lines show their full value and zero cash.</p></div></div>
+  <div class="tablewrap"><table id="lines"></table></div>
+</section>
+</div>
+<div class="tip" id="tip"></div>
+
+<script>
+const fmt = n => n.toLocaleString('en-CA');
+const $ = s => document.querySelector(s);
+
+/* ---------- data ---------- */
+const lines = [
+ // acct, line, dept, v3, add
+ [1100,'Story & rights, chain of title, adaptation','Above the line',800,0],
+ [1300,'Producer fee (deferral-topped)','Above the line',1800,0],
+ [1400,'Director fee (deferral-topped)','Above the line',1800,0],
+ [2000,'Cast: Miles, lead, TIP','Cast',2600,580],
+ [2005,'Cast: Joansy, child + guardian, host, day players','Cast',1900,1100],
+ [2010,'Casting director + sessions','Cast',1100,0],
+ [2015,'Background, pub night, 12 to 15','Cast',0,1500],
+ [2500,'DP','Crew',2400,530],
+ [2505,'1st AC','Crew',1800,400],
+ [2510,'Gaffer + key grip','Crew',2700,600],
+ [2515,'Sound mixer','Crew',1900,420],
+ [2520,'AD','Crew',1400,310],
+ [2525,'PM / coordinator','Crew',1600,0],
+ [2530,'HMU','Crew',900,300],
+ [2535,'PAs x2','Crew',1000,240],
+ [2540,'Prep-day insert unit, DP + gaffer half day','Crew',0,500],
+ [3000,'Apartment, 5 days incl. prep','Locations',2400,0],
+ [3010,'Patio / street, permits + control','Locations',1300,0],
+ [3020,'Asters Pub, one night, closed','Locations',0,1500],
+ [3030,'Street night unit, permit, parking, paid duty','Locations',0,400],
+ [3040,'Red Vespa rental + picture-vehicle rider','Transport & meals',0,300],
+ [3500,'Camera package, house deal','Camera & G&E',2600,650],
+ [3510,'G&E package','Camera & G&E',1900,400],
+ [3520,'Expendables / media','Camera & G&E',700,100],
+ [3530,'Playback: laptop, HDMI, monitor for the pub TV','Camera & G&E',0,200],
+ [3700,'Location sound package','Sound',1400,300],
+ [3900,'Production design + props','Art & wardrobe',2100,0],
+ [3910,'Wardrobe','Art & wardrobe',1100,0],
+ [4100,'Vehicles / fuel / parking','Transport & meals',900,200],
+ [4110,'Catering / craft','Transport & meals',1700,400],
+ [4500,'Editor, 2.5 wks','Post',2600,0],
+ [4700,'Colour + mix','Post',2200,0],
+ [4900,'Composer + source-cue licensing','Post',1400,0],
+ [5100,'Insurance','Other',900,200],
+ [5110,'Legal, E&O-lite, releases','Other',900,0],
+ [5400,'Festival strategy yr 1','Other',1100,0],
+];
+const secured = new Set([1100,2500,2520,3500]);        // rights, DP, AD, camera + lenses
+const isSec = l => secured.has(l[0]);
+const inkind = lines.filter(isSec).reduce((s,l)=>s+l[3]+l[4],0);   // 8,690
+const sub3 = lines.reduce((s,l)=>s+l[3],0);           // 48,900
+const addSub = lines.reduce((s,l)=>s+l[4],0);         // 11,130
+const sub4 = sub3+addSub;                             // 60,030
+const cont3 = 4890, cont4 = 6000;
+const tot3 = sub3+cont3, tot4 = sub4+cont4;           // 53,790 / 66,030
+const cashSub = sub4 - inkind;                        // 51,340
+const cashCont = Math.round(cashSub*0.1/10)*10;       // 5,130
+const cashTot = cashSub + cashCont;                   // 56,470
+const routeA = 15000+25000+8000;                      // 48,000 cash
+
+/* ---------- KPIs ---------- */
+$('#kpis').innerHTML = [
+ ['v4 full value', tot4, `<span class="dot" style="background:var(--add)"></span>+${fmt(tot4-tot3)} on v3 for the pub and the ride`, 'add'],
+ ['Secured in-kind', inkind, `<span class="dot" style="background:var(--dim)"></span>rights, DP, AD, camera and lenses`, ''],
+ ['Cash to raise', cashTot, `$${fmt(cashSub)} + 10% contingency on cash only`, ''],
+ ['Gap under Route A', cashTot-routeA, `TAC, CCA and deferrals cover ${fmt(routeA)}`, 'gap'],
+].map(([l,v,d,c])=>`<div class="kpi" tabindex="0"><div class="l">${l}</div><div class="v">$${fmt(v)}</div><div class="d ${c}">${d}</div></div>`).join('');
+
+/* ---------- tooltip ---------- */
+const tip = $('#tip');
+function bindTips(root){
+  root.querySelectorAll('[data-tip]').forEach(el=>{
+    const g = el.closest('g.row') || el;
+    const show = e => { tip.innerHTML = el.dataset.tip; tip.style.opacity=1; g.classList.add('hover'); move(e); };
+    const move = e => { const x = Math.min(e.clientX+14, window.innerWidth-tip.offsetWidth-8); tip.style.left=x+'px'; tip.style.top=(e.clientY+14)+'px'; };
+    const hide = () => { tip.style.opacity=0; g.classList.remove('hover'); };
+    el.addEventListener('mouseenter',show); el.addEventListener('mousemove',move); el.addEventListener('mouseleave',hide);
+    el.addEventListener('touchstart',e=>{show(e.touches[0])},{passive:true}); el.addEventListener('touchend',hide);
+  });
+}
+const hatchDef = `<defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(135)"><rect width="6" height="6" fill="var(--surface)"/><rect width="2" height="6" fill="var(--gap)"/></pattern></defs>`;
+
+/* ---------- generic horizontal stacked bar ---------- */
+function hbars(el, rows, opts){
+  // rows: {label, segs:[{v, cls, tip}], total, endLabel, sub}
+  const W = opts.W||920, labelW = opts.labelW||150, rightPad = opts.rightPad||78, rowH = opts.rowH||30, barH = opts.barH||16, top = opts.top||26, bottom = 28;
+  const max = opts.max || Math.max(...rows.map(r=>r.total));
+  const plotW = W-labelW-rightPad;
+  const x = v => labelW + v/max*plotW;
+  const H = top + rows.length*rowH + bottom;
+  const ticks = opts.ticks || niceTicks(max, 5);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${opts.aria||''}">${hatchDef}`;
+  ticks.forEach(t=>{ s += `<line class="grid" x1="${x(t)}" x2="${x(t)}" y1="${top-8}" y2="${H-bottom+4}"/><text class="axis" x="${x(t)}" y="${H-bottom+18}" text-anchor="middle">${opts.tickFmt?opts.tickFmt(t):'$'+fmt(t)}</text>`; });
+  rows.forEach((r,i)=>{
+    const y = top + i*rowH + (rowH-barH)/2;
+    s += `<g class="row">`;
+    s += `<text class="cat" x="${labelW-12}" y="${y+barH/2+4.5}" text-anchor="end">${r.label}</text>`;
+    let cx = 0;
+    r.segs.forEach((sg,j)=>{
+      if(!sg.v) return;
+      const x0 = x(cx), x1 = x(cx+sg.v); const gap = j>0 ? 2 : 0;
+      const w = Math.max(0, x1-x0-gap);
+      const last = (cx+sg.v>=r.total-0.5);
+      const rx = last ? 4 : 0;
+      s += `<path class="${sg.cls}" d="${roundRight(x0+gap, y, w, barH, rx)}" ${sg.fill?`fill="${sg.fill}"`:''}></path>`;
+      if(sg.inLabel && w > sg.inLabel.length*7+14) s += `<text class="val" x="${x0+gap+8}" y="${y+barH/2+4.5}" style="fill:${sg.cls==='gapfill'?'var(--ink)':'#fff'}">${sg.inLabel}</text>`;
+      cx += sg.v;
+    });
+    if(r.endLabel) s += `<text class="val" x="${x(r.total)+8}" y="${y+barH/2+4.5}">${r.endLabel}</text>`;
+    s += `<rect class="hit" x="0" y="${top+i*rowH}" width="${W}" height="${rowH}" data-tip="${r.tip}"></rect></g>`;
+  });
+  if(opts.refLine){ const rx = x(opts.refLine.v); s += `<line x1="${rx}" x2="${rx}" y1="${top-14}" y2="${H-bottom+4}" stroke="var(--gap)" stroke-width="2" stroke-dasharray="5 4"/><text class="val" x="${rx}" y="${top-18}" text-anchor="middle" style="fill:var(--gap)">${opts.refLine.label}</text>`; }
+  s += `<line class="base" x1="${labelW}" x2="${labelW}" y1="${top-8}" y2="${H-bottom+4}"/></svg>`;
+  el.innerHTML = s; bindTips(el);
+}
+function roundRight(x,y,w,h,r){ r=Math.min(r,w/2,h/2); if(w<=0) return ''; return `M${x},${y} H${x+w-r} a${r},${r} 0 0 1 ${r},${r} V${y+h-r} a${r},${r} 0 0 1 -${r},${r} H${x} Z`; }
+function niceTicks(max,n){ const step = niceStep(max/n); const t=[]; for(let v=0; v<=max*1.001; v+=step) t.push(Math.round(v)); return t; }
+function niceStep(raw){ const p=Math.pow(10,Math.floor(Math.log10(raw))); const f=raw/p; return (f<1.5?1:f<3?2:f<7?5:10)*p; }
+
+/* ---------- 1. departments ---------- */
+const depts = {};
+lines.forEach(l=>{ const d=depts[l[2]]||(depts[l[2]]={v3:0,add:0,ik:0}); if(isSec(l)){ d.ik+=l[3]+l[4]; } else { d.v3+=l[3]; d.add+=l[4]; } });
+const deptRows = Object.entries(depts).map(([k,d])=>({k,...d,tot:d.v3+d.add+d.ik})).sort((a,b)=>b.tot-a.tot);
+hbars($('#dept'), deptRows.map(d=>({
+  label:d.k, total:d.tot,
+  segs:[{v:d.v3,cls:'b'},{v:d.add,cls:'a'},{v:d.ik,cls:'dimm'}],
+  endLabel: `$${fmt(d.tot)}${d.add?`  <tspan style="fill:var(--add)">+${fmt(d.add)}</tspan>`:''}${d.ik?`  <tspan style="fill:var(--muted)">${fmt(d.ik)} in-kind</tspan>`:''}`,
+  tip:`<b>${d.k}</b>full value $${fmt(d.tot)}<br>cash $${fmt(d.v3+d.add)}${d.add?` (of which added in v4 $${fmt(d.add)})`:''}${d.ik?`<br>secured in-kind $${fmt(d.ik)}`:''}`
+})), {labelW:170, rightPad:250, max:17000, aria:'Department totals: cash from v3, cash added in v4, secured in-kind'});
+
+/* ---------- 2. causes ---------- */
+const causes = [
+ {label:'Sixth shooting day', v:4040, ik:1490, tip:'<b>One more shooting day</b>Cash $4,040: crew $1,960 · Miles $580 · G&E and media $500 · sound package $300 · meals and vehicles $600 · insurance $100<br>In-kind $1,490: the DP, AD and camera deals cover their sixth day'},
+ {label:'Asters Pub', v:4800, tip:'<b>Asters Pub</b>Location $1,500 · Joansy, child, host $1,100 · background $1,500 · playback $200 · prep-day insert unit $500'},
+ {label:'Contingency', v:960, tip:'<b>Contingency</b>Ten percent on the $9,640 of cash added'},
+ {label:'Vespa + street', v:800, tip:'<b>The Vespa and the street</b>Vespa rental $300 · street night unit $400 · insurance rider $100'},
+];
+hbars($('#cause'), causes.map(c=>({label:c.label,total:c.v+(c.ik||0),segs:[{v:c.v,cls:'a'},{v:c.ik||0,cls:'dimm'}],endLabel:`$${fmt(c.v)}${c.ik?` <tspan style="fill:var(--muted)">+${fmt(c.ik)} in-kind</tspan>`:''}`,tip:c.tip})), {W:520, labelW:150, rightPad:150, rowH:36, aria:'Cost of the additions by cause', max:6000, ticks:[0,2000,4000,6000], tickFmt:t=>'$'+t/1000+'k'});
+
+/* ---------- 3. board ---------- */
+const board = [
+ {d:'Prep', pp:0.25, night:false, unit:'Talk-show insert with Miles and a host, one setup', label:'insert'},
+ {d:'D1', pp:2.5, night:false, unit:'INT apartment. Shari and the van, alarm, kitchen ritual, the Dragon'},
+ {d:'D2', pp:2, night:false, unit:'INT apartment. Bedroom phone call, study voicemail, the wait'},
+ {d:'D3', pp:4, night:false, unit:'INT apartment. The interview through the syringe. Performance day'},
+ {d:'D4', pp:1.5, night:false, unit:'EXT dawn: gurney, body bag, sign peel. Break. Patio afternoon'},
+ {d:'D5', pp:2, night:true, unit:'NIGHT. Asters Pub, then the Vespa at the red light outside'},
+ {d:'D6 ½', pp:0.5, night:false, unit:'Inserts. Page three, typewriter, hands, radio dial'},
+];
+hbars($('#board'), board.map(b=>({label:b.d,total:b.pp,segs:[{v:b.pp,cls:b.night?'n':'b'}],endLabel:b.label||`${b.pp} pp`,tip:`<b>${b.d}${b.night?' · night':''}</b>${b.unit}`})), {W:480, labelW:60, rightPad:60, rowH:30, aria:'Pages per shooting day', max:4.5, ticks:[0,1,2,3,4], tickFmt:t=>t+' pp'});
+
+/* ---------- 4. finance ---------- */
+const src = { TAC:15000, CCA:25000, Deferrals:8000, 'In-kind':5000 };
+const A = [['TAC',15000,'b'],['CCA',25000,'b'],['Deferrals',8000,'b']];
+const routes = [
+ {label:'Route A cash', segs:A},
+ {label:'A + pub, extras, Vespa in-kind', segs:[...A,['Pub, extras, Vespa',3300,'a']]},
+ {label:'A + that + post-house letter', segs:[...A,['Pub, extras, Vespa',3300,'a'],['Post house',2000,'a']]},
+ {label:'A + all in-kind + OAC', segs:[...A,['Pub, extras, Vespa',3300,'a'],['Post house',2000,'a'],['OAC',10000,'a']]},
+];
+hbars($('#finance'), routes.map(r=>{
+  const sum = r.segs.reduce((s,x)=>s+x[1],0); const gap = Math.max(0, cashTot-sum);
+  const segs = r.segs.map(([n,v,c])=>({v,cls:c,inLabel:`${n} ${Math.round(v/1000)}k`}));
+  if(gap) segs.push({v:gap,cls:'gapfill',inLabel:`gap $${fmt(gap)}`});
+  const total = Math.max(sum, cashTot);
+  const end = gap ? '' : `<tspan style="fill:var(--good)">covered, +$${fmt(sum-cashTot)}</tspan>`;
+  return {label:r.label,total,segs,endLabel:end,tip:`<b>${r.label}</b>sources $${fmt(sum)}<br>${gap?`gap to cash need $${fmt(gap)}`:`covers the cash need with $${fmt(sum-cashTot)} to spare`}`};
+}), {labelW:230, rowH:44, barH:24, top:40, rightPad:150, max:70000, refLine:{v:cashTot,label:`cash need $${fmt(cashTot)}`}, aria:'Finance routes against the cash need'});
+
+/* ---------- 5. cash flow ---------- */
+(function(){
+  const W=920,H=300,L=64,R=24,T=30,B=40;
+  // phases: [name, start wk, end wk, spend]
+  const phases=[['Award',0,0,0],['Pre-pro · 3 wks',0,3,8450],['Shoot · 5½ days',3,4,31990],['Post · 6 wks',4,10,6200],['Delivery',10,12,4700]];
+  const maxY=60000, maxX=12;
+  const x=w=>L+w/maxX*(W-L-R), y=v=>T+(1-v/maxY)*(H-T-B);
+  let cum=0; const pts=[[0,0]]; phases.slice(1).forEach(p=>{cum+=p[3];pts.push([p[2],cum]);});
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cumulative spend by phase against Route A money and the v4 total">`;
+  [0,15000,30000,45000,60000].forEach(t=>{s+=`<line class="grid" x1="${L}" x2="${W-R}" y1="${y(t)}" y2="${y(t)}"/><text class="axis" x="${L-8}" y="${y(t)+4}" text-anchor="end">$${t/1000}k</text>`;});
+  // phase bands
+  phases.slice(1).forEach((p,i)=>{ s+=`<line class="grid" x1="${x(p[1])}" x2="${x(p[1])}" y1="${T}" y2="${H-B}" stroke-dasharray="2 3"/><text class="axis" x="${(x(p[1])+x(p[2]))/2}" y="${H-B+18}" text-anchor="middle">${p[0]}</text>`; });
+  // area
+  const path = pts.map((p,i)=>(i?'L':'M')+x(p[0])+','+y(p[1])).join(' ');
+  s+=`<path d="${path} L${x(12)},${y(0)} L${x(0)},${y(0)} Z" fill="var(--base)" opacity=".18"/>`;
+  s+=`<path d="${path}" fill="none" stroke="var(--base)" stroke-width="2" stroke-linejoin="round"/>`;
+  // ref lines
+  s+=`<line x1="${L}" x2="${W-R}" y1="${y(routeA)}" y2="${y(routeA)}" stroke="var(--good)" stroke-width="2" stroke-dasharray="5 4"/><text class="val" x="${L+8}" y="${y(routeA)+16}" style="fill:var(--good)">Route A cash $${fmt(routeA)}</text>`;
+  s+=`<line x1="${L}" x2="${W-R}" y1="${y(cashTot)}" y2="${y(cashTot)}" stroke="var(--gap)" stroke-width="2" stroke-dasharray="5 4"/><text class="val" x="${L+8}" y="${y(cashTot)-7}" style="fill:var(--gap)">cash need $${fmt(cashTot)}</text>`;
+  // points
+  pts.slice(1).forEach((p,i)=>{ const ph=phases[i+1]; s+=`<circle cx="${x(p[0])}" cy="${y(p[1])}" r="5" fill="var(--base)" stroke="var(--surface)" stroke-width="2"/><rect class="hit" x="${x(ph[1])}" y="${T}" width="${x(ph[2])-x(ph[1])||8}" height="${H-T-B}" data-tip="<b>${ph[0]}</b>spends $${fmt(ph[3])}<br>cumulative $${fmt(p[1])}"></rect>`; });
+  // crossing note
+  const cross = pts.findIndex(p=>p[1]>routeA); const cp=pts[cross];
+  s+=`<text class="val" x="${x(cp[0])-10}" y="${y(cp[1])+42}" text-anchor="end">$${fmt(cp[1])} at delivery: Route A cash runs out on fees and festivals</text>`;
+  s+=`<text class="note" x="${W-R}" y="${T-12}" text-anchor="end">Contingency ($${fmt(cashCont)}) is held, not spent: the space between the line's end and the red rule.</text>`;
+  s+=`<line class="base" x1="${L}" x2="${W-R}" y1="${y(0)}" y2="${y(0)}"/></svg>`;
+  $('#cash').innerHTML=s; bindTips($('#cash'));
+})();
+
+/* ---------- 6. table ---------- */
+(function(){
+  let h=`<thead><tr><th>Acct</th><th>Line</th><th>Dept</th><th class="n">v3</th><th class="n">Added</th><th class="n">v4 value</th><th class="n">Cash</th></tr></thead><tbody>`;
+  lines.forEach(l=>{ const isNew=l[3]===0, sec=isSec(l); h+=`<tr class="${isNew?'new':''}${sec?' sec':''}"><td class="acct">${l[0]}</td><td>${l[1]}${isNew?'<span class="pill">new</span>':''}${sec?'<span class="pill sec">secured</span>':''}</td><td>${l[2]}</td><td class="n">${l[3]?fmt(l[3]):'–'}</td><td class="n add">${l[4]?'+'+fmt(l[4]):''}</td><td class="n">${fmt(l[3]+l[4])}</td><td class="n ${sec?'zero':''}">${sec?'0':fmt(l[3]+l[4])}</td></tr>`; });
+  h+=`<tr class="total"><td></td><td>Subtotal</td><td></td><td class="n">${fmt(sub3)}</td><td class="n add">+${fmt(addSub)}</td><td class="n">${fmt(sub4)}</td><td class="n">${fmt(cashSub)}</td></tr>`;
+  h+=`<tr><td class="acct">5900</td><td>Contingency 10%</td><td></td><td class="n">${fmt(cont3)}</td><td class="n add">+${fmt(cont4-cont3)}</td><td class="n">${fmt(cont4)}</td><td class="n">${fmt(cashCont)}</td></tr>`;
+  h+=`<tr class="total"><td></td><td>Grand total</td><td></td><td class="n">${fmt(tot3)}</td><td class="n add">+${fmt(tot4-tot3)}</td><td class="n">${fmt(tot4)}</td><td class="n">${fmt(cashTot)}</td></tr>`;
+  h+=`<tr><td></td><td>Secured in-kind, netted out of cash</td><td></td><td></td><td></td><td class="n">${fmt(inkind)}</td><td class="n zero">–${fmt(inkind)}</td></tr></tbody>`;
+  $('#lines').innerHTML=h;
+})();
+</script>
+</body>
+</html>
